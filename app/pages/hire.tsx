@@ -1,17 +1,16 @@
 import * as React from 'react';
 import Head from 'next/head';
 
-const Index = () => {
+const Hire = () => {
   return (
     <div>
       <Head>
-        <title>Roy Anger - Full Stack Developer</title>
+        <title>Roy Anger - Contact</title>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
-
-      <h1>Index</h1>
+      <h1>Hire</h1>
     </div>
   );
 };
 
-export default Index;
+export default Hire;
