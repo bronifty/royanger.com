@@ -29,7 +29,7 @@ const BlogCard: React.FC<Props> = ({
       <h4>by: {author}</h4>
       <img src={image} />
       <p>Slug: {slug}</p>
-      <p>{categories.map((cat) => cat)}</p>
+      <p>{categories ? categories.map((cat) => cat) : ''}</p>
     </div>
   );
 };
