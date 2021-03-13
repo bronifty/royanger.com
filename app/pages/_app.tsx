@@ -1,7 +1,8 @@
 import type { AppProps } from 'next/app'
 import Link from 'next/link'
-import Image from 'next/image'
 import '../styles/globals.css'
+
+import HomeIcon from '../public/images/svgs/home-lg-alt.svg'
 
 function MyApp({ Component, pageProps }: AppProps) {
    return (
@@ -11,12 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                <div className="flex flex-col justify-center">
                   <Link href="/">
                      <a className="text-gray-200">
-                        <Image
-                           src="/images/svgs/home-lg-alt.svg"
-                           alt="Home Page"
-                           width={35}
-                           height={35}
-                        />
+                        <HomeIcon style={{ width: '35px', height: '35px' }} />
                      </a>
                   </Link>
                </div>
