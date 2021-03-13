@@ -1,24 +1,62 @@
-import * as React from 'react';
+import * as React from 'react'
 
 interface Props {
-  children: any;
-  bgImage?: string;
-  styles?: string;
+   children: any
+   bgImage?: string
+   styles?: string
+   bgOpacity?: number
+   bgColor?: string
 }
 
-const Wrapper = ({ children, bgImage, styles }: Props) => {
-  if (bgImage) {
-    return (
-      <div
-        style={{ backgroundImage: `url(${bgImage})` }}
-        className='w-full flex flex-row justify-center'
-      >
-        <div className={`w-full xl:w-1440 pt-20 ${styles}`}>{children}</div>
-      </div>
-    );
-  }
+const Wrapper = ({ children, bgImage, styles, bgOpacity, bgColor }: Props) => {
+   const bgImageDivClassNames = 'w-full flex flex-row justify-center'
+   const bgColorDivClassNames = 'w-full flex flex-row justify-center'
+   const coreDivClassNames = 'w-full xl:w-1440 pt-20'
 
-  return <div className={`w-full xl:w-1440 pt-20 ${styles}`}>{children}</div>;
-};
+   if (bgImage && bgColor) {
+      return (
+         <div
+            style={{
+               backgroundImage: `url(${bgImage})`,
+               backgroundSize: 'cover',
+            }}
+            className={bgImageDivClassNames}
+         >
+            <div
+               className={`${bgColorDivClassNames} ${bgColor} bg-opacity-${bgOpacity}`}
+            >
+               <div className={`${coreDivClassNames} ${styles}`}>
+                  {children}
+               </div>
+            </div>
+         </div>
+      )
+   }
+   if (bgImage) {
+      return (
+         <div
+            style={{
+               backgroundImage: `url(${bgImage})`,
+               backgroundSize: 'cover',
+            }}
+            className={bgImageDivClassNames}
+         >
+            <div className={`${coreDivClassNames} ${styles}`}>{children}</div>
+         </div>
+      )
+   }
 
-export default Wrapper;
+   if (bgColor) {
+      return (
+         <div
+            className={`${bgColorDivClassNames} ${bgColor} bg-opacity-${bgOpacity}`}
+         >
+            <div className={`${coreDivClassNames} ${styles}`}>{children}</div>
+         </div>
+      )
+   }
+
+   return <div className={`${coreDivClassNames} ${styles}`}>{children}</div>
+}
+
+export default Wrapper
