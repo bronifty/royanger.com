@@ -10,7 +10,7 @@ interface Props {
    slug: string
    image: string
    alt: string
-   categories?: [title: string, _id: string]
+   categories?: { title: string; _id: string }[]
 }
 
 const BlogCard = ({ title, byline, slug, image, alt, categories }: Props) => {

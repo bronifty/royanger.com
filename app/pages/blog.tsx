@@ -57,7 +57,6 @@ const Blog = () => {
                            <BlogCard
                               key={_id}
                               title={title}
-                              author={name}
                               byline={byline}
                               slug={slug}
                               image={imageUrl}
