@@ -1,26 +1,29 @@
 import type { AppProps } from 'next/app';
 import Link from 'next/link';
+import Image from 'next/image';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <header className='bg-gray-100 w-full h-28 flex flex-row justify-center p-2'>
+      <header className='bg-gray-transparent w-full h-20 flex flex-row justify-center p-2 fixed'>
         <div className='w-full xl:w-1440 flex flex-row'>
           <div className='flex flex-col justify-center'>
             <Link href='/'>
               <a>
-                <h1 className='text-3xl font-title text-gray-500'>Roy Anger</h1>
+                <Image
+                  src='/images/svgs/home-lg-alt.svg'
+                  alt='Picture of the author'
+                  width={35}
+                  height={35}
+                />
               </a>
             </Link>
-            <h2 className='text-xl font-sans text-indigo-500'>
-              Full Stack Web Developer
-            </h2>
           </div>
-          <div className='flex flex-grow items-center justify-end'>
+          <div className='flex flex-grow items-center justify-end font-code'>
             <Link href='/about'>
               <a>
-                <button className='p-3 font-code text-xl'>About</button>
+                <button className='p-3  text-xl'>About</button>
               </a>
             </Link>
             <Link href='/blog'>
@@ -42,9 +45,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </div>
       </header>
       <main className='flex flex-row justify-center'>
-        <div className='w-full xl:w-1440 py-3 px-2 bg-green-50'>
-          <Component {...pageProps} />
-        </div>
+        <Component {...pageProps} />
       </main>
       <footer className='bg-gray-100 w-full h-28 flex flex-row justify-center p-2'>
         <div className='w-full xl:w-1440 flex flex-row'>

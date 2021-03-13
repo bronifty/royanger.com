@@ -10,14 +10,14 @@ interface Props {
   categories?: [string];
 }
 
-const BlogCard: React.FC<Props> = ({
+const BlogCard = ({
   title,
   byline,
   author,
   slug,
   image,
   categories,
-}) => {
+}: Props) => {
   return (
     <div className='w-1/2 border border-gray-900 p-3 m-2'>
       <Link href={`/articles/${slug}`}>
