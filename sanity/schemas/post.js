@@ -7,14 +7,17 @@ export default {
          name: 'title',
          title: 'Title',
          type: 'string',
+         validation: Rule => Rule.required(),
       },
       {
          name: 'byline',
          title: 'Byline',
          type: 'string',
-         options: {
-            maxLength: 255,
-         },
+         // validation:
+         validation: Rule =>
+            Rule.max(255)
+               .required('A byline is required')
+               .warning('A byline is required, and limited to 255 characters'),
       },
       {
          name: 'slug',
@@ -22,19 +25,21 @@ export default {
          type: 'slug',
          options: {
             source: 'title',
-            maxLength: 96,
          },
+         validation: Rule => Rule.required(),
       },
       {
          name: 'author',
          title: 'Author',
          type: 'reference',
+         validation: Rule => Rule.required(),
          to: { type: 'author' },
       },
       {
          name: 'mainImage',
          title: 'Main image',
          type: 'image',
+         validation: Rule => Rule.required(),
          options: {
             hotspot: true,
          },
@@ -43,6 +48,7 @@ export default {
                name: 'alt',
                type: 'string',
                title: 'Alt Tag',
+               validation: Rule => Rule.required(),
             },
          ],
       },
@@ -50,17 +56,20 @@ export default {
          name: 'categories',
          title: 'Categories',
          type: 'array',
+         validation: Rule => Rule.required(),
          of: [{ type: 'reference', to: { type: 'category' } }],
       },
       {
          name: 'publishedAt',
          title: 'Published at',
          type: 'datetime',
+         validation: Rule => Rule.required(),
       },
       {
          name: 'body',
          title: 'Body',
          type: 'blockContent',
+         validation: Rule => Rule.required(),
       },
    ],
 

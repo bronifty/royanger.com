@@ -40,7 +40,7 @@ const Blog = () => {
          </Head>
          <Wrapper bgColor="bg-gray-900" bgOpacity={100}>
             <BlogHeader />
-            <div className="flex flex-row">
+            <div className="grid grid-cols-2 gap-6">
                {posts &&
                   posts.map(
                      ({
