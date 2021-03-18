@@ -20,7 +20,7 @@ const Index = () => {
             styles="h-screen"
             bgImage="/images/backgrounds/gold-glitter.jpg"
             bgColor="bg-gray-900"
-            bgOpacity={90}
+            bgOpacity="bg-opacity-90"
          >
             <div className="h-full flex flex-col items-center justify-center">
                <h1 className="text-9xl font-code text-gray-200 ">Roy Anger</h1>
