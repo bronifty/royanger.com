@@ -10,14 +10,14 @@ function MyApp({ Component, pageProps }: AppProps) {
          <header className="bg-gray-transparent w-full h-20 flex flex-row justify-center p-2 fixed">
             <div className="w-full xl:w-1440 flex flex-row">
                <div className="flex flex-col justify-center">
-                  <Link href="/">
+                  {/* <Link href="/">
                      <a className="text-gray-200">
                         <HomeIcon style={{ width: '35px', height: '35px' }} />
                      </a>
-                  </Link>
+                  </Link> */}
                </div>
                <div className="flex flex-grow items-center justify-end font-code text-gray-200">
-                  <Link href="/about">
+                  {/* <Link href="/about">
                      <a>
                         <button className="p-3  text-xl">About</button>
                      </a>
@@ -36,14 +36,14 @@ function MyApp({ Component, pageProps }: AppProps) {
                      <a>
                         <button className="p-3 text-xl">Hire</button>
                      </a>
-                  </Link>
+                  </Link> */}
                </div>
             </div>
          </header>
          <main className="w-full flex flex-row justify-center">
             <Component {...pageProps} />
          </main>
-         <footer className="bg-gray-100 w-full h-28 flex flex-row justify-center p-2">
+         {/* <footer className="bg-gray-100 w-full h-28 flex flex-row justify-center p-2">
             <div className="w-full xl:w-1440 flex flex-row">
                <div className="flex items-center">Copyright &copy; 2021</div>
                <div className=" flex flex-grow items-center justify-end">
@@ -69,7 +69,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                   </Link>
                </div>
             </div>
-         </footer>
+         </footer> */}
       </>
    )
 }

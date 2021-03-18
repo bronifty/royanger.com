@@ -4,7 +4,6 @@ import Image from 'next/image'
 
 // import components
 import Wrapper from '../src/components/Wrapper'
-import { red } from 'tailwindcss/colors'
 
 const Index = () => {
    return (
@@ -28,6 +27,9 @@ const Index = () => {
                <h2 className="text-6xl font-title leading-loose text-cyan-400">
                   Full Stack Web Developer
                </h2>
+               <h3 className="text-4xl font-sans text-gray-200 mt-10">
+                  Watch for the new site and portfolio - coming soon!
+               </h3>
             </div>
          </Wrapper>
       </>

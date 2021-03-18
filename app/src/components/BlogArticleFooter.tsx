@@ -23,7 +23,7 @@ const BlogArticleHeader = ({
          </p>
          <p className="text-gray-900 font-sans leading-loose text-xl">
             {/* {categories} */}
-            {categories.map(cat => cat)}
+            {categories.map((cat: string) => cat)}
          </p>
       </div>
    )
