@@ -23,7 +23,7 @@ const Wrapper = ({ children, bgImage, styles, bgOpacity, bgColor }: Props) => {
             }}
             className={bgImageDivClassNames}
          >
-            <div className={`${bgColorDivClassNames} ${bgColor} bg-opacity-90`}>
+            <div className={`${bgColorDivClassNames} ${bgColor} bg-opacity-80`}>
                <div className={`${coreDivClassNames} ${styles}`}>
                   {children}
                </div>
