@@ -22,12 +22,14 @@ const Index = () => {
             bgColor="bg-gray-900"
             bgOpacity="bg-opacity-90"
          >
-            <div className="h-full flex flex-col items-center justify-center">
-               <h1 className="text-9xl font-code text-gray-200 ">Roy Anger</h1>
-               <h2 className="text-6xl font-title leading-loose text-cyan-400">
+            <div className="h-full flex flex-col lg:items-center justify-center">
+               <h1 className="text-6xl md:text-9xl font-code text-gray-200 p-3">
+                  Roy Anger
+               </h1>
+               <h2 className="text-3xl md:text-6xl font-title leading-loose text-cyan-400 p-3">
                   Full Stack Web Developer
                </h2>
-               <h3 className="text-4xl font-sans text-gray-200 mt-10 bg-opacity-70 font-bold">
+               <h3 className="text-xl md:text-4xl font-sans text-gray-200 mt-10 bg-opacity-70 font-bold p-3">
                   Watch for the new site and portfolio - coming soon!
                </h3>
             </div>
