@@ -13,7 +13,6 @@ export default {
          name: 'byline',
          title: 'Byline',
          type: 'string',
-         // validation:
          validation: Rule =>
             Rule.max(255)
                .required('A byline is required')

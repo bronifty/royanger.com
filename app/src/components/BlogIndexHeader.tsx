@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-const BlogHeader = () => {
+const BlogIndexHeader = () => {
    return (
       <div className="py-3 px-5 text-gray-90 mt-5 mb-10">
          <h1 className="text-gray-200 font-title text-5xl">Articles</h1>
@@ -12,4 +12,4 @@ const BlogHeader = () => {
    )
 }
 
-export default BlogHeader
+export default BlogIndexHeader

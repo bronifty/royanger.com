@@ -4,7 +4,7 @@ import Head from 'next/head'
 
 // import components
 import Wrapper from '../src/components/Wrapper'
-import BlogHeader from '../src/components/BlogHeader'
+import BlogIndexHeader from '../src/components/BlogIndexHeader'
 import BlogCard from '../src/components/BlogCard'
 
 const Blog = () => {
@@ -39,7 +39,7 @@ const Blog = () => {
             />
          </Head>
          <Wrapper bgColor="bg-gray-900" bgOpacity={100}>
-            <BlogHeader />
+            <BlogIndexHeader />
             <div className="grid grid-cols-2 gap-6">
                {posts &&
                   posts.map(
