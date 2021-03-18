@@ -25,7 +25,7 @@ const Post = ({
                content="width=device-width, initial-scale=1"
             />
          </Head>
-         <Wrapper bgColor="bg-gray-900" bgOpacity={100}>
+         <Wrapper bgColor="bg-gray-900" bgOpacity="bg-opacity-100">
             <BlogArticleHeader
                title={title}
                byline={byline}
@@ -36,13 +36,13 @@ const Post = ({
             <img src={imageUrl} />
 
             <article className="w-full flex flex-row justify-center ">
-               {/* <BaseBlockContent
+               <BaseBlockContent
                   blocks={body}
                   imageOptions={{ w: 320, h: 240, fit: 'max' }}
                   {...client.config()}
                   className="text-gray-100 text-xl leading-relaxed w-2/3 mt-5 mb-7"
                   // serializers={{ marks: { codeSerializer } }}
-               /> */}
+               />
             </article>
             <BlogArticleFooter
                author={name}
