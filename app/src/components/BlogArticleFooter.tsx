@@ -22,8 +22,8 @@ const BlogArticleHeader = ({
             Date Published: {publishedAt}
          </p>
          <p className="text-gray-900 font-sans leading-loose text-xl">
-            {categories}
-            <p>{categories.map(cat => cat)}</p>
+            {/* {categories} */}
+            {categories.map(cat => cat)}
          </p>
       </div>
    )
