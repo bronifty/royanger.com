@@ -4,7 +4,7 @@ interface Props {
    children: any
    bgImage?: string
    styles?: string
-   bgOpacity?: number
+   bgOpacity?: string
    bgColor?: string
 }
 
@@ -12,7 +12,7 @@ const Wrapper = ({ children, bgImage, styles, bgOpacity, bgColor }: Props) => {
    const bgImageDivClassNames = 'w-full flex flex-row justify-center'
    const bgColorDivClassNames = 'w-full flex flex-row justify-center'
    const coreDivClassNames = 'w-full xl:w-1440 pt-20'
-   const bgOpacityRendered = `bg-opacity-${bgOpacity}`
+   //const bgOpacityRendered = `bg-opacity-${bgOpacity}`
 
    if (bgImage && bgColor) {
       return (
@@ -23,7 +23,7 @@ const Wrapper = ({ children, bgImage, styles, bgOpacity, bgColor }: Props) => {
             }}
             className={bgImageDivClassNames}
          >
-            <div className={`${bgColorDivClassNames} ${bgColor} bg-opacity-80`}>
+            <div className={`${bgColorDivClassNames} ${bgColor} ${bgOpacity}`}>
                <div className={`${coreDivClassNames} ${styles}`}>
                   {children}
                </div>
