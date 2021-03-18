@@ -12,6 +12,7 @@ const Wrapper = ({ children, bgImage, styles, bgOpacity, bgColor }: Props) => {
    const bgImageDivClassNames = 'w-full flex flex-row justify-center'
    const bgColorDivClassNames = 'w-full flex flex-row justify-center'
    const coreDivClassNames = 'w-full xl:w-1440 pt-20'
+   const bgOpacityRendered = `bg-opacity-${bgOpacity}`
 
    if (bgImage && bgColor) {
       return (
@@ -23,7 +24,7 @@ const Wrapper = ({ children, bgImage, styles, bgOpacity, bgColor }: Props) => {
             className={bgImageDivClassNames}
          >
             <div
-               className={`${bgColorDivClassNames} ${bgColor} bg-opacity-${bgOpacity}`}
+               className={`${bgColorDivClassNames} ${bgColor} bg-opacity-${bgOpacityRendered}`}
             >
                <div className={`${coreDivClassNames} ${styles}`}>
                   {children}
