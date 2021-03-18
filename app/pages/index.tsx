@@ -27,7 +27,7 @@ const Index = () => {
                <h2 className="text-6xl font-title leading-loose text-cyan-400">
                   Full Stack Web Developer
                </h2>
-               <h3 className="text-4xl font-sans text-gray-200 mt-10">
+               <h3 className="text-4xl font-sans text-gray-200 mt-10 bg-opacity-70 leading-loose">
                   Watch for the new site and portfolio - coming soon!
                </h3>
             </div>
