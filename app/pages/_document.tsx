@@ -15,7 +15,7 @@ class MyDocument extends Document {
                <meta name="theme-color" content="#000000" />
                <meta
                   name="description"
-                  content="Web site created using create-react-app"
+                  content="Portfolio for Roy Anger, a Toronto based Full Stack Web Developer"
                />
                <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
                <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
