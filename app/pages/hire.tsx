@@ -13,52 +13,76 @@ const Hire = () => {
                content="width=device-width, initial-scale=1"
             />
          </Head>
-         <Wrapper bgColor="bg-gray-900">
+         <Wrapper
+            bgColor="bg-blue-light"
+            bgImage="/images/backgrounds/mailboxes.jpg"
+            bgOpacity="bg-opacity-90"
+         >
             <div className="py-3 px-5 text-gray-90 mt-5 mb-10">
                <h1 className="text-gray-200 font-title text-5xl">
                   Contact Roy
                </h1>
             </div>
-            <div className="text-gray-200 text-xl mb-10">
-               <h2 className="text-title text-2xl mb-2">Contact Form</h2>
-               <p className="mb-2">
-                  Please use the following form to shoot me a quick message. I
-                  will get back to you ASAP. I'm looking forward to hearing from
-                  you!
-               </p>
-
-               <form className="flex flex-col">
-                  <div className="flex flex-row items-center mt-5 mb-6 text-2xl ">
-                     <label htmlFor="contactName" className="w-48 block">
-                        Your Name
-                     </label>
-                     <input
-                        className="border w-1/2 h-14 text-gray-900 text-3xl"
-                        type="name"
-                        id="contactName"
-                     />
-                  </div>
-                  <div className="flex flex-row items-center  mt-5 mb-6 text-2xl">
-                     <label htmlFor="contactEmail" className="w-48 block">
-                        Your Email
-                     </label>
-                     <input
-                        className="w-1/2 h-14 text-gray-900 text-3xl"
-                        type="email"
-                        id="contactForm"
-                     />
-                  </div>
-                  <div className="flex flex-row items-center  mt-5 mb-6 text-2xl">
-                     <label htmlFor="contactPhone" className="w-48 block">
-                        Your Phone
-                     </label>
-                     <input
-                        className="w-1/2 h-14 text-gray-900 text-3xl"
-                        type="text"
-                        id="contactPhone"
-                     />
-                  </div>
-               </form>
+            <div className="text-gray-200 text-xl mt-16 mb-10 grid grid-cols-3 gap-40">
+               <div className="">
+                  <h2 className="text-title text-2xl mb-2">Contact Form</h2>
+                  <p className="mb-2">
+                     Please use the following form to shoot me a quick message.
+                     I will get back to you ASAP. I'm looking forward to hearing
+                     from you!
+                  </p>
+               </div>
+               <div className="col-span-2">
+                  <form className="flex flex-col">
+                     <div className="flex flex-row items-center mt-5 mb-6 text-2xl ">
+                        <label htmlFor="contactName" className="w-48 block">
+                           Name
+                        </label>
+                        <input
+                           className="w-full h-14 text-gray-900 text-3xl"
+                           type="text"
+                           id="contactName"
+                        />
+                     </div>
+                     <div className="flex flex-row items-center  mt-5 mb-6 text-2xl">
+                        <label htmlFor="contactEmail" className="w-48 block">
+                           Email
+                        </label>
+                        <input
+                           className="w-full h-14 text-gray-900 text-3xl"
+                           type="email"
+                           id="contactForm"
+                        />
+                     </div>
+                     <div className="flex flex-row items-center  mt-5 mb-6 text-2xl">
+                        <label htmlFor="contactPhone" className="w-48 block">
+                           Phone
+                        </label>
+                        <input
+                           className="w-full h-14 text-gray-900 text-3xl"
+                           type="text"
+                           id="contactPhone"
+                        />
+                     </div>
+                     <div className="flex flex-row items-center  mt-5 mb-6 text-2xl">
+                        <label htmlFor="contactMessage" className="w-48 block">
+                           Message
+                        </label>
+                        <textarea
+                           id="contactMessage"
+                           className="w-full h-48 text-gray-900 text-3xl"
+                        ></textarea>
+                     </div>
+                     <div className="mt-5 mb-6 ml-40 text-2xl">
+                        <button
+                           type="submit"
+                           className="bg-gray-100 text-gray-900 py-4 px-6"
+                        >
+                           Send Message
+                        </button>
+                     </div>
+                  </form>
+               </div>
             </div>
          </Wrapper>
       </>
