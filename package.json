@@ -1,25 +1,25 @@
 {
-  "name": "royanger.com",
-  "version": "1.0.0",
-  "description": "Website for royanger.com",
-  "main": "index.js",
-  "scripts": {
-    "sanity": "npm start --prefix sanity",
-    "react": "npm run dev --prefix app",
-    "dev": "concurrently \"npm run sanity\" \"npm run react\" ",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/royanger/royanger.com.git"
-  },
-  "author": "Roy Anger",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/royanger/royanger.com/issues"
-  },
-  "homepage": "https://github.com/royanger/royanger.com#readme",
-  "dependencies": {
-    "concurrently": "^6.0.0"
-  }
+   "name": "royanger.com",
+   "version": "1.0.0",
+   "description": "Website for royanger.com",
+   "main": "index.js",
+   "scripts": {
+      "sanity": "npm start --prefix sanity",
+      "react": "npm run dev --prefix app",
+      "dev": "concurrently \"npm run sanity\" \"npm run react\" ",
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/royanger/royanger.com.git"
+   },
+   "author": "Roy Anger",
+   "license": "ISC",
+   "bugs": {
+      "url": "https://github.com/royanger/royanger.com/issues"
+   },
+   "homepage": "https://github.com/royanger/royanger.com#readme",
+   "dependencies": {
+      "concurrently": "^6.0.0"
+   }
 }
