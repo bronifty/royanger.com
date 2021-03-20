@@ -127,6 +127,7 @@ module.exports = {
          spacing: {
             1440: '1440px',
          },
+
       },
    },
    variants: {
