@@ -29,12 +29,12 @@ const BlogCard = ({ title, byline, slug, image, alt, categories }: Props) => {
          </div>
          <Link href={`/articles/${slug}`}>
             <a>
-               <h2 className="text-3xl font-title text-gray-200 mt-6 mb-1">
+               <h2 className="text-3xl font-title text-white mt-6 mb-1">
                   {title}
                </h2>
             </a>
          </Link>
-         <h3 className="text-lg font-sans text-gray-200 mt-2 mb-4">{byline}</h3>
+         <h3 className="text-lg font-sans text-white mt-2 mb-4">{byline}</h3>
          <div className="flex flex-row">
             {categories
                ? categories.map(cat => (

@@ -14,16 +14,14 @@ const Hire = () => {
             />
          </Head>
          <Wrapper
-            bgColor="bg-blue-light"
+            bgColor="bg-blue-700"
             bgImage="/images/backgrounds/mailboxes.jpg"
             bgOpacity="bg-opacity-90"
          >
-            <div className="py-3 px-5 text-gray-90 mt-5 mb-10">
-               <h1 className="text-gray-200 font-title text-5xl">
-                  Contact Roy
-               </h1>
+            <div className="py-3 px-5 text-white mt-5 mb-10">
+               <h1 className="text-white font-title text-5xl">Contact Roy</h1>
             </div>
-            <div className="text-gray-200 text-xl mt-16 mb-10 grid grid-cols-3 gap-40">
+            <div className="text-white text-xl mt-16 mb-10 grid grid-cols-3 gap-40">
                <div className="">
                   <h2 className="text-title text-2xl mb-2">Contact Form</h2>
                   <p className="mb-2">
@@ -76,7 +74,7 @@ const Hire = () => {
                      <div className="mt-5 mb-6 ml-40 text-2xl">
                         <button
                            type="submit"
-                           className="bg-gray-100 text-gray-900 py-4 px-6"
+                           className="bg-yellow text-blue-700 font-bold py-4 px-6"
                         >
                            Send Message
                         </button>

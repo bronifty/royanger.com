@@ -7,9 +7,7 @@ interface Props {
 
 const BlogCategory = ({ title, id }: Props) => {
    return (
-      <div className="bg-gray-200 font-code text-gray-900 p-2 mr-4">
-         {title}
-      </div>
+      <div className="bg-white-100 font-code text-blue p-2 mr-4">{title}</div>
    )
 }
 

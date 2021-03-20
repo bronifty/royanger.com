@@ -38,7 +38,7 @@ const Blog = () => {
                content="width=device-width, initial-scale=1"
             />
          </Head>
-         <Wrapper bgColor="bg-gray-900" bgOpacity={100}>
+         <Wrapper bgColor="bg-blue" bgOpacity="bg-opacity-90">
             <BlogIndexHeader />
             <div className="grid grid-cols-2 gap-6">
                {posts &&

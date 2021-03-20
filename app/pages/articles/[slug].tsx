@@ -40,7 +40,7 @@ const Post = ({
                   blocks={body}
                   imageOptions={{ w: 320, h: 240, fit: 'max' }}
                   {...client.config()}
-                  className="text-gray-100 text-xl leading-relaxed w-2/3 mt-5 mb-7"
+                  className="text-white text-xl leading-relaxed w-2/3 mt-5 mb-7"
                   // serializers={{ marks: { codeSerializer } }}
                />
             </article>
