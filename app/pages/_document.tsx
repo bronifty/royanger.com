@@ -1,5 +1,11 @@
 import * as React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import {
+   SITE_NAME,
+   SITE_DESCRIPTION,
+   SITE_IMAGE,
+   SITE_TITLE,
+} from '../src/constants/env'
 
 class MyDocument extends Document {
    static async getInitialProps(ctx) {
@@ -11,13 +17,14 @@ class MyDocument extends Document {
          <Html lang="en">
             <Head>
                <meta charSet="utf-8" />
-               <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+
                <meta name="theme-color" content="#000000" />
-               <meta
-                  name="description"
-                  content="Portfolio for Roy Anger, a Toronto based Full Stack Web Developer"
-               />
-               <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+               <meta property="og_type" content="website" />
+               <meta property="og:name" content={SITE_NAME} />
+               <meta property="og:title" content={SITE_TITLE} />
+               <meta property="og:description" content={SITE_DESCRIPTION} />
+               {/* <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+               <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" /> */}
                <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
                <link rel="preconnect" href="https://fonts.gstatic.com" />
                <link

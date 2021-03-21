@@ -1,12 +1,22 @@
 import * as React from 'react'
 import type { AppProps } from 'next/app'
 import Link from 'next/link'
+import TagManager from 'react-gtm-module'
+import { GTM } from '../src/constants/env'
 import '../styles/globals.css'
 
 import HomeIcon from '../public/images/svgs/home-lg-alt.svg'
 
-function MyApp({ Component, pageProps }: AppProps) {
+const tagManagerArgs = { gtmId: 'GTM-K427PD5' }
+
+console.log(tagManagerArgs)
+
+const MyApp = ({ Component, pageProps }: AppProps) => {
    const [theme, setTheme] = React.useState('dark')
+
+   React.useEffect(() => {
+      TagManager.initialize(tagManagerArgs)
+   }, [])
 
    const onChange = () => {
       if (theme === 'dark') {
