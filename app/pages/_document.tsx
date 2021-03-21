@@ -23,8 +23,24 @@ class MyDocument extends Document {
                <meta property="og:name" content={SITE_NAME} />
                <meta property="og:title" content={SITE_TITLE} />
                <meta property="og:description" content={SITE_DESCRIPTION} />
-               {/* <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-               <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" /> */}
+               <link rel="icon" href="/images/favicons/favicon.ico" />
+               <link
+                  rel="apple-touch-icon"
+                  href="/images/favicons/apple-touch-icon.png"
+               />
+
+               <link
+                  rel="icon"
+                  type="image/png"
+                  sizes="32x32"
+                  href="/images/favicons/favicon-32x32.png"
+               />
+               <link
+                  rel="icon"
+                  type="image/png"
+                  sizes="16x16"
+                  href="/images/favicons/favicon-16x16.png"
+               />
                <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
                <link rel="preconnect" href="https://fonts.gstatic.com" />
                <link
