@@ -27,7 +27,6 @@ const Blog = () => {
          .then(data => setPosts(data))
          .catch(console.error)
    }, [])
-   console.log(posts)
 
    return (
       <>
@@ -38,7 +37,7 @@ const Blog = () => {
                content="width=device-width, initial-scale=1"
             />
          </Head>
-         <Wrapper bgColor="bg-blue" bgOpacity="bg-opacity-90">
+         <Wrapper bgColor="dark:bg-blue bg-gray-100" bgOpacity="bg-opacity-90">
             <BlogIndexHeader />
             <div className="grid grid-cols-2 gap-6">
                {posts &&

@@ -16,7 +16,7 @@ interface Props {
 
 const BlogCard = ({ title, byline, slug, image, alt, categories }: Props) => {
    return (
-      <div className="w-full border border-gray-900 p-3 m-2 relative">
+      <div className="w-full border dark:border-brightyellow-500 border-blue-700 p-3 m-2 relative">
          {/* <img src={image} alt={alt} /> */}
          <div className="relative w-full h-72">
             <Image
@@ -29,12 +29,14 @@ const BlogCard = ({ title, byline, slug, image, alt, categories }: Props) => {
          </div>
          <Link href={`/articles/${slug}`}>
             <a>
-               <h2 className="text-3xl font-title text-white mt-6 mb-1">
+               <h2 className="text-3xl font-title dark:text-white text-black mt-6 mb-1">
                   {title}
                </h2>
             </a>
          </Link>
-         <h3 className="text-lg font-sans text-white mt-2 mb-4">{byline}</h3>
+         <h3 className="text-lg font-sans dark:text-white text-black mt-2 mb-4">
+            {byline}
+         </h3>
          <div className="flex flex-row">
             {categories
                ? categories.map(cat => (

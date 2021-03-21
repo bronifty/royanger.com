@@ -25,7 +25,10 @@ const Post = ({
                content="width=device-width, initial-scale=1"
             />
          </Head>
-         <Wrapper bgColor="bg-gray-900" bgOpacity="bg-opacity-100">
+         <Wrapper
+            bgColor="dark:bg-blue-600 bg-grey-100"
+            bgOpacity="bg-opacity-100"
+         >
             <BlogArticleHeader
                title={title}
                byline={byline}
@@ -40,7 +43,7 @@ const Post = ({
                   blocks={body}
                   imageOptions={{ w: 320, h: 240, fit: 'max' }}
                   {...client.config()}
-                  className="text-white text-xl leading-relaxed w-2/3 mt-5 mb-7"
+                  className="dark:text-white text-blue-700 text-xl leading-relaxed w-2/3 mt-5 mb-7"
                   // serializers={{ marks: { codeSerializer } }}
                />
             </article>
