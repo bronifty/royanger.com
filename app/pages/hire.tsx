@@ -166,12 +166,12 @@ const Hire = () => {
                                  Send Message
                               </button>
                               <div className="bg-white text-black">
-                                 <pre>
+                                 {/* <pre>
                                     Values: {JSON.stringify(values, null, 2)}
                                  </pre>
                                  <pre>
                                     Errors: {JSON.stringify(errors, null, 2)}
-                                 </pre>
+                                 </pre> */}
                               </div>
                            </div>
                         </Form>

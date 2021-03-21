@@ -1,3 +1,4 @@
+import * as React from 'react'
 import type { AppProps } from 'next/app'
 import Link from 'next/link'
 import '../styles/globals.css'
@@ -5,9 +6,20 @@ import '../styles/globals.css'
 import HomeIcon from '../public/images/svgs/home-lg-alt.svg'
 
 function MyApp({ Component, pageProps }: AppProps) {
+
+   const [theme, setTheme] = React.useState('dark')
+
+   const onChange = () => {
+      if ( theme === 'dark') {
+         setTheme('light')
+      } else {
+      setTheme('dark')
+      }
+   }
+
    return (
       <>
-         <header className="bg-gray-transparent w-full h-20 flex flex-row justify-center p-2 fixed">
+         <header className={`bg-gray-transparent w-full h-20 flex flex-row justify-center p-2 fixed ${theme}`}>
             <div className="w-full xl:w-1440 flex flex-row">
                <div className="flex flex-col justify-center">
                   <Link href="/">
@@ -37,13 +49,17 @@ function MyApp({ Component, pageProps }: AppProps) {
                         <button className="p-3 text-xl">Hire</button>
                      </a>
                   </Link>
+                  <form>
+                     <label id="theme">Set Theme</label>
+                     <input type="checkbox" id="theme" value={theme} onChange={onChange} />
+                  </form>
                </div>
             </div>
          </header>
-         <main className="w-full flex flex-row justify-center">
+         <main className={`w-full flex flex-row justify-center ${theme}`}>
             <Component {...pageProps} />
          </main>
-         <footer className="bg-gray-100 w-full h-28 flex flex-row justify-center p-2">
+         <footer className={`bg-gray-100 w-full h-28 flex flex-row justify-center p-2 ${theme}`}>
             <div className="w-full xl:w-1440 flex flex-row">
                <div className="flex items-center">Copyright &copy; 2021</div>
                <div className=" flex flex-grow items-center justify-end">
