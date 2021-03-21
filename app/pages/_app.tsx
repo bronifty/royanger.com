@@ -6,29 +6,30 @@ import '../styles/globals.css'
 import HomeIcon from '../public/images/svgs/home-lg-alt.svg'
 
 function MyApp({ Component, pageProps }: AppProps) {
-
    const [theme, setTheme] = React.useState('dark')
 
    const onChange = () => {
-      if ( theme === 'dark') {
+      if (theme === 'dark') {
          setTheme('light')
       } else {
-      setTheme('dark')
+         setTheme('dark')
       }
    }
 
    return (
       <>
-         <header className={`bg-gray-transparent w-full h-20 flex flex-row justify-center p-2 fixed ${theme}`}>
+         <header
+            className={`bg-gray-transparent w-full h-20 flex flex-row justify-center p-2 fixed ${theme}`}
+         >
             <div className="w-full xl:w-1440 flex flex-row">
                <div className="flex flex-col justify-center">
                   <Link href="/">
-                     <a className="text-white">
+                     <a className="dark:text-white text-black">
                         <HomeIcon style={{ width: '35px', height: '35px' }} />
                      </a>
                   </Link>
                </div>
-               <div className="flex flex-grow items-center justify-end font-code text-white">
+               <div className="flex flex-grow items-center justify-end font-code dark:text-white text-black">
                   <Link href="/about">
                      <a>
                         <button className="p-3  text-xl">About</button>
@@ -51,7 +52,12 @@ function MyApp({ Component, pageProps }: AppProps) {
                   </Link>
                   <form>
                      <label id="theme">Set Theme</label>
-                     <input type="checkbox" id="theme" value={theme} onChange={onChange} />
+                     <input
+                        type="checkbox"
+                        id="theme"
+                        value={theme}
+                        onChange={onChange}
+                     />
                   </form>
                </div>
             </div>
@@ -59,7 +65,9 @@ function MyApp({ Component, pageProps }: AppProps) {
          <main className={`w-full flex flex-row justify-center ${theme}`}>
             <Component {...pageProps} />
          </main>
-         <footer className={`bg-gray-100 w-full h-28 flex flex-row justify-center p-2 ${theme}`}>
+         <footer
+            className={`bg-gray-100 w-full h-28 flex flex-row justify-center p-2 ${theme}`}
+         >
             <div className="w-full xl:w-1440 flex flex-row">
                <div className="flex items-center">Copyright &copy; 2021</div>
                <div className=" flex flex-grow items-center justify-end">

@@ -2,7 +2,7 @@
 
 module.exports = {
    purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
-   darkMode: false,
+   darkMode: 'class',
    theme: {
       screens: {
          sm: '480px',
@@ -127,7 +127,6 @@ module.exports = {
          spacing: {
             1440: '1440px',
          },
-
       },
    },
    variants: {
