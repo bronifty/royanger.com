@@ -37,16 +37,16 @@ const Hire = () => {
             />
          </Head>
          <Wrapper
-            bgColor="dark:bg-blue-700 bg-white"
+            bgColor="dark:bg-blue bg-gray"
             bgImage="/images/backgrounds/mailboxes.jpg"
             bgOpacity="dark:bg-opacity-90 bg-opacity-80"
          >
             <div className="py-3 px-5 text-white mt-5 mb-10">
-               <h1 className="dark:text-white text-black font-title text-5xl ">
+               <h1 className="text-primary font-title text-5xl ">
                   Contact Roy
                </h1>
             </div>
-            <div className="dark:text-white text-black text-xl mt-16 mb-10 grid grid-cols-3 gap-40">
+            <div className="text-primary text-xl mt-16 mb-10 grid grid-cols-3 gap-40">
                <div className="">
                   <h2 className="text-title text-2xl mb-2">Contact Form</h2>
                   <p className="mb-2">

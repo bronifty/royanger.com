@@ -14,35 +14,24 @@ const tagManagerArgs = { gtmId: 'GTM-K427PD5' }
 console.log(tagManagerArgs)
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-   //const [theme, setTheme] = React.useState('dark')
-
    React.useEffect(() => {
       TagManager.initialize(tagManagerArgs)
    }, [])
 
-   // const onChange = () => {
-   //    if (theme === 'dark') {
-   //       setTheme('light')
-   //    } else {
-   //       setTheme('dark')
-   //    }
-   // }
-   const theme = 'sadfsdaf'
-
    return (
       <ThemeProvider>
          <header
-            className={`bg-gray-transparent w-full h-20 flex flex-row justify-center p-2 fixed ${theme}`}
+            className={`bg-gray-transparent w-full h-20 flex flex-row justify-center p-2 fixed `}
          >
             <div className="w-full xl:w-1440 flex flex-row">
                <div className="flex flex-col justify-center">
                   <Link href="/">
-                     <a className="dark:text-white text-black">
+                     <a className="text-primary">
                         <HomeIcon style={{ width: '35px', height: '35px' }} />
                      </a>
                   </Link>
                </div>
-               <div className="flex flex-grow items-center justify-end font-code dark:text-white text-black">
+               <div className="flex flex-grow items-center justify-end font-code text-primary">
                   <Link href="/about">
                      <a>
                         <button className="p-3  text-xl">About</button>
@@ -65,22 +54,15 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                   </Link>
                   <form>
                      <Toggle />
-                     {/* <label id="theme">Set Theme</label>
-                     <input
-                        type="checkbox"
-                        id="theme"
-                        value={theme}
-                        onChange={onChange}
-                     /> */}
                   </form>
                </div>
             </div>
          </header>
-         <main className={`w-full flex flex-row justify-center ${theme}`}>
+         <main className={`w-full flex flex-row justify-center `}>
             <Component {...pageProps} />
          </main>
          <footer
-            className={`bg-gray-100 w-full h-28 flex flex-row justify-center p-2 ${theme}`}
+            className={`bg-gray-100 w-full h-28 flex flex-row justify-center p-2`}
          >
             <div className="w-full xl:w-1440 flex flex-row">
                <div className="flex items-center">Copyright &copy; 2021</div>

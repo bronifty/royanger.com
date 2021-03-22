@@ -16,17 +16,15 @@ const BlogArticleHeader = ({
    authorId,
 }: Props) => {
    return (
-      <div className="py-3 px-5 dark:text-white text-blue-700 mt-5 mb-10">
-         <h1 className="dark:text-white text-blue-700 font-title text-5xl">
-            {title}
-         </h1>
-         <p className="dark:text-white text-blue-700 font-sans leading-loose text-xl">
+      <div className="py-3 px-5 text-primary mt-5 mb-10">
+         <h1 className="text-primary font-title text-5xl">{title}</h1>
+         <p className="text-primary font-sans leading-loose text-xl">
             {byline}
          </p>
-         <p className="dark:text-white text-blue-700 font-sans leading-loose text-xl">
+         <p className="text-primary font-sans leading-loose text-xl">
             Written by: {author}
          </p>
-         <p className="dark:text-white text-blue-700 font-sans leading-loose text-xl">
+         <p className="text-primary font-sans leading-loose text-xl">
             Date Published: {publishedAt}
          </p>
       </div>

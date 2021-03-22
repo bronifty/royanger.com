@@ -4,19 +4,19 @@
 }
 
 .dark {
-   --color-bg-primary: black;
-   --color-bg-secondary: gray;
-   --color-text-primary: red;
-   --color-text-seconday: pink;
-   --color-text-accent: yellow;
+   --color-bg-primary: #001d3d;
+   --color-bg-secondary: #000814;
+   --color-text-primary: #e7e7e7;
+   --color-text-secondary: #ffd60a;
+   --color-text-accent: #9e0031;
 }
 
 .light {
-   --color-bg-primary: lightgray;
-   --color-bg-secondary: pink;
-   --color-text-primary: blue;
-   --color-text-seconday: purple;
-   --color-text-accent: orange;
+   --color-bg-primary: #e7e7e7;
+   --color-bg-secondary: #f0f4ef;
+   --color-text-primary: #001429;
+   --color-text-seconday: #000814;
+   --color-text-accent: #9e0031;
 }
 
 @tailwind base;
