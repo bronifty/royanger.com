@@ -28,7 +28,6 @@ class MyDocument extends Document {
                   rel="apple-touch-icon"
                   href="/images/favicons/apple-touch-icon.png"
                />
-
                <link
                   rel="icon"
                   type="image/png"

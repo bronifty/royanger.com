@@ -1,6 +1,8 @@
 import * as React from 'react'
 import type { AppProps } from 'next/app'
 import Link from 'next/link'
+import { ThemeProvider } from '../src/context/themeContext'
+import Toggle from '../src/components/Toggle'
 import TagManager from 'react-gtm-module'
 import { GTM } from '../src/constants/env'
 import '../styles/globals.css'
@@ -12,22 +14,23 @@ const tagManagerArgs = { gtmId: 'GTM-K427PD5' }
 console.log(tagManagerArgs)
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-   const [theme, setTheme] = React.useState('dark')
+   //const [theme, setTheme] = React.useState('dark')
 
    React.useEffect(() => {
       TagManager.initialize(tagManagerArgs)
    }, [])
 
-   const onChange = () => {
-      if (theme === 'dark') {
-         setTheme('light')
-      } else {
-         setTheme('dark')
-      }
-   }
+   // const onChange = () => {
+   //    if (theme === 'dark') {
+   //       setTheme('light')
+   //    } else {
+   //       setTheme('dark')
+   //    }
+   // }
+   const theme = 'sadfsdaf'
 
    return (
-      <>
+      <ThemeProvider>
          <header
             className={`bg-gray-transparent w-full h-20 flex flex-row justify-center p-2 fixed ${theme}`}
          >
@@ -61,13 +64,14 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                      </a>
                   </Link>
                   <form>
-                     <label id="theme">Set Theme</label>
+                     <Toggle />
+                     {/* <label id="theme">Set Theme</label>
                      <input
                         type="checkbox"
                         id="theme"
                         value={theme}
                         onChange={onChange}
-                     />
+                     /> */}
                   </form>
                </div>
             </div>
@@ -104,7 +108,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                </div>
             </div>
          </footer>
-      </>
+      </ThemeProvider>
    )
 }
 

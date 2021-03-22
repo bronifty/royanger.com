@@ -1,3 +1,24 @@
+/* Setup CSS for Theme Switcher */
+:root {
+   @apply light;
+}
+
+.dark {
+   --color-bg-primary: black;
+   --color-bg-secondary: gray;
+   --color-text-primary: red;
+   --color-text-seconday: pink;
+   --color-text-accent: yellow;
+}
+
+.light {
+   --color-bg-primary: lightgray;
+   --color-bg-secondary: pink;
+   --color-text-primary: blue;
+   --color-text-seconday: purple;
+   --color-text-accent: orange;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

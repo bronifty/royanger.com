@@ -2,7 +2,7 @@ import * as React from 'react'
 import client from '../../src/client'
 import Head from 'next/head'
 import BlockContent from '@sanity/block-content-to-react'
-import BaseBlockContent from '../../src/components/BaseBlockContent'
+// import BaseBlockContent from '../../src/components/BaseBlockContent'
 import Wrapper from '../../src/components/Wrapper'
 import BlogArticleHeader from '../../src/components/BlogArticleHeader'
 import BlogArticleFooter from '../../src/components/BlogArticleFooter'
@@ -39,13 +39,13 @@ const Post = ({
             <img src={imageUrl} />
 
             <article className="w-full flex flex-row justify-center ">
-               <BaseBlockContent
+               {/* <BaseBlockContent
                   blocks={body}
                   imageOptions={{ w: 320, h: 240, fit: 'max' }}
                   {...client.config()}
                   className="dark:text-white text-blue-700 text-xl leading-relaxed w-2/3 mt-5 mb-7"
                   // serializers={{ marks: { codeSerializer } }}
-               />
+               /> */}
             </article>
             <BlogArticleFooter
                author={name}
