@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Head from 'next/head'
-import Wrapper from '../src/components/Wrapper'
+import Wrapper from '../components/Wrapper'
 
 const About = () => {
    return (

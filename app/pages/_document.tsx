@@ -5,7 +5,7 @@ import {
    SITE_DESCRIPTION,
    SITE_IMAGE,
    SITE_TITLE,
-} from '../src/constants/env'
+} from '../lib/constants/env'
 
 class MyDocument extends Document {
    static async getInitialProps(ctx) {

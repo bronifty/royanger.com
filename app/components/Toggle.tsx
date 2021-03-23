@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { ThemeContext } from '../context/themeContext'
+import { ThemeContext } from '../lib/context/themeContext'
 
 const Toggle = () => {
    const { theme, setTheme } = React.useContext(ThemeContext)
 
-   const handleThemeChange = theme => {
+   const handleThemeChange = (theme: string) => {
       setTheme(theme)
    }
 

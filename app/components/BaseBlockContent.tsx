@@ -1,5 +1,5 @@
 import * as React from 'react'
-import client from '../../src/client'
+import client from '../lib/sanity/client'
 import SanityPortableText, {
    PortableTextProps,
    PortableTextSerializers,

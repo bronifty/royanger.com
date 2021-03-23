@@ -1,11 +1,11 @@
 import * as React from 'react'
-import sanityClient from '../src/client'
+import sanityClient from '../lib/sanity/client'
 import Head from 'next/head'
 
 // import components
-import Wrapper from '../src/components/Wrapper'
-import BlogIndexHeader from '../src/components/BlogIndexHeader'
-import BlogCard from '../src/components/BlogCard'
+import Wrapper from '../components/Wrapper'
+import BlogIndexHeader from '../components/BlogIndexHeader'
+import BlogCard from '../components/BlogCard'
 
 const Blog = () => {
    const [posts, setPosts] = React.useState(null)

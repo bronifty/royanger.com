@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 // import components
-import Wrapper from '../src/components/Wrapper'
+import Wrapper from '../components/Wrapper'
 
 const Index = () => {
    return (

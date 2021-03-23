@@ -1,11 +1,11 @@
 import * as React from 'react'
-import client from '../../src/client'
+import client from '../../lib/sanity/client'
 import Head from 'next/head'
 import BlockContent from '@sanity/block-content-to-react'
 // import BaseBlockContent from '../../src/components/BaseBlockContent'
-import Wrapper from '../../src/components/Wrapper'
-import BlogArticleHeader from '../../src/components/BlogArticleHeader'
-import BlogArticleFooter from '../../src/components/BlogArticleFooter'
+import Wrapper from '../../components/Wrapper'
+import BlogArticleHeader from '../../components/BlogArticleHeader'
+import BlogArticleFooter from '../../components/BlogArticleFooter'
 
 const Post = ({
    title,

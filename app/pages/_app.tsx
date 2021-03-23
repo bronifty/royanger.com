@@ -1,10 +1,10 @@
 import * as React from 'react'
 import type { AppProps } from 'next/app'
 import Link from 'next/link'
-import { ThemeProvider } from '../src/context/themeContext'
-import Toggle from '../src/components/Toggle'
+import { ThemeProvider } from '../lib/context/themeContext'
+import Toggle from '../components/Toggle'
 import TagManager from 'react-gtm-module'
-import { GTM } from '../src/constants/env'
+import { GTM } from '../lib/constants/env'
 import '../styles/globals.css'
 
 import HomeIcon from '../public/images/svgs/home-lg-alt.svg'

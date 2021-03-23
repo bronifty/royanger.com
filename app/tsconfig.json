@@ -16,6 +16,13 @@
       "noEmit": true,
       "jsx": "preserve"
    },
-   "include": ["src", "src/custom.d.ts", "public/assets"],
+   "include": [
+      "src",
+      "src/custom.d.ts",
+      "public/assets",
+      "lib/sanity/client.tsx",
+      "lib/constants",
+      "lib/context"
+   ],
    "exclude": ["node_modules"]
 }
