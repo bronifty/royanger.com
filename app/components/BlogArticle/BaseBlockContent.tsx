@@ -1,10 +1,10 @@
 import * as React from 'react'
-import client from '../lib/sanity/client'
+import client from '../../lib/sanity/client'
 import SanityPortableText, {
    PortableTextProps,
    PortableTextSerializers,
 } from '@sanity/block-content-to-react'
-import serializers from './serializer'
+import serializers from '../serializer'
 // import blockContent from '../../../sanity/schemas/blockContent'
 
 interface BaseBlockContent {

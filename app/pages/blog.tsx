@@ -4,8 +4,8 @@ import Head from 'next/head'
 
 // import components
 import Wrapper from '../components/Wrapper'
-import BlogIndexHeader from '../components/BlogIndexHeader'
-import BlogCard from '../components/BlogCard'
+import BlogIndexHeader from '../components/BlogIndex/BlogIndexHeader'
+import BlogCard from '../components/BlogIndex/BlogCard'
 
 const Blog = () => {
    const [posts, setPosts] = React.useState(null)
