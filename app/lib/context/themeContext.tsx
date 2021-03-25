@@ -14,7 +14,7 @@ const returnInitialTheme = () => {
    return 'dark'
 }
 
-export const ThemeContext = React.createContext()
+export const ThemeContext = React.createContext({})
 
 interface ThemeContext {
    initialTheme?: 'string'
