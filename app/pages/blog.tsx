@@ -9,26 +9,6 @@ import BlogIndexHeader from '../components/BlogIndex/BlogIndexHeader'
 import BlogCard from '../components/BlogIndex/BlogCard'
 
 const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
-   //const [posts, setPosts] = React.useState(null)
-
-   // React.useEffect(() => {
-   //    sanityClient
-   //       .fetch(
-   //          `*[_type == "post"]{
-   //             _id,
-   //             title,
-   //             byline,
-   //             "name": author->name,
-   //             "categories": categories[]->{title,_id},
-   //             "slug": slug.current,
-   //             "imageUrl": mainImage.asset->url,
-   //             "imageAlt": mainImage.alt
-   //          }`
-   //       )
-   //       .then(data => setPosts(data))
-   //       .catch(console.error)
-   // }, [])
-
    return (
       <>
          <Head>
@@ -73,18 +53,7 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
    )
 }
 
-interface Props {
-   _id: string
-   title: string
-   byline: string
-   name: string
-   categories: any
-   slug: string
-   imageUrl: string
-   imageAlt: string
-}
-
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
    const posts = await sanityClient.fetch(
       `*[_type == "post"]{
                _id,

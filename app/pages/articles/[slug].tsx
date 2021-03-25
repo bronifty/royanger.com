@@ -1,21 +1,23 @@
 import * as React from 'react'
-import client from '../../lib/sanity/client'
+import sanityClient from '../../lib/sanity/client'
 import Head from 'next/head'
+import { InferGetStaticPropsType } from 'next'
 import BlockContent from '@sanity/block-content-to-react'
 // import BaseBlockContent from '../../src/components/BlogArticle/BaseBlockContent'
 import Wrapper from '../../components/Wrapper'
 import BlogArticleHeader from '../../components/BlogArticle/BlogArticleHeader'
 import BlogArticleFooter from '../../components/BlogArticle/BlogArticleFooter'
 
-const Post = ({
-   title,
-   byline,
-   publishedAt,
-   name,
-   imageUrl,
-   categories,
-   body,
-}) => {
+const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
+   const {
+      title,
+      byline,
+      publishedAt,
+      name,
+      imageUrl,
+      categories,
+      body,
+   } = post[0]
    return (
       <>
          <Head>
@@ -57,6 +59,15 @@ const Post = ({
    )
 }
 
+export const getStaticPaths = async () => {
+   const slugs = ['test-post-number-2', 'another-post-for-testing']
+   const paths = slugs.map(slug => ({
+      params: { slug: slug },
+   }))
+
+   return { paths, fallback: false }
+}
+
 const query = `*[_type == "post" && slug.current == $slug][0]{
    _id,
    title,
@@ -69,10 +80,19 @@ const query = `*[_type == "post" && slug.current == $slug][0]{
    body
 }`
 
-Post.getInitialProps = async function (context) {
-   // default slug to empty string to prevent undefined error
-   const { slug = '' } = context.query
-   return await client.fetch(query, { slug })
+export const getStaticProps = async ({ params }) => {
+   const post = await sanityClient.fetch(`*[_type == "post" && '${params.slug}' == slug.current]{
+      _id,
+      title,
+      byline,
+      publishedAt,
+      "name": author->name,
+      "categories": categories[]->title,
+      "slug": slug.current,
+      "imageUrl": mainImage.asset->url,
+      body
+   }`)
+   return { props: { post } }
 }
 
 export default Post
