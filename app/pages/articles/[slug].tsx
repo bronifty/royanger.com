@@ -60,25 +60,18 @@ const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
 }
 
 export const getStaticPaths = async () => {
-   const slugs = ['test-post-number-2', 'another-post-for-testing']
+   //const slugs = ['test-post-number-2', 'another-post-for-testing']
+
+   const slugs = await sanityClient.fetch(`*[_type == "post"]{
+      "slug": slug.current
+   }`)
+
    const paths = slugs.map(slug => ({
-      params: { slug: slug },
+      params: { slug: slug.slug },
    }))
 
    return { paths, fallback: false }
 }
-
-const query = `*[_type == "post" && slug.current == $slug][0]{
-   _id,
-   title,
-   byline,
-   publishedAt,
-   "name": author->name,
-   "categories": categories[]->title,
-   "slug": slug.current,
-   "imageUrl": mainImage.asset->url,
-   body
-}`
 
 export const getStaticProps = async ({ params }) => {
    const post = await sanityClient.fetch(`*[_type == "post" && '${params.slug}' == slug.current]{
