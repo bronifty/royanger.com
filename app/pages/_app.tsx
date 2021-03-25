@@ -28,9 +28,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                   <div className="flex flex-col justify-center">
                      <Link href="/">
                         <a className="text-primary">
-                           <HomeIcon
-                              style={{ width: '35px', height: '35px' }}
-                           />
+                           <HomeIcon />
                         </a>
                      </Link>
                   </div>
