@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-const returnInitialTheme = _ => {
+const returnInitialTheme = () => {
    if (typeof window !== 'undefined' && window.localStorage) {
       const storedTheme = window.localStorage.getItem('theme')
       if (typeof storedTheme === 'string') {
@@ -24,7 +24,7 @@ interface ThemeContext {
 export const ThemeProvider = ({ initialTheme, children }: ThemeContext) => {
    const [theme, setTheme] = React.useState(returnInitialTheme)
 
-   const rawSetTheme = theme => {
+   const rawSetTheme = (theme: string) => {
       const root = window.document.documentElement
       const isDark = theme === 'dark'
 
@@ -38,12 +38,9 @@ export const ThemeProvider = ({ initialTheme, children }: ThemeContext) => {
       rawSetTheme(initialTheme)
    }
 
-   React.useEffect(
-      _ => {
-         rawSetTheme(theme)
-      },
-      [theme]
-   )
+   React.useEffect(() => {
+      rawSetTheme(theme)
+   }, [theme])
 
    return (
       <ThemeContext.Provider value={{ theme, setTheme }}>
