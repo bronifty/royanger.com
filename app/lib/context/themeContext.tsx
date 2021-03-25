@@ -18,7 +18,7 @@ export const ThemeContext = React.createContext()
 
 interface ThemeContext {
    initialTheme?: 'string'
-   children: string
+   children: JSX.Element
 }
 
 export const ThemeProvider = ({ initialTheme, children }: ThemeContext) => {

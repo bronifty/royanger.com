@@ -5,6 +5,7 @@
       "allowJs": true,
       "skipLibCheck": true,
       "esModuleInterop": true,
+      "typeRoots": ["./lib/@types", "./node_modules/@types"],
       "allowSyntheticDefaultImports": true,
       "strict": true,
       "forceConsistentCasingInFileNames": true,
