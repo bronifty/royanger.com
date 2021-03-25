@@ -7,7 +7,7 @@ import * as Yup from 'yup'
 interface Values {
    contactName: string
    contactEmail: string
-   contactPhone: number
+   contactPhone: string
    contactMessage: string
 }
 
