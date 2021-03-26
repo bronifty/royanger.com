@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Wrapper from '../components/Wrapper'
 import { Formik, Form, Field, FormikHelpers, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
+import axios from 'axios'
 
 interface Values {
    contactName: string
@@ -68,8 +69,8 @@ const Hire = () => {
                         values: Values,
                         { setSubmitting }: FormikHelpers<Values>
                      ) => {
-                        alert(JSON.stringify(values, null, 2))
                         console.log('form was submitted')
+                        axios.post('/api/sendEmail')
                         setSubmitting(false)
                      }}
                   >
