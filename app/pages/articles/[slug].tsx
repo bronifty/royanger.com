@@ -60,8 +60,6 @@ const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
 }
 
 export const getStaticPaths = async () => {
-   //const slugs = ['test-post-number-2', 'another-post-for-testing']
-
    const slugs = await sanityClient.fetch(`*[_type == "post"]{
       "slug": slug.current
    }`)
