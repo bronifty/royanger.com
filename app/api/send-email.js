@@ -10,6 +10,7 @@ const transporter = nodemailer.createTransport({
 })
 
 async function sendEmail({ name, email }) {
+   console.log('sendEmail function running')
    const emailOptions = {
       from: 'Vercel Serverless Functions Demo <vsf-demo@example.com>',
       to: `${name} - ${email}`,
@@ -17,12 +18,14 @@ async function sendEmail({ name, email }) {
       html: `<h2>Email sent from a Serverless Function</h2>`,
    }
 
-   // 3. This will send the email with the `emailOptions` above.
    return transporter.sendMail(emailOptions)
 }
 
 export default async function handler(req, res) {
    console.log('ATTEMPTING TO SEND EMAIL')
+   console.log(process.env.MAIL_HOST)
+   console.log(process.env.MAIL_USER)
+   console.log(process.env.MAIL_PASS)
    if (req.method === 'POST') {
       const emailRes = await sendEmail(req.body)
       if (emailRes.messageId) {
