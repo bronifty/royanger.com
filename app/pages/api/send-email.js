@@ -12,6 +12,10 @@ const transporter = nodemailer.createTransport({
 async function sendEmail({ name, email, phone, message }) {
    console.log('incoming arguments:', name, email, phone, message)
 
+   console.log('host', process.env.MAIL_HOST)
+   console.log('user', process.env.MAIL_USER)
+   console.log('pass', process.env.MAIL_PASS)
+
    const emailOptions = {
       from: `${name} <${email}>`,
       to: 'roy@royanger.com',
