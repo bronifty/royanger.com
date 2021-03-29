@@ -13,10 +13,12 @@ async function sendEmail({ name, email }) {
    console.log('sendEmail function running')
    const emailOptions = {
       from: 'Vercel Serverless Functions Demo <vsf-demo@example.com>',
-      to: `${name} - ${email}`,
+      to: `royanger@gmail.com`,
       subject: 'Demo Email',
       html: `<h2>Email sent from a Serverless Function</h2>`,
    }
+
+   console.table(emailOptions)
 
    return transporter.sendMail(emailOptions)
 }
