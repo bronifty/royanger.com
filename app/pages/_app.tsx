@@ -7,6 +7,9 @@ import TagManager from 'react-gtm-module'
 import { GTM } from '../lib/constants/env'
 import '../styles/globals.css'
 
+import LogRocket from 'logrocket'
+LogRocket.init('kjcuh5/royangercom')
+
 import HomeIcon from '../public/images/svgs/home-lg-alt.svg'
 
 const tagManagerArgs = { gtmId: 'GTM-K427PD5' }

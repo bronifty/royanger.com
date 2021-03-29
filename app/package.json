@@ -19,6 +19,7 @@
       "@types/yup": "^0.29.11",
       "axios": "^0.21.1",
       "formik": "^2.2.6",
+      "logrocket": "^1.0.14",
       "next": "^10.0.8",
       "nodemailer": "^6.5.0",
       "react": "^17.0.1",
