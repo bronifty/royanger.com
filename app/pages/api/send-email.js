@@ -1,4 +1,3 @@
-import { table } from 'node:console'
 import nodemailer from 'nodemailer'
 
 const transporter = nodemailer.createTransport({
