@@ -26,8 +26,8 @@ async function sendEmail({ name, email, phone, message }) {
          <p>Message: ${message}</p>
       `,
    }
-   console.log('email options')
-   console.table(emailOptions)
+   // console.log('email options')
+   // console.table(emailOptions)
 
    return transporter.sendMail(emailOptions)
 }
