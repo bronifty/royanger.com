@@ -34,9 +34,9 @@ async function sendEmail({ name, email, phone, message }) {
 
 export default async function handler(req, res) {
    console.log('serverless function called')
+   console.log(req.query)
    if (req.method === 'POST') {
-      console.log(req.body)
-      const emailRes = await sendEmail(req.body)
+      const emailRes = await sendEmail(req.query)
       if (emailRes.messageId) {
          return res.status(200).json({ message: `Email sent successfuly` })
       }

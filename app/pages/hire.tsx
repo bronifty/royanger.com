@@ -70,12 +70,18 @@ const Hire = () => {
                         { setSubmitting }: FormikHelpers<Values>
                      ) => {
                         console.log('form was submitted')
-                        axios.post('/api/send-email', {
-                           name: values.contactName,
-                           email: values.contactEmail,
-                           phone: values.contactPhone,
-                           message: values.contactMessage,
-                        })
+                        axios.post(
+                           '/api/send-email',
+                           {},
+                           {
+                              params: {
+                                 name: values.contactName,
+                                 email: values.contactEmail,
+                                 phone: values.contactPhone,
+                                 message: values.contactMessage,
+                              },
+                           }
+                        )
                         setSubmitting(false)
                      }}
                   >
