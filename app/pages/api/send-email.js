@@ -1,3 +1,4 @@
+import { table } from 'node:console'
 import nodemailer from 'nodemailer'
 
 const transporter = nodemailer.createTransport({
@@ -10,7 +11,8 @@ const transporter = nodemailer.createTransport({
 })
 
 async function sendEmail({ name, email, phone, message }) {
-   console.log('Options:', name, email, phone, message)
+   console.log('incoming arguments:', name, email, phone, message)
+
    const emailOptions = {
       from: `${name} <${email}>`,
       to: 'roy@royanger.com',
@@ -25,12 +27,14 @@ async function sendEmail({ name, email, phone, message }) {
          <p>Message: ${message}</p>
       `,
    }
-
+   console.log('email options')
    console.table(emailOptions)
+
    return transporter.sendMail(emailOptions)
 }
 
 export default async function handler(req, res) {
+   console.log('serverless function called')
    if (req.method === 'POST') {
       console.log(req.body)
       const emailRes = await sendEmail(req.body)
