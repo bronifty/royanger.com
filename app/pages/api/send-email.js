@@ -2,7 +2,8 @@ import nodemailer from 'nodemailer'
 
 const transporter = nodemailer.createTransport({
    host: process.env.MAIL_HOST,
-   port: 25,
+   port: process.env.MAIL_PASS,
+   secure: false,
    auth: {
       user: process.env.MAIL_USER,
       pass: process.env.MAIL_PASS,
@@ -10,11 +11,11 @@ const transporter = nodemailer.createTransport({
 })
 
 async function sendEmail({ name, email, phone, message }) {
-   // console.log('incoming arguments:', name, email, phone, message)
+   console.log('incoming arguments:', name, email, phone, message)
 
-   // console.log('host', process.env.MAIL_HOST)
-   // console.log('user', process.env.MAIL_USER)
-   // console.log('pass', process.env.MAIL_PASS)
+   console.log('host', process.env.MAIL_HOST)
+   console.log('user', process.env.MAIL_USER)
+   console.log('pass', process.env.MAIL_PASS)
 
    const emailOptions = {
       from: `${name} <${email}>`,
@@ -30,8 +31,8 @@ async function sendEmail({ name, email, phone, message }) {
          <p>Message: ${message}</p>
       `,
    }
-   // console.log('email options')
-   // console.table(emailOptions)
+   console.log('email options')
+   console.table(emailOptions)
 
    return transporter.sendMail(emailOptions)
 }
