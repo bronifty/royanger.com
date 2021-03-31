@@ -8,11 +8,13 @@ interface Props {
 
 const MenuItem = ({ link, title }: Props) => {
    return (
-      <Link href={link}>
-         <a className="border-b border-lightblue-100 lg:border-0">
-            <button className=" px-10 py-5 lg:p-3 text-xl">{title}</button>
-         </a>
-      </Link>
+      <>
+         <Link href={link}>
+            <a className="border-b border-lightblue-100 lg:border-0">
+               <button className=" px-10 py-5 lg:p-3 text-xl">{title}</button>
+            </a>
+         </Link>
+      </>
    )
 }
 

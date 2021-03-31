@@ -18,7 +18,8 @@ const Index = () => {
 
          <Wrapper
             styles="h-screen"
-            bgImage="/images/backgrounds/gold-glitter.jpg"
+            //bgImage="/images/backgrounds/gold-glitter.jpg"
+            bgSVG="/images/svgs/layered-waves-haikei.svg"
             bgColor="dark:bg-blue bg-gray"
             bgOpacity="dark:bg-opacity-90 bg-opacity-80"
          >
