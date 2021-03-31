@@ -2,6 +2,7 @@ import * as React from 'react'
 import type { AppProps } from 'next/app'
 import Link from 'next/link'
 import { ThemeProvider } from '../lib/context/themeContext'
+import { HomeIcon, MenuAlt1Icon } from '@heroicons/react/solid'
 import Toggle from '../components/Toggle'
 import TagManager from 'react-gtm-module'
 import { GTM } from '../lib/constants/env'
@@ -10,16 +11,17 @@ import '../styles/globals.css'
 import LogRocket from 'logrocket'
 LogRocket.init('kjcuh5/royangercom')
 
-import HomeIcon from '../public/images/svgs/home-lg-alt.svg'
+// For now, replaced this with Heroicon version.
+//import HomeIcon from '../public/images/svgs/home-lg-alt.svg'
 
 const tagManagerArgs = { gtmId: 'GTM-K427PD5' }
 
 console.log(tagManagerArgs)
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-   React.useEffect(() => {
-      TagManager.initialize(tagManagerArgs)
-   }, [])
+   // React.useEffect(() => {
+   //    TagManager.initialize(tagManagerArgs)
+   // }, [])
 
    return (
       <ThemeProvider>
@@ -31,11 +33,14 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                   <div className="flex flex-col justify-center">
                      <Link href="/">
                         <a className="text-primary">
-                           <HomeIcon />
+                           <HomeIcon className="h-12 w-12" />
                         </a>
                      </Link>
                   </div>
-                  <div className="flex flex-grow items-center justify-end font-code text-primary">
+                  <nav className="flex flex-grow items-center justify-end font-code text-primary">
+                     <div>
+                        <MenuAlt1Icon className="h-12 w-12" />
+                     </div>
                      <Link href="/about">
                         <a>
                            <button className="p-3  text-xl">About</button>
@@ -59,7 +64,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                      <form>
                         <Toggle />
                      </form>
-                  </div>
+                  </nav>
                </div>
             </header>
             <main className={`w-full flex flex-row justify-center `}>
