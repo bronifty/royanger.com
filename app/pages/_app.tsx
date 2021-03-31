@@ -2,8 +2,8 @@ import * as React from 'react'
 import type { AppProps } from 'next/app'
 import Link from 'next/link'
 import { ThemeProvider } from '../lib/context/themeContext'
-import { HomeIcon, MenuAlt1Icon } from '@heroicons/react/solid'
-import Toggle from '../components/Toggle'
+import { HomeIcon } from '@heroicons/react/solid'
+import Menu from '../components/Header/Menu'
 import TagManager from 'react-gtm-module'
 import { GTM } from '../lib/constants/env'
 import '../styles/globals.css'
@@ -37,34 +37,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                         </a>
                      </Link>
                   </div>
-                  <nav className="flex flex-grow items-center justify-end font-code text-primary">
-                     <div>
-                        <MenuAlt1Icon className="h-12 w-12" />
-                     </div>
-                     <Link href="/about">
-                        <a>
-                           <button className="p-3  text-xl">About</button>
-                        </a>
-                     </Link>
-                     <Link href="/blog">
-                        <a>
-                           <button className="p-3 text-xl">Blog</button>
-                        </a>
-                     </Link>
-                     <Link href="/portfolio">
-                        <a>
-                           <button className="p-3 text-xl">Portfolio</button>
-                        </a>
-                     </Link>
-                     <Link href="/hire">
-                        <a>
-                           <button className="p-3 text-xl">Hire</button>
-                        </a>
-                     </Link>
-                     <form>
-                        <Toggle />
-                     </form>
-                  </nav>
+                  <Menu />
                </div>
             </header>
             <main className={`w-full flex flex-row justify-center `}>

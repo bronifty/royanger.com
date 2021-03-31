@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ThemeContext } from '../lib/context/themeContext'
+import { ThemeContext } from '../../lib/context/themeContext'
 import { SunIcon, MoonIcon } from '@heroicons/react/solid'
 
 const Toggle = () => {
