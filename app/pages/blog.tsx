@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 
 // import components
-import Wrapper from '../components/Wrapper'
+import WrapperHeader from '../components/Wrapper/WrapperHeader'
 import BlogIndexHeader from '../components/BlogIndex/BlogIndexHeader'
 import BlogCard from '../components/BlogIndex/BlogCard'
 
@@ -18,7 +18,7 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
                content="width=device-width, initial-scale=1"
             />
          </Head>
-         <Wrapper bgColor="bg-primary" bgOpacity="bg-opacity-90">
+         <WrapperHeader bgColor="bg-primary" bgOpacity="bg-opacity-90">
             <BlogIndexHeader />
             <div className="grid grid-cols-2 gap-6">
                {/* {console.log(posts)} */}
@@ -48,7 +48,7 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
                      }
                   )}
             </div>
-         </Wrapper>
+         </WrapperHeader>
       </>
    )
 }

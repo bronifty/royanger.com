@@ -40,7 +40,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                   <Menu />
                </div>
             </header>
-            <main className={`w-full flex flex-row justify-center `}>
+            <main className={`w-full flex flex-col justify-center `}>
                <Component {...pageProps} />
             </main>
             <footer

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Head from 'next/head'
-import Wrapper from '../components/Wrapper'
+import WrapperHeader from '../components/Wrapper/WrapperHeader'
 
 const About = () => {
    return (
@@ -12,7 +12,7 @@ const About = () => {
                content="width=device-width, initial-scale=1"
             />
          </Head>
-         <Wrapper bgColor="bg-blue-500">
+         <WrapperHeader bgColor="bg-blue-500">
             <article className="py-3 px-5 text-white mt-5 mb-10">
                <h1 className="text-white font-title text-5xl mb-24">
                   About Me
@@ -43,7 +43,7 @@ const About = () => {
                   <div>Col 2</div>
                </div>
             </article>
-         </Wrapper>
+         </WrapperHeader>
       </>
    )
 }

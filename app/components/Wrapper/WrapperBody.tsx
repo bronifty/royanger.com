@@ -9,7 +9,7 @@ interface Props {
    bgColor?: string
 }
 
-const Wrapper = ({
+const WrapperBody = ({
    children,
    bgImage,
    bgSVG,
@@ -19,7 +19,7 @@ const Wrapper = ({
 }: Props) => {
    const bgImageDivClassNames = 'w-full flex flex-row justify-center'
    const bgColorDivClassNames = 'w-full flex flex-row justify-center'
-   const coreDivClassNames = 'w-full xl:w-1440 pt-20'
+   const coreDivClassNames = 'w-full xl:w-1440'
 
    if (bgImage && bgColor) {
       return (
@@ -88,4 +88,4 @@ const Wrapper = ({
    return <div className={`${coreDivClassNames} ${styles}`}>{children}</div>
 }
 
-export default Wrapper
+export default WrapperBody

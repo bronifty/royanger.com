@@ -3,7 +3,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 // import components
-import Wrapper from '../components/Wrapper'
+import WrapperHeader from '../components/Wrapper/WrapperHeader'
+import WrapperBody from '../components/Wrapper/WrapperBody'
+import IndexCard from '../components/IndexCard'
 
 const Index = () => {
    return (
@@ -16,7 +18,7 @@ const Index = () => {
             />
          </Head>
 
-         <Wrapper
+         <WrapperHeader
             styles="h-screen"
             //bgImage="/images/backgrounds/gold-glitter.jpg"
             bgSVG="/images/svgs/layered-waves-haikei.svg"
@@ -34,7 +36,38 @@ const Index = () => {
                   Watch for the new site and portfolio - coming soon!
                </h3>
             </div>
-         </Wrapper>
+         </WrapperHeader>
+         <WrapperBody
+            bgSVG="images/svgs/gradient1.svg"
+            bgColor="bg-lightblue-100"
+         >
+            <div className="border-2 border-red-500 text-white grid grid-cols-2 mt-6 mb-10">
+               <IndexCard
+                  title="Frontend and Libraries"
+                  image="/images/logos/reactjs.png"
+                  //content={test}
+                  content={[
+                     "When it comes to Front End Development, I love React. I've been learning and switching to it over the last 8 months. It has been nothing short of a breath of fresh air coming from WordPress and PHP, and I definitely love the change of pace.",
+                     'This is a test.',
+                  ]}
+               />
+               <IndexCard
+                  title="APIs And Backend"
+                  image="/images/logos/reactjs.png"
+                  content={['Test', 'Help']}
+               />
+               <IndexCard
+                  title="Databases"
+                  image="/images/logos/reactjs.png"
+                  content={['Test', 'Help']}
+               />
+               <IndexCard
+                  title="Tools"
+                  image="/images/logos/reactjs.png"
+                  content={['Test', 'Help']}
+               />
+            </div>
+         </WrapperBody>
       </>
    )
 }
