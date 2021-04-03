@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { InferGetStaticPropsType } from 'next'
 import BlockContent from '@sanity/block-content-to-react'
 // import BaseBlockContent from '../../src/components/BlogArticle/BaseBlockContent'
-import Wrapper from '../../components/Wrapper'
+import WrapperHeader from '../../components/Wrapper/WrapperHeader'
 import BlogArticleHeader from '../../components/BlogArticle/BlogArticleHeader'
 import BlogArticleFooter from '../../components/BlogArticle/BlogArticleFooter'
 
@@ -27,7 +27,7 @@ const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
                content="width=device-width, initial-scale=1"
             />
          </Head>
-         <Wrapper
+         <WrapperHeader
             bgColor="dark:bg-blue-600 bg-grey-100"
             bgOpacity="bg-opacity-100"
          >
@@ -54,7 +54,7 @@ const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
                publishedAt={publishedAt}
                categories={categories}
             />
-         </Wrapper>
+         </WrapperHeader>
       </>
    )
 }

@@ -10,6 +10,17 @@ export default {
          validation: Rule => Rule.required(),
       },
       {
+         name: 'order',
+         title: 'Order',
+         type: 'number',
+      },
+      {
+         name: 'type',
+         title: 'Type',
+         type: 'string',
+         validation: Rule => Rule.required(),
+      },
+      {
          name: 'featuredImage',
          title: 'Featured Image',
          type: 'image',

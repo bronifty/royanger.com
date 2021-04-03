@@ -1,13 +1,15 @@
 import * as React from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
+import sanityClient from '../lib/sanity/client'
 
 // import components
 import WrapperHeader from '../components/Wrapper/WrapperHeader'
 import WrapperBody from '../components/Wrapper/WrapperBody'
 import IndexCard from '../components/IndexCard'
 
-const Index = () => {
+const Index = ({ posts }) => {
+   console.log(posts)
    return (
       <>
          <Head>
@@ -41,35 +43,29 @@ const Index = () => {
             bgSVG="images/svgs/gradient1.svg"
             bgColor="bg-lightblue-100"
          >
-            <div className="border-2 border-red-500 text-white grid grid-cols-2 mt-6 mb-10">
-               <IndexCard
-                  title="Frontend and Libraries"
-                  image="/images/logos/reactjs.png"
-                  //content={test}
-                  content={[
-                     "When it comes to Front End Development, I love React. I've been learning and switching to it over the last 8 months. It has been nothing short of a breath of fresh air coming from WordPress and PHP, and I definitely love the change of pace.",
-                     'This is a test.',
-                  ]}
-               />
-               <IndexCard
-                  title="APIs And Backend"
-                  image="/images/logos/reactjs.png"
-                  content={['Test', 'Help']}
-               />
-               <IndexCard
-                  title="Databases"
-                  image="/images/logos/reactjs.png"
-                  content={['Test', 'Help']}
-               />
-               <IndexCard
-                  title="Tools"
-                  image="/images/logos/reactjs.png"
-                  content={['Test', 'Help']}
-               />
+            <div className="text-white grid grid-cols-2 mt-6 mb-10">
+               {posts.map(post => {
+                  console.log(post)
+
+                  return <IndexCard key={post._id} post={post} />
+               })}
             </div>
          </WrapperBody>
       </>
    )
+}
+
+export const getStaticProps = async () => {
+   const posts = await sanityClient.fetch(`*[_type == "indexpage" && type == "techstacks"] | order(order){
+      _id,
+      section,
+      description,
+      "featuredImage": featuredImage.asset->url,
+      "featuredImageAlt": featuredImage.alt,
+      "images": images[]{ alt, "src": asset->url }
+    }`)
+
+   return { props: { posts } }
 }
 
 export default Index
