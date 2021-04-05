@@ -3,7 +3,7 @@ import sanityClient from '../../lib/sanity/client'
 import Head from 'next/head'
 import { InferGetStaticPropsType } from 'next'
 import BlockContent from '@sanity/block-content-to-react'
-// import BaseBlockContent from '../../src/components/BlogArticle/BaseBlockContent'
+import BaseBlockContent from '../../components/BlogArticle/BaseBlockContent'
 import WrapperHeader from '../../components/Wrapper/WrapperHeader'
 import BlogArticleHeader from '../../components/BlogArticle/BlogArticleHeader'
 import BlogArticleFooter from '../../components/BlogArticle/BlogArticleFooter'
@@ -41,13 +41,13 @@ const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
             <img src={imageUrl} />
 
             <article className="w-full flex flex-row justify-center ">
-               {/* <BaseBlockContent
+               <BaseBlockContent
                   blocks={body}
                   imageOptions={{ w: 320, h: 240, fit: 'max' }}
-                  {...client.config()}
+                  // {...client.config()}
                   className="text-primary text-xl leading-relaxed w-2/3 mt-5 mb-7"
                   // serializers={{ marks: { codeSerializer } }}
-               /> */}
+               />
             </article>
             <BlogArticleFooter
                author={name}

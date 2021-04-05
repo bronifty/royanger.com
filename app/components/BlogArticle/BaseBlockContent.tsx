@@ -1,11 +1,8 @@
 import * as React from 'react'
-import sanityClient from '../../lib/sanity/client'
-import SanityPortableText, {
-   PortableTextProps,
-   PortableTextSerializers,
-} from '@sanity/block-content-to-react'
+import client from '../../lib/sanity/client'
+import BlockContent from '@sanity/block-content-to-react'
 import serializers from '../../lib/serializer'
-import blockContent from '../../../sanity/schemas/blockContent'
+// import blockContent from '../../../sanity/schemas/blockContent'
 
 interface BaseBlockContent {
    blocks: string
@@ -17,18 +14,13 @@ interface BaseBlockContent {
    }
 }
 
-export function BaseBlockContent({
-   blocks,
-   className,
-}: BaseBlockContent & { serializers?: PortableTextSerializers }) => (
-   return function PortableText(props: PortableTextProps) {
-   return (<SanityPortableText
+const BaseBlockContent = ({ blocks, className }: BaseBlockContent) => (
+   <BlockContent
       blocks={blocks}
       className={className}
       serializers={serializers}
       {...client}
-   />)
-   }
+   />
 )
 
 export default BaseBlockContent
