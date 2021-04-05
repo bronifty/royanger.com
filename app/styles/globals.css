@@ -1,6 +1,8 @@
 /* Setup CSS for Theme Switcher */
-:root {
-   @apply light;
+@layer {
+   :root {
+      @apply light;
+   }
 }
 
 .dark {

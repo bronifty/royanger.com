@@ -1,4 +1,5 @@
 import * as React from 'react'
+//import { createPortableTextComponent } from
 
 interface Props {
    title: string
@@ -8,8 +9,6 @@ interface Props {
 
 const IndexCard = props => {
    const { section, featuredImage, featuredImageAlt, images } = props.post
-
-   console.log(images)
 
    return (
       <div className="m-5 mt-10 mb-10 grid grid-cols-3 bg-white text-blue p-5">

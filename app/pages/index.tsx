@@ -28,7 +28,7 @@ const Index = ({ posts }) => {
             bgOpacity="dark:bg-opacity-90 bg-opacity-80"
          >
             <div className="h-full flex flex-col lg:items-center justify-center">
-               <h1 className="text-6xl md:text-9xl font-code text-secondary text-blue-500 p-3">
+               <h1 className="text-6xl md:text-9xl font-code text-secondary p-3">
                   Roy Anger
                </h1>
                <h2 className="text-3xl md:text-6xl font-title leading-loose text-accent p-3">
