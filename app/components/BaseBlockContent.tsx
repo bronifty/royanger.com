@@ -1,7 +1,7 @@
 import * as React from 'react'
-import client from '../../lib/sanity/client'
+import client from '../lib/sanity/client'
 import BlockContent from '@sanity/block-content-to-react'
-import serializers from '../../lib/serializer'
+import serializers from '../lib/serializers'
 // import blockContent from '../../../sanity/schemas/blockContent'
 
 interface BaseBlockContent {

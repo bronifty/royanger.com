@@ -1,8 +1,13 @@
 import * as React from 'react'
 import Head from 'next/head'
-import WrapperHeader from '../components/Wrapper/WrapperHeader'
+import sanityClient from '../lib/sanity/client'
 
-const About = () => {
+// import componenets
+import WrapperHeader from '../components/Wrapper/WrapperHeader'
+import BaseBlockContent from '../components/BaseBlockContent'
+import AboutSection from '../components/About/AboutSection'
+
+const About = ({ posts }) => {
    return (
       <>
          <Head>
@@ -17,35 +22,24 @@ const About = () => {
                <h1 className="text-white font-title text-5xl mb-24">
                   About Me
                </h1>
-               <div className="grid grid-cols-2">
-                  <div>
-                     <p className="text-white font-sans leading-loose text-xl mb-16">
-                        Thanks for taking a moment to visit! I'm a Full Stack
-                        Web Developer from Toronto. Recently I've been freelance
-                        and remote work, and I'm looking to either continue with
-                        the remote work or even transition into a full time
-                        in-house position.
-                     </p>
-                     <p className="text-white font-sans leading-loose text-xl mb-16">
-                        I've recently transition into devloping with React,
-                        NodeJS, Express, Postgres and Mongo. This site marks the
-                        switch from using WordPress to using my new, favourite
-                        stacks to develop on.
-                     </p>
-                     <p className="text-white font-sans leading-loose text-xl mb-16">
-                        I spent years creating solutions and site for small
-                        business and individuals, uring WordPress as the basis
-                        for their sites. I used premade themes, page builders or
-                        even created custom themes depending on the client and
-                        their needs.
-                     </p>
-                  </div>
-                  <div>Col 2</div>
-               </div>
+               {posts.map(post => {
+                  return <AboutSection key={post._id} content={post} />
+               })}
             </article>
          </WrapperHeader>
       </>
    )
+}
+
+export const getStaticProps = async () => {
+   const posts = await sanityClient.fetch(`*[_type == "about"] | order(order){
+      _id,
+      "title": section,
+      "images": images[]{ _key, alt, "src": asset->url},
+      description
+   }`)
+
+   return { props: { posts } }
 }
 
 export default About

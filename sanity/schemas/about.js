@@ -1,6 +1,6 @@
 export default {
-   name: 'indexpage',
-   title: 'Index Page',
+   name: 'about',
+   title: 'About Page',
    type: 'document',
    fields: [
       {
@@ -15,14 +15,8 @@ export default {
          type: 'number',
       },
       {
-         name: 'type',
-         title: 'Type',
-         type: 'string',
-         validation: Rule => Rule.required(),
-      },
-      {
          name: 'description',
-         title: 'Description',
+         title: 'Content',
          type: 'blockContent',
          validation: Rule => Rule.required(),
       },

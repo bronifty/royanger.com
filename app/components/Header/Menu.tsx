@@ -27,7 +27,7 @@ const Menu = () => {
          {menuStatus === 'default' ? (
             <div
                id="menu"
-               className="flex self-start flex-col lg:flex-row bg-lightblue-200 bg-opacity-80 lg:bg-transparent "
+               className="flex self-start lg:self-center flex-col lg:flex-row bg-lightblue-200 bg-opacity-80 lg:bg-transparent "
             >
                <MenuItem link="/about" title="About" />
                <MenuItem link="/blog" title="Blog" />

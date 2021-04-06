@@ -1,5 +1,5 @@
 import * as React from 'react'
-import BaseBlockContent from '../components/BlogArticle/BaseBlockContent'
+import BaseBlockContent from '../components/BaseBlockContent'
 
 interface Props {
    title: string
