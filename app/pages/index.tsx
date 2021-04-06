@@ -39,8 +39,6 @@ const Index = ({ posts }) => {
             </div>
          </WrapperHeader>
          <WrapperBody
-            // bgSVG="images/svgs/gradient1.svg"
-            //bgColor="bg-lightblue-100"
             bgGradient={{
                direction: 'bg-gradient-to-b',
                from: 'from-blue',
@@ -48,6 +46,14 @@ const Index = ({ posts }) => {
                to: 'to-blue-100',
             }}
          >
+            <div className="mt-10 p-14 font-title text-2xl leading-relaxed text-white">
+               Over the last six months I have been focusing on learning React,
+               Node and some of the other technologies involved in the wide
+               world of full stack development. I come from a WordPress/PHP
+               background before that, but React and Node are much more fun and
+               interesting to work with. I've been loving the learning curve and
+               the switch to Javascript, React and the related technologies.
+            </div>
             <div className="text-white grid grid-cols-2 mt-6 mb-10">
                {posts.map(post => {
                   return <IndexCard key={post._id} post={post} />
