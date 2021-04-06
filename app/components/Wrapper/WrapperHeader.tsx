@@ -40,11 +40,6 @@ const WrapperHeader = ({
    }
    if (bgSVG && bgColor) {
       return (
-         // <div
-         //    style={{
-         //       backgroundImage: `url(/images/svgs/circle-scatter-haikei.svg)`,
-         //    }}
-         // >
          <div
             style={{
                backgroundImage: `url(${bgSVG})`,

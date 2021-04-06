@@ -7,6 +7,12 @@ interface Props {
    styles?: string
    bgOpacity?: string
    bgColor?: string
+   bgGradient?: {
+      direction: string
+      from: string
+      via: string
+      to: string
+   }
 }
 
 const WrapperBody = ({
@@ -16,12 +22,15 @@ const WrapperBody = ({
    styles,
    bgOpacity,
    bgColor,
+   bgGradient,
 }: Props) => {
    const bgImageDivClassNames = 'w-full flex flex-row justify-center'
    const bgColorDivClassNames = 'w-full flex flex-row justify-center'
    const coreDivClassNames = 'w-full xl:w-1440'
 
    if (bgImage && bgColor) {
+      console.log('image and color')
+
       return (
          <div
             style={{
@@ -40,18 +49,27 @@ const WrapperBody = ({
    }
    if (bgSVG && bgColor) {
       return (
-         // <div
-         //    style={{
-         //       backgroundImage: `url(/images/svgs/circle-scatter-haikei.svg)`,
-         //    }}
-         // >
          <div
             style={{
                backgroundImage: `url(${bgSVG})`,
                backgroundSize: 'cover',
             }}
-            className={`${bgImageDivClassNames} ${bgColor}`}
+            className={`${bgImageDivClassNames} ${backgroundClasses}`}
          >
+            <div className={`${bgColorDivClassNames} ${bgOpacity}`}>
+               <div className={`${coreDivClassNames} ${styles}`}>
+                  {children}
+               </div>
+            </div>
+         </div>
+      )
+   }
+
+   if (bgGradient) {
+      const gradientClasses = `${bgGradient.direction} ${bgGradient.from} ${bgGradient.via} ${bgGradient.to}`
+
+      return (
+         <div className={`${bgImageDivClassNames} ${gradientClasses}`}>
             <div className={`${bgColorDivClassNames} ${bgOpacity}`}>
                <div className={`${coreDivClassNames} ${styles}`}>
                   {children}
@@ -61,7 +79,10 @@ const WrapperBody = ({
          // </div>
       )
    }
+
    if (bgImage) {
+      console.log('image only')
+
       return (
          <div
             style={{
@@ -76,6 +97,8 @@ const WrapperBody = ({
    }
 
    if (bgColor) {
+      console.log('color only')
+
       return (
          <div
             className={`${bgColorDivClassNames} ${bgColor} bg-opacity-${bgOpacity}`}

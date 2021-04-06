@@ -7,7 +7,7 @@ import serializers from '../../lib/serializer'
 interface BaseBlockContent {
    blocks: string
    className: string
-   imageOptions: {
+   imageOptions?: {
       w: number
       h: number
       fit: string
@@ -19,6 +19,7 @@ const BaseBlockContent = ({ blocks, className }: BaseBlockContent) => (
       blocks={blocks}
       className={className}
       serializers={serializers}
+      renderContainerOnSingleChild="true"
       {...client}
    />
 )

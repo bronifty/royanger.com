@@ -9,7 +9,6 @@ import WrapperBody from '../components/Wrapper/WrapperBody'
 import IndexCard from '../components/IndexCard'
 
 const Index = ({ posts }) => {
-   console.log(posts)
    return (
       <>
          <Head>
@@ -40,13 +39,17 @@ const Index = ({ posts }) => {
             </div>
          </WrapperHeader>
          <WrapperBody
-            bgSVG="images/svgs/gradient1.svg"
-            bgColor="bg-lightblue-100"
+            // bgSVG="images/svgs/gradient1.svg"
+            //bgColor="bg-lightblue-100"
+            bgGradient={{
+               direction: 'bg-gradient-to-b',
+               from: 'from-blue',
+               via: 'via-blue-300',
+               to: 'to-blue-100',
+            }}
          >
             <div className="text-white grid grid-cols-2 mt-6 mb-10">
                {posts.map(post => {
-                  console.log(post)
-
                   return <IndexCard key={post._id} post={post} />
                })}
             </div>
