@@ -65,7 +65,7 @@ export const getStaticProps = async () => {
       description,
       "featuredImage": featuredImage.asset->url,
       "featuredImageAlt": featuredImage.alt,
-      "images": images[]{ alt, "src": asset->url }
+      "images": images[]{ _key, alt, "src": asset->url }
     }`)
 
    return { props: { posts } }

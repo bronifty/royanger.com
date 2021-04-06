@@ -19,7 +19,7 @@ const BaseBlockContent = ({ blocks, className }: BaseBlockContent) => (
       blocks={blocks}
       className={className}
       serializers={serializers}
-      renderContainerOnSingleChild="true"
+      renderContainerOnSingleChild={true}
       {...client}
    />
 )

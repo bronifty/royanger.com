@@ -23,11 +23,25 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
    //    TagManager.initialize(tagManagerArgs)
    // }, [])
 
+   // set bg-opacity on header depending on whether user has scrolled or not
+   // gives a light BG colour to the header once user scrolls, to header always
+   // pops out from the page
+   const [scrolledClass, setScrolledClass] = React.useState('')
+   const handleScroll = position => {
+      setScrolledClass(position === 0 ? 'bg-opacity-0' : 'bg-opacity-40')
+   }
+
+   React.useEffect(() => {
+      window.onscroll = function () {
+         handleScroll(window.pageYOffset)
+      }
+   }, [])
+
    return (
       <ThemeProvider>
          <>
             <header
-               className={`bg-gray-transparent w-full h-20 flex flex-row justify-center p-2 fixed `}
+               className={`bg-gray-transparent w-full h-20 flex flex-row justify-center p-2 fixed bg-blue-100 ${scrolledClass}`}
             >
                <div className="w-full xl:w-1440 flex flex-row">
                   <div className="flex flex-col justify-center">
@@ -40,7 +54,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                   <Menu />
                </div>
             </header>
-            <main className={`w-full flex flex-col justify-center `}>
+            <main id="main" className={`w-full flex flex-col justify-center `}>
                <Component {...pageProps} />
             </main>
             <footer

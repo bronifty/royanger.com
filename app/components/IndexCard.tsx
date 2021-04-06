@@ -29,7 +29,7 @@ const IndexCard = props => {
                {images
                   ? images.map((image, i) => {
                        return (
-                          <div className="flex items-end p-3">
+                          <div key={image._key} className="flex items-end p-3">
                              <img key={i} src={image.src} alt={image.alt} />
                           </div>
                        )
