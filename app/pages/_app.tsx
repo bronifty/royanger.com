@@ -11,9 +11,6 @@ import '../styles/globals.css'
 import LogRocket from 'logrocket'
 LogRocket.init('kjcuh5/royangercom')
 
-// For now, replaced this with Heroicon version.
-//import HomeIcon from '../public/images/svgs/home-lg-alt.svg'
-
 const tagManagerArgs = { gtmId: 'GTM-K427PD5' }
 
 console.log(tagManagerArgs)
