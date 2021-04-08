@@ -1,4 +1,3 @@
-import { SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS } from 'node:constants'
 import * as React from 'react'
 import BaseBlockContent from '../BaseBlockContent'
 

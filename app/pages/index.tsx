@@ -31,7 +31,7 @@ const Index = ({ posts }) => {
                   Roy Anger
                </h1>
                <h2 className="text-3xl md:text-6xl font-title leading-loose text-accent p-3">
-                  Full Stack Web Developer
+                  # full stack web developer
                </h2>
                <h3 className="text-xl md:text-4xl font-sans text-primary mt-10 bg-opacity-70 font-bold p-3">
                   Watch for the new site and portfolio - coming soon!
@@ -46,14 +46,17 @@ const Index = ({ posts }) => {
                to: 'to-blue-100',
             }}
          >
-            <div className="mt-10 p-14 font-title text-2xl leading-relaxed text-white">
+            <h2 className="text-6xl text-secondary font-title mt-10">
+               # languages and skills
+            </h2>
+            {/*
                Over the last six months I have been focusing on learning React,
                Node and some of the other technologies involved in the wide
                world of full stack development. I come from a WordPress/PHP
                background before that, but React and Node are much more fun and
                interesting to work with. I've been loving the learning curve and
-               the switch to Javascript, React and the related technologies.
-            </div>
+               the switch to Javascript, React and the related technologies. */}
+
             <div className="text-white grid grid-cols-2 mt-6 mb-10">
                {posts.map(post => {
                   return <IndexCard key={post._id} post={post} />

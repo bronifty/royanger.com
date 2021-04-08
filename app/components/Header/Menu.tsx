@@ -4,7 +4,6 @@ import { MenuAlt1Icon, XIcon } from '@heroicons/react/solid'
 
 // import components, custom hooks, etc
 import Toggle from './Toggle'
-import ClickOutside from '../ClickOutside'
 import useVisible from '../../lib/hooks/useVisible'
 
 const Menu = () => {
@@ -20,11 +19,9 @@ const Menu = () => {
    // handle showing and hiding the menu
    const openMenu = () => {
       setIsVisible(true)
-      //setDisplayMobileMenuIcon(false)
    }
    const closeMenu = () => {
       setIsVisible(false)
-      //setDisplayMobileMenuIcon(true)
    }
 
    // handle closing menu if a link is clicked on from child component
@@ -33,22 +30,16 @@ const Menu = () => {
    }
 
    React.useEffect(() => {
-      console.log('running useeffect')
-      console.log(displayMobileMenuIcon)
-
       if (displayMobileMenuIcon) {
-         console.log('useeffect true')
-
          setMobileToggleCSS('block')
          setMobileCloseCSS('hidden')
       } else {
-         console.log('useeffect false')
-
          setMobileToggleCSS('hidden')
          setMobileCloseCSS('block')
       }
    }, [displayMobileMenuIcon])
 
+   // use this to useVisible can remain a separate, reusable hook
    React.useEffect(() => {
       setDisplayMobileMenuIcon(isVisible ? false : true)
    }, [isVisible])
