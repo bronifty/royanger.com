@@ -1,33 +1,57 @@
 import * as React from 'react'
 import MenuItem from './MenuItem'
 import { MenuAlt1Icon, XIcon } from '@heroicons/react/solid'
+
+// import components, custom hooks, etc
 import Toggle from './Toggle'
+import ClickOutside from '../ClickOutside'
+import useVisible from '../../lib/hooks/useVisible'
 
 const Menu = () => {
-   const [displayMobileMenu, setDisplayMobileMenu] = React.useState(false)
-   const [displayMobileToggle, setDisplayMobileToggle] = React.useState(true)
+   const { ref, isVisible, setIsVisible } = useVisible(false)
+
+   // const [displayMobileMenu, setDisplayMobileMenu] = React.useState(false)
+   const [displayMobileMenuIcon, setDisplayMobileMenuIcon] = React.useState(
+      true
+   )
    const [mobileToggleCSS, setMobileToggleCSS] = React.useState('block')
    const [mobileCloseCSS, setMobileCloseCSS] = React.useState('hidden')
 
-   const toggleMenu = () => {
-      setDisplayMobileMenu(prevStatus => (prevStatus === false ? true : false))
-      setDisplayMobileToggle(prevStatus => (prevStatus === true ? false : true))
+   // handle showing and hiding the menu
+   const openMenu = () => {
+      setIsVisible(true)
+      //setDisplayMobileMenuIcon(false)
+   }
+   const closeMenu = () => {
+      setIsVisible(false)
+      //setDisplayMobileMenuIcon(true)
    }
 
+   // handle closing menu if a link is clicked on from child component
    const onClick = () => {
-      setDisplayMobileToggle(true)
-      setDisplayMobileMenu(false)
+      setIsVisible(!isVisible)
    }
 
    React.useEffect(() => {
-      if (displayMobileToggle) {
+      console.log('running useeffect')
+      console.log(displayMobileMenuIcon)
+
+      if (displayMobileMenuIcon) {
+         console.log('useeffect true')
+
          setMobileToggleCSS('block')
          setMobileCloseCSS('hidden')
       } else {
+         console.log('useeffect false')
+
          setMobileToggleCSS('hidden')
          setMobileCloseCSS('block')
       }
-   }, [displayMobileToggle])
+   }, [displayMobileMenuIcon])
+
+   React.useEffect(() => {
+      setDisplayMobileMenuIcon(isVisible ? false : true)
+   }, [isVisible])
 
    return (
       <nav className="flex flex-grow items-center justify-end font-code text-primary relative">
@@ -43,9 +67,11 @@ const Menu = () => {
          <form>
             <Toggle />
          </form>
-         {displayMobileMenu === true ? (
+
+         {isVisible ? (
             <div
-               id="menu"
+               ref={ref}
+               id="mobilemenu"
                className="flex self-start lg:hidden flex-col bg-lightblue-200 bg-opacity-90 rounded-xl absolute "
             >
                <MenuItem link="/about" title="About" onClick={onClick} />
@@ -63,7 +89,7 @@ const Menu = () => {
          <div
             id="menuButton"
             className={`lg:hidden border-2 border-white rounded-xl mr-3 ml-5 ${mobileToggleCSS}`}
-            onClick={toggleMenu}
+            onClick={openMenu}
          >
             <MenuAlt1Icon className="h-12 w-12" />
          </div>
@@ -71,7 +97,7 @@ const Menu = () => {
          <div
             id="menuButton"
             className={`lg:hidden z-50 border-2 border-white rounded-xl mr-3 ${mobileCloseCSS} `}
-            onClick={toggleMenu}
+            onClick={closeMenu}
          >
             <XIcon className="h-12 w-12" />
          </div>
