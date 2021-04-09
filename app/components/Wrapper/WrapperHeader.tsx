@@ -1,6 +1,9 @@
 import * as React from 'react'
 import { ThemeContext } from '../../lib/context/themeContext'
 
+import darkSVG from '../../public/images/svgs/index-bg-dark.svg'
+import lightSVG from '../../public/images/svgs/index-bg-light.svg'
+
 interface Props {
    children: any
    bgImage?: string
@@ -47,6 +50,7 @@ const WrapperHeader = ({
          <div
             style={{
                backgroundImage: `url('/images/svgs/${bgSVG}-${theme}.svg')`,
+               //backgroundImage: `url('/images/svgs/${theme}SVG.svg')`,
                backgroundSize: 'cover',
             }}
             className={`${bgImageDivClassNames} ${bgColor}`}
