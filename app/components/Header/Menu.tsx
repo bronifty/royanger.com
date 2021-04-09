@@ -8,8 +8,6 @@ import useVisible from '../../lib/hooks/useVisible'
 
 const Menu = () => {
    const { ref, isVisible, setIsVisible } = useVisible(false)
-
-   // const [displayMobileMenu, setDisplayMobileMenu] = React.useState(false)
    const [displayMobileMenuIcon, setDisplayMobileMenuIcon] = React.useState(
       true
    )
@@ -39,7 +37,7 @@ const Menu = () => {
       }
    }, [displayMobileMenuIcon])
 
-   // use this to useVisible can remain a separate, reusable hook
+   // use this so useVisible can remain a separate, reusable hook
    React.useEffect(() => {
       setDisplayMobileMenuIcon(isVisible ? false : true)
    }, [isVisible])

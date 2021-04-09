@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { ThemeContext } from '../../lib/context/themeContext'
 
 interface Props {
    children: any
@@ -9,9 +10,8 @@ interface Props {
    bgColor?: string
    bgGradient?: {
       direction: string
-      from: string
-      via: string
-      to: string
+      dark: { from: string; via: string; to: string },
+      light: { from: string; via: string; to: string }
    }
 }
 
@@ -24,6 +24,8 @@ const WrapperBody = ({
    bgColor,
    bgGradient,
 }: Props) => {
+   const { theme } = React.useContext(ThemeContext)
+
    const bgImageDivClassNames = 'w-full flex flex-row justify-center'
    const bgColorDivClassNames = 'w-full flex flex-row justify-center'
    const coreDivClassNames = 'w-full xl:w-1440'
@@ -66,7 +68,7 @@ const WrapperBody = ({
    }
 
    if (bgGradient) {
-      const gradientClasses = `${bgGradient.direction} ${bgGradient.from} ${bgGradient.via} ${bgGradient.to}`
+      const gradientClasses = `${bgGradient.direction} ${bgGradient.[theme].from} ${bgGradient.[theme].via} ${bgGradient.[theme].to}`
 
       return (
          <div className={`${bgImageDivClassNames} ${gradientClasses}`}>

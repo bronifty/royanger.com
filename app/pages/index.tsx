@@ -21,8 +21,7 @@ const Index = ({ posts }) => {
 
          <WrapperHeader
             styles="h-screen"
-            //bgImage="/images/backgrounds/gold-glitter.jpg"
-            bgSVG="/images/svgs/layered-waves-haikei.svg"
+            bgSVG="index-bg"
             bgColor="dark:bg-blue bg-gray"
             bgOpacity="dark:bg-opacity-90 bg-opacity-80"
          >
@@ -41,9 +40,16 @@ const Index = ({ posts }) => {
          <WrapperBody
             bgGradient={{
                direction: 'bg-gradient-to-b',
-               from: 'from-blue',
-               via: 'via-blue-300',
-               to: 'to-blue-100',
+               dark: {
+                  from: 'from-blue',
+                  via: 'via-blue-300',
+                  to: 'to-blue-100',
+               },
+               light: {
+                  from: 'from-blue-50',
+                  via: 'via-brightyellow-50',
+                  to: 'to-brightyellow-200',
+               },
             }}
          >
             <h2 className="text-6xl text-secondary font-title mt-10">

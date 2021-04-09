@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { ThemeContext } from '../../lib/context/themeContext'
 
 interface Props {
    children: any
@@ -17,9 +18,12 @@ const WrapperHeader = ({
    bgOpacity,
    bgColor,
 }: Props) => {
+   const { theme } = React.useContext(ThemeContext)
    const bgImageDivClassNames = 'w-full flex flex-row justify-center'
    const bgColorDivClassNames = 'w-full flex flex-row justify-center'
    const coreDivClassNames = 'w-full xl:w-1440 pt-20'
+
+   console.log('THEME', theme)
 
    if (bgImage && bgColor) {
       return (
@@ -42,7 +46,7 @@ const WrapperHeader = ({
       return (
          <div
             style={{
-               backgroundImage: `url(${bgSVG})`,
+               backgroundImage: `url('/images/svgs/${bgSVG}-${theme}.svg')`,
                backgroundSize: 'cover',
             }}
             className={`${bgImageDivClassNames} ${bgColor}`}
