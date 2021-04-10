@@ -26,8 +26,6 @@ const WrapperHeader = ({
    const bgColorDivClassNames = 'w-full flex flex-row justify-center'
    const coreDivClassNames = 'w-full xl:w-1440 pt-20'
 
-   console.log('THEME', theme)
-
    if (bgImage && bgColor) {
       return (
          <div

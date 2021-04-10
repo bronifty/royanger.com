@@ -21,7 +21,6 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
          <WrapperHeader bgColor="bg-primary" bgOpacity="bg-opacity-90">
             <BlogIndexHeader />
             <div className="grid grid-cols-2 gap-6">
-               {/* {console.log(posts)} */}
                {posts &&
                   posts.map(
                      ({

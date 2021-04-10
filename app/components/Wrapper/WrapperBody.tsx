@@ -31,8 +31,6 @@ const WrapperBody = ({
    const coreDivClassNames = 'w-full xl:w-1440'
 
    if (bgImage && bgColor) {
-      console.log('image and color')
-
       return (
          <div
             style={{
@@ -83,8 +81,6 @@ const WrapperBody = ({
    }
 
    if (bgImage) {
-      console.log('image only')
-
       return (
          <div
             style={{
@@ -99,8 +95,6 @@ const WrapperBody = ({
    }
 
    if (bgColor) {
-      console.log('color only')
-
       return (
          <div
             className={`${bgColorDivClassNames} ${bgColor} bg-opacity-${bgOpacity}`}

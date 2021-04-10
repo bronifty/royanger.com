@@ -123,6 +123,7 @@ module.exports = {
          sans: ['Nunito Sans', 'sans-serif'],
          title: ['Fira Mono', 'sans-serif'],
          code: ['Ubuntu', 'mono'],
+         work: ['Work Sans'],
       },
       extend: {
          backgroundColor: {

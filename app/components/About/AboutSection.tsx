@@ -2,8 +2,6 @@ import * as React from 'react'
 import BaseBlockContent from '../BaseBlockContent'
 
 const AboutSection = ({ content }) => {
-   console.log(content)
-
    return (
       <div className="grid grid-cols-5 mb-16">
          <div className="col-span-3 pr-20">
