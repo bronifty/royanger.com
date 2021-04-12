@@ -17,12 +17,9 @@ const MenuItem = ({ link, title, onClick }: Props) => {
    return (
       <>
          <Link href={link}>
-            <a
-               onClick={onClick}
-               className={`border-b border-lightblue-100 pr-14 ${classes}`}
-            >
-               <button className=" px-10 py-5 lg:p-3 text-xl">{title}</button>
-            </a>
+            <button onClick={onClick} className=" px-10 py-5 lg:p-3 text-xl">
+               {title}
+            </button>
          </Link>
       </>
    )
