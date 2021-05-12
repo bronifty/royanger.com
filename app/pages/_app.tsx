@@ -23,9 +23,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
    // set bg-opacity on header depending on whether user has scrolled or not
    // gives a light BG colour to the header once user scrolls, to header always
    // pops out from the page
-   const [scrolledClass, setScrolledClass] = React.useState('bg-opacity-0')
+   const [scrolledStyles, setScrolledStyles] = React.useState('bg-opacity-0')
    const handleScroll = position => {
-      setScrolledClass(position === 0 ? 'bg-opacity-0' : 'bg-opacity-40')
+      setScrolledStyles(position === 0 ? 'bg-opacity-0 dark:bg-opacity-0' : 'bg-opacity-90 dark:bg-opacity-70')
    }
 
    React.useEffect(() => {
@@ -38,7 +38,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <ThemeProvider>
          <>
             <header
-               className={`bg-gray-transparent w-full h-20 flex flex-row justify-center p-2 fixed bg-blue-100 ${scrolledClass}`}
+               className={`bg-gray-transparent w-full h-20 flex flex-row justify-center p-2 fixed bg-white-100 dark:bg-blue-100 ${scrolledStyles}`}
             >
                <div className="w-full xl:w-1440 flex flex-row">
                   <div className="flex flex-col justify-center">
