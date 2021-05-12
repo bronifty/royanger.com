@@ -14,7 +14,7 @@ const Toggle = () => {
          <div className="flex items-center text-gray-900 rounded-full cursor-pointer select-none dark:text-gray-100">
             <div
                onClick={() => handleThemeChange('light')}
-               className="p-2 rounded-tl rounded-bl focus:outline-none bg-gray-200 dark:bg-gray-700"
+               className="p-2 rounded-tl-xl rounded-bl-xl focus:outline-none bg-lightblue-100 text-yellow-50 dark:bg-white-200 dark:text-lightblue-500"
             >
                <div className="w-4 h-4 svg-icon ">
                   <SunIcon />
@@ -22,7 +22,7 @@ const Toggle = () => {
             </div>
             <div
                onClick={() => handleThemeChange('dark')}
-               className="p-2 rounded-tr rounded-br focus:outline-none bg-gray-100 dark:bg-gray-600"
+               className="p-2 rounded-tr-xl rounded-br-xl focus:outline-none bg-lightblue-700 text-yellow-50 dark:bg-brightyellow-500 dark:text-lightblue-500"
             >
                <div className="w-4 h-4 svg-icon ">
                   <MoonIcon />
