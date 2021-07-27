@@ -47,10 +47,6 @@ class MyDocument extends Document {
                   href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500&family=Nunito+Sans:ital,wght@0,400;0,700;1,400&family=Ubuntu:wght@700&display=swap"
                   rel="stylesheet"
                />
-               <link
-                  href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
-                  rel="stylesheet"
-               />
                <link rel="stylesheet" href="/assets/prism.css" />
                <script src="/assets/prism.js" />
             </Head>

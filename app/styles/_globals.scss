@@ -1,0 +1,146 @@
+// colour pallette based on https://coolors.co/9e0031-e7e7e7-000814-001d3d-003566-ffc300-ffd60a-f0f4ef
+:root {
+   // brand - lue
+   --blue: #001d3d;
+   --blue-50: #004fa3;
+   --blue-100: #04458f;
+   --blue-200: #003b7a;
+   --blue-300: #003166;
+   --blue-400: #002752;
+   --blue-500: #001d3d;
+   --blue-600: #001429;
+   --blue-700: #000a14;
+
+   // alternbate lightblue
+   --lightblue: #003566;
+   --lightblue-50: #0069cc;
+   --lightblue-100: #005fb8;
+   --lightblue-200: #0054a3;
+   --lightblue-300: #004a8f;
+   --lightblue-400: #003f7a;
+   --lightblue-500: #003566;
+   --lightblue-600: #002a52;
+   --lightblue-700: #00203d;
+   --lightblue-800: #001529;
+   --lightblue-900: #000b14;
+
+   // black
+   --black: #242423;
+   --black-50: #676765;
+   --black-100: #5d5d5b;
+   --black-200: #525251;
+   --black-300: #484847;
+   --black-400: #3e3e3d;
+   --black-500: #343432;
+   --black-600: #242423;
+   --black-700: #1f1f1e;
+   --black-800: #151514;
+   --black-900: #0a0a0a;
+
+   // brand - bright yellow
+   --brightyellow: #ffd60a;
+   --brightyellow-50: #fff8d6;
+   --brightyellow-100: #fff1ad;
+   --brightyellow-200: #ffeb85;
+   --brightyellow-300: #ffe45c;
+   --brightyellow-400: #ffdd33;
+   --brightyellow-500: #ffd60a;
+   --brightyellow-600: #e0bb00;
+   --brightyellow-700: #b89900;
+   --brightyellow-800: #8f7700;
+   --brightyellow-900: #665500;
+
+   // alternate yellow
+   --yellow: #ffc300;
+   --yellow-50: #fff5d6;
+   --yellow100: #ffecad;
+   --yellow200: #ffe285;
+   --yellow300: #ffd95c;
+   --yellow400: #ffcf33;
+   --yellow500: #ffc300;
+   --yellow600: #e0ac00;
+   --yellow700: #a37d00;
+   --yellow800: #7a5e00;
+   --yellow900: #523f00;
+
+   // white with a touch of blue
+   --white: #f0f4ef;
+   --white-50: #FFFFF;
+   --white-100: #f0f4ef;
+   --white-200: #e8eee7;
+   --white-300: #dde6db;
+   --white-400: #d2dece;
+   --white-500: #c6d6c2;
+   --white-600: #bbcdb6;
+   --white-700: #afc5aa;
+   --white-800: #a4bd9e;
+   --white-900: #99b592;
+
+   // brand - red
+   --red: #9e0031;
+   --red-50: #ff0a58;
+   --red-100: #f5004e;
+   --red-200: #e00047;
+   --red-300: #cc0041;
+   --red-400: #b8003a;
+   --red-500: #9e0031;
+   --red-600: #8f002d;
+   --red-700: #7a0017;
+   --red-800: #660020;
+   --red-900: #52001a;
+
+   // good ole gray
+   --gray: #858585;
+   --gray-50: #e7e7e7;
+   --gray-100: #d6d6d6;
+   --gray-200: #c2c2c2;
+   --gray-300: #adadad;
+   --gray-400: #999999;
+   --gray-500: #858585;
+   --gray-600: #707070;
+   --gray-700: #5c5c5c;
+   --gray-800: #474747;
+   --gray-900: #333333;
+}
+
+// styles for the light/dark theme
+.dark {
+   --color-bg-primary: #001d3d;
+   --color-bg-secondary: #000814;
+   --color-text-primary: #e7e7e7;
+   --color-text-secondary: #ffd60a;
+   --color-text-accent: #9e0031;
+}
+
+.light {
+   --color-bg-primary: #e7e7e7;
+   --color-bg-secondary: #f0f4ef;
+   --color-text-primary: #001429;
+   --color-text-secondary: #003566;
+   --color-text-accent: #9e0031;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.title {
+   font-family: 'Fira Mono', 'sans-serif';
+}
+body,
+p,
+.text {
+   font-family: 'Nunito Sans', 'sans-serif';
+}
+code,
+pre,
+.code {
+   font-family: 'Ubuntu', 'mono';
+}
+
+.container {
+   max-width: 1440px;
+   width: 100%;
+}

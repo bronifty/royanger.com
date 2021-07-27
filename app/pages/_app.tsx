@@ -6,7 +6,8 @@ import { HomeIcon } from '@heroicons/react/solid'
 import Menu from '../components/Header/Menu'
 import TagManager from 'react-gtm-module'
 import { GTM } from '../lib/constants/env'
-import '../styles/globals.css'
+import '../tailwind.css'
+import '../styles.scss'
 
 import LogRocket from 'logrocket'
 LogRocket.init('kjcuh5/royangercom')
@@ -40,11 +41,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             <header
                className={`bg-gray-transparent w-full h-20 flex flex-row justify-center p-2 fixed bg-white-100 dark:bg-blue-100 ${scrolledStyles}`}
             >
-               <div className="w-full xl:w-1440 flex flex-row">
-                  <div className="flex flex-col justify-center">
+               <div className="container">
+                  <div className="home">
                      <Link href="/">
-                        <a className="text-primary">
-                           <HomeIcon className="h-12 w-12" />
+                        <a className="text">
+                           <HomeIcon />
                         </a>
                      </Link>
                   </div>
