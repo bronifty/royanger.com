@@ -1,9 +1,6 @@
 import * as React from 'react'
 import { ThemeContext } from '../../lib/context/themeContext'
 
-// import darkSVG from '../../public/images/svgs/index-bg-dark.svg'
-// import lightSVG from '../../public/images/svgs/index-bg-light.svg'
-
 interface Props {
    children: any
    bgImage?: string

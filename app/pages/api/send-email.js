@@ -25,7 +25,7 @@ async function sendEmail({ name, email, phone, message }) {
          <p>Message: ${message}</p>
       `,
    }
-   return transporter.sendMail(emailOptions)
+   // return transporter.sendMail(emailOptions)
 }
 
 export default async function handler(req, res) {

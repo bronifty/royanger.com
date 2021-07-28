@@ -9,13 +9,7 @@ interface Props {
 }
 
 const IndexCard = props => {
-   const {
-      section,
-      description,
-      featuredImage,
-      featuredImageAlt,
-      images,
-   } = props.post
+   const { section, description, images } = props.post
 
    return (
       <div className="m-5 mt-10 mb-10 bg-white text-blue p-8 pb-14 rounded-3xl">
@@ -29,8 +23,16 @@ const IndexCard = props => {
                {images
                   ? images.map((image, i) => {
                        return (
-                          <div key={image._key} className="flex items-end p-3">
-                             <img key={i} src={image.src} alt={image.alt} />
+                          <div
+                             key={image._key}
+                             className="flex items-end justify-center p-3"
+                          >
+                             <img
+                                key={i}
+                                className="h-24 w-auto"
+                                src={image.src}
+                                alt={image.alt}
+                             />
                           </div>
                        )
                     })
