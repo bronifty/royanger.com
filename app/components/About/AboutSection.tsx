@@ -1,17 +1,18 @@
 import * as React from 'react'
 import BaseBlockContent from '../BaseBlockContent'
+import Title from '../Title'
 
 const AboutSection = ({ content }) => {
    return (
-      <div className="grid grid-cols-5 mb-16">
-         <div className="col-span-3 pr-20">
-            <h2 className="font-title text-4xl mb-10">{content.title}</h2>
+      <div className="section">
+         <div>
+            <Title type="h2">{content.title}</Title>
             <BaseBlockContent
                blocks={content.description}
-               className="text-white font-sans text-lg mb-8"
+               className="block-content"
             />
          </div>
-         <div className="col-span-2">
+         <div>
             {content.images &&
                content.images.map(image => {
                   return (

@@ -11,7 +11,7 @@ interface serializer {
 // setup to add some CSS classes to certain blocks
 const overrides = {
    // normal === <P>
-   normal: props => <p className="mb-6" {...props} />,
+   normal: props => <p {...props} />,
 }
 
 const serializers = {

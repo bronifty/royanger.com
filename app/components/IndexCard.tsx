@@ -25,7 +25,7 @@ const IndexCard = props => {
                blocks={description}
                className="text-blue-300 text-xl leading-relaxed mt-5 mb-7 flex-grow"
             />
-            <div className="grid grid-cols-4 mt-8 items-end justify-end">
+            <div className="grid grid-cols-2 mt-2 items-end justify-end">
                {images
                   ? images.map((image, i) => {
                        return (

@@ -6,6 +6,7 @@ import sanityClient from '../lib/sanity/client'
 import WrapperHeader from '../components/Wrapper/WrapperHeader'
 import BaseBlockContent from '../components/BaseBlockContent'
 import AboutSection from '../components/About/AboutSection'
+import Title from '../components/Title'
 
 const About = ({ posts }) => {
    return (
@@ -17,16 +18,16 @@ const About = ({ posts }) => {
                content="width=device-width, initial-scale=1"
             />
          </Head>
-         <WrapperHeader bgColor="bg-blue-500">
-            <article className="py-3 px-5 text-white mt-5 mb-10">
-               <h1 className="text-white font-title text-5xl mb-24">
-                  About Me
-               </h1>
+         {/* <WrapperHeader bgColor="bg-blue-500"></WrapperHeader> */}
+
+         <article className="about-us">
+            <div className="container">
+               <Title type="h1">About Me</Title>
                {posts.map(post => {
                   return <AboutSection key={post._id} content={post} />
                })}
-            </article>
-         </WrapperHeader>
+            </div>
+         </article>
       </>
    )
 }

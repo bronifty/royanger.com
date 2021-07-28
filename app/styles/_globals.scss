@@ -120,20 +120,16 @@
    --color-text-accent: #9e0031;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.title {
-   font-family: 'Fira Mono', 'sans-serif';
-}
 body,
 p,
 .text {
    font-family: 'Nunito Sans', 'sans-serif';
 }
+.text-large {
+   font-size: 1.125rem;
+   line-height: 1.75rem;
+}
+
 code,
 pre,
 .code {
@@ -143,4 +139,11 @@ pre,
 .container {
    max-width: 1440px;
    width: 100%;
+}
+
+main {
+   width: 100vw;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
 }

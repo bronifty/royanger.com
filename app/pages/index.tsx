@@ -26,10 +26,10 @@ const Index = ({ posts }) => {
             bgOpacity="dark:bg-opacity-90 bg-opacity-80"
          >
             <div className="h-full flex flex-col lg:items-center justify-center">
-               <h1 className="text-6xl md:text-9xl font-code text-secondary p-3">
+               <h1 className="text-6xl md:text-9xl font-title text-secondary p-3">
                   Roy Anger
                </h1>
-               <h2 className="text-3xl md:text-6xl font-title leading-loose text-accent p-3">
+               <h2 className="text-3xl md:text-6xl font-code leading-loose text-accent p-3">
                   # full stack web developer
                </h2>
                <h3 className="text-xl md:text-4xl font-sans text-primary mt-10 bg-opacity-70 font-bold p-3">
@@ -52,7 +52,7 @@ const Index = ({ posts }) => {
                },
             }}
          >
-            <h2 className="text-6xl text-secondary font-title mt-10">
+            <h2 className="text-6xl text-secondary font-code mt-10">
                # languages and skills
             </h2>
             {/*
@@ -124,7 +124,8 @@ const Index = ({ posts }) => {
 }
 
 export const getStaticProps = async () => {
-   const posts = await sanityClient.fetch(`*[_type == "indexpage" && type == "techstacks"] | order(order){
+   const posts =
+      await sanityClient.fetch(`*[_type == "indexpage" && type == "techstacks"] | order(order){
       _id,
       section,
       description,

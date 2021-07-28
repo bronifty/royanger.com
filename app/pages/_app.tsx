@@ -26,7 +26,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
    // pops out from the page
    const [scrolledStyles, setScrolledStyles] = React.useState('bg-opacity-0')
    const handleScroll = position => {
-      setScrolledStyles(position === 0 ? 'bg-opacity-0 dark:bg-opacity-0' : 'bg-opacity-90 dark:bg-opacity-70')
+      setScrolledStyles(
+         position === 0
+            ? 'bg-opacity-0 dark:bg-opacity-0'
+            : 'bg-opacity-90 dark:bg-opacity-70'
+      )
    }
 
    React.useEffect(() => {
@@ -39,7 +43,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <ThemeProvider>
          <>
             <header
-               className={`bg-gray-transparent w-full h-20 flex flex-row justify-center p-2 fixed bg-white-100 dark:bg-blue-100 ${scrolledStyles}`}
+               className={`bg-white-100 dark:bg-blue-100 ${scrolledStyles}`}
             >
                <div className="container">
                   <div className="home">
@@ -52,36 +56,34 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                   <Menu />
                </div>
             </header>
-            <main id="main" className={`w-full flex flex-col justify-center `}>
+            <main id="main">
                <Component {...pageProps} />
             </main>
-            <footer
-               className={`bg-gray-100 w-full h-28 flex flex-row justify-center p-2`}
-            >
-               <div className="w-full xl:w-1440 flex flex-row">
-                  <div className="flex items-center">Copyright &copy; 2021</div>
-                  <div className=" flex flex-grow items-center justify-end">
+            <footer>
+               <div className="container">
+                  <div className="copyright">Copyright &copy; 2021</div>
+                  <nav>
                      <Link href="/about">
                         <a>
-                           <button className="p-3 text-lg">About</button>
+                           <button className="text-large">About</button>
                         </a>
                      </Link>
                      <Link href="/blog">
                         <a>
-                           <button className="p-3 text-lg">Blog</button>
+                           <button className="text-large">Blog</button>
                         </a>
                      </Link>
                      <Link href="/portfolio">
                         <a>
-                           <button className="p-3 text-lg">Portfolio</button>
+                           <button className="text-large">Portfolio</button>
                         </a>
                      </Link>
                      <Link href="/hire">
                         <a>
-                           <button className="p-3 text-lg">Hire</button>
+                           <button className="text-large">Hire</button>
                         </a>
                      </Link>
-                  </div>
+                  </nav>
                </div>
             </footer>
          </>
