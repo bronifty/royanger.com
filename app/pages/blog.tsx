@@ -18,36 +18,38 @@ const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
                content="width=device-width, initial-scale=1"
             />
          </Head>
-         <WrapperHeader bgColor="bg-primary" bgOpacity="bg-opacity-90">
-            <BlogIndexHeader />
-            <div className="grid grid-cols-2 gap-6">
-               {posts &&
-                  posts.map(
-                     ({
-                        _id,
-                        title,
-                        name,
-                        byline,
-                        slug,
-                        imageUrl,
-                        imageAlt,
-                        categories,
-                     }) => {
-                        return (
-                           <BlogCard
-                              key={_id}
-                              title={title}
-                              byline={byline}
-                              slug={slug}
-                              image={imageUrl}
-                              alt={imageAlt}
-                              categories={categories}
-                           />
-                        )
-                     }
-                  )}
-            </div>
-         </WrapperHeader>
+         <div className="blog">
+            <section className="container">
+               <BlogIndexHeader />
+               <div className="post-index">
+                  {posts &&
+                     posts.map(
+                        ({
+                           _id,
+                           title,
+                           name,
+                           byline,
+                           slug,
+                           imageUrl,
+                           imageAlt,
+                           categories,
+                        }) => {
+                           return (
+                              <BlogCard
+                                 key={_id}
+                                 title={title}
+                                 byline={byline}
+                                 slug={slug}
+                                 image={imageUrl}
+                                 alt={imageAlt}
+                                 categories={categories}
+                              />
+                           )
+                        }
+                     )}
+               </div>
+            </section>
+         </div>
       </>
    )
 }

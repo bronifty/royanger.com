@@ -101,6 +101,10 @@
    --gray-700: #5c5c5c;
    --gray-800: #474747;
    --gray-900: #333333;
+
+   --font-title: 'Fira Mono', 'sans-serif';
+   --font-body: 'Nunito Sans', 'sans-serif';
+   --font-code: 'Ubuntu', 'mono';
 }
 
 // styles for the light/dark theme
@@ -123,17 +127,26 @@
 body,
 p,
 .text {
-   font-family: 'Nunito Sans', 'sans-serif';
+   font-family: var(--font-body);
+   color: var(--color-text-primary);
 }
 .text-large {
    font-size: 1.125rem;
    line-height: 1.75rem;
 }
+.text-xlarge {
+   font-size: 1.5rem;
+   line-height: 2rem;
+}
+.text-xxlarge {
+   font-size: 1.875rem;
+   line-height: 2.25rem;
+}
 
 code,
 pre,
 .code {
-   font-family: 'Ubuntu', 'mono';
+   font-family: var(--font-code);
 }
 
 .container {
@@ -146,4 +159,5 @@ main {
    display: flex;
    flex-direction: column;
    justify-content: center;
+   // align-items: center;
 }

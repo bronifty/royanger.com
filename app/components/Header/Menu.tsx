@@ -8,9 +8,8 @@ import useVisible from '../../lib/hooks/useVisible'
 
 const Menu = () => {
    const { ref, isVisible, setIsVisible } = useVisible(false)
-   const [displayMobileMenuIcon, setDisplayMobileMenuIcon] = React.useState(
-      true
-   )
+   const [displayMobileMenuIcon, setDisplayMobileMenuIcon] =
+      React.useState(true)
    const [mobileToggleCSS, setMobileToggleCSS] = React.useState('block')
    const [mobileCloseCSS, setMobileCloseCSS] = React.useState('hidden')
 
@@ -51,7 +50,7 @@ const Menu = () => {
             <MenuItem link="/about" title="About" />
             <MenuItem link="/blog" title="Blog" />
             <MenuItem link="/portfolio" title="Portfolio" />
-            <MenuItem link="/hire" title="Hire" />
+            <MenuItem link="/contact" title="Contact" />
          </div>
          <form>
             <Toggle />
@@ -70,7 +69,7 @@ const Menu = () => {
                   title="Portfolio"
                   onClick={onClick}
                />
-               <MenuItem link="/hire" title="Hire" onClick={onClick} />
+               <MenuItem link="/contact" title="Contact" onClick={onClick} />
             </div>
          ) : (
             ''

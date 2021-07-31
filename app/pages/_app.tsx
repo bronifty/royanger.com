@@ -78,9 +78,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                            <button className="text-large">Portfolio</button>
                         </a>
                      </Link>
-                     <Link href="/hire">
+                     <Link href="/contact">
                         <a>
-                           <button className="text-large">Hire</button>
+                           <button className="text-large">Contact</button>
                         </a>
                      </Link>
                   </nav>

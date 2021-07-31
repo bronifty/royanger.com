@@ -1,10 +1,11 @@
 import * as React from 'react'
+import Title from '../Title'
 
 const BlogIndexHeader = () => {
    return (
-      <div className="py-3 px-5 text-primary mt-5 mb-10">
-         <h1 className="text-primary font-title text-5xl">Articles</h1>
-         <p className="text-primary font-sans leading-loose text-xl">
+      <div className="index-header">
+         <Title type="h1">Articles</Title>
+         <p className="text-xlarge">
             My articles are a mix of things I've thought about, solutions to
             problems I've dealt with and explanations of code I've worked on.
          </p>

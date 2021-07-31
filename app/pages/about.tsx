@@ -18,7 +18,6 @@ const About = ({ posts }) => {
                content="width=device-width, initial-scale=1"
             />
          </Head>
-         {/* <WrapperHeader bgColor="bg-blue-500"></WrapperHeader> */}
 
          <article className="about-us">
             <div className="container">

@@ -5,13 +5,14 @@ h4,
 h5,
 h6,
 .title {
-   font-family: 'Fira Mono', 'sans-serif';
+   font-family: var(--font-title);
 }
 
 .heading {
+   color: var(--color-text-primary);
    h1 {
       font-size: 2.75rem;
-      margin-bottom: 4rem;
+      margin-bottom: 2rem;
       line-height: 3rem;
    }
    h2 {

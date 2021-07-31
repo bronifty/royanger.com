@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import Title from '../Title'
 
 // import components
 import BlogCategory from './BlogCategory'
@@ -16,9 +17,8 @@ interface Props {
 
 const BlogCard = ({ title, byline, slug, image, alt, categories }: Props) => {
    return (
-      <div className="w-full border dark:border-brightyellow-500 border-blue-700 p-3 m-2 relative">
-         {/* <img src={image} alt={alt} /> */}
-         <div className="relative w-full h-72">
+      <div className="w-full">
+         <div className="image">
             <Image
                src={image}
                layout="fill"
@@ -29,13 +29,11 @@ const BlogCard = ({ title, byline, slug, image, alt, categories }: Props) => {
          </div>
          <Link href={`/articles/${slug}`}>
             <a>
-               <h2 className="text-3xl font-title text-primary mt-6 mb-1">
-                  {title}
-               </h2>
+               <Title type="h2">{title}</Title>
             </a>
          </Link>
-         <h3 className="text-lg font-sans text-primary mt-2 mb-4">{byline}</h3>
-         <div className="flex flex-row">
+         <p className="byline text-large">{byline}</p>
+         <div className="categories flex flex-row">
             {categories
                ? categories.map(cat => (
                     <BlogCategory
