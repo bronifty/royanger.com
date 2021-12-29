@@ -1,10 +1,14 @@
 import * as React from 'react'
+import Title from '../components/Title'
 
 const Design = () => {
    return (
-      <div>
-         <h1>Design</h1>
-         <p>This is the design doc</p>
+      <div className="design">
+         <div className="container">
+            <Title type="h1">Design</Title>
+
+            <p>This is the design doc</p>
+         </div>
       </div>
    )
 }
