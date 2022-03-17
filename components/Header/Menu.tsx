@@ -1,6 +1,7 @@
 import * as React from 'react'
 import MenuItem from './MenuItem'
-import { MenuAlt1Icon, XIcon } from '@heroicons/react/solid'
+// import { MenuIcon className="w-10", XIcon } from '@heroicons/react/solid'
+import { MenuIcon, CloseIcon } from '../icons'
 
 // import components, custom hooks, etc
 import Toggle from './Toggle'
@@ -68,11 +69,11 @@ const Menu = () => {
             ''
          )}
          <div id="menuButton" onClick={openMenu}>
-            <MenuAlt1Icon />
+            <MenuIcon className="w-10" />
          </div>
 
          <div id="menuButton" onClick={closeMenu}>
-            <XIcon />
+            <CloseIcon className="w-10" />
          </div>
       </nav>
    )

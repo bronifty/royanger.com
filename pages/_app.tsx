@@ -2,7 +2,9 @@ import * as React from 'react'
 import type { AppProps } from 'next/app'
 import Link from 'next/link'
 import { ThemeProvider } from '../lib/context/themeContext'
-import { HomeIcon } from '@heroicons/react/solid'
+// import { HomeIcon } from '@heroicons/react/solid'
+// import HomeIcon from '../components/icons/HomeIcon'
+import { HomeIcon } from '../components/icons'
 import Menu from '../components/Header/Menu'
 import TagManager from 'react-gtm-module'
 import { GTM } from '../lib/constants/env'
@@ -46,7 +48,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                   <div>
                      <Link href="/">
                         <a>
-                           <HomeIcon />
+                           <HomeIcon className="w-10" />
                         </a>
                      </Link>
                   </div>

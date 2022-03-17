@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { ThemeContext } from '../../lib/context/themeContext'
-import { SunIcon, MoonIcon } from '@heroicons/react/solid'
+import { SunIcon, MoonIcon } from '../icons'
 
 const Toggle = () => {
    const { theme, setTheme } = React.useContext(ThemeContext)
@@ -14,12 +14,12 @@ const Toggle = () => {
          <div>
             <div onClick={() => handleThemeChange('light')}>
                <div>
-                  <SunIcon />
+                  <SunIcon className="w-10" />
                </div>
             </div>
             <div onClick={() => handleThemeChange('dark')}>
                <div>
-                  <MoonIcon />
+                  <MoonIcon className="w-10" />
                </div>
             </div>
          </div>
