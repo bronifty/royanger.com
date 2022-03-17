@@ -6,7 +6,7 @@ interface Props {
 }
 
 const BlogCategory = ({ title, id }: Props) => {
-   return <div className="category-bullet">{title}</div>
+   return <div>{title}</div>
 }
 
 export default BlogCategory

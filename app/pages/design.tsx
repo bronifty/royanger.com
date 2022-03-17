@@ -3,8 +3,8 @@ import Title from '../components/Title'
 
 const Design = () => {
    return (
-      <div className="design">
-         <div className="container">
+      <div>
+         <div>
             <Title type="h1">Design</Title>
 
             <p>This is the design doc</p>

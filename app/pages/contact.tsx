@@ -48,11 +48,11 @@ const Hire = () => {
             >
                </WrapperHeader> */}
 
-         <div className="contact">
-            <section className="container">
+         <div>
+            <section>
                <Title type="h1">Contact Roy</Title>
-               <section className="contact-form text-large">
-                  <div className="">
+               <section>
+                  <div>
                      <Title type="h2">Send a message</Title>
                      <p>
                         Please use the following form to shoot me a quick
@@ -60,7 +60,7 @@ const Hire = () => {
                         forward to hearing from you!
                      </p>
                   </div>
-                  <div className="form-container">
+                  <div>
                      <Formik
                         initialValues={{
                            contactName: '',

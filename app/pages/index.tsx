@@ -20,8 +20,8 @@ const Index = ({ posts }) => {
             />
          </Head>
 
-         <div className="hero">
-            <div className="container">
+         <div>
+            <div>
                <Title type="h1">Roy Anger</Title>
                <Title type="h2"># full stack web developer</Title>
                <Title type="h3">
@@ -29,24 +29,8 @@ const Index = ({ posts }) => {
                </Title>
             </div>
          </div>
-         <WrapperBody
-            bgGradient={{
-               direction: 'bg-gradient-to-b',
-               dark: {
-                  from: 'from-blue',
-                  via: 'via-blue-300',
-                  to: 'to-blue-100',
-               },
-               light: {
-                  from: 'from-blue-50',
-                  via: 'via-brightyellow-50',
-                  to: 'to-brightyellow-200',
-               },
-            }}
-         >
-            <h2 className="text-6xl text-secondary font-code mt-10">
-               # languages and skills
-            </h2>
+         <WrapperBody>
+            <h2># languages and skills</h2>
             {/*
                Over the last six months I have been focusing on learning React,
                Node and some of the other technologies involved in the wide
@@ -55,7 +39,7 @@ const Index = ({ posts }) => {
                interesting to work with. I've been loving the learning curve and
                the switch to Javascript, React and the related technologies. */}
 
-            <div className="text-white grid grid-cols-2 mt-6 mb-10">
+            <div>
                {posts.map(post => {
                   return <IndexCard key={post._id} post={post} />
                })}

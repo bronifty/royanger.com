@@ -2,9 +2,7 @@ import * as React from 'react'
 import Head from 'next/head'
 import sanityClient from '../lib/sanity/client'
 
-// import componenets
-import WrapperHeader from '../components/Wrapper/WrapperHeader'
-import BaseBlockContent from '../components/BaseBlockContent'
+// import components
 import AboutSection from '../components/About/AboutSection'
 import Title from '../components/Title'
 
@@ -19,8 +17,8 @@ const About = ({ posts }) => {
             />
          </Head>
 
-         <article className="about-us">
-            <div className="container">
+         <article>
+            <div>
                <Title type="h1">About Me</Title>
                {posts.map(post => {
                   return <AboutSection key={post._id} content={post} />

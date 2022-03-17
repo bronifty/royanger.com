@@ -20,7 +20,7 @@ const Title = ({ children, type, className }: Title) => {
    const Heading = includes(headingLevels, safeHeading) ? safeHeading : 'p'
 
    return (
-      <div className={`heading ${className ? className : ''}`}>
+      <div className={`${className ? className : ''}`}>
          <Heading>{children}</Heading>
       </div>
    )

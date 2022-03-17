@@ -17,8 +17,8 @@ interface Props {
 
 const BlogCard = ({ title, byline, slug, image, alt, categories }: Props) => {
    return (
-      <div className="w-full">
-         <div className="image">
+      <div>
+         <div>
             <Image
                src={image}
                layout="fill"
@@ -32,8 +32,8 @@ const BlogCard = ({ title, byline, slug, image, alt, categories }: Props) => {
                <Title type="h2">{title}</Title>
             </a>
          </Link>
-         <p className="byline text-large">{byline}</p>
-         <div className="categories flex flex-row">
+         <p>{byline}</p>
+         <div>
             {categories
                ? categories.map(cat => (
                     <BlogCategory

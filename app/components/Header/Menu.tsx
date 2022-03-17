@@ -42,11 +42,8 @@ const Menu = () => {
    }, [isVisible])
 
    return (
-      <nav className="flex flex-grow items-center justify-end font-code text-primary relative">
-         <div
-            id="menu"
-            className="hidden lg:block self-center flex-row bg-transparent "
-         >
+      <nav>
+         <div id="menu">
             <MenuItem link="/about" title="About" />
             <MenuItem link="/blog" title="Blog" />
             <MenuItem link="/portfolio" title="Portfolio" />
@@ -57,11 +54,7 @@ const Menu = () => {
          </form>
 
          {isVisible ? (
-            <div
-               ref={ref}
-               id="mobilemenu"
-               className="flex self-start lg:hidden flex-col bg-lightblue-200 bg-opacity-90 rounded-xl absolute "
-            >
+            <div ref={ref} id="mobilemenu">
                <MenuItem link="/about" title="About" onClick={onClick} />
                <MenuItem link="/blog" title="Blog" onClick={onClick} />
                <MenuItem
@@ -74,20 +67,12 @@ const Menu = () => {
          ) : (
             ''
          )}
-         <div
-            id="menuButton"
-            className={`lg:hidden border-2 border-white rounded-xl mr-3 ml-5 ${mobileToggleCSS}`}
-            onClick={openMenu}
-         >
-            <MenuAlt1Icon className="h-12 w-12" />
+         <div id="menuButton" onClick={openMenu}>
+            <MenuAlt1Icon />
          </div>
 
-         <div
-            id="menuButton"
-            className={`lg:hidden z-50 border-2 border-white rounded-xl mr-3 ${mobileCloseCSS} `}
-            onClick={closeMenu}
-         >
-            <XIcon className="h-12 w-12" />
+         <div id="menuButton" onClick={closeMenu}>
+            <XIcon />
          </div>
       </nav>
    )

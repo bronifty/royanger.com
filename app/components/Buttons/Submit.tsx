@@ -2,7 +2,7 @@ import * as React from 'react'
 
 const SubmitButton = ({ label }) => {
    return (
-      <div className="submit text-xlarge">
+      <div>
          <button type="submit">{label}</button>
       </div>
    )

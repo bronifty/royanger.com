@@ -4,13 +4,10 @@ import Title from '../Title'
 
 const AboutSection = ({ content }) => {
    return (
-      <div className="section">
+      <div>
          <div>
             <Title type="h2">{content.title}</Title>
-            <BaseBlockContent
-               blocks={content.description}
-               className="block-content"
-            />
+            <BaseBlockContent blocks={content.description} />
          </div>
          <div>
             {content.images &&
