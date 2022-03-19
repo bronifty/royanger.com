@@ -18,7 +18,7 @@ const MenuItem = ({ link, title, onClick }: MenuItemProps) => {
    return (
       <>
          <Link href={link}>
-            <a onClick={onClick} className="px-3">
+            <a onClick={onClick} className="px-3 max-w text-slate-600">
                {title}
             </a>
          </Link>

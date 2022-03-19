@@ -45,7 +45,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
          <>
             <header className="border-2 border-red-300 flex justify-center">
                <div className="max-w-screen-xl w-full flex flex-row border-2 border-red-800">
-                  <div className="flex-grow">
+                  <div className="pr-4">
                      <Link href="/">
                         <a className="font-body text-4xl flex flex-row items-center h-full">
                            <Logo className="w-10" />

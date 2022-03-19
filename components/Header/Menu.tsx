@@ -43,11 +43,11 @@ const Menu = () => {
    }, [isVisible])
 
    return (
-      <nav className="flex flex-row items-center font-body text-2xl">
-         <div id="menu" className="flex flex-row">
-            <MenuItem link="/about" title="About" />
-            <MenuItem link="/blog" title="Blog" />
+      <nav className="flex flex-row  flex-grow items-center font-body text-xl">
+         <div id="menu" className="flex flex-row flex-grow">
             <MenuItem link="/portfolio" title="Portfolio" />
+            <MenuItem link="/skills" title="Skills & Resume" />
+            <MenuItem link="/reading" title="Reading Material" />
             <MenuItem link="/contact" title="Contact" />
          </div>
 
