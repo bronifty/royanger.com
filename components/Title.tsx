@@ -15,12 +15,17 @@ type Title = {
 }
 
 const Title = ({ children, type, className }: Title) => {
+   const classes = {
+      h1: 'text-5xl font-title mt-6 mb-2',
+      h2: 'text-4xl font-title mt-4 mb-2',
+   }
+
    const headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const
    const safeHeading = type ? type.toLowerCase() : ''
    const Heading = includes(headingLevels, safeHeading) ? safeHeading : 'p'
 
    return (
-      <div className={`${className ? className : ''}`}>
+      <div className={`${className ? className : ''} ${classes[safeHeading]}`}>
          <Heading>{children}</Heading>
       </div>
    )

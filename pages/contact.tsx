@@ -1,6 +1,5 @@
 import * as React from 'react'
 import Head from 'next/head'
-import WrapperHeader from '../components/Wrapper/WrapperHeader'
 import { Formik, Form, Field, FormikHelpers, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import axios from 'axios'
@@ -41,12 +40,6 @@ const Hire = () => {
                content="width=device-width, initial-scale=1"
             />
          </Head>
-         {/* <WrapperHeader
-            bgColor="dark:bg-blue bg-gray"
-            bgImage="/images/backgrounds/mailboxes.jpg"
-            bgOpacity="dark:bg-opacity-90 bg-opacity-80"
-            >
-               </WrapperHeader> */}
 
          <div>
             <section>

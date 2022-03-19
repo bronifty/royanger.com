@@ -4,7 +4,7 @@ import MenuItem from './MenuItem'
 import { MenuIcon, CloseIcon } from '../icons'
 
 // import components, custom hooks, etc
-import Toggle from './Toggle'
+
 import useVisible from '../../lib/hooks/useVisible'
 
 const Menu = () => {
@@ -43,16 +43,13 @@ const Menu = () => {
    }, [isVisible])
 
    return (
-      <nav>
-         <div id="menu">
+      <nav className="flex flex-row items-center font-body text-2xl">
+         <div id="menu" className="flex flex-row">
             <MenuItem link="/about" title="About" />
             <MenuItem link="/blog" title="Blog" />
             <MenuItem link="/portfolio" title="Portfolio" />
             <MenuItem link="/contact" title="Contact" />
          </div>
-         <form>
-            <Toggle />
-         </form>
 
          {isVisible ? (
             <div ref={ref} id="mobilemenu">

@@ -4,9 +4,6 @@ import Image from 'next/image'
 // import sanityClient from '../lib/sanity/client'
 
 // import components
-import WrapperHeader from '../components/Wrapper/WrapperHeader'
-import WrapperBody from '../components/Wrapper/WrapperBody'
-import IndexCard from '../components/IndexCard'
 import Title from '../components/Title'
 
 const Index = () => {
@@ -20,18 +17,27 @@ const Index = () => {
             />
          </Head>
 
-         <div>
-            <div>
-               <Title type="h1">Roy Anger</Title>
-               <Title type="h2"># full stack web developer</Title>
-               <Title type="h3">
-                  Watch for the new site and portfolio - coming soon!
-               </Title>
+         <div className="flex flex-row justify-center">
+            <div className="w-full max-w-7xl">
+               <article>
+                  <Title type="h1">Roy Anger</Title>
+                  <Title type="h2"># full stack web developer</Title>
+                  <Title type="h3">
+                     Watch for the new site and portfolio - coming soon!
+                  </Title>
+               </article>
+               <article>
+                  <h2># languages and skills</h2>
+                  <p className="text-4xl font-code">
+                     Almost before we knew it, we had left the gro
+                  </p>
+               </article>
             </div>
+
+            <div></div>
          </div>
-         <WrapperBody>
-            <h2># languages and skills</h2>
-            {/*
+
+         {/*
                Over the last six months I have been focusing on learning React,
                Node and some of the other technologies involved in the wide
                world of full stack development. I come from a WordPress/PHP
@@ -39,12 +45,11 @@ const Index = () => {
                interesting to work with. I've been loving the learning curve and
                the switch to Javascript, React and the related technologies. */}
 
-            <div>
-               {/* {posts.map(post => {
+         <div>
+            {/* {posts.map(post => {
                   return <IndexCard key={post._id} post={post} />
                })} */}
-            </div>
-         </WrapperBody>
+         </div>
       </>
    )
 }

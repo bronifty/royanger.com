@@ -6,7 +6,9 @@ import { Logo, HomeIcon } from '../components/icons'
 import Menu from '../components/Header/Menu'
 import TagManager from 'react-gtm-module'
 import { GTM } from '../lib/constants/env'
-import '../tailwind.css'
+import Toggle from '../components/Header/Toggle'
+import '../styles/fonts.css'
+import '../styles/tailwind.css'
 
 import LogRocket from 'logrocket'
 LogRocket.init('kjcuh5/royangercom')
@@ -41,17 +43,21 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
    return (
       <ThemeProvider>
          <>
-            <header>
-               <div>
-                  <div>
+            <header className="border-2 border-red-300 flex justify-center">
+               <div className="max-w-screen-xl w-full flex flex-row border-2 border-red-800">
+                  <div className="flex-grow">
                      <Link href="/">
-                        <a>
-                           <HomeIcon className="w-10" />
-                           <Logo className="w-48" />
+                        <a className="font-body text-4xl flex flex-row items-center h-full">
+                           <Logo className="w-10" />
                         </a>
                      </Link>
                   </div>
                   <Menu />
+                  <div>
+                     <form>
+                        <Toggle />
+                     </form>
+                  </div>
                </div>
             </header>
             <main id="main">
