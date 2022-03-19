@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { ThemeProvider } from '../lib/context/themeContext'
 // import { HomeIcon } from '@heroicons/react/solid'
 // import HomeIcon from '../components/icons/HomeIcon'
-import { HomeIcon } from '../components/icons'
+import { Logo, HomeIcon } from '../components/icons'
 import Menu from '../components/Header/Menu'
 import TagManager from 'react-gtm-module'
 import { GTM } from '../lib/constants/env'
@@ -49,6 +49,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                      <Link href="/">
                         <a>
                            <HomeIcon className="w-10" />
+                           <Logo className="w-48" />
                         </a>
                      </Link>
                   </div>

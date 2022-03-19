@@ -1,7 +1,9 @@
+import Logo from './Logo'
 import HomeIcon from './HomeIcon'
 import MenuIcon from './MenuIcon'
 import CloseIcon from './CloseIcon'
 import SunIcon from './SunIcon'
-import MoonIcon from './moonIcon'
+import MoonIcon from './MoonIcon'
+import UpIcon from './UpIcon'
 
-export { HomeIcon, MenuIcon, CloseIcon, SunIcon, MoonIcon }
+export { Logo, HomeIcon, MenuIcon, CloseIcon, SunIcon, MoonIcon, UpIcon }
