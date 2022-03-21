@@ -1,11 +1,10 @@
 import * as React from 'react'
 import MenuItem from './MenuItem'
-// import { MenuIcon className="w-10", XIcon } from '@heroicons/react/solid'
 import { MenuIcon, CloseIcon } from '../icons'
 
 // import components, custom hooks, etc
-
 import useVisible from '../../lib/hooks/useVisible'
+import Title from '../Title'
 
 const Menu = () => {
    const { ref, isVisible, setIsVisible } = useVisible(false)
@@ -44,33 +43,85 @@ const Menu = () => {
 
    return (
       <nav className="flex flex-row  flex-grow items-center font-body text-xl">
-         <div id="menu" className="flex flex-row flex-grow">
+         <div
+            id="desktopmenu"
+            className="flex flex-row flex-grow hidden md:block"
+         >
             <MenuItem link="/portfolio" title="Portfolio" />
             <MenuItem link="/skills" title="Skills & Resume" />
             <MenuItem link="/reading" title="Reading Material" />
             <MenuItem link="/contact" title="Contact" />
          </div>
 
-         {isVisible ? (
-            <div ref={ref} id="mobilemenu">
-               <MenuItem link="/about" title="About" onClick={onClick} />
-               <MenuItem link="/blog" title="Blog" onClick={onClick} />
+         {/* {isVisible ? ( */}
+         <div
+            ref={ref}
+            id="mobilemenu"
+            className={`flex flex-col absolute top-0 right-0 left-0 bg-white w-full p-4 h-screen ${
+               isVisible ? 'flex' : 'hidden'
+            }`}
+         >
+            <div
+               id="menuButton"
+               onClick={closeMenu}
+               className="md:hidden  absolute top-4 right-4"
+            >
+               <CloseIcon className={`w-6 ${mobileCloseCSS}`} />
+            </div>
+
+            <div className="absolute left-0 right-0 top-14 flex flex-col">
+               <div className="px-2">
+                  <Title type="h2">Menu</Title>
+               </div>
+               <MenuItem
+                  link="/"
+                  title="Home"
+                  onClick={onClick}
+                  classes="py-4 border-b-[1px] border-zinc-200"
+               />
                <MenuItem
                   link="/portfolio"
                   title="Portfolio"
                   onClick={onClick}
+                  classes="py-4 border-b-[1px] border-zinc-200"
                />
-               <MenuItem link="/contact" title="Contact" onClick={onClick} />
+               <MenuItem
+                  link="/skills"
+                  title="Skills & Resume"
+                  onClick={onClick}
+                  classes="py-4 border-b-[1px] border-zinc-200"
+               />
+               <MenuItem
+                  link="/reading"
+                  title="Reading Material"
+                  onClick={onClick}
+                  classes="py-4 border-b-[1px] border-zinc-200"
+               />
+               <MenuItem
+                  link="/contact"
+                  title="Contact"
+                  onClick={onClick}
+                  classes="py-4"
+               />
             </div>
-         ) : (
+         </div>
+         {/* ) : (
             ''
-         )}
-         <div id="menuButton" onClick={openMenu}>
-            <MenuIcon className="w-10" />
+         )} */}
+         <div
+            id="menuButton"
+            onClick={openMenu}
+            className="md:hidden flex-grow flex justify-end"
+         >
+            <MenuIcon className={`w-6 ${mobileToggleCSS}`} />
          </div>
 
-         <div id="menuButton" onClick={closeMenu}>
-            <CloseIcon className="w-10" />
+         <div
+            id="menuButton flex-grow flex justify-end"
+            onClick={closeMenu}
+            className="md:hidden"
+         >
+            <CloseIcon className={`w-6 ${mobileCloseCSS}`} />
          </div>
       </nav>
    )
