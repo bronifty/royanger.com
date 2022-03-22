@@ -50,7 +50,7 @@ class MyDocument extends Document {
                <link rel="stylesheet" href="/assets/prism.css" />
                <script src="/assets/prism.js" />
             </Head>
-            <body className="dark:bg-black dark:text-white">
+            <body className="dark:bg-black dark:text-white bg-white text-black">
                <Main />
                <NextScript />
             </body>

@@ -57,7 +57,7 @@ const Menu = () => {
          <div
             ref={ref}
             id="mobilemenu"
-            className={`flex flex-col absolute top-0 right-0 left-0 bg-white w-full p-4 h-screen ${
+            className={`flex flex-col absolute top-0 right-0 left-0 bg-blue text-white w-full p-4 h-screen ${
                isVisible ? 'flex' : 'hidden'
             }`}
          >
@@ -70,44 +70,34 @@ const Menu = () => {
             </div>
 
             <div className="absolute left-0 right-0 top-14 flex flex-col">
-               <div className="px-2">
+               <div className="px-2 mb-3">
                   <Title type="h2">Menu</Title>
                </div>
                <MenuItem
                   link="/"
                   title="Home"
                   onClick={onClick}
-                  classes="py-4 border-b-[1px] border-zinc-200"
+                  classes="border-t-[1px] border-t-blue-200"
                />
+               {/* </div> */}
                <MenuItem
                   link="/portfolio"
                   title="Portfolio"
                   onClick={onClick}
-                  classes="py-4 border-b-[1px] border-zinc-200"
                />
                <MenuItem
                   link="/skills"
                   title="Skills & Resume"
                   onClick={onClick}
-                  classes="py-4 border-b-[1px] border-zinc-200"
                />
                <MenuItem
                   link="/reading"
                   title="Reading Material"
                   onClick={onClick}
-                  classes="py-4 border-b-[1px] border-zinc-200"
                />
-               <MenuItem
-                  link="/contact"
-                  title="Contact"
-                  onClick={onClick}
-                  classes="py-4"
-               />
+               <MenuItem link="/contact" title="Contact" onClick={onClick} />
             </div>
          </div>
-         {/* ) : (
-            ''
-         )} */}
          <div
             id="menuButton"
             onClick={openMenu}
