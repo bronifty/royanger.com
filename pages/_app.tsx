@@ -7,7 +7,7 @@ import Menu from '../components/Header/Menu'
 import TagManager from 'react-gtm-module'
 import { GTM } from '../lib/constants/env'
 import Toggle from '../components/Header/Toggle'
-import '../styles/fonts.css'
+import '../styles/styles.scss'
 import '../styles/tailwind.css'
 
 import LogRocket from 'logrocket'
