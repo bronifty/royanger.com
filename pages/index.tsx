@@ -2,8 +2,24 @@ import * as React from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Title from '../components/Title'
+import { allPages, Page } from '../.contentlayer/generated'
 
-const Index = () => {
+export async function getStaticProps() {
+   allPages.map(page => {
+      console.log(page)
+   })
+   const page: Page = allPages.find(
+      post => post._raw.flattenedPath === 'pages/home'
+   )
+   return {
+      props: {
+         page,
+      },
+   }
+}
+
+const Index = ({ page }) => {
+   console.log('page', page)
    return (
       <>
          <Head>
