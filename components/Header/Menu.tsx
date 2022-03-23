@@ -53,12 +53,11 @@ const Menu = () => {
             <MenuItem link="/contact" title="Contact" />
          </div>
 
-         {/* {isVisible ? ( */}
          <div
             ref={ref}
             id="mobilemenu"
-            className={`flex flex-col absolute top-0 right-0 left-0 bg-blue text-white w-full p-4 h-screen ${
-               isVisible ? 'flex' : 'hidden'
+            className={`flex flex-col absolute top-0 right-0 left-0 bg-blue text-white w-full p-4 h-screen duration-300  ${
+               isVisible ? 'flex translate-x-0' : 'translate-x-full'
             }`}
          >
             <div
@@ -70,7 +69,7 @@ const Menu = () => {
             </div>
 
             <div className="absolute left-0 right-0 top-14 flex flex-col">
-               <div className="px-2 mb-3">
+               <div className="pl-[32px] mb-3">
                   <Title type="h2">Menu</Title>
                </div>
                <MenuItem
@@ -79,7 +78,6 @@ const Menu = () => {
                   onClick={onClick}
                   classes="border-t-[1px] border-t-blue-200"
                />
-               {/* </div> */}
                <MenuItem
                   link="/portfolio"
                   title="Portfolio"
@@ -101,7 +99,7 @@ const Menu = () => {
          <div
             id="menuButton"
             onClick={openMenu}
-            className="md:hidden flex-grow flex justify-end"
+            className="md:hidden flex-grow flex justify-end mr-4"
          >
             <MenuIcon className={`w-6 ${mobileToggleCSS}`} />
          </div>

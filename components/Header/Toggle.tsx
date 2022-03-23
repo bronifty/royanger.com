@@ -12,18 +12,23 @@ const Toggle = () => {
    return (
       <>
          <div className="border-2  p-2 rounded-lg border-zinc-600 dark:border-zinc-200 hover:bg-zinc-100 hover:shadow-lg">
-            {theme === 'light' ? (
+            {theme && theme === 'light' ? (
                <div onClick={() => handleThemeChange('dark')}>
                   <div>
                      <SunIcon className="w-6  text-zinc-600" />
                   </div>
                </div>
             ) : (
+               ''
+            )}
+            {theme && theme === 'dark' ? (
                <div onClick={() => handleThemeChange('light')}>
                   <div>
                      <MoonIcon className="w-6 text-zinc-200" />
                   </div>
                </div>
+            ) : (
+               ''
             )}
          </div>
       </>
