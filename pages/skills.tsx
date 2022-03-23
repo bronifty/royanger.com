@@ -6,11 +6,11 @@ import Head from 'next/head'
 import AboutSection from '../components/About/AboutSection'
 import Title from '../components/Title'
 
-const About = () => {
+const Skills = () => {
    return (
       <>
          <Head>
-            <title>Roy Anger - About Roy</title>
+            <title>Roy Anger - Skills & Resume</title>
             <meta
                name="viewport"
                content="width=device-width, initial-scale=1"
@@ -19,7 +19,7 @@ const About = () => {
 
          <article>
             <div>
-               <Title type="h1">About Me</Title>
+               <Title type="h1">Skills</Title>
                {/* {posts.map(post => {
                   return <AboutSection key={post._id} content={post} />
                })} */}
@@ -40,4 +40,4 @@ const About = () => {
 //    return { props: { posts } }
 // }
 
-export default About
+export default Skills

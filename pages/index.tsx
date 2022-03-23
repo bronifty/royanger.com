@@ -1,9 +1,6 @@
 import * as React from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
-// import sanityClient from '../lib/sanity/client'
-
-// import components
 import Title from '../components/Title'
 
 const Index = () => {
@@ -21,16 +18,13 @@ const Index = () => {
             <div className="w-full max-w-7xl">
                <article>
                   <Title type="h1">Roy Anger</Title>
-                  <Title type="h2"># full stack web developer</Title>
+                  <Title type="h2">Full Stack Web Developer </Title>
                   <Title type="h3">
                      Watch for the new site and portfolio - coming soon!
                   </Title>
                </article>
                <article>
-                  <h2># languages and skills</h2>
-                  <p className="text-4xl font-code">
-                     Almost before we knew it, we had left the gro
-                  </p>
+                  <h2>languages and skills</h2>
                </article>
             </div>
 

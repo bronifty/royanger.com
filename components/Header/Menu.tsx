@@ -1,11 +1,10 @@
 import * as React from 'react'
 import MenuItem from './MenuItem'
-// import { MenuIcon className="w-10", XIcon } from '@heroicons/react/solid'
 import { MenuIcon, CloseIcon } from '../icons'
 
 // import components, custom hooks, etc
-
 import useVisible from '../../lib/hooks/useVisible'
+import Title from '../Title'
 
 const Menu = () => {
    const { ref, isVisible, setIsVisible } = useVisible(false)
@@ -43,34 +42,74 @@ const Menu = () => {
    }, [isVisible])
 
    return (
-      <nav className="flex flex-row items-center font-body text-2xl">
-         <div id="menu" className="flex flex-row">
-            <MenuItem link="/about" title="About" />
-            <MenuItem link="/blog" title="Blog" />
+      <nav className="flex flex-row  flex-grow items-center font-body text-xl">
+         <div
+            id="desktopmenu"
+            className="flex flex-row flex-grow hidden md:block"
+         >
             <MenuItem link="/portfolio" title="Portfolio" />
+            <MenuItem link="/skills" title="Skills & Resume" />
+            <MenuItem link="/reading" title="Reading Material" />
             <MenuItem link="/contact" title="Contact" />
          </div>
 
-         {isVisible ? (
-            <div ref={ref} id="mobilemenu">
-               <MenuItem link="/about" title="About" onClick={onClick} />
-               <MenuItem link="/blog" title="Blog" onClick={onClick} />
+         <div
+            ref={ref}
+            id="mobilemenu"
+            className={`flex flex-col absolute top-0 right-0 left-0 bg-blue text-white w-full p-4 h-screen duration-300  ${
+               isVisible ? 'flex translate-x-0' : 'translate-x-full'
+            }`}
+         >
+            <div
+               id="menuButton"
+               onClick={closeMenu}
+               className="md:hidden  absolute top-4 right-4"
+            >
+               <CloseIcon className={`w-6 ${mobileCloseCSS}`} />
+            </div>
+
+            <div className="absolute left-0 right-0 top-14 flex flex-col">
+               <div className="pl-[32px] mb-3">
+                  <Title type="h2">Menu</Title>
+               </div>
+               <MenuItem
+                  link="/"
+                  title="Home"
+                  onClick={onClick}
+                  classes="border-t-[1px] border-t-blue-200"
+               />
                <MenuItem
                   link="/portfolio"
                   title="Portfolio"
                   onClick={onClick}
                />
+               <MenuItem
+                  link="/skills"
+                  title="Skills & Resume"
+                  onClick={onClick}
+               />
+               <MenuItem
+                  link="/reading"
+                  title="Reading Material"
+                  onClick={onClick}
+               />
                <MenuItem link="/contact" title="Contact" onClick={onClick} />
             </div>
-         ) : (
-            ''
-         )}
-         <div id="menuButton" onClick={openMenu}>
-            <MenuIcon className="w-10" />
+         </div>
+         <div
+            id="menuButton"
+            onClick={openMenu}
+            className="md:hidden flex-grow flex justify-end mr-4"
+         >
+            <MenuIcon className={`w-6 ${mobileToggleCSS}`} />
          </div>
 
-         <div id="menuButton" onClick={closeMenu}>
-            <CloseIcon className="w-10" />
+         <div
+            id="menuButton flex-grow flex justify-end"
+            onClick={closeMenu}
+            className="md:hidden"
+         >
+            <CloseIcon className={`w-6 ${mobileCloseCSS}`} />
          </div>
       </nav>
    )

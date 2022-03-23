@@ -9,15 +9,16 @@ function includes<S extends string>(
 }
 
 type Title = {
-   children: string
+   children: React.ReactChild | React.ReactChild[]
    type: string
    className?: string
 }
 
-const Title = ({ children, type, className }: Title) => {
+const Title: React.FC<Title> = ({ children, type, className }) => {
    const classes = {
       h1: 'text-5xl font-title mt-6 mb-2',
-      h2: 'text-4xl font-title mt-4 mb-2',
+      h2: 'text-4xl font-body mt-4 mb-2 text-slate-600',
+      h3: 'text-2xl font-title mt-4 mb-2 p-2',
    }
 
    const headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const
