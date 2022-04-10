@@ -3,13 +3,16 @@ import Head from 'next/head'
 import { InferGetStaticPropsType } from 'next'
 import Title from '../components/Title'
 import { allPages, allPortfolios } from '../.contentlayer/generated'
+import Card from '../components/Portfolio/Card'
 
 // load portfolio page and portfolio posts from contentlayer
 export async function getStaticProps() {
    const page = allPages.find(
       post => post._raw.flattenedPath === 'pages/portfolio'
    )
-   const portfolio = allPortfolios.sort()
+   const portfolio = allPortfolios.sort((a, b) => {
+      return (a.index as number) - (b.index as number)
+   })
    return {
       props: {
          page,
@@ -35,7 +38,7 @@ const Portfolio = ({
 
          <div className="flex flex-row justify-center">
             <div className="w-full max-w-7xl">
-               <article>
+               <section>
                   <Title type="h1">{page.title}</Title>
                   <Title type="h2">{page.subTitle}</Title>
                   <div
@@ -43,24 +46,27 @@ const Portfolio = ({
                      dangerouslySetInnerHTML={{ __html: page.body.html }}
                   />
 
-                  {portfolio.map(item => {
-                     return (
-                        <div key={item._id}>
-                           <h3>{item.project}</h3>
-                           <p>{item.description}</p>
-                           <p>{item.github}</p>
-                           <p>{item.preview}</p>
-                           <p>{item.techstack}</p>
-                           <div
-                              className="page-content"
-                              dangerouslySetInnerHTML={{
-                                 __html: item.body.html,
-                              }}
+                  <div className="grid grid-cols-2 gap-4">
+                     {portfolio.map(item => {
+                        return (
+                           <Card
+                              key={item._id}
+                              title={item.project}
+                              description={item.description}
+                              github={item.github}
+                              preview={item.preview}
+                              techstack={item.techstack}
                            />
-                        </div>
-                     )
-                  })}
-               </article>
+                           // <div
+                           //    className="page-content"
+                           //    dangerouslySetInnerHTML={{
+                           //       __html: item.body.html,
+                           //    }}
+                           // />
+                        )
+                     })}
+                  </div>
+               </section>
             </div>
 
             <div></div>

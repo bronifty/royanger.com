@@ -2,6 +2,7 @@ import * as React from 'react'
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from '../lib/context/themeContext'
 import Header from '../components/Header/Header'
+import Footer from '../components/Footer'
 import TagManager from 'react-gtm-module'
 import { GTM } from '../lib/constants/env'
 import Toggle from '../components/Header/Toggle'
@@ -19,38 +20,12 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
    return (
       <ThemeProvider>
          <>
-            <footer>
-               <div>
-                  <div>Copyright &copy; 2021</div>
-                  <nav>
-                     <Link href="/about">
-                        <a>
-                           <button>About</button>
-                        </a>
-                     </Link>
-                     <Link href="/blog">
-                        <a>
-                           <button>Blog</button>
-                        </a>
-                     </Link>
-                     <Link href="/portfolio">
-                        <a>
-                           <button>Portfolio</button>
-                        </a>
-                     </Link>
-                     <Link href="/contact">
-                        <a>
-                           <button>Contact</button>
-                        </a>
-                     </Link>
-                  </nav>
-               </div>
-            </footer>
             <div className="border border-1 border-blue-100 min-h-screen  flex flex-col">
                <Header />
                <main id="main">
                   <Component {...pageProps} />
                </main>
+               <Footer />
             </div>
          </>
       </ThemeProvider>

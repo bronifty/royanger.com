@@ -13,3 +13,5 @@ export {
    SunIcon,
    MoonIcon,
    UpIcon,
+   ExternalLinkIcon,
+}
