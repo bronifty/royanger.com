@@ -1,43 +1,49 @@
 import * as React from 'react'
 import Head from 'next/head'
-// import sanityClient from '../lib/sanity/client'
-
-// import components
-import AboutSection from '../components/About/AboutSection'
+import { InferGetStaticPropsType } from 'next'
 import Title from '../components/Title'
+import { allPages } from '../.contentlayer/generated'
 
-const Skills = () => {
+// load just one page from contentlayer
+export async function getStaticProps() {
+   const page = allPages.find(
+      post => post._raw.flattenedPath === 'pages/skills'
+   )
+   return {
+      props: {
+         page,
+      },
+   }
+}
+
+const Skills = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
    return (
       <>
          <Head>
-            <title>Roy Anger - Skills & Resume</title>
+            <title>{page.pageTitle}</title>
             <meta
                name="viewport"
                content="width=device-width, initial-scale=1"
             />
+            <meta name="keywords" content={page.pageKeywords} />
          </Head>
 
-         <article>
-            <div>
-               <Title type="h1">Skills</Title>
-               {/* {posts.map(post => {
-                  return <AboutSection key={post._id} content={post} />
-               })} */}
+         <div className="flex flex-row justify-center">
+            <div className="w-full max-w-7xl">
+               <article>
+                  <Title type="h1">{page.title}</Title>
+                  <Title type="h2">{page.subTitle}</Title>
+                  <div
+                     className="page-content"
+                     dangerouslySetInnerHTML={{ __html: page.body.html }}
+                  />
+               </article>
             </div>
-         </article>
+
+            <div></div>
+         </div>
       </>
    )
 }
-
-// export const getStaticProps = async () => {
-//    const posts = await sanityClient.fetch(`*[_type == "about"] | order(order){
-//       _id,
-//       "title": section,
-//       "images": images[]{ _key, alt, "src": asset->url},
-//       description
-//    }`)
-
-//    return { props: { posts } }
-// }
 
 export default Skills

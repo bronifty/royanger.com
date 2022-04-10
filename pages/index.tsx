@@ -2,13 +2,12 @@ import * as React from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Title from '../components/Title'
-import { allPages, Page } from '../.contentlayer/generated'
+import { allPages } from '../.contentlayer/generated'
+import { InferGetStaticPropsType } from 'next'
 
 // load just one page from contentlayer
 export async function getStaticProps() {
-   const page: Page = allPages.find(
-      post => post._raw.flattenedPath === 'pages/home'
-   )
+   const page = allPages.find(post => post._raw.flattenedPath === 'pages/home')
    return {
       props: {
          page,
@@ -16,11 +15,11 @@ export async function getStaticProps() {
    }
 }
 
-const Index = ({ page }: { page: Page }) => {
+const Index = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
    return (
       <>
          <Head>
-            <title>Roy Anger - Full Stack Developer</title>
+            <title>{page.pageTitle}</title>
             <meta
                name="viewport"
                content="width=device-width, initial-scale=1"

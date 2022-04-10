@@ -1,4 +1,5 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+import { number } from 'yup'
 
 const Post = defineDocumentType(() => ({
    name: 'Post',
@@ -56,7 +57,51 @@ const Pages = defineDocumentType(() => ({
    },
 }))
 
+const Portfolio = defineDocumentType(() => ({
+   name: 'Portfolio',
+   filePathPattern: `portfolio/**/*.md`,
+   fields: {
+      project: {
+         type: 'string',
+         description: 'The title of the project',
+         required: true,
+      },
+      index: {
+         type: 'number',
+         description: 'Order to list on portfolio',
+         required: true,
+      },
+      description: {
+         type: 'string',
+         description: 'A description for the page',
+         required: true,
+      },
+      github: {
+         type: 'string',
+         description: 'GitHub URL for project',
+         required: true,
+      },
+      preview: {
+         type: 'string',
+         description: 'A link to preview the project where deployed',
+         required: true,
+      },
+      techstack: {
+         type: 'string',
+         description:
+            'A list of the languages, frameworks, libraries, databases, etc, used in the project.',
+         required: true,
+      },
+   },
+   computedFields: {
+      url: {
+         type: 'string',
+         resolve: doc => `/content/portfolio/${doc._raw.flattenedPath}`,
+      },
+   },
+}))
+
 export default makeSource({
    contentDirPath: 'content',
-   documentTypes: [Post, Pages],
+   documentTypes: [Post, Pages, Portfolio],
 })

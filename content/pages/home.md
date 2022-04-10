@@ -5,7 +5,9 @@ title: Roy Anger
 subTitle: Full Stack Web Developer
 ---
 
-## Introduction
+## About Me
+
+I am currently a Full Stack Web Developer, coming from a background of working freelance with some businesses on their WordPress sites.
 
 Thanks for taking a moment to visit! I'm a Full Stack Web Developer from Toronto. Recently I've been freelance and remote work, and I'm looking to either continue with the remote work or even transition into a full time in-house position.
 
@@ -20,6 +22,6 @@ background before that, but React and Node are much more fun and
 interesting to work with. I've been loving the learning curve and
 the switch to Javascript, React and the related technologies.
 
-## Hoobies and Interests
+## Hobbies and Interests
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquet dui eu quam semper hendrerit. Donec lacinia pellentesque ullamcorper. Nullam euismod quis diam vitae tristique. Donec sed turpis sit amet lectus ultrices molestie. Mauris sodales convallis lectus eget pharetra. Vestibulum scelerisque ultricies erat, ac lacinia ex tristique eu. Morbi non suscipit lorem.
