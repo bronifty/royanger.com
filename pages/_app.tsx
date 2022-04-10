@@ -1,13 +1,11 @@
 import * as React from 'react'
 import type { AppProps } from 'next/app'
-import Link from 'next/link'
 import { ThemeProvider } from '../lib/context/themeContext'
-import { Logo } from '../components/icons'
-import Menu from '../components/Header/Menu'
+import Header from '../components/Header/Header'
 import TagManager from 'react-gtm-module'
 import { GTM } from '../lib/constants/env'
 import Toggle from '../components/Header/Toggle'
-import '../styles/fonts.css'
+import '../styles/styles.scss'
 import '../styles/tailwind.css'
 
 import LogRocket from 'logrocket'
@@ -21,26 +19,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
    return (
       <ThemeProvider>
          <>
-            <header className="flex justify-center my-6 px-4 dark:bg-black dark:color-white">
-               <div className="max-w-screen-xl w-full flex flex-row">
-                  <div className="pr-4">
-                     <Link href="/">
-                        <a className="font-body text-4xl flex flex-row items-center h-full">
-                           <Logo className="w-10" />
-                        </a>
-                     </Link>
-                  </div>
-                  <Menu />
-                  <div>
-                     <form>
-                        <Toggle />
-                     </form>
-                  </div>
-               </div>
-            </header>
-            <main id="main">
-               <Component {...pageProps} />
-            </main>
             <footer>
                <div>
                   <div>Copyright &copy; 2021</div>
@@ -68,6 +46,12 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                   </nav>
                </div>
             </footer>
+            <div className="border border-1 border-blue-100 min-h-screen  flex flex-col">
+               <Header />
+               <main id="main">
+                  <Component {...pageProps} />
+               </main>
+            </div>
          </>
       </ThemeProvider>
    )
