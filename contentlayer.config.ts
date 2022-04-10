@@ -87,10 +87,11 @@ const Portfolio = defineDocumentType(() => ({
          required: true,
       },
       techstack: {
-         type: 'string',
+         type: 'list',
          description:
             'A list of the languages, frameworks, libraries, databases, etc, used in the project.',
          required: true,
+         of: Portfolio,
       },
    },
    computedFields: {

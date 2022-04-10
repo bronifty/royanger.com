@@ -29,9 +29,10 @@ class MyDocument extends Document {
                <meta property="og:name" content={SITE_NAME} />
                <meta property="og:title" content={SITE_TITLE} />
                <meta property="og:description" content={SITE_DESCRIPTION} />
-               <link rel="icon" href="/images/favicons/favicon.ico" />
+
                <link
                   rel="apple-touch-icon"
+                  sizes="180x180"
                   href="/images/favicons/apple-touch-icon.png"
                />
                <link
@@ -46,11 +47,15 @@ class MyDocument extends Document {
                   sizes="16x16"
                   href="/images/favicons/favicon-16x16.png"
                />
+               <link
+                  rel="manifest"
+                  href="%PUBLIC_URL%/images/favicons/site.webmanifest"
+               />
                <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
                <link rel="stylesheet" href="/assets/prism.css" />
                <script src="/assets/prism.js" />
             </Head>
-            <body className="dark:bg-black dark:text-white bg-white text-black overflow-hidden">
+            <body className="dark:bg-black dark:text-white bg-white text-black overflow-x-hidden">
                <Main />
                <NextScript />
             </body>
