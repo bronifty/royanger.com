@@ -10,7 +10,7 @@ const ExternalLinkButton = ({ link, name }: ExternalLinkButton) => {
    return (
       <div className="block">
          <a
-            className="relative inline-flex items-center my-2 mr-3 text-lg bg-grey-700 text-white rounded py-1 px-3"
+            className="relative inline-flex items-center my-2 mr-3 text-lg bg-grey-700 dark:bg-grey-300 text-grey-100 dark:text-grey-800 rounded py-1 px-3 hover:bg-grey-900 dark:hover:bg-grey-100 hover:shadow-md hover:shadow-black-900 hover:top-[-1px]"
             href={link}
             target="_blank"
          >

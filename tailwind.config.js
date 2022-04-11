@@ -21,6 +21,15 @@ module.exports = {
       colors: {
          transparent: 'transparent',
          current: 'currentColor',
+         lightblue: {
+            100: '#D0D5F1',
+            200: '#C1C7EC',
+            300: '#A1ABE2',
+            400: '#929DDD',
+            500: '#828FD9',
+            600: '#7381D4',
+            700: '#6373CF',
+         },
          blue: {
             50: '#5365ca',
             100: '#3a4dbb',
@@ -28,7 +37,7 @@ module.exports = {
             300: '#26337d',
             400: '#1d265e',
             500: '#141b41',
-            DEFAULT: '#141b41',
+            DEFAULT: '#26337d',
             600: '#131a3e',
             700: '#0e132f',
             800: '#0a0d1f',
@@ -75,5 +84,24 @@ module.exports = {
       require('@tailwindcss/aspect-ratio'),
       // require('tailwindcss-children'),
       //   require('@tailwindcss/typography'),
+
+      function ({ addBase, theme }) {
+         function extractColorVars(colorObj, colorGroup = '') {
+            return Object.keys(colorObj).reduce((vars, colorKey) => {
+               const value = colorObj[colorKey]
+
+               const newVars =
+                  typeof value === 'string'
+                     ? { [`--color${colorGroup}-${colorKey}`]: value }
+                     : extractColorVars(value, `-${colorKey}`)
+
+               return { ...vars, ...newVars }
+            }, {})
+         }
+
+         addBase({
+            ':root': extractColorVars(theme('colors')),
+         })
+      },
    ],
 }

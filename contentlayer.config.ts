@@ -66,6 +66,11 @@ const Portfolio = defineDocumentType(() => ({
          description: 'The title of the project',
          required: true,
       },
+      slug: {
+         type: 'string',
+         description: 'Slug for viewing individual projects',
+         required: true,
+      },
       index: {
          type: 'number',
          description: 'Order to list on portfolio',
@@ -92,6 +97,12 @@ const Portfolio = defineDocumentType(() => ({
             'A list of the languages, frameworks, libraries, databases, etc, used in the project.',
          required: true,
          of: Portfolio,
+      },
+      image: {
+         type: 'string',
+         description:
+            'The image name, minus the extension, for the portfolio image.',
+         required: false,
       },
    },
    computedFields: {

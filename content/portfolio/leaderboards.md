@@ -1,13 +1,15 @@
 ---
 project: Leaderboards
+slug: leaderboards
 index: 03
-description: This is another temp description
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae mi a nulla commodo mollis et at dolor. Curabitur consectetur ultrices nulla. Maecenas venenatis ante ac urna interdum, eget fermentum nunc interdum. Phasellus efficitur velit ex, id volutpat elit iaculis fermentum. Aenean quis vehicula eros. Suspendisse potenti. Sed sit amet.
 github: https://github.com/royanger/leaderboard-app
 preview: https://leaderboard.royanger.app/
 techstack:
-   - react
-   - faunaDB
-   - graphql
+   - React
+   - FaunaDB
+   - GraphQL
+image: yourroomz
 ---
 
 ## Leaderboards
