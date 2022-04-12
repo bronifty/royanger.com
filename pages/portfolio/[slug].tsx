@@ -31,7 +31,6 @@ export default function Project({
    portfolio: Portfolio
    page: Page
 }) {
-   const [showModal, setShowModal] = React.useState(true)
    const [currentGalleryImage, setCurrentGalleryImage] = React.useState(
       portfolio.image
    )

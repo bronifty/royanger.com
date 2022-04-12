@@ -1,3 +1,4 @@
+import Button from '../Buttons/Button'
 import ExternalLinkButton from '../Buttons/ExternalLinkButton'
 import Title from '../Title'
 
@@ -8,6 +9,7 @@ export default function Card({
    preview,
    techstack,
    image,
+   slug,
 }) {
    return (
       <article className="shadow-md  shadow-black-100 dark:shadow-black-700 rounded">
@@ -42,6 +44,8 @@ export default function Card({
                <span className="absolute top-0 bg-white dark:bg-black text-grey-700 dark:text-grey-100 text-sm translate-y-[-50%] px-2">
                   View the Project
                </span>
+
+               <Button link={slug} name="More Details" />
                <ExternalLinkButton link={github} name="GitHub" />
                <ExternalLinkButton link={preview} name="Preview" />
             </div>

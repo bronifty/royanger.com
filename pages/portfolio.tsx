@@ -57,13 +57,8 @@ const Portfolio = ({
                               preview={item.preview}
                               techstack={item.techstack}
                               image={item.image}
+                              slug={item.slug}
                            />
-                           // <div
-                           //    className="page-content"
-                           //    dangerouslySetInnerHTML={{
-                           //       __html: item.body.html,
-                           //    }}
-                           // />
                         )
                      })}
                   </div>

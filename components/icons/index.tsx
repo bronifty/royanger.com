@@ -14,6 +14,7 @@ import InstagramIcon from './InstagramIcon'
 import EnvelopeIcon from './EnvelopeIcon'
 import NextIcon from './NextIcon'
 import PrevIcon from './PrevIcon'
+import RightArrowIcon from './RightArrowIcon'
 
 export {
    Logo,
@@ -32,4 +33,5 @@ export {
    EnvelopeIcon,
    NextIcon,
    PrevIcon,
+   RightArrowIcon,
 }
