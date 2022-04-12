@@ -19,6 +19,7 @@ const Title: React.FC<Title> = ({ children, type, className }) => {
       h1: 'text-5xl font-title mt-6 mb-2',
       h2: 'text-4xl font-body mt-4 mb-2 text-slate-600',
       h3: 'text-2xl font-title mt-4 mb-2 p-2',
+      portfolio: 'text-2xl font-title my-2 p-2 flex justify-center',
    }
 
    const headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const

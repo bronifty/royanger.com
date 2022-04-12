@@ -1,0 +1,40 @@
+.portfolio-content {
+   margin-top: 2rem;
+   h2,
+   h3,
+   p,
+   blockquote {
+      max-width: 900px;
+   }
+
+   a {
+      color: var(--color-blue-300);
+      text-decoration: underline;
+      font-weight: bold;
+   }
+   h2 {
+      font-size: 1.5rem;
+      font-family: 'Archivo Black';
+   }
+   p {
+      margin-bottom: 1rem;
+   }
+   blockquote {
+      padding: 0rem 1rem;
+      position: relative;
+      margin: 3.5rem 0 3.5rem 50px;
+      border-right: 10px solid var(--color-lightblue-300);
+      max-width: calc(900px - 3.5rem);
+      font-size: 1.15rem;
+   }
+   blockquote:before {
+      content: ' ';
+      display: inline-flex;
+      background-image: url('/images/svgs/quote-left.svg');
+      background-size: 40px 40px;
+      height: 40px;
+      width: 40px;
+      position: absolute;
+      left: -50px;
+   }
+}

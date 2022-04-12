@@ -37,16 +37,16 @@ const Portfolio = ({
          </Head>
 
          <div className="flex flex-row justify-center">
-            <div className="w-full max-w-7xl">
+            <div className="w-full max-w-7xl px-4 xl:p-0">
                <section>
                   <Title type="h1">{page.title}</Title>
                   <Title type="h2">{page.subTitle}</Title>
                   <div
-                     className="page-content"
+                     className="page-content mb-10"
                      dangerouslySetInnerHTML={{ __html: page.body.html }}
                   />
 
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 gap-y-16">
                      {portfolio.map(item => {
                         return (
                            <Card
@@ -56,13 +56,9 @@ const Portfolio = ({
                               github={item.github}
                               preview={item.preview}
                               techstack={item.techstack}
+                              image={item.image}
+                              slug={item.slug}
                            />
-                           // <div
-                           //    className="page-content"
-                           //    dangerouslySetInnerHTML={{
-                           //       __html: item.body.html,
-                           //    }}
-                           // />
                         )
                      })}
                   </div>
