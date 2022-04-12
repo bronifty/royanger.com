@@ -10,7 +10,7 @@ type Modal = {
    handleImageChange: Function
 }
 
-const Modal = React.forwardRef(
+const Modal = React.forwardRef<HTMLDivElement, Modal>(
    ({ show, onClose, image, alt, handleImageChange }: Modal, ref) => {
       const [isBrowser, setIsBrowser] = React.useState(false)
 
