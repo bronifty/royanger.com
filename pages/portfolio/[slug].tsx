@@ -5,6 +5,7 @@ import { allPortfolios, allPages } from '../../.contentlayer/generated'
 import type { Portfolio, Page } from '../../.contentlayer/generated'
 import ExternalLinkButton from '../../components/Buttons/ExternalLinkButton'
 import Modal from '../../components/GalleryModal'
+import useVisible from '../../lib/hooks/useVisible'
 
 export async function getStaticPaths() {
    return {
@@ -34,6 +35,7 @@ export default function Project({
    const [currentGalleryImage, setCurrentGalleryImage] = React.useState(
       portfolio.image
    )
+   const { ref, isVisible, setIsVisible } = useVisible(false)
 
    const handleImageChange = (e, type) => {
       e.preventDefault()
@@ -56,6 +58,15 @@ export default function Project({
       }
    }
 
+   const openModal = () => {
+      console.log('open click')
+
+      setIsVisible(true)
+   }
+   const closeModal = () => {
+      setIsVisible(false)
+   }
+
    return (
       <>
          <Head>
@@ -75,15 +86,12 @@ export default function Project({
                <section>
                   <Title type="h1">{portfolio.project}</Title>
                   <Modal
-                     onClose={() =>
-                        setTimeout(() => {
-                           setShowModal(false)
-                        }, 1000)
-                     }
-                     show={showModal}
+                     onClose={closeModal}
+                     show={isVisible}
                      alt={portfolio.project}
                      image={currentGalleryImage}
                      handleImageChange={handleImageChange}
+                     ref={ref}
                   />
                   <img
                      className=""
@@ -102,7 +110,7 @@ export default function Project({
                                  <button
                                     type="button"
                                     onClick={() => {
-                                       setShowModal(true)
+                                       openModal()
                                        setCurrentGalleryImage(image)
                                     }}
                                  >

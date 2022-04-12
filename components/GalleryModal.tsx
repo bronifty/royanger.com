@@ -2,88 +2,67 @@ import * as React from 'react'
 import ReactDOM from 'react-dom'
 import { CloseIcon, NextIcon, PrevIcon } from './icons'
 
-export default function Modal({
-   show,
-   onClose,
-   image,
-   alt,
-   handleImageChange,
-}) {
-   const [isBrowser, setIsBrowser] = React.useState(false)
-   const modalRef = React.useRef<HTMLDivElement>(null)
+type Modal = {
+   show: Function
+   onClose: React.MouseEventHandler<HTMLAnchorElement>
+   image: string
+   alt: string
+   handleImageChange: Function
+}
 
-   const handleCloseClick = e => {
-      e.preventDefault()
-      onClose()
-   }
+const Modal = React.forwardRef(
+   ({ show, onClose, image, alt, handleImageChange }: Modal, ref) => {
+      const [isBrowser, setIsBrowser] = React.useState(false)
 
-   const clickOffToClose = e => {
-      console.log('click')
+      React.useEffect(() => {
+         setIsBrowser(true)
+      }, [show])
 
-      if (!modalRef) {
-         return
-      }
-      const ref = modalRef.current
-      if (!ref?.contains(e.target)) {
-         console.log('closing')
-         window.removeEventListener('click', clickOffToClose)
-         onClose()
-      }
-   }
-
-   React.useEffect(() => {
-      setIsBrowser(true)
-
-      window.addEventListener('click', clickOffToClose)
-      // return () => {
-      //    window.removeEventListener('click', clickOffToClose)
-      // }
-   }, [show])
-
-   const modalContent = show ? (
-      <div
-         className={`fixed ${
-            show ? 'top-0' : 'top-[-100%]'
-         } left-0 bg-white bg-opacity-50 h-50 w-screen flex justify-center items-center`}
-      >
+      const modalContent = show ? (
          <div
-            ref={modalRef}
-            className=" bg-white m-2 p-6 relative shadow shadow-grey-600"
+            className={`fixed top-0 left-0 right-0 bg-white bg-opacity-50 h-screen screen flex justify-center items-center`}
          >
-            <a
-               className="absolute top-0 right-0 bg-white py-1 px-2 rounded-bl-lg z-10"
-               href="#"
-               onClick={handleCloseClick}
+            <div
+               ref={ref}
+               className=" bg-white m-2 p-6 relative shadow shadow-grey-600"
             >
-               <CloseIcon className="w-5 h-auto" />
-            </a>
-            <div className=" max-w-7xl relative">
-               <div className="absolute left-0 top-1/2 bg-white bg-opacity-80 py-16 px-2 rounded-r-xl translate-y-[-50%]">
-                  <a href="#" onClick={e => handleImageChange(e, 'prev')}>
-                     <PrevIcon className="w-6" />
-                  </a>
-               </div>
-               <img
-                  className=""
-                  alt={`Screenshot of ${alt} landing page`}
-                  src={`/images/portfolio/${image}.jpg`}
-                  srcSet={`/images/portfolio/${image}-tablet.jpg 1000w, /images/portfolio/${image}-mobile.jpg 680w,  /images/portfolio/${image}.jpg`}
-               />
-               <div className="absolute right-0 top-1/2 bg-white bg-opacity-80 py-16 px-2 rounded-l-xl  translate-y-[-50%]">
-                  <a href="#" onClick={e => handleImageChange(e, 'next')}>
-                     <NextIcon className="w-6" />
-                  </a>
+               <a
+                  className="absolute top-0 right-0 bg-white py-1 px-2 rounded-bl-lg z-10"
+                  href="#"
+                  onClick={onClose}
+               >
+                  <CloseIcon className="w-5 h-auto" />
+               </a>
+               <div className=" max-w-7xl relative">
+                  <div className="absolute left-0 top-1/2 bg-white bg-opacity-80 py-16 px-2 rounded-r-xl translate-y-[-50%]">
+                     <a href="#" onClick={e => handleImageChange(e, 'prev')}>
+                        <PrevIcon className="w-6" />
+                     </a>
+                  </div>
+                  <img
+                     className=""
+                     alt={`Screenshot of ${alt} landing page`}
+                     src={`/images/portfolio/${image}.jpg`}
+                     srcSet={`/images/portfolio/${image}-tablet.jpg 1000w, /images/portfolio/${image}-mobile.jpg 680w,  /images/portfolio/${image}.jpg`}
+                  />
+                  <div className="absolute right-0 top-1/2 bg-white bg-opacity-80 py-16 px-2 rounded-l-xl  translate-y-[-50%]">
+                     <a href="#" onClick={e => handleImageChange(e, 'next')}>
+                        <NextIcon className="w-6" />
+                     </a>
+                  </div>
                </div>
             </div>
          </div>
-      </div>
-   ) : null
+      ) : null
 
-   if (isBrowser) {
-      return ReactDOM.createPortal(
-         modalContent,
-         document.querySelector('#modal-root')
-      )
+      if (isBrowser) {
+         return ReactDOM.createPortal(
+            modalContent,
+            document.querySelector('#modal-root')
+         )
+      }
+      return null
    }
-   return null
-}
+)
+
+export default Modal
