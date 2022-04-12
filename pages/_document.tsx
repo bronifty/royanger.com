@@ -57,6 +57,7 @@ class MyDocument extends Document {
             </Head>
             <body className="dark:bg-black dark:text-white bg-white text-black overflow-x-hidden">
                <Main />
+               <div id="modal-root"></div>
                <NextScript />
             </body>
          </Html>

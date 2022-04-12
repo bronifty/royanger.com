@@ -1,6 +1,6 @@
 ---
-pageTitle: Roy Anger - Skills & Resume
-pageKeywords: react developer, fullstack developer, web developer, skills, resume
+pageTitle: Roy Anger - Portfolio
+pageKeywords: react developer, fullstack developer, web developer, portfolio, projects, github
 title: Portfolio
 subTitle: Projects, Applications and Open Source
 ---

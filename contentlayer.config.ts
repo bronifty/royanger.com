@@ -104,6 +104,12 @@ const Portfolio = defineDocumentType(() => ({
             'The image name, minus the extension, for the portfolio image.',
          required: false,
       },
+      gallery: {
+         type: 'list',
+         description: 'Images to display as gallery',
+         required: false,
+         of: Portfolio,
+      },
    },
    computedFields: {
       url: {
