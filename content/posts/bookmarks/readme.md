@@ -1,0 +1,11 @@
+---
+title: Readme
+date: 2021-11-17
+postType: bookmark
+tags:
+   - markdown
+   - readme
+link: https://readme.so/editor
+---
+
+A simple and fast way to create a README file for your project.

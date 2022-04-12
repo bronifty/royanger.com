@@ -1,0 +1,10 @@
+---
+title: Google Webfonts Helper
+date: 2021-12-01
+postType: bookmark
+tags:
+   - webfonts
+link: https://google-webfonts-helper.herokuapp.com/fonts/work-sans?subsets=latin
+---
+
+A super simple way to generate various font files to use a Google Font in your project, and to self host it when doing so.

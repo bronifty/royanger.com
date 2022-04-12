@@ -1,5 +1,4 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
-import { number } from 'yup'
 
 const Post = defineDocumentType(() => ({
    name: 'Post',
@@ -14,6 +13,39 @@ const Post = defineDocumentType(() => ({
          type: 'string',
          description: 'The date of the post',
          required: true,
+      },
+      postType: {
+         type: 'string',
+         description: 'Specify that this is a "bookmark" or "article"',
+         required: true,
+      },
+      tags: {
+         type: 'list',
+         description:
+            'Tags to display at the bottom of the article/whatever card',
+         required: true,
+         of: Post,
+      },
+      link: {
+         type: 'string',
+         description: 'The link to a bookmark',
+         required: false,
+      },
+      slug: {
+         type: 'string',
+         description: 'A slug for blog posts',
+         required: false,
+      },
+      excerpt: {
+         type: 'string',
+         description: 'Short text to show on card for articles',
+         required: false,
+      },
+      image: {
+         type: 'string',
+         description:
+            'The image shown both in the reading material index and, if a blog post, the article header. Do not include extension -- .jpg is assumed',
+         required: false,
       },
    },
    computedFields: {
