@@ -1,0 +1,12 @@
+---
+title: iPhone Lock Screen using Tailwind
+date: 2021-04-21
+postType: bookmark
+tags:
+   - css
+   - tailwind
+link: https://twitter.com/joneidejohnsen/status/1387547145969012746
+---
+
+"This week's CSS experiment – recreating my iPhone lock screen solely with @tailwindcss
+and Heroicons from @steveschoger." -- [@joneidejohnsen](https://twitter.com/joneidejohnsen)

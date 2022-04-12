@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Head from 'next/head'
-import { allPages } from '../.contentlayer/generated'
+import { allPages, allPosts } from '../.contentlayer/generated'
 import { InferGetStaticPropsType } from 'next'
 import Title from '../components/Title'
 
@@ -9,14 +9,24 @@ export async function getStaticProps() {
    const page = allPages.find(
       post => post._raw.flattenedPath === 'pages/reading-material'
    )
+   // load portfolio page and portfolio posts from contentlayer
+   const posts = allPosts.sort(
+      (a, b) => Number(new Date(b.date)) - Number(new Date(a.date))
+   )
    return {
       props: {
          page,
+         posts,
       },
    }
 }
 
-const Reading = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Reading = ({
+   page,
+   posts,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
+   // console.log('test', posts)
+
    return (
       <>
          <Head>
