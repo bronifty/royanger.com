@@ -34,8 +34,12 @@ const Modal = React.forwardRef(
                   <CloseIcon className="w-5 h-auto" />
                </a>
                <div className=" max-w-7xl relative">
-                  <div className="absolute left-0 top-1/2 bg-white bg-opacity-80 py-16 px-2 rounded-r-xl translate-y-[-50%]">
-                     <a href="#" onClick={e => handleImageChange(e, 'prev')}>
+                  <div className="absolute left-0 top-1/2 bg-white bg-opacity-80  rounded-r-xl translate-y-[-50%]">
+                     <a
+                        className="block py-16 px-2"
+                        href="#"
+                        onClick={e => handleImageChange(e, 'prev')}
+                     >
                         <PrevIcon className="w-6" />
                      </a>
                   </div>
@@ -45,8 +49,12 @@ const Modal = React.forwardRef(
                      src={`/images/portfolio/${image}.jpg`}
                      srcSet={`/images/portfolio/${image}-tablet.jpg 1000w, /images/portfolio/${image}-mobile.jpg 680w,  /images/portfolio/${image}.jpg`}
                   />
-                  <div className="absolute right-0 top-1/2 bg-white bg-opacity-80 py-16 px-2 rounded-l-xl  translate-y-[-50%]">
-                     <a href="#" onClick={e => handleImageChange(e, 'next')}>
+                  <div className="absolute right-0 top-1/2 bg-white bg-opacity-80  rounded-l-xl  translate-y-[-50%]">
+                     <a
+                        className="block py-16 px-2 "
+                        href="#"
+                        onClick={e => handleImageChange(e, 'next')}
+                     >
                         <NextIcon className="w-6" />
                      </a>
                   </div>
