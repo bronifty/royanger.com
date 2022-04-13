@@ -1,5 +1,6 @@
 import Button from '../Buttons/Button'
 import ExternalLinkButton from '../Buttons/ExternalLinkButton'
+import Tag from '../Tag'
 import Title from '../Title'
 
 export default function Card({
@@ -30,14 +31,7 @@ export default function Card({
 
             <div className="mt-10 mb-4">
                {techstack.map((item, index) => {
-                  return (
-                     <span
-                        key={index}
-                        className="text-blue rounded dark:text-lightblue-300 bg-grey-200 dark:bg-grey-700 py-1 px-2 my-1 mr-2"
-                     >
-                        {item}
-                     </span>
-                  )
+                  return <Tag key={index} item={item} />
                })}
             </div>
             <div className="inline-flex flex-row relative border-[1px] rounded border-grey-500 p-3 pr-0 mt-5 mb-3">
@@ -45,18 +39,11 @@ export default function Card({
                   View the Project
                </span>
 
-               <Button link={slug} name="More Details" />
+               <Button link={`/portfolio/${slug}`} name="More Details" />
                <ExternalLinkButton link={github} name="GitHub" />
                <ExternalLinkButton link={preview} name="Preview" />
             </div>
          </div>
-
-         {/* <div
-                              className="page-content"
-                              dangerouslySetInnerHTML={{
-                                 __html: item.body.html,
-                              }}
-                           /> */}
       </article>
    )
 }

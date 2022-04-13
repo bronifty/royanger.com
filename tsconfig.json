@@ -1,39 +1,31 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "typeRoots": [
-      "./lib/@types",
-      "./node_modules/@types"
-    ],
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "preserve",
-    "incremental": true
-  },
-  "include": [
-    "src",
-    "src/custom.d.ts",
-    "public/assets",
-    "lib/sanity/client.tsx",
-    "lib/constants",
-    "lib/context"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+   "compilerOptions": {
+      "target": "es5",
+      "lib": ["dom", "dom.iterable", "esnext"],
+      "allowJs": true,
+      "skipLibCheck": true,
+      "esModuleInterop": true,
+      "typeRoots": ["./lib/@types", "./node_modules/@types"],
+      "allowSyntheticDefaultImports": true,
+      "strict": true,
+      "forceConsistentCasingInFileNames": true,
+      "noFallthroughCasesInSwitch": true,
+      "module": "esnext",
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "noEmit": true,
+      "jsx": "preserve",
+      "incremental": true
+   },
+   "include": [
+      "src",
+      "src/custom.d.ts",
+      "public/assets",
+      "lib/sanity/client.tsx",
+      "lib/constants",
+      "lib/context",
+      "pages/reading/[slug].tsx"
+   ],
+   "exclude": ["node_modules"]
 }

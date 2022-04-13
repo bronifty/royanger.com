@@ -6,6 +6,7 @@ tags:
    - markdown
 slug: change-me
 excerpt: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec tempus urna, sit amet placerat dolor. Nunc imperdiet lectus non leo aliquet mattis.
+image: yourroomz-3
 ---
 
 ## Change Me
