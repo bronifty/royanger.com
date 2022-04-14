@@ -7,6 +7,8 @@ import ExternalLinkButton from '../../components/Buttons/ExternalLinkButton'
 import Modal from '../../components/GalleryModal'
 import useVisible from '../../lib/hooks/useVisible'
 import Tag from '../../components/Tag'
+import { useMDXComponent } from 'next-contentlayer/hooks'
+import components from '../../components/MDXComponents'
 
 export async function getStaticPaths() {
    return {
@@ -32,6 +34,7 @@ export default function Project({
    portfolio: Portfolio
    page: Page
 }) {
+   const Component = useMDXComponent(portfolio.body.code)
    const [currentGalleryImage, setCurrentGalleryImage] = React.useState(
       portfolio.image
    )
@@ -128,10 +131,9 @@ export default function Project({
                   ) : (
                      ''
                   )}
-                  <div
-                     className="portfolio-content mb-10"
-                     dangerouslySetInnerHTML={{ __html: portfolio.body.html }}
-                  />
+                  <div className="flex flex-col max-w-4xl mdx-content">
+                     <Component components={{ ...components }} as any />
+                  </div>
                   <div className="mt-10 mb-4">
                      {portfolio.techstack.map((item, index) => {
                         return <Tag key={index} item={item} />

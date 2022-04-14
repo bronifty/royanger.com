@@ -46,7 +46,7 @@ const Post = defineDocumentType(() => ({
       excerpt: {
          type: 'string',
          description: 'Short text to show on card for articles',
-         required: false,
+         required: true,
       },
       image: {
          type: 'string',
@@ -78,7 +78,8 @@ const Post = defineDocumentType(() => ({
 
 const Pages = defineDocumentType(() => ({
    name: 'Page',
-   filePathPattern: `pages/**/*.md`,
+   filePathPattern: `pages/**/*.mdx`,
+   contentType: 'mdx',
    fields: {
       pageTitle: {
          type: 'string',
@@ -111,7 +112,8 @@ const Pages = defineDocumentType(() => ({
 
 const Portfolio = defineDocumentType(() => ({
    name: 'Portfolio',
-   filePathPattern: `portfolio/**/*.md`,
+   filePathPattern: `portfolio/**/*.mdx`,
+   contentType: 'mdx',
    fields: {
       project: {
          type: 'string',

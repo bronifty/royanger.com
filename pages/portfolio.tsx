@@ -4,6 +4,8 @@ import { InferGetStaticPropsType } from 'next'
 import Title from '../components/Title'
 import { allPages, allPortfolios } from '../.contentlayer/generated'
 import Card from '../components/Portfolio/Card'
+import { useMDXComponent } from 'next-contentlayer/hooks'
+import components from '../components/MDXComponents'
 
 // load portfolio page and portfolio posts from contentlayer
 export async function getStaticProps() {
@@ -25,6 +27,8 @@ const Portfolio = ({
    page,
    portfolio,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+   const Component = useMDXComponent(page.body.code)
+
    return (
       <>
          <Head>
@@ -41,10 +45,9 @@ const Portfolio = ({
                <section>
                   <Title type="h1">{page.title}</Title>
                   <Title type="h2">{page.subTitle}</Title>
-                  <div
-                     className="page-content mb-10"
-                     dangerouslySetInnerHTML={{ __html: page.body.html }}
-                  />
+                  <div className="flex flex-col max-w-4xl mdx-content">
+                     <Component components={{ ...components }} as any />
+                  </div>
 
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 gap-y-16">
                      {portfolio.map(item => {

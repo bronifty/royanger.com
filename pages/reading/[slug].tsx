@@ -7,7 +7,6 @@ import { allPosts, allPages } from '../../.contentlayer/generated'
 import type { Post, Page } from '../../.contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import components from '../../components/MDXComponents'
-import readingTime from 'reading-time'
 
 export async function getStaticPaths() {
    return {
