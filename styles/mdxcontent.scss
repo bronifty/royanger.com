@@ -1,0 +1,55 @@
+.mdx-content {
+   h2,
+   h3,
+   h4,
+   h5,
+   h6,
+   p {
+      margin-bottom: 1.5rem;
+   }
+
+   h2 {
+      font-size: 2.25rem;
+      font-family: 'Hind';
+      margin: 2rem 0 0.5rem;
+   }
+
+   h3 {
+      font-size: 1.35rem;
+      font-family: 'Archivo Black';
+      margin: 2rem 0 0.5rem;
+   }
+
+   // blockquote > p {
+   //    max-width: 100%;
+   // }
+   // blockquote {
+   //    padding: 0rem 1rem;
+   //    position: relative;
+   //    margin: 3.5rem 0 3.5rem 50px;
+   //    max-width: calc(900px - 3.5rem);
+   //    font-size: 1.15rem;
+   //    font-style: italic;
+   // }
+   .quotes:before {
+      content: ' ';
+      display: inline-flex;
+      background-image: url('/images/svgs/quote-left.svg');
+      background-size: 40px 40px;
+      height: 40px;
+      width: 40px;
+      position: absolute;
+      left: -10px;
+   }
+   .quotes:after {
+      content: ' ';
+      display: inline-flex;
+      background-image: url('/images/svgs/quote-right.svg');
+      background-size: 40px 40px;
+      height: 40px;
+      width: 40px;
+      position: absolute;
+      right: -10px;
+      bottom: 40px;
+   }
+}

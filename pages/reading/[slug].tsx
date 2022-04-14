@@ -1,11 +1,13 @@
 import * as React from 'react'
 import Head from 'next/head'
+import Image from 'next/image'
 import { GetStaticProps } from 'next'
 import Title from '../../components/Title'
 import { allPosts, allPages } from '../../.contentlayer/generated'
 import type { Post, Page } from '../../.contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import components from '../../components/MDXComponents'
+import readingTime from 'reading-time'
 
 export async function getStaticPaths() {
    return {
@@ -31,8 +33,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export default function Article({ post, page }: { post: Post; page: Page }) {
-   console.log('post', post)
    const Component = useMDXComponent(post.body.code)
+   console.log('post', post)
    return (
       <>
          <Head>
@@ -52,30 +54,39 @@ export default function Article({ post, page }: { post: Post; page: Page }) {
                <article>
                   <div className="flex flex-col justify-center">
                      <Title type="superheading">a few thoughts about</Title>
-                     <Title type="h2" className="flex justify-center mt-1">
+                     <Title
+                        type="h2"
+                        className="flex justify-center mt-0 pt-0 font-title"
+                     >
                         {post.title}
                      </Title>
                   </div>
                   <div className="flex flex-col items-center">
-                     <img
-                        className="max-w-3xl"
-                        alt={`Screenshot of ${post.title} landing page`}
-                        src={`/images/portfolio/${post.image}.jpg`}
-                        srcSet={`/images/portfolio/${post.image}-tablet.jpg 1000w, /images/portfolio/${post.image}-mobile.jpg 680w,  /images/portfolio/${post.image}.jpg`}
-                     />
+                     <div className="w-full relative h-full">
+                        <Image
+                           className="max-w-3xl"
+                           width={post.imageWidth}
+                           height={post.imageHeight}
+                           alt={`Screenshot of ${post.title} landing page`}
+                           src={`/images/portfolio/${post.image}.jpg`}
+                        />
+                     </div>
                   </div>
-                  <div className="">
-                     <p className="">
-                        Posted:{' '}
-                        <span className="italic text-blue">
+                  <div className="flex flex-row mt-4 mb-6">
+                     <div className="grow flex flex-row">
+                        <div className="font-code">Roy Anger</div>
+                        <div className="mx-2 text">&bull;</div>
+                        <div className="font-code">
                            {post.date.split('T')[0]}
-                        </span>
-                     </p>
-                     <p className="">
-                        By: <span className="italic text-blue">Roy Anger</span>
-                     </p>
+                        </div>
+                     </div>
+                     <div className="grow flex flex-row justify-end">
+                        <div className="font-code">{post.readingTime.text}</div>
+                        <div className="mx-2 text">&bull;</div>
+                        <div className="font-code">{post.wordCount} words</div>
+                     </div>
                   </div>
-                  <div className="flex flex-col items-center">
+                  <div className="flex flex-col max-w-4xl mdx-content">
                      <Component components={{ ...components }} as any />
                   </div>
                </article>

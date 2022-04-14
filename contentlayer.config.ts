@@ -1,8 +1,4 @@
-import {
-   defineDocumentType,
-   makeSource,
-   ComputedFields,
-} from 'contentlayer/source-files'
+import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import readingTime from 'reading-time'
 import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
@@ -56,6 +52,14 @@ const Post = defineDocumentType(() => ({
          type: 'string',
          description:
             'The image shown both in the reading material index and, if a blog post, the article header. Do not include extension -- .jpg is assumed',
+         required: false,
+      },
+      imageWidth: {
+         type: 'number',
+         required: false,
+      },
+      imageHeight: {
+         type: 'number',
          required: false,
       },
    },
@@ -173,7 +177,7 @@ const contentLayerConfig = makeSource({
    mdx: {
       remarkPlugins: [remarkGfm],
       rehypePlugins: [
-         // rehypeSlug,
+         rehypeSlug,
          rehypeCodeTitles,
          rehypePrism,
          [
