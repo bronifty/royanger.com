@@ -1,8 +1,19 @@
-import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+import {
+   defineDocumentType,
+   makeSource,
+   ComputedFields,
+} from 'contentlayer/source-files'
+import readingTime from 'reading-time'
+import remarkGfm from 'remark-gfm'
+import rehypeSlug from 'rehype-slug'
+import rehypeCodeTitles from 'rehype-code-titles'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypePrism from 'rehype-prism-plus'
 
 const Post = defineDocumentType(() => ({
    name: 'Post',
-   filePathPattern: `posts/**/*.md`,
+   filePathPattern: `posts/**/*.mdx`,
+   contentType: 'mdx',
    fields: {
       title: {
          type: 'string',
@@ -52,6 +63,11 @@ const Post = defineDocumentType(() => ({
       url: {
          type: 'string',
          resolve: doc => `/content/posts/${doc._raw.flattenedPath}`,
+      },
+      readingTime: { type: 'json', resolve: doc => readingTime(doc.body.raw) },
+      wordCount: {
+         type: 'number',
+         resolve: doc => doc.body.raw.split(/\s+/gu).length,
       },
    },
 }))
@@ -151,7 +167,25 @@ const Portfolio = defineDocumentType(() => ({
    },
 }))
 
-export default makeSource({
+const contentLayerConfig = makeSource({
    contentDirPath: 'content',
    documentTypes: [Post, Pages, Portfolio],
+   mdx: {
+      remarkPlugins: [remarkGfm],
+      rehypePlugins: [
+         // rehypeSlug,
+         rehypeCodeTitles,
+         rehypePrism,
+         [
+            rehypeAutolinkHeadings,
+            {
+               properties: {
+                  className: ['anchor'],
+               },
+            },
+         ],
+      ],
+   },
 })
+
+export default contentLayerConfig

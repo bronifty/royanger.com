@@ -18,14 +18,6 @@
       "jsx": "preserve",
       "incremental": true
    },
-   "include": [
-      "src",
-      "src/custom.d.ts",
-      "public/assets",
-      "lib/sanity/client.tsx",
-      "lib/constants",
-      "lib/context",
-      "pages/reading/[slug].tsx"
-   ],
+   "include": ["src", "public/assets", "lib/constants", "lib/context"],
    "exclude": ["node_modules"]
 }

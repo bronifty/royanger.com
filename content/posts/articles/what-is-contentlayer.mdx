@@ -13,9 +13,31 @@ image: yourroomz-3
 
 ## Change Me
 
+```typescript:lib/mdx.ts
+type Tag = {
+   item: string
+}
+
+const Tag = ({ item }: Tag) => {
+   return (
+      <span className="text-blue rounded dark:text-lightblue-300 bg-grey-200 dark:bg-grey-700 py-1 px-2 my-1 mr-2">
+         {item}
+      </span>
+   )
+}
+
+export default Tag
+```
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec tempus urna, sit amet placerat dolor. Nunc imperdiet lectus non leo aliquet mattis. Ut lorem nisi, tincidunt quis congue sit amet, euismod at erat. Nulla facilisi. Curabitur imperdiet justo a dui sagittis, eget ultrices lectus placerat. Nulla facilisi. Etiam aliquam at elit vel ullamcorper. Vivamus at libero sed erat congue dapibus ut ut ante. Maecenas a blandit enim, sed maximus velit. Sed mauris dolor, mattis at facilisis vitae, pretium id libero. Suspendisse potenti. Aliquam quis eros non felis laoreet feugiat. Proin tristique est vel leo consectetur consectetur. Phasellus tempus dictum aliquet.
 
-> this is a test. Cras sapien dolor, maximus quis orci quis, cursus lacinia nunc. Aliquam eget sollicitudinfff justo. Mauris ornare libero in ipsum tristique congue. Phasellus placerat vitae est ac ultrices. Pellentesque erat dui, placerat non porta vel, posuere at dolor. Fusce in leo venenatis leo dignissim pellentesque tempor sed risus.
+<Quote author="Co.Lab">
+   this is a test. Cras sapien dolor, maximus quis orci quis, cursus lacinia
+   nunc. Aliquam eget sollicitudinfff justo. Mauris ornare libero in ipsum
+   tristique congue. Phasellus placerat vitae est ac ultrices. Pellentesque erat
+   dui, placerat non porta vel, posuere at dolor. Fusce in leo venenatis leo
+   dignissim pellentesque tempor sed risus.
+</Quote>
 
 ### Heading Level Three
 

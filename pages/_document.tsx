@@ -52,8 +52,6 @@ class MyDocument extends Document {
                   href="%PUBLIC_URL%/images/favicons/site.webmanifest"
                />
                <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-               <link rel="stylesheet" href="/assets/prism.css" />
-               <script src="/assets/prism.js" />
             </Head>
             <body className="dark:bg-black dark:text-white bg-white text-black overflow-x-hidden">
                <Main />

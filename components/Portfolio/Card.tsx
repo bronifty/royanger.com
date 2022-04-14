@@ -3,6 +3,16 @@ import ExternalLinkButton from '../Buttons/ExternalLinkButton'
 import Tag from '../Tag'
 import Title from '../Title'
 
+type Card = {
+   title: string
+   description: string
+   github: string
+   image: string
+   slug: string
+   preview: string
+   techstack: string[]
+}
+
 export default function Card({
    title,
    description,
@@ -11,7 +21,7 @@ export default function Card({
    techstack,
    image,
    slug,
-}) {
+}: Card) {
    return (
       <article className="shadow-md  shadow-black-100 dark:shadow-black-700 rounded">
          <div className="relative">

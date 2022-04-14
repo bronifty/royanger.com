@@ -4,6 +4,8 @@ import { GetStaticProps } from 'next'
 import Title from '../../components/Title'
 import { allPosts, allPages } from '../../.contentlayer/generated'
 import type { Post, Page } from '../../.contentlayer/generated'
+import { useMDXComponent } from 'next-contentlayer/hooks'
+import components from '../../components/MDXComponents'
 
 export async function getStaticPaths() {
    return {
@@ -29,6 +31,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export default function Article({ post, page }: { post: Post; page: Page }) {
+   console.log('post', post)
+   const Component = useMDXComponent(post.body.code)
    return (
       <>
          <Head>
@@ -72,10 +76,7 @@ export default function Article({ post, page }: { post: Post; page: Page }) {
                      </p>
                   </div>
                   <div className="flex flex-col items-center">
-                     <div
-                        className="article-content mb-10 flex flex-col items-center "
-                        dangerouslySetInnerHTML={{ __html: post.body.html }}
-                     />
+                     <Component components={{ ...components }} as any />
                   </div>
                </article>
             </div>
