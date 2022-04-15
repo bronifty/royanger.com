@@ -34,7 +34,7 @@ const ArticleCard = ({
                </div>
                <div className="">{excerpt}</div>
             </div>
-            <div className="grow flex items-end">
+            <div className="grow flex items-end border-t-[1px] border-grey-300 mt-6">
                <Button link={`/reading/${slug}`} name="Read" />
             </div>
          </div>
