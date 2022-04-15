@@ -5,6 +5,8 @@ import rehypeSlug from 'rehype-slug'
 import rehypeCodeTitles from 'rehype-code-titles'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypePrism from 'rehype-prism-plus'
+import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis'
+import rehypeExternalLinks from 'rehype-external-links'
 
 const Post = defineDocumentType(() => ({
    name: 'Post',
@@ -179,9 +181,11 @@ const contentLayerConfig = makeSource({
    mdx: {
       remarkPlugins: [remarkGfm],
       rehypePlugins: [
+         rehypeAccessibleEmojis,
          rehypeSlug,
          rehypeCodeTitles,
-         rehypePrism,
+         [rehypePrism, { showLineNumbers: true }],
+         [rehypeExternalLinks, { target: ['_blank'], rel: ['nofollow'] }],
          [
             rehypeAutolinkHeadings,
             {

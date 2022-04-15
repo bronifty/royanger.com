@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Head from 'next/head'
+import Link from 'next/link'
 import { InferGetStaticPropsType } from 'next'
 import Title from '../components/Title'
 import { allPages } from '../.contentlayer/generated'
@@ -38,6 +39,28 @@ const Skills = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
                   <Title type="h2">{page.subTitle}</Title>
                   <div className="flex flex-col max-w-4xl mdx-content">
                      <Component components={{ ...components }} as any />
+                  </div>
+                  <div className="flex">
+                     <div className="bg-grey-100 pt-6 pb-12 px-20 rounded-xl bg-yellow-800 text-white">
+                        <Title type="h2">Resume</Title>
+                        <div className="text-xl">
+                           Please download my{' '}
+                           <Link href="/resume/roy-anger--resume.pdf">
+                              <a className="text-blue-200 underline decoration-dotted font-semibold">
+                                 Resume
+                              </a>
+                           </Link>
+                           <p>
+                              Last updated April 15, 2022. Please{' '}
+                              <Link href="/contact">
+                                 <a className="text-blue-200 underline decoration-dotted font-semibold">
+                                    drop me a line
+                                 </a>
+                              </Link>{' '}
+                              if you are looking for an updated resume.
+                           </p>
+                        </div>
+                     </div>
                   </div>
                </article>
             </div>

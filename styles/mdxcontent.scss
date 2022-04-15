@@ -46,6 +46,11 @@
       right: -10px;
       bottom: 40px;
    }
+   a {
+      color: var(--color-blue-500);
+      text-decoration: underline dotted var(--color-blue-500);
+      font-weight: bold;
+   }
 }
 
 .alert {
