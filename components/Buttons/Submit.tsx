@@ -1,6 +1,9 @@
 import * as React from 'react'
 
-const SubmitButton = ({ label }) => {
+type SubmitButton = {
+   label: string
+}
+const SubmitButton = ({ label }: SubmitButton) => {
    return (
       <div>
          <button type="submit">{label}</button>

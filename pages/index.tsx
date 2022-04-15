@@ -4,6 +4,8 @@ import Image from 'next/image'
 import Title from '../components/Title'
 import { allPages } from '../.contentlayer/generated'
 import { InferGetStaticPropsType } from 'next'
+import { useMDXComponent } from 'next-contentlayer/hooks'
+import components from '../components/MDXComponents'
 
 // load just one page from contentlayer
 export async function getStaticProps() {
@@ -16,6 +18,7 @@ export async function getStaticProps() {
 }
 
 const Index = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
+   const Component = useMDXComponent(page.body.code)
    return (
       <>
          <Head>
@@ -35,10 +38,9 @@ const Index = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
                   <Title type="h3">
                      Watch for the new site and portfolio - coming soon!
                   </Title>
-                  <div
-                     className="page-content"
-                     dangerouslySetInnerHTML={{ __html: page.body.html }}
-                  />
+                  <div className="flex flex-col max-w-4xl mdx-content">
+                     <Component components={{ ...components }} as any />
+                  </div>
                </article>
             </div>
 

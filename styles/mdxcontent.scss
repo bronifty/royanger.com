@@ -1,0 +1,55 @@
+.mdx-content {
+   h2,
+   h3,
+   h4,
+   h5,
+   h6,
+   p {
+      margin-bottom: 1.5rem;
+   }
+   p {
+      font-size: 1.1rem;
+      line-height: 1.6em;
+   }
+   h2 {
+      font-size: 2.25rem;
+      font-family: 'Hind';
+      margin: 2rem 0 0.5rem;
+      font-weight: 500;
+   }
+
+   h3 {
+      font-size: 1.75rem;
+      font-family: 'Hind';
+      margin: 2rem 0 0.5rem;
+      font-weight: 500;
+   }
+
+   .quotes:before {
+      content: ' ';
+      display: inline-flex;
+      background-image: url('/images/svgs/quote-left.svg');
+      background-size: 40px 40px;
+      height: 40px;
+      width: 40px;
+      position: absolute;
+      left: -10px;
+   }
+   .quotes:after {
+      content: ' ';
+      display: inline-flex;
+      background-image: url('/images/svgs/quote-right.svg');
+      background-size: 40px 40px;
+      height: 40px;
+      width: 40px;
+      position: absolute;
+      right: -10px;
+      bottom: 40px;
+   }
+}
+
+.alert {
+   p {
+      margin: 0;
+   }
+}

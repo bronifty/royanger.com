@@ -10,7 +10,7 @@ type Modal = {
    handleImageChange: Function
 }
 
-const Modal = React.forwardRef<HTMLDivElement, Modal>(
+const GalleryModal = React.forwardRef<HTMLDivElement, Modal>(
    ({ show, onClose, image, alt, handleImageChange }: Modal, ref) => {
       const [isBrowser, setIsBrowser] = React.useState(false)
 
@@ -73,4 +73,6 @@ const Modal = React.forwardRef<HTMLDivElement, Modal>(
    }
 )
 
-export default Modal
+GalleryModal.displayName = 'GalleryModal'
+
+export default GalleryModal

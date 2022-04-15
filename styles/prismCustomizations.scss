@@ -1,0 +1,20 @@
+.rehype-code-title {
+   padding: 0.75rem 1rem;
+   background-color: var(--color-grey-100);
+   border-radius: 0.3em 0.3em 0 0;
+   font-family: 'Ubuntu Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
+      monospace;
+}
+
+code[class*='language-'],
+pre[class*='language-'] {
+   font-family: 'Ubuntu Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
+      monospace;
+}
+pre[class*='language-'] {
+   margin: 0 0 1rem 0;
+}
+
+.rehype-code-title + pre[class*='language-'] {
+   border-radius: 0 0 0.3em 0.3em;
+}

@@ -2,6 +2,7 @@ import * as React from 'react'
 import { ThemeContext } from '../../lib/context/themeContext'
 import { SunIcon, MoonIcon } from '../icons'
 
+// TODO track down this type error
 const Toggle = () => {
    const { theme, setTheme } = React.useContext(ThemeContext)
 

@@ -1,8 +1,15 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+import readingTime from 'reading-time'
+import remarkGfm from 'remark-gfm'
+import rehypeSlug from 'rehype-slug'
+import rehypeCodeTitles from 'rehype-code-titles'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypePrism from 'rehype-prism-plus'
 
 const Post = defineDocumentType(() => ({
    name: 'Post',
-   filePathPattern: `posts/**/*.md`,
+   filePathPattern: `posts/**/*.mdx`,
+   contentType: 'mdx',
    fields: {
       title: {
          type: 'string',
@@ -39,12 +46,20 @@ const Post = defineDocumentType(() => ({
       excerpt: {
          type: 'string',
          description: 'Short text to show on card for articles',
-         required: false,
+         required: true,
       },
       image: {
          type: 'string',
          description:
             'The image shown both in the reading material index and, if a blog post, the article header. Do not include extension -- .jpg is assumed',
+         required: false,
+      },
+      imageWidth: {
+         type: 'number',
+         required: false,
+      },
+      imageHeight: {
+         type: 'number',
          required: false,
       },
    },
@@ -53,12 +68,18 @@ const Post = defineDocumentType(() => ({
          type: 'string',
          resolve: doc => `/content/posts/${doc._raw.flattenedPath}`,
       },
+      readingTime: { type: 'json', resolve: doc => readingTime(doc.body.raw) },
+      wordCount: {
+         type: 'number',
+         resolve: doc => doc.body.raw.split(/\s+/gu).length,
+      },
    },
 }))
 
 const Pages = defineDocumentType(() => ({
    name: 'Page',
-   filePathPattern: `pages/**/*.md`,
+   filePathPattern: `pages/**/*.mdx`,
+   contentType: 'mdx',
    fields: {
       pageTitle: {
          type: 'string',
@@ -91,7 +112,8 @@ const Pages = defineDocumentType(() => ({
 
 const Portfolio = defineDocumentType(() => ({
    name: 'Portfolio',
-   filePathPattern: `portfolio/**/*.md`,
+   filePathPattern: `portfolio/**/*.mdx`,
+   contentType: 'mdx',
    fields: {
       project: {
          type: 'string',
@@ -151,7 +173,25 @@ const Portfolio = defineDocumentType(() => ({
    },
 }))
 
-export default makeSource({
+const contentLayerConfig = makeSource({
    contentDirPath: 'content',
    documentTypes: [Post, Pages, Portfolio],
+   mdx: {
+      remarkPlugins: [remarkGfm],
+      rehypePlugins: [
+         rehypeSlug,
+         rehypeCodeTitles,
+         rehypePrism,
+         [
+            rehypeAutolinkHeadings,
+            {
+               properties: {
+                  className: ['anchor'],
+               },
+            },
+         ],
+      ],
+   },
 })
+
+export default contentLayerConfig

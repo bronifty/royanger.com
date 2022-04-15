@@ -3,6 +3,11 @@ import Head from 'next/head'
 import { allPages, allPosts } from '../.contentlayer/generated'
 import { InferGetStaticPropsType } from 'next'
 import Title from '../components/Title'
+import BookmarkCard from '../components/blog/BookmarkCard'
+import ArticleCard from '../components/blog/ArticleCard'
+import ProjectCard from '../components/blog/ProjectCard'
+import { useMDXComponent } from 'next-contentlayer/hooks'
+import components from '../components/MDXComponents'
 
 // load just one page from contentlayer
 export async function getStaticProps() {
@@ -25,7 +30,7 @@ const Reading = ({
    page,
    posts,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-   // console.log('test', posts)
+   const Component = useMDXComponent(page.body.code)
 
    return (
       <>
@@ -44,11 +49,54 @@ const Reading = ({
                   <Title type="h1">{page.title}</Title>
                   <Title type="h2">{page.subTitle}</Title>
 
-                  <div
-                     className="page-content"
-                     dangerouslySetInnerHTML={{ __html: page.body.html }}
-                  />
+                  <div className="flex flex-col max-w-4xl mdx-content">
+                     <Component components={{ ...components }} as any />
+                  </div>
                </article>
+
+               <div className="grid grid-cols-4 gap-6 auto-rows-[350px]">
+                  {posts.map((post, index) => {
+                     if (post.postType === 'bookmark')
+                        return (
+                           <BookmarkCard
+                              key={index}
+                              title={post.title}
+                              date={post.date}
+                              type={post.postType}
+                              tags={post.tags}
+                              link={post.link}
+                           >
+                              {post.excerpt}
+                           </BookmarkCard>
+                        )
+                     if (post.postType === 'project')
+                        return (
+                           <ProjectCard
+                              key={index}
+                              title={post.title}
+                              date={post.date}
+                              type={post.postType}
+                              tags={post.tags}
+                              link={post.link}
+                           >
+                              {post.excerpt}
+                           </ProjectCard>
+                        )
+                     if (post.postType === 'article')
+                        return (
+                           <ArticleCard
+                              key={index}
+                              title={post.title}
+                              date={post.date}
+                              type={post.postType}
+                              tags={post.tags}
+                              excerpt={post.excerpt}
+                              slug={post.slug}
+                              image={post.image}
+                           />
+                        )
+                  })}
+               </div>
             </div>
 
             <div></div>

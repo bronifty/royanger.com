@@ -6,6 +6,9 @@ import type { Portfolio, Page } from '../../.contentlayer/generated'
 import ExternalLinkButton from '../../components/Buttons/ExternalLinkButton'
 import Modal from '../../components/GalleryModal'
 import useVisible from '../../lib/hooks/useVisible'
+import Tag from '../../components/Tag'
+import { useMDXComponent } from 'next-contentlayer/hooks'
+import components from '../../components/MDXComponents'
 
 export async function getStaticPaths() {
    return {
@@ -31,6 +34,7 @@ export default function Project({
    portfolio: Portfolio
    page: Page
 }) {
+   const Component = useMDXComponent(portfolio.body.code)
    const [currentGalleryImage, setCurrentGalleryImage] = React.useState(
       portfolio.image
    )
@@ -127,20 +131,12 @@ export default function Project({
                   ) : (
                      ''
                   )}
-                  <div
-                     className="portfolio-content mb-10"
-                     dangerouslySetInnerHTML={{ __html: portfolio.body.html }}
-                  />
+                  <div className="flex flex-col max-w-4xl mdx-content">
+                     <Component components={{ ...components }} as any />
+                  </div>
                   <div className="mt-10 mb-4">
                      {portfolio.techstack.map((item, index) => {
-                        return (
-                           <span
-                              key={index}
-                              className="text-blue rounded dark:text-lightblue-300 bg-grey-200 dark:bg-grey-700 py-1 px-2 my-1 mr-2"
-                           >
-                              {item}
-                           </span>
-                        )
+                        return <Tag key={index} item={item} />
                      })}
                   </div>
                   <div className="inline-flex flex-row relative border-[1px] rounded border-grey-500 p-3 pr-0 mt-5 mb-3">

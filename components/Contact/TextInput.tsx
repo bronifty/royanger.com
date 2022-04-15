@@ -1,7 +1,21 @@
 import * as React from 'react'
-import { Field } from 'formik'
+import { Field, FormikErrors, FormikTouched } from 'formik'
 
-const TextInput = ({ name, label, touched, errors }) => {
+type FormValues = {
+   contactName: string
+   contactEmail: string
+   contactPhone: string
+   contactMessage: string
+}
+
+type TextInput = {
+   name: string
+   label: string
+   touched: FormikTouched<FormValues>
+   errors: FormikErrors<FormValues>
+}
+
+const TextInput = ({ name, label, touched, errors }: TextInput) => {
    return (
       <div>
          <label htmlFor={name} className="">
