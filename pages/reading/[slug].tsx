@@ -33,7 +33,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 export default function Article({ post, page }: { post: Post; page: Page }) {
    const Component = useMDXComponent(post.body.code)
-   console.log('post', post)
+
    return (
       <>
          <Head>
@@ -60,7 +60,7 @@ export default function Article({ post, page }: { post: Post; page: Page }) {
                         {post.title}
                      </Title>
                   </div>
-                  <div className="flex flex-col items-center">
+                  <div className="flex flex-col items-center mt-4">
                      <div className="w-full relative h-full">
                         <Image
                            className="max-w-3xl"
@@ -85,7 +85,7 @@ export default function Article({ post, page }: { post: Post; page: Page }) {
                         <div className="font-code">{post.wordCount} words</div>
                      </div>
                   </div>
-                  <div className="flex flex-col max-w-4xl mdx-content">
+                  <div className="flex flex-col max-w-4xl mdx-content mt-12">
                      <Component components={{ ...components }} as any />
                   </div>
                </article>

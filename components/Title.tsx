@@ -28,7 +28,7 @@ const Title: React.FC<Title> = ({ children, type, className }) => {
    const Heading = includes(headingLevels, safeHeading) ? safeHeading : 'p'
 
    return (
-      <div className={`${className ? className : ''} ${classes[safeHeading]}`}>
+      <div className={`${classes[safeHeading]} ${className ? className : ''} `}>
          <Heading>{children}</Heading>
       </div>
    )

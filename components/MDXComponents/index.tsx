@@ -1,16 +1,9 @@
-const Quote = ({ author, children }) => {
-   return (
-      <div className=" p-4 relative flex flex-row justify-center">
-         <div>
-            <div className="text-lg quotes max-w-3xl"> {children}</div>
-            <div className="italic">{author}</div>
-         </div>
-      </div>
-   )
-}
+import Alert from './Alert'
+import Quote from './Quote'
 
 const MDXComponents = {
    Quote,
+   Alert,
 }
 
 export default MDXComponents
