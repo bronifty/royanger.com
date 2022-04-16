@@ -40,7 +40,7 @@ const Skills = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
                   <div className="flex flex-col max-w-4xl mdx-content">
                      <Component components={{ ...components }} as any />
                   </div>
-                  <div className="flex mt-12">
+                  <div className="flex mt-12 max-w-4xl">
                      <div className="rounded-xl bg-gradient-to-tr from-blue-600  via-cyan-400 to-blue-900 ">
                         <div className="bg-white pt-6 pb-12 px-20 rounded-xl  m-2 ">
                            <Title type="h2">Resume</Title>

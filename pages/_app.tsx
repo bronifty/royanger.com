@@ -5,7 +5,6 @@ import Header from '../components/Header/Header'
 import Footer from '../components/Footer'
 import TagManager from 'react-gtm-module'
 import { GTM } from '../lib/constants/env'
-import Toggle from '../components/Header/Toggle'
 import '../styles/styles.scss'
 import '../styles/tailwind.css'
 

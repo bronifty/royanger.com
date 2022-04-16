@@ -1,23 +1,44 @@
 import * as React from 'react'
 import Head from 'next/head'
-import Image from 'next/image'
+import Link from 'next/link'
 import Title from '../components/Title'
-import { allPages } from '../.contentlayer/generated'
+import { allPages, allPortfolios, allPosts } from '../.contentlayer/generated'
 import { InferGetStaticPropsType } from 'next'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import components from '../components/MDXComponents'
+import { RightArrowLongIcon } from '../components/icons'
+import ListItem from '../components/home/ListItem'
 
 // load just one page from contentlayer
 export async function getStaticProps() {
    const page = allPages.find(post => post._raw.flattenedPath === 'pages/home')
+   const portfolio = allPortfolios
+      .sort((a, b) => {
+         return (a.index as number) - (b.index as number)
+      })
+      .slice(0, 4)
+   const posts = allPosts
+      .map(p => {
+         if (p.slug) return p
+      })
+      .filter(p => {
+         return p !== undefined
+      })
+      .slice(0, 4)
    return {
       props: {
          page,
+         portfolio,
+         posts,
       },
    }
 }
 
-const Index = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Index = ({
+   page,
+   portfolio,
+   posts,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
    const Component = useMDXComponent(page.body.code)
    return (
       <>
@@ -35,11 +56,63 @@ const Index = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
                <article>
                   <Title type="h1">{page.title}</Title>
                   <Title type="h2">{page.subTitle}</Title>
-                  <Title type="h3">
-                     Watch for the new site and portfolio - coming soon!
-                  </Title>
                   <div className="flex flex-col max-w-4xl mdx-content">
                      <Component components={{ ...components }} as any />
+                  </div>
+                  <div className="mt-12">
+                     <Title type="h2">Featured Projects</Title>
+                     <ul>
+                        {portfolio.map((p, index) => {
+                           return (
+                              <ListItem
+                                 key={index}
+                                 index={index}
+                                 title={p.project}
+                                 excerpt={p.excerpt}
+                                 slug={`/portfolio/${p.slug}`}
+                                 github={p.github}
+                              />
+                           )
+                        })}
+                     </ul>
+                     <div className="">
+                        <Link href="/portfolio">
+                           <button
+                              type="button"
+                              className="flex flex-row items-center relative text-grey-600 text-lg font-code"
+                           >
+                              See all projects{' '}
+                              <RightArrowLongIcon className="ml-2 w-5 h-auto top-[2px] relative" />
+                           </button>
+                        </Link>
+                     </div>
+                  </div>
+                  <div className="mt-16">
+                     <Title type="h2">Articles</Title>
+                     <ul>
+                        {posts.map((p, index) => {
+                           return (
+                              <ListItem
+                                 key={index}
+                                 index={index}
+                                 title={p.title}
+                                 excerpt={p.excerpt}
+                                 slug={`/reading/${p.slug}`}
+                              />
+                           )
+                        })}
+                     </ul>
+                     <div className="">
+                        <Link href="/portfolio">
+                           <button
+                              type="button"
+                              className="flex flex-row items-center relative text-grey-600 text-lg font-code"
+                           >
+                              See all articles{' '}
+                              <RightArrowLongIcon className="ml-2 w-5 h-auto top-[2px] relative" />
+                           </button>
+                        </Link>
+                     </div>
                   </div>
                </article>
             </div>

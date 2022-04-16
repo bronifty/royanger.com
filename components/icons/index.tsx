@@ -15,6 +15,7 @@ import EnvelopeIcon from './EnvelopeIcon'
 import NextIcon from './NextIcon'
 import PrevIcon from './PrevIcon'
 import RightArrowIcon from './RightArrowIcon'
+import RightArrowLongIcon from './RightArrowLongIcon'
 
 export {
    Logo,
@@ -34,4 +35,5 @@ export {
    NextIcon,
    PrevIcon,
    RightArrowIcon,
+   RightArrowLongIcon,
 }
