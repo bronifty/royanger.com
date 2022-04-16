@@ -156,6 +156,11 @@ const Portfolio = defineDocumentType(() => ({
          required: true,
          of: Portfolio,
       },
+      excerpt: {
+         type: 'string',
+         description: 'A short description for the index page',
+         required: true,
+      },
       image: {
          type: 'string',
          description:
