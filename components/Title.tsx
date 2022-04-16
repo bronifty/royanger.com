@@ -21,7 +21,7 @@ const Title: React.FC<Title> = ({ children, type, className }) => {
       h3: 'text-2xl font-title mt-4 mb-2 p-2',
       h4: 'text-2xl font-body mt-3',
       portfolio: 'text-2xl font-title my-2 p-2 flex justify-center',
-      superheading: 'text-lg font-body flex justify-center text-blue mt-8',
+      superheading: 'text-lg font-code flex justify-center text-blue mt-8',
    }
 
    const headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const

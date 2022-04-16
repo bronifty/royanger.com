@@ -16,8 +16,13 @@ const Card = ({ title, date, children, type, tags, height = 'single' }) => {
             height === 'double' ? 'row-span-2' : 'row-span-1'
          }  mt-6 flex flex-col`}
       >
-         <div className="p-1 border-b-[1px] border-grey-300 text-sm font-code text-grey-500">
-            {type}
+         <div
+            className="bg-gradient-to-r via-yellow-400 from-cyan-400
+         to-cyan-400 pb-[1px]"
+         >
+            <div className="p-1 border-b-[1px] border-grey-300 text-sm font-code text-grey-500 bg-white">
+               {type}
+            </div>
          </div>
          <div className="px-2 flex flex-col">
             <h3 className="font-body text-xl pt-2">{title}</h3>
