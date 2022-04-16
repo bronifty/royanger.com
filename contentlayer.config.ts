@@ -44,12 +44,17 @@ const Post = defineDocumentType(() => ({
       slug: {
          type: 'string',
          description: 'A slug for blog posts',
-         required: false,
+         required: true,
       },
       excerpt: {
          type: 'string',
          description: 'Short text to show on card for articles',
-         required: true,
+         required: false,
+      },
+      lastEdited: {
+         type: 'date',
+         description: '',
+         required: false,
       },
       image: {
          type: 'string',
@@ -76,7 +81,6 @@ const Post = defineDocumentType(() => ({
          type: 'number',
          resolve: doc => doc.body.raw.split(/\s+/gu).length,
       },
-      lastEdited: { type: 'date', resolve: getLastEditedDate },
    },
 }))
 

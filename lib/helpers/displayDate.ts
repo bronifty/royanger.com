@@ -16,5 +16,7 @@ const months = [
 export const displayDate = (timestamp: string) => {
    const date = new Date(timestamp)
 
-   return `${date.getDate()} ${months[date.getMonth()]}, ${date.getFullYear()}`
+   return `${date.getUTCDate()} ${
+      months[date.getUTCMonth()]
+   }, ${date.getUTCFullYear()}`
 }
