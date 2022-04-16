@@ -7,7 +7,6 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypePrism from 'rehype-prism-plus'
 import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis'
 import rehypeExternalLinks from 'rehype-external-links'
-import { getLastEditedDate } from './lib/helpers/utils'
 
 const Post = defineDocumentType(() => ({
    name: 'Post',
@@ -44,7 +43,7 @@ const Post = defineDocumentType(() => ({
       slug: {
          type: 'string',
          description: 'A slug for blog posts',
-         required: true,
+         required: false,
       },
       excerpt: {
          type: 'string',

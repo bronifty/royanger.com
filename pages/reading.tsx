@@ -56,7 +56,6 @@ const Reading = ({
 
                <div className="grid grid-cols-4 gap-6 auto-rows-[350px]">
                   {posts.map((post, index) => {
-                     console.log(post)
                      if (post.postType === 'bookmark')
                         return (
                            <BookmarkCard
