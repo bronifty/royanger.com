@@ -12,7 +12,6 @@ type Image = {
 }
 
 const SkillsImages = ({ images }: Images) => {
-   console.log('images', images)
    return (
       <>
          <div className="flex flex-row gap-6">
