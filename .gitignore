@@ -6,6 +6,7 @@ node_modules
 out
 /.pnp
 .pnp.js
+public/resume
 
 # testing
 /coverage

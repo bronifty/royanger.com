@@ -9,8 +9,8 @@ import ProjectCard from '../components/blog/ProjectCard'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import components from '../components/MDXComponents'
 
-// load just one page from contentlayer
 export async function getStaticProps() {
+   // load just one page from contentlayer
    const page = allPages.find(
       post => post._raw.flattenedPath === 'pages/reading-material'
    )
@@ -56,6 +56,7 @@ const Reading = ({
 
                <div className="grid grid-cols-4 gap-6 auto-rows-[350px]">
                   {posts.map((post, index) => {
+                     console.log(post)
                      if (post.postType === 'bookmark')
                         return (
                            <BookmarkCard

@@ -5,6 +5,9 @@ import rehypeSlug from 'rehype-slug'
 import rehypeCodeTitles from 'rehype-code-titles'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypePrism from 'rehype-prism-plus'
+import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis'
+import rehypeExternalLinks from 'rehype-external-links'
+import { getLastEditedDate } from './lib/utils'
 
 const Post = defineDocumentType(() => ({
    name: 'Post',
@@ -73,6 +76,7 @@ const Post = defineDocumentType(() => ({
          type: 'number',
          resolve: doc => doc.body.raw.split(/\s+/gu).length,
       },
+      last_edited: { type: 'date', resolve: getLastEditedDate },
    },
 }))
 
@@ -179,9 +183,11 @@ const contentLayerConfig = makeSource({
    mdx: {
       remarkPlugins: [remarkGfm],
       rehypePlugins: [
+         rehypeAccessibleEmojis,
          rehypeSlug,
          rehypeCodeTitles,
-         rehypePrism,
+         [rehypePrism, { showLineNumbers: true }],
+         [rehypeExternalLinks, { target: ['_blank'], rel: ['nofollow'] }],
          [
             rehypeAutolinkHeadings,
             {
