@@ -7,7 +7,6 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypePrism from 'rehype-prism-plus'
 import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis'
 import rehypeExternalLinks from 'rehype-external-links'
-import { getLastEditedDate } from './lib/utils'
 
 const Post = defineDocumentType(() => ({
    name: 'Post',
@@ -49,7 +48,12 @@ const Post = defineDocumentType(() => ({
       excerpt: {
          type: 'string',
          description: 'Short text to show on card for articles',
-         required: true,
+         required: false,
+      },
+      lastEdited: {
+         type: 'date',
+         description: '',
+         required: false,
       },
       image: {
          type: 'string',
@@ -76,7 +80,6 @@ const Post = defineDocumentType(() => ({
          type: 'number',
          resolve: doc => doc.body.raw.split(/\s+/gu).length,
       },
-      last_edited: { type: 'date', resolve: getLastEditedDate },
    },
 }))
 

@@ -7,6 +7,7 @@ import { allPosts, allPages } from '../../.contentlayer/generated'
 import type { Post, Page } from '../../.contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import components from '../../components/MDXComponents'
+import { displayDate } from '../../lib/helpers/displayDate'
 
 export async function getStaticPaths() {
    return {
@@ -76,7 +77,7 @@ export default function Article({ post, page }: { post: Post; page: Page }) {
                         <div className="font-code">Roy Anger</div>
                         <div className="mx-2 text">&bull;</div>
                         <div className="font-code">
-                           {post.date.split('T')[0]}
+                           {displayDate(post.date)}
                         </div>
                      </div>
                      <div className="grow flex flex-row justify-end">
@@ -87,6 +88,9 @@ export default function Article({ post, page }: { post: Post; page: Page }) {
                   </div>
                   <div className="flex flex-col max-w-4xl mdx-content mt-12">
                      <Component components={{ ...components }} as any />
+                  </div>
+                  <div className="font-code italic">
+                     Last edited: {displayDate(post.lastEdited)}
                   </div>
                </article>
             </div>

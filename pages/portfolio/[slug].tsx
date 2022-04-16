@@ -62,8 +62,6 @@ export default function Project({
    }
 
    const openModal = () => {
-      console.log('open click')
-
       setIsVisible(true)
    }
    const closeModal = () => {
