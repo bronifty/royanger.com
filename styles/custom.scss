@@ -1,0 +1,12 @@
+.gradient:hover {
+   fill: url(#logo-gradient) #447799;
+}
+.sun-gradient:hover,
+.sun-container:hover .sun-gradient {
+   fill: url(#sun-gradient) #447799;
+}
+
+.moon-gradient:hover,
+.moon-container:hover .moon-gradient {
+   fill: url(#moon-gradient) #447799;
+}

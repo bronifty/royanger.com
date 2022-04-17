@@ -15,7 +15,7 @@ const ListItem = ({ index, title, excerpt, slug, github }: ListItem) => {
       <li className="max-w-4xl mb-2 border-b-[1px] border-grey-300 last:border-0 ">
          <div
             className="bg-gradient-to-r via-yellow-400 from-cyan-400
-         to-cyan-400 pb-[2px]"
+         to-cyan-400 pb-[1px]"
          >
             <div className="flex flex-row pb-4 bg-white ">
                <div className="flex items-center justify-center w-10 mr-2 text-grey-400 font-code text-xl">
