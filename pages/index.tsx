@@ -9,8 +9,8 @@ import components from '../components/MDXComponents'
 import { RightArrowLongIcon } from '../components/icons'
 import ListItem from '../components/home/ListItem'
 
-// load just one page from contentlayer
 export async function getStaticProps() {
+   // load just one page from contentlayer
    const page = allPages.find(post => post._raw.flattenedPath === 'pages/home')
    const portfolio = allPortfolios
       .sort((a, b) => {
@@ -56,7 +56,7 @@ const Index = ({
                <article>
                   <Title type="h1">{page.title}</Title>
                   <Title type="h2">{page.subTitle}</Title>
-                  <div className="flex flex-col max-w-4xl mdx-content">
+                  <div className="flex flex-col max-w-4xl mdx-content mt-12">
                      <Component components={{ ...components }} as any />
                   </div>
                   <div className="mt-12">

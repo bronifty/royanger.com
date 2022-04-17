@@ -12,7 +12,7 @@ const Toggle = () => {
 
    return (
       <>
-         <div className="bg-black dark:bg-white hover:bg-gradient-to-br from-yellow-400 via-blue-400 to-blue-900 rounded-lg dark:hover:from-yellow-100 dark:hover:via-blue-100 dark:hover:to-blue-400 p-[2px]">
+         <div className="bg-black dark:bg-white hover:bg-gradient-to-br from-yellow-400 via-blue-400 to-blue-900 rounded-lg dark:hover:from-yellow-100 dark:hover:via-blue-100 dark:hover:to-blue-400 p-[2px] toggle-container">
             <div className="p-2 bg-white dark:bg-black rounded-lg border-zinc-600 dark:border-zinc-200 hover:bg-zinc-100 hover:shadow-lg sun-container moon-container">
                {theme && theme === 'light' ? (
                   <div onClick={() => handleThemeChange('dark')}>
