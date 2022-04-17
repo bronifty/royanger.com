@@ -1,12 +1,14 @@
 import * as React from 'react'
 import MenuItem from './MenuItem'
 import { MenuIcon, CloseIcon } from '../icons'
-
-// import components, custom hooks, etc
 import useVisible from '../../lib/hooks/useVisible'
+import { useRouter } from 'next/router'
 import Title from '../Title'
 
 const Menu = () => {
+   const router = useRouter()
+   const currentRoute = router.pathname
+
    const { ref, isVisible, setIsVisible } = useVisible(false)
    const [displayMobileMenuIcon, setDisplayMobileMenuIcon] =
       React.useState(true)
@@ -47,10 +49,26 @@ const Menu = () => {
             id="desktopmenu"
             className="flex flex-row flex-grow hidden md:block"
          >
-            <MenuItem link="/portfolio" title="Portfolio" />
-            <MenuItem link="/skills" title="Skills & Resume" />
-            <MenuItem link="/reading" title="Reading Material" />
-            <MenuItem link="/contact" title="Contact" />
+            <MenuItem
+               link="/portfolio"
+               title="Portfolio"
+               currentRoute={currentRoute}
+            />
+            <MenuItem
+               link="/skills"
+               title="Skills & Resume"
+               currentRoute={currentRoute}
+            />
+            <MenuItem
+               link="/reading"
+               title="Reading Material"
+               currentRoute={currentRoute}
+            />
+            <MenuItem
+               link="/contact"
+               title="Contact"
+               currentRoute={currentRoute}
+            />
          </div>
 
          <div
@@ -77,23 +95,32 @@ const Menu = () => {
                   title="Home"
                   onClick={onClick}
                   classes="border-t-[1px] border-t-blue-200"
+                  currentRoute={currentRoute}
                />
                <MenuItem
                   link="/portfolio"
                   title="Portfolio"
                   onClick={onClick}
+                  currentRoute={currentRoute}
                />
                <MenuItem
                   link="/skills"
                   title="Skills & Resume"
                   onClick={onClick}
+                  currentRoute={currentRoute}
                />
                <MenuItem
                   link="/reading"
                   title="Reading Material"
                   onClick={onClick}
+                  currentRoute={currentRoute}
                />
-               <MenuItem link="/contact" title="Contact" onClick={onClick} />
+               <MenuItem
+                  link="/contact"
+                  title="Contact"
+                  onClick={onClick}
+                  currentRoute={currentRoute}
+               />
             </div>
          </div>
          <div

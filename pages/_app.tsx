@@ -19,8 +19,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
    return (
       <ThemeProvider>
          <>
-            <div className="border border-1 border-blue-100 min-h-screen  flex flex-col">
+            <div className="min-h-screen  flex flex-col">
                <Header />
+
                <main id="main">
                   <Component {...pageProps} />
                </main>
