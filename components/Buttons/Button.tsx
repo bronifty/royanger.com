@@ -11,7 +11,7 @@ const Button = ({ link, name }: Button) => {
    return (
       <div className="block">
          <Link href={`${link}`}>
-            <a className="relative inline-flex items-center my-2 mr-3 text-lg bg-gradient-to-r from-grey-700 via-grey-600 to-grey-700 dark:bg-grey-300 text-grey-100 dark:text-grey-800 rounded py-1 px-3 hover:bg-grey-900 dark:hover:bg-grey-100 hover:shadow-md hover:shadow-black-900 hover:top-[-1px]">
+            <a className="relative inline-flex items-center my-2 mr-3 text-lg rounded py-1 px-3 bg-gradient-to-tr from-grey-700 via-grey-600 to-grey-700 hover:to-yellow-400 hover:via-blue-600 hover:from-blue-900 text-grey-100 dark:bg-grey-300 dark:text-grey-800 dark:hover:bg-grey-100 transform hover:scale-[1.04] transition-all">
                <span className="mr-4">{name}</span>
                <RightArrowLongIcon className="h-auto w-5 top-[2px] relative" />
             </a>

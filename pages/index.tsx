@@ -59,6 +59,8 @@ const Index = ({
                   <div className="flex flex-col max-w-4xl mdx-content mt-12">
                      <Component components={{ ...components }} as any />
                   </div>
+               </article>
+               <section>
                   <div className="mt-12">
                      <Title type="h2">Featured Projects</Title>
                      <ul>
@@ -76,7 +78,7 @@ const Index = ({
                         })}
                      </ul>
                      <div className="">
-                        <Link href="/portfolio">
+                        <Link href="/portfolio" passHref>
                            <button
                               type="button"
                               className="flex flex-row items-center relative text-grey-600 text-lg font-code"
@@ -87,6 +89,8 @@ const Index = ({
                         </Link>
                      </div>
                   </div>
+               </section>
+               <section>
                   <div className="mt-16">
                      <Title type="h2">Articles</Title>
                      <ul>
@@ -103,7 +107,7 @@ const Index = ({
                         })}
                      </ul>
                      <div className="">
-                        <Link href="/portfolio">
+                        <Link href="/portfolio" passHref>
                            <button
                               type="button"
                               className="flex flex-row items-center relative text-grey-600 text-lg font-code"
@@ -114,10 +118,8 @@ const Index = ({
                         </Link>
                      </div>
                   </div>
-               </article>
+               </section>
             </div>
-
-            <div></div>
          </div>
       </>
    )

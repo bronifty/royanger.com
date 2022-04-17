@@ -14,11 +14,11 @@ const Card = ({ title, date, children, type, tags, height = 'single' }) => {
       <article
          className={`${
             height === 'double' ? 'row-span-2' : 'row-span-1'
-         }  mt-6 flex flex-col`}
+         }  mt-6 flex flex-col group`}
       >
          <div
-            className="bg-gradient-to-r via-yellow-400 from-cyan-400
-         to-cyan-400 pb-[1px]"
+            className="group-hover:bg-gradient-to-r group-hover:via-yellow-400 group-hover:from-cyan-400
+            group-hover:to-cyan-400 pb-[1px]"
          >
             <div className="p-1 border-b-[1px] border-grey-300 text-sm font-code text-grey-500 bg-white">
                {type}

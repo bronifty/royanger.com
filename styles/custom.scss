@@ -1,3 +1,4 @@
+// handle gradients for logo and toggle
 .gradient:hover {
    fill: url(#logo-gradient) #447799;
 }
@@ -11,4 +12,9 @@
 .moon-container:hover .moon-gradient,
 .toggle-container:hover .moon-gradient {
    fill: url(#moon-gradient) #447799;
+}
+
+// clear gradient on hover from last list item on index route
+li:last-of-type.clear-gradient:hover {
+   background-image: none !important;
 }
