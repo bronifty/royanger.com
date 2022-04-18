@@ -43,32 +43,39 @@ const Menu = () => {
       setDisplayMobileMenuIcon(isVisible ? false : true)
    }, [isVisible])
 
+   const menu = [
+      {
+         title: 'Portfolio',
+         link: '/portfolio',
+      },
+      {
+         link: '/skills',
+         title: 'Skills & Resume',
+      },
+      { link: '/reading', title: 'Reading Material' },
+      { link: '/spotify', title: 'Spotify' },
+      {
+         link: '/contact',
+         title: 'Contact',
+      },
+   ]
+
    return (
       <nav className="flex flex-row  flex-grow items-center font-body text-xl">
          <div
             id="desktopmenu"
             className="flex flex-row flex-grow hidden md:block"
          >
-            <MenuItem
-               link="/portfolio"
-               title="Portfolio"
-               currentRoute={currentRoute}
-            />
-            <MenuItem
-               link="/skills"
-               title="Skills & Resume"
-               currentRoute={currentRoute}
-            />
-            <MenuItem
-               link="/reading"
-               title="Reading Material"
-               currentRoute={currentRoute}
-            />
-            <MenuItem
-               link="/contact"
-               title="Contact"
-               currentRoute={currentRoute}
-            />
+            {menu.map((item, index) => {
+               return (
+                  <MenuItem
+                     key={index}
+                     link={item.link}
+                     title={item.title}
+                     currentRoute={currentRoute}
+                  />
+               )
+            })}
          </div>
 
          <div
