@@ -108,6 +108,7 @@ module.exports = {
             900: '#08090a',
          },
          grey: colors.neutral,
+         spotify: { DEFAULT: '#43E57D' },
       },
       extend: {
          backgroundColor: {

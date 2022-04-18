@@ -2,7 +2,7 @@ const { withContentlayer } = require('next-contentlayer')
 
 module.exports = withContentlayer()({
    images: {
-      domains: ['cdn.sanity.io'],
+      domains: ['i.scdn.co'],
    },
    webpack(config) {
       config.module.rules.push({
