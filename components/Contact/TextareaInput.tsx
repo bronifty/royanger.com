@@ -17,17 +17,26 @@ type TextInput = {
 
 const TextareaInput = ({ name, label, errors, touched }) => {
    return (
-      <div>
-         <label htmlFor={name}>{label}</label>
-         <div>
-            <Field id={name} name={name} as="textarea" className=""></Field>
-            <div className="">
-               {errors.contactMessage && touched.contactMessage
-                  ? errors.contactMessage
-                  : null}
+      <>
+         <div className=" flex flex-row mb-8">
+            <div className="w-28 text-lg font-code pt-2 pr-2">
+               <label htmlFor={name}>{label}</label>
+            </div>
+            <div className="flex flex-col grow h-24">
+               <div>
+                  <Field
+                     id={name}
+                     name={name}
+                     as="textarea"
+                     className="w-full border-blue-600 border-2"
+                  ></Field>
+               </div>
+               <div className="font-code text-red-700">
+                  {errors[name] && touched[name] ? errors[name] : null}
+               </div>
             </div>
          </div>
-      </div>
+      </>
    )
 }
 

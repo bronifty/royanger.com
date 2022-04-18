@@ -17,16 +17,23 @@ type TextInput = {
 
 const TextInput = ({ name, label, touched, errors }: TextInput) => {
    return (
-      <div>
-         <label htmlFor={name} className="">
-            {label}
-         </label>
-         <div>
-            <Field name={name} type="text" id={name} />
+      <div className=" flex flex-row">
+         <div className="w-28 text-lg font-code pt-2  pr-2">
+            <label htmlFor={name} className="">
+               {label}:
+            </label>
+         </div>
+         <div className="flex flex-col grow h-24">
             <div>
-               {errors.contactName && touched.contactName
-                  ? errors.contactName
-                  : null}
+               <Field
+                  name={name}
+                  type="text"
+                  id={name}
+                  className="w-full border-blue-600 border-2"
+               />
+            </div>
+            <div className="font-code text-red-700">
+               {errors[name] && touched[name] ? errors[name] : ''}
             </div>
          </div>
       </div>

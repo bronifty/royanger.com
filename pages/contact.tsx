@@ -2,11 +2,13 @@ import * as React from 'react'
 import Head from 'next/head'
 import { Formik, Form, Field, FormikHelpers, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
+import 'yup-phone'
 import axios from 'axios'
 import Title from '../components/Title'
 import TextInput from '../components/Contact/TextInput'
 import TextareaInput from '../components/Contact/TextareaInput'
 import SubmitButton from '../components/Buttons/Submit'
+import ListItem from '../components/Contact/ListItem'
 
 interface Values {
    contactName: string
@@ -18,16 +20,17 @@ interface Values {
 const validateSchema = Yup.object().shape({
    contactName: Yup.string()
       .min(2, 'Your name is too short')
-      .max(150, 'Your name is too long.')
-      .required('Required'),
-   contactEmail: Yup.string().email('Invalid Email').required('Required'),
+      .max(150, 'Your name is too long')
+      .required('This field is required'),
+   contactEmail: Yup.string()
+      .email('Invalid Email')
+      .required('This field is required'),
    contactPhone: Yup.string()
-      .min(2, 'Please enter a valid phone number')
-      .max(20, 'Please enter a valid phone number')
-      .required('Required'),
+      .phone('CA', true, 'Please enter a valid phone number')
+      .required('This field is required'),
    contactMessage: Yup.string()
       .min(10, 'Please enter a longer message')
-      .required('Required'),
+      .required('This field is required'),
 })
 
 const Hire = () => {
@@ -41,83 +44,111 @@ const Hire = () => {
             />
          </Head>
 
-         <div>
-            <section>
-               <Title type="h1">Contact Roy</Title>
-               <section>
-                  <div>
-                     <Title type="h2">Send a message</Title>
-                     <p>
-                        Please use the following form to shoot me a quick
-                        message. I will get back to you ASAP. I'm looking
-                        forward to hearing from you!
-                     </p>
-                  </div>
-                  <div>
-                     <Formik
-                        initialValues={{
-                           contactName: '',
-                           contactEmail: '',
-                           contactPhone: '',
-                           contactMessage: '',
-                        }}
-                        validationSchema={validateSchema}
-                        onSubmit={(
-                           values: Values,
-                           { setSubmitting }: FormikHelpers<Values>
-                        ) => {
-                           console.log('form was submitted')
-                           axios.post(
-                              '/api/send-email',
-                              {},
-                              {
-                                 params: {
-                                    name: values.contactName,
-                                    email: values.contactEmail,
-                                    phone: values.contactPhone,
-                                    message: values.contactMessage,
-                                 },
-                              }
-                           )
-                           setSubmitting(false)
-                        }}
-                     >
-                        {({ values, errors, touched }) => (
-                           <Form>
-                              <TextInput
-                                 name="contactName"
-                                 label="Name"
-                                 errors={errors}
-                                 touched={touched}
-                              />
+         <div className="flex flex-row justify-center">
+            <div className="w-full max-w-7xl">
+               <article>
+                  <Title type="h1">Contact Roy</Title>
+                  <Title type="h2">I would love to hear from you</Title>
+                  <section className="max-w-2xl mt-16">
+                     <div className="">
+                        <Title type="h3ash4">Send a message</Title>
+                        <p className="max-w-2xl mt-6 mb-10">
+                           Please use the following form to shoot me a quick
+                           message. I will get back to you ASAP. I'm looking
+                           forward to hearing from you!
+                        </p>
+                     </div>
+                     <div>
+                        <Formik
+                           initialValues={{
+                              contactName: '',
+                              contactEmail: '',
+                              contactPhone: '',
+                              contactMessage: '',
+                           }}
+                           validationSchema={validateSchema}
+                           onSubmit={(
+                              values: Values,
+                              { setSubmitting }: FormikHelpers<Values>
+                           ) => {
+                              console.log('form was submitted')
+                              axios.post(
+                                 '/api/send-email',
+                                 {},
+                                 {
+                                    params: {
+                                       name: values.contactName,
+                                       email: values.contactEmail,
+                                       phone: values.contactPhone,
+                                       message: values.contactMessage,
+                                    },
+                                 }
+                              )
+                              setSubmitting(false)
+                           }}
+                        >
+                           {({ values, errors, touched }) => (
+                              <Form>
+                                 <TextInput
+                                    name="contactName"
+                                    label="Name"
+                                    errors={errors}
+                                    touched={touched}
+                                 />
 
-                              <TextInput
-                                 name="contactEmail"
-                                 label="Email"
-                                 errors={errors}
-                                 touched={touched}
-                              />
+                                 <TextInput
+                                    name="contactEmail"
+                                    label="Email"
+                                    errors={errors}
+                                    touched={touched}
+                                 />
 
-                              <TextInput
-                                 name="contactPhone"
-                                 label="Phone"
-                                 errors={errors}
-                                 touched={touched}
-                              />
+                                 <TextInput
+                                    name="contactPhone"
+                                    label="Phone"
+                                    errors={errors}
+                                    touched={touched}
+                                 />
 
-                              <TextareaInput
-                                 name="contactMessage"
-                                 label="Message"
-                                 errors={errors}
-                                 touched={touched}
-                              />
-                              <SubmitButton label="Submit Message" />
-                           </Form>
-                        )}
-                     </Formik>
-                  </div>
-               </section>
-            </section>
+                                 <TextareaInput
+                                    name="contactMessage"
+                                    label="Message"
+                                    errors={errors}
+                                    touched={touched}
+                                 />
+                                 <div className="ml-28">
+                                    <SubmitButton>Submit Message</SubmitButton>
+                                 </div>
+                              </Form>
+                           )}
+                        </Formik>
+                     </div>
+                  </section>
+                  <section className="max-w-2xl mt-16">
+                     <Title type="h3ash4" className="mb-4">
+                        Places to find me:
+                     </Title>
+                     <ul className="text-lg">
+                        <ListItem
+                           label="GitHub"
+                           link="https://github.com/royanger"
+                        />
+                        <ListItem
+                           label="LinkedIn"
+                           link="https://www.linkedin.com/in/royanger/"
+                        />
+                        <ListItem
+                           label="Twitter"
+                           link="https://twitter.com/royanger"
+                        />
+                        <ListItem
+                           label="Instagram"
+                           link="https://www.instagram.com/royanger/"
+                        />
+                     </ul>
+                  </section>
+               </article>
+            </div>
          </div>
       </>
    )
