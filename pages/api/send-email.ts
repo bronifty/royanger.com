@@ -10,9 +10,9 @@ export const config = {
 }
 
 AWS.config.update({
-   region: process.env.AWS_REGION,
-   accessKeyId: process.env.AWS_ACCESS_KEY,
-   secretAccessKey: process.env.AWS_ACCESS_SECRET,
+   region: process.env.AWS_EMAIL_REGION,
+   accessKeyId: process.env.AWS_EMAIL_ACCESS_KEY,
+   secretAccessKey: process.env.AWS_EMAIL_ACCESS_SECRET,
 })
 
 async function sendEmail({ name, email, phone, message }) {
