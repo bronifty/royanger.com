@@ -1,0 +1,137 @@
+---
+title: Why I Used Contentlayer
+date: 2022-04-19
+postType: article
+tags:
+   - markdown
+   - mdx
+   - content
+slug: why-i-used-contentlayer
+excerpt: Rather than use a headless CMS or a cloud hosted solution I opted to use Contentlayer for this redesign. Contentlayer lets your easily work with content and convert from MDX, markdown and JSON fields into data. Plus I can add a CMS later if I want to.
+image: yourroomz
+imageWidth: 1300
+imageHeight: 646
+lastEdited: 2022-04-19
+---
+
+As I set out to plan for a(nother) redesign of this portfolio I sat down and considered the blog. The reality is that I won't write posts regularly, and if the 'blog' section was just blog posts then it would end up very sparse. I was leaning towards not including a blog section at all, until I stumbled across a site that had a bookmarks section instead of a blog.
+
+I drew inspiration from that, though initially I was thinking of doing a section only for bookmarks. After a few days I started mulling over the idea of merging the blog and bookmarks into one section. I would have a spot for the blogs posts I wrote, but could easily had bookmarks to provide ongoing updates and content.
+
+With a goal in mind I turned my attention to the _how_ of accomplishing my goals. Previous versions of this portfolio had used [Sanity](https://www.sanity.io/). Its a solid tool, but it was overkill for my needs -- I simply wasn't going to write enough to need a complicated solution.
+
+## Enter Contentlayer
+
+Once I had decided to move on from Sanity, I decided that markdown would probably suit my needs. It would make writing a post easy -- I am comfortable with just typing away and entering my formatting via markdown syntax.
+
+As I started looking through options to use markdown or MDX on my new design, I stumbled across [Contentlayer](https://www.contentlayer.dev/). I'm not even 100% sure where I heard from it -- it might have been on one of [Jacob Evan's](https://twitter.com/JacobMGEvans) Twitter spaces. To be honest, it wasn't even the first thing I tried out as a solution. One look at the docs and [Lee Robinson's](https://twitter.com/leeerob) portfolio [repository](https://github.com/leerob/leerob.io) on GitHub and I was convinced.
+
+The ease at which you can take markdown or MDX files and generate content was remarkable. And it is super easy to then import that content into your component as data and work with. You end up with an arrays of objects, like you would get from a database. I could get the benefits of MDX, like frontmatter and components, very easily. I could even add remark and rehype plugins. Take a look under the featured image above -- the time to read and word count are handled by those plugins.
+
+Once I realized how easy it would be to work with Contentlayer I immediately expanded my plans. I could easily manage my projects via the same system. And wait, I could even manage most of the page titles, content, and even SEO keywords and so on. Pretty much anything that I might want to update or edit could be managed from MDX files.
+
+## Configuring the Content
+
+With a solution chosen and my plans solidified, I set out with the redesign. I decided that I wanted **Pages**, **Projects** and **Posts**, with Posts having the subgroups of _articles_, _bookmarks_ and _projects_.
+
+```bash
+/content
+  /pages
+    homes.mdx
+    portfolio.mdx
+  /portfolio
+    royanger.mdx
+    get-focused.mdx
+  /posts
+    /articles
+      why-i-used-contentlayer.mdx
+      colab.mdx
+    /bookmarks
+      github-skylines.mdx
+      gradient-svgs.mdx
+    /projects
+      yourroomz.mdx
+      royanger.mdx
+```
+
+### /pages
+
+Let's delve into each of the three main types, starting with Pages. Pages are the MDX files that handle the page title, keywords, and content. I started with a basic frontmatter section that would include the title for the `<head>` section as well as the keywords, and a title and subtitle for display on the page itself. The rest of the file is just the written content for the home page.
+
+```md:pages/home.mdx
+---
+pageTitle: Roy Anger - Full Stack Developer
+pageKeywords: react developer, fullstack developer, web developer
+title: Roy Anger
+subTitle: Full Stack Web Developer
+---
+```
+
+### /posts
+
+Posts has some required fields, but also some optional fields. A _project_ post would need a `github` field with a GitHub link while _articles_ and _bookmarks_ would not. A _article_ would need a `slug` while the others would not.
+
+I settled on having `title`, `date`, `postType` and `tags` be the required frontmatter fields. Those, along with the regular markdown text, would be sufficient to sort the posts by date (newest to oldest) and determine how to display them. In the component for the `/reading` page, each of the three types is sent to its own component for rendering, letting me display each one uniquely on the list of reading material.
+
+```md
+---
+title: Why I Used Contentlayer
+date: 2022-04-19
+postType: article
+tags:
+   - markdown
+   - mdx
+   - content
+slug: why-i-used-contentlayer
+excerpt: Rather than use a headless CMS or a cloud hosted solution I opted to use Contentlayer for this redesign. Contentlayer lets your easily work with content and convert from MDX, markdown and JSON fields into data. Plus I can add a CMS later if I want to.
+image: yourroomz
+imageWidth: 1300
+imageHeight: 646
+lastEdited: 2022-04-19
+---
+```
+
+### /projects
+
+Last up was projects. Showing off the projects I've worked on is a key element of this portfolio site. I wanted an easy, reliable way to add, edit and update portfolio items. With this in mind I took a similar approach to the posts section, and used frontmatter to setup some key fields.
+
+I used a `index` field to set the order that the projects would display, letting me showcase what I consider the best as the first project and so. There is a `slug` field so I can tailor the slug for SEO, if desired, rather than just automatically generating it.
+
+```md
+---
+project: YourRoomz
+slug: yourroomz
+index: 02
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae mi a nulla commodo mollis et at dolor. Curabitur consectetur ultrices nulla. Maecenas venenatis ante ac urna interdum, eget fermentum nunc interdum. Phasellus efficitur velit ex, id volutpat elit iaculis fermentum. Aenean quis vehicula eros. Suspendisse potenti. Sed sit amet.
+github: https://github.com/royanger/YourRoomz
+preview: https://yourroomz.com/
+excerpt: Find furniture suggestions based on your room and current furniture
+techstack:
+   - React
+   - Postgres
+   - Node
+   - GraphQL
+   - Prisma
+   - Redux Toolkit
+   - React Query
+   - Passport
+   - Rainforest API
+image: yourroomz
+gallery:
+   - yourroomz
+   - yourroomz-1
+   - yourroomz-2
+   - yourroomz-3
+   - yourroomz-4
+   - yourroomz-5
+   - yourroomz-6
+   - yourroomz-7
+   - yourroomz-8
+   - yourroomz-9
+   - yourroomz-10
+---
+```
+
+With the various file types in place, every piece of written content as well as images were now maintained through the .mdx files. I don't have to dig through components to update content -- just update the appropriate file. With the project hosted on Vercel, as soon as I push those updates to GitHub the CI/CD process starts and the site is regenerated.
+
+Take a look at the current version: [https://github.com/royanger/royanger.com](https://github.com/royanger/royanger.com)
