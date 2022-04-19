@@ -3,9 +3,13 @@
 A new, fully React-based website built to house my portfolio, contact details and blog. The goal was something modern, using the technology stacks I am currently working with and to move away from WordPress.
 
 -  **Library** [React](https://reactjs.org/)
+-  **Language** [TypeScript](https://www.typescriptlang.org/)
 -  **Framework** [Next.js](https://nextjs.org/)
--  **Content**
+-  **CSS Framework** [Tailwind CSS](https://tailwindcss.com/)
+-  **Content** [Contentlayer](https://www.contentlayer.dev/)
+-  **Data Fetching** [SWR](https://github.com/vercel/swr)
 -  **Deployment** [Vercel](https://vercel.com)
+-  **Monitoring** [Logrocket](https://logrocket.com/)
 
 ## Goals
 
@@ -31,11 +35,16 @@ Set the following variables as Environment Variables in Vercel, then use the CLI
 **ENV Variables**
 
 ```js
-MAIL_PASS
-MAIL_USER
-MAIL_HOST
-MAIL_PORT
+SPOTIFY_CLIENT_ID=
+SPOTIFY_CLIENT_SECRET=
+SPOTIFY_REFRESH_TOKEN=
+
+AWS_EMAIL_ACCESS_KEY=
+AWS_EMAIL_ACCESS_SECRET=
+AWS_EMAIL_REGION=
 ```
+
+-  _please note that you will need to setup Spotify accordingly_
 
 **Vercel CLI**
 
@@ -44,3 +53,52 @@ vercel env pull
 ```
 
 -  requires you have setup Vercel CLI and linked to your project. See [Project Linking](https://vercel.com/docs/cli#introduction/project-linking) for more info
+
+## MDX Components
+
+### Alert
+
+You can use the Alert component to create a box that stands out from the rest of the article. You can provide a type of `info`, `alert` or `callout`, each of which creates an appropriately coloured bar on the left edge of the Alert box. You can also pass an emoji to the component to have that displayed inside of the alert box. You can use any combination of the `type` and `emoji` to create the look you're going for.
+
+```jsx
+<Alert type="info">Cras sapien dolor, maximus quis orci quis.</Alert>
+```
+
+```jsx
+<Alert emoji="👋">Cras sapien dolor, maximus quis orci quis.</Alert>
+```
+
+```jsx
+<Alert emoji="🍕" type="callout">
+   Cras sapien dolor, maximus quis orci quis.
+</Alert>
+```
+
+### Quote
+
+Create a stylized quote. You must provide the quote as a child and the author using the `author` prop.
+
+```jsx
+<Quote author="Mark Twain">Cras sapien dolor, maximus quis orci quis.</Quote>
+```
+
+## Adding a code block
+
+You add a code block to the markdown/MDX with the standard triple backticks to start and end the block. Additionally you can provide lines or ranges of lines inside of `{}` and those lines will be highlighted accordingly. You can also enter a colon (`:`) and then a file name to have a header attached to the code block with the file name in it.
+
+````js
+```typescript {5-7, 10-12}:lib/mdx.ts
+type Tag = {
+   item: string
+}
+
+const Tag = ({ item }: Tag) => {
+   return (
+      <span className="text-blue rounded dark:text-blue-300 bg-grey-200 dark:bg-grey-700 py-1 px-2 my-1 mr-2">
+         {item}
+      </span>
+   )
+}
+
+export default Tag
+````

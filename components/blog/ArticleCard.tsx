@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Button from '../Buttons/Button'
 import Card from './Card'
 
@@ -9,6 +10,8 @@ type ArticleCard = {
    excerpt: string
    slug: string
    image: string
+   imageWidth: number
+   imageHeight: number
    // children: React.ReactNode
 }
 
@@ -20,16 +23,19 @@ const ArticleCard = ({
    excerpt,
    slug,
    image,
+   imageWidth,
+   imageHeight,
 }: ArticleCard) => {
    return (
       <Card type={type} tags={tags} title={title} date={date} height="double">
          <div className="flex flex-col h-full">
             <div className="">
                <div className="mt-2 mb-3">
-                  <img
+                  <Image
                      alt={`Preview of ${title}`}
-                     src={`/images/blog/${image}.jpg`}
-                     srcSet={`/images/portfolio/${image}-tablet.jpg 1000w, /images/portfolio/${image}-mobile.jpg 680w,  /images/portfolio/${image}.jpg`}
+                     src={`/images/blog/${image}`}
+                     height={imageHeight}
+                     width={imageWidth}
                   />
                </div>
                <div className="">{excerpt}</div>

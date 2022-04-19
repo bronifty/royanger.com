@@ -93,6 +93,8 @@ const Reading = ({
                               excerpt={post.excerpt}
                               slug={post.slug}
                               image={post.image}
+                              imageWidth={post.imageWidth}
+                              imageHeight={post.imageHeight}
                            />
                         )
                   })}
