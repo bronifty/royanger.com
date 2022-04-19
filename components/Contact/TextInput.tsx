@@ -13,9 +13,16 @@ type TextInput = {
    label: string
    touched: FormikTouched<FormValues>
    errors: FormikErrors<FormValues>
+   handleChange: Function
 }
 
-const TextInput = ({ name, label, touched, errors }: TextInput) => {
+const TextInput = ({
+   name,
+   label,
+   touched,
+   errors,
+   handleChange,
+}: TextInput) => {
    return (
       <div className=" flex flex-row">
          <div className="w-28 text-lg font-code pt-2  pr-2">
@@ -30,6 +37,7 @@ const TextInput = ({ name, label, touched, errors }: TextInput) => {
                   type="text"
                   id={name}
                   className="w-full border-blue-600 border-2"
+                  onKeyUp={handleChange}
                />
             </div>
             <div className="font-code text-red-700">
