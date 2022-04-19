@@ -8,14 +8,21 @@ type FormValues = {
    contactMessage: string
 }
 
-type TextInput = {
+type TextAreaInput = {
    name: string
    label: string
    touched: FormikTouched<FormValues>
    errors: FormikErrors<FormValues>
+   handleChange: Function
 }
 
-const TextareaInput = ({ name, label, errors, touched }) => {
+const TextareaInput = ({
+   name,
+   label,
+   errors,
+   touched,
+   handleChange,
+}: TextAreaInput) => {
    return (
       <>
          <div className=" flex flex-row mb-8">
@@ -29,6 +36,7 @@ const TextareaInput = ({ name, label, errors, touched }) => {
                      name={name}
                      as="textarea"
                      className="w-full border-blue-600 border-2"
+                     onKeyUp={handleChange}
                   ></Field>
                </div>
                <div className="font-code text-red-700">

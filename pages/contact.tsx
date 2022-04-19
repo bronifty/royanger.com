@@ -33,7 +33,13 @@ const validateSchema = Yup.object().shape({
       .required('This field is required'),
 })
 
-const Hire = () => {
+const Contact = () => {
+   const [submitted, setSubmitted] = React.useState(false)
+
+   const handleChange = () => {
+      setSubmitted(false)
+   }
+
    return (
       <>
          <Head>
@@ -72,6 +78,7 @@ const Hire = () => {
                               { setSubmitting }: FormikHelpers<Values>
                            ) => {
                               console.log('form was submitted')
+                              setSubmitted(true)
                               axios.post(
                                  '/api/send-email',
                                  {},
@@ -87,13 +94,14 @@ const Hire = () => {
                               setSubmitting(false)
                            }}
                         >
-                           {({ values, errors, touched }) => (
+                           {({ values, errors, touched, isSubmitting }) => (
                               <Form>
                                  <TextInput
                                     name="contactName"
                                     label="Name"
                                     errors={errors}
                                     touched={touched}
+                                    handleChange={handleChange}
                                  />
 
                                  <TextInput
@@ -101,6 +109,7 @@ const Hire = () => {
                                     label="Email"
                                     errors={errors}
                                     touched={touched}
+                                    handleChange={handleChange}
                                  />
 
                                  <TextInput
@@ -108,6 +117,7 @@ const Hire = () => {
                                     label="Phone"
                                     errors={errors}
                                     touched={touched}
+                                    handleChange={handleChange}
                                  />
 
                                  <TextareaInput
@@ -115,9 +125,31 @@ const Hire = () => {
                                     label="Message"
                                     errors={errors}
                                     touched={touched}
+                                    handleChange={handleChange}
                                  />
                                  <div className="ml-28">
-                                    <SubmitButton>Submit Message</SubmitButton>
+                                    {submitted ? (
+                                       <SubmitButton submitted={true}>
+                                          Submitted
+                                       </SubmitButton>
+                                    ) : (
+                                       <SubmitButton submitted={false}>
+                                          {isSubmitting
+                                             ? 'Submitting'
+                                             : 'Submit Form'}
+                                       </SubmitButton>
+                                    )}
+                                    <div className="h-10">
+                                       {submitted ? (
+                                          <div className="bg-grey-200 p-4 text-xl font-code font-bold rounded-lg mt-2">
+                                             {' '}
+                                             Your form was successfully
+                                             submitted
+                                          </div>
+                                       ) : (
+                                          ''
+                                       )}
+                                    </div>
                                  </div>
                               </Form>
                            )}
@@ -154,4 +186,4 @@ const Hire = () => {
    )
 }
 
-export default Hire
+export default Contact
