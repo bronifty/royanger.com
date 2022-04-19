@@ -55,7 +55,7 @@ const Portfolio = ({
                            <Card
                               key={item._id}
                               title={item.project}
-                              description={item.description}
+                              description={item.excerpt}
                               github={item.github}
                               preview={item.preview}
                               techstack={item.techstack}

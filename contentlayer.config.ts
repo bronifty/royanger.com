@@ -50,6 +50,11 @@ const Post = defineDocumentType(() => ({
          description: 'Short text to show on card for articles',
          required: false,
       },
+      shortExcerpt: {
+         type: 'string',
+         description: 'One sentence summary for home page',
+         required: false,
+      },
       lastEdited: {
          type: 'date',
          description: '',
@@ -137,7 +142,7 @@ const Portfolio = defineDocumentType(() => ({
          description: 'Order to list on portfolio',
          required: true,
       },
-      description: {
+      excerpt: {
          type: 'string',
          description: 'A description for the page',
          required: true,
@@ -159,7 +164,7 @@ const Portfolio = defineDocumentType(() => ({
          required: true,
          of: Portfolio,
       },
-      excerpt: {
+      shortExcerpt: {
          type: 'string',
          description: 'A short description for the index page',
          required: true,

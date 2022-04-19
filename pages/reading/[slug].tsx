@@ -68,7 +68,7 @@ export default function Article({ post, page }: { post: Post; page: Page }) {
                            width={post.imageWidth}
                            height={post.imageHeight}
                            alt={`Screenshot of ${post.title} landing page`}
-                           src={`/images/portfolio/${post.image}.jpg`}
+                           src={`/images/blog/${post.image}`}
                         />
                      </div>
                   </div>

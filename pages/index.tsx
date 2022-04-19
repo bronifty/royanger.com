@@ -73,7 +73,7 @@ const Index = ({
                                  key={index}
                                  index={index}
                                  title={p.project}
-                                 excerpt={p.excerpt}
+                                 excerpt={p.shortExcerpt}
                                  slug={`/portfolio/${p.slug}`}
                                  github={p.github}
                               />
@@ -103,7 +103,7 @@ const Index = ({
                                  key={index}
                                  index={index}
                                  title={p.title}
-                                 excerpt={p.excerpt}
+                                 excerpt={p.shortExcerpt}
                                  slug={`/reading/${p.slug}`}
                               />
                            )
