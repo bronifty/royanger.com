@@ -34,8 +34,8 @@ const ArticleCard = ({
                   <Image
                      alt={`Preview of ${title}`}
                      src={`/images/blog/${image}`}
-                     height={imageHeight}
-                     width={imageWidth}
+                     height={imageHeight / 3}
+                     width={imageWidth / 3}
                   />
                </div>
                <div className="">{excerpt}</div>
