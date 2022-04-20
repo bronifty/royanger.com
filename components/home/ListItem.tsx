@@ -13,10 +13,10 @@ type ListItem = {
 const ListItem = ({ index, title, excerpt, slug, github }: ListItem) => {
    return (
       <li
-         className="max-w-4xl mb-2 group bg-black hover:bg-gradient-to-r hover:via-yellow-400 hover:from-cyan-400
+         className="max-w-4xl mb-2 group bg-black dark:bg-white hover:bg-gradient-to-r hover:via-yellow-400 hover:from-cyan-400
       hover:to-cyan-400 pb-[1px] last:bg-transparent clear-gradient"
       >
-         <div className="flex flex-row pb-4 bg-white ">
+         <div className="flex flex-row pb-4 bg-white dark:bg-black">
             <div className="flex items-center justify-center w-10 mr-2 text-grey-400 font-code text-xl">
                {`0${index + 1}`}
             </div>

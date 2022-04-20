@@ -14,22 +14,22 @@ const Card = ({ title, date, children, type, tags, height = 'single' }) => {
       <article
          className={`${
             height === 'double' ? 'row-span-2' : 'row-span-1'
-         }  mt-6 flex flex-col group bg-grey-100 rounded-lg`}
+         }  mt-6 flex flex-col group bg-grey-100 dark:bg-grey-800 rounded-lg`}
       >
          <div
             className="group-hover:bg-gradient-to-r group-hover:via-yellow-400 group-hover:from-cyan-400
             group-hover:to-cyan-400 pb-[1px] rounded-t-lg"
          >
-            <div className="p-1 border-b-[1px] border-grey-300 text-sm font-code text-grey-500 bg-grey-100 rounded-t-lg ">
+            <div className="p-1 border-b-[1px] border-grey-300 text-sm font-code text-grey-500 bg-grey-100 dark:bg-grey-800 rounded-t-lg ">
                :{type}
             </div>
          </div>
-         <div className="px-2 flex flex-col">
+         <div className="grow px-2 flex flex-col">
             <h3 className="font-body text-xl pt-2">{title}</h3>
             <p className="pb-2 font-code text-sm">{date?.split('T')[0]}</p>
             <div className="grow">{children}</div>
          </div>
-         <div className="p-2">
+         <div className="p-2 pb-4">
             {tags.map((tag, index) => {
                return <Tag key={index} item={tag} />
             })}

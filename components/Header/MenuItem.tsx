@@ -33,7 +33,7 @@ const MenuItem = ({
    return (
       <>
          <div
-            className={`${currentCSS}  md:mx-2 max-w text-grey-200 hover:text-grey-100 md:text-grey-500 md:hover:text-grey-800 dark:md:hover:text-grey-50 hover:bg-blue-400 md:hover:bg-transparent ${
+            className={`${currentCSS}  md:mx-2 max-w text-grey-200 hover:text-grey-100 md:text-grey-500 dark:md:text-grey-300  md:hover:text-grey-800 dark:md:hover:text-grey-50 hover:bg-blue-400 md:hover:bg-transparent ${
                !isCurrent
                   ? 'md:hover:border-b-[1px] md:hover:border-black dark:md:hover:border-white'
                   : ''

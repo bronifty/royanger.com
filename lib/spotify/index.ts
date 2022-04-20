@@ -5,6 +5,7 @@ const client_secret = process.env.SPOTIFY_CLIENT_SECRET
 const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN
 
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64')
+
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`
 
 const getAccessToken = async () => {
@@ -23,7 +24,7 @@ const getAccessToken = async () => {
    return response.json()
 }
 
-const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks`
+const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks?time_range=short_term`
 
 export const getTopTracks = async () => {
    const { access_token } = await getAccessToken()
@@ -35,7 +36,7 @@ export const getTopTracks = async () => {
    })
 }
 
-const TOP_ARTISTS_ENDPOINT = `https://api.spotify.com/v1/me/top/artists`
+const TOP_ARTISTS_ENDPOINT = `https://api.spotify.com/v1/me/top/artists?time_range=short_term`
 
 export const getTopArtists = async () => {
    const { access_token } = await getAccessToken()
@@ -44,6 +45,9 @@ export const getTopArtists = async () => {
       headers: {
          Authorization: `Bearer ${access_token}`,
       },
+      // body: JSON.stringify({
+      //    time_range: 'short_term',
+      // }),
    })
 }
 

@@ -19,7 +19,7 @@
    }
 
    h3 {
-      font-size: 1.75rem;
+      font-size: 1.55rem;
       font-family: 'Hind';
       margin: 2rem 0 0.5rem;
       font-weight: 500;
@@ -34,6 +34,10 @@
       width: 40px;
       position: absolute;
       left: -10px;
+      -webkit-mask: url('/images/svgs/quote-left.svg') no-repeat 50% 50%;
+      mask: url('/images/svgs/quote-left.svg') no-repeat 50% 50%;
+      -webkit-mask-size: cover;
+      mask-size: cover;
    }
    .quotes:after {
       content: ' ';
@@ -45,7 +49,12 @@
       position: absolute;
       right: -10px;
       bottom: 40px;
+      -webkit-mask: url('/images/svgs/quote-right.svg') no-repeat 50% 50%;
+      mask: url('/images/svgs/quote-right.svg') no-repeat 50% 50%;
+      -webkit-mask-size: cover;
+      mask-size: cover;
    }
+
    a {
       color: var(--color-blue-500);
       text-decoration: underline dotted var(--color-blue-500);
@@ -56,5 +65,13 @@
 .alert {
    p {
       margin: 0;
+   }
+}
+
+.dark {
+   .quotes:before,
+   .quotes:after {
+      background-color: white;
+      background-image: none;
    }
 }

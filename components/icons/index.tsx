@@ -16,7 +16,8 @@ import NextIcon from './NextIcon'
 import PrevIcon from './PrevIcon'
 import RightArrowIcon from './RightArrowIcon'
 import RightArrowLongIcon from './RightArrowLongIcon'
-import Spotify from './SpotifyIcon'
+import SpotifyIcon from './SpotifyIcon'
+import PDFIcon from './PDFIcon'
 
 export {
    Logo,
@@ -37,5 +38,6 @@ export {
    PrevIcon,
    RightArrowIcon,
    RightArrowLongIcon,
-   Spotify,
+   SpotifyIcon,
+   PDFIcon,
 }

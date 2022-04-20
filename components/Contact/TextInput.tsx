@@ -36,11 +36,11 @@ const TextInput = ({
                   name={name}
                   type="text"
                   id={name}
-                  className="w-full border-blue-600 border-2"
+                  className="w-full border-blue-600 border-2 dark:border-4  dark:border-cyan-700  focus:dark:border-cyan-100"
                   onKeyUp={handleChange}
                />
             </div>
-            <div className="font-code text-red-700">
+            <div className="font-code text-red-700 dark:text-red-300">
                {errors[name] && touched[name] ? errors[name] : ''}
             </div>
          </div>
