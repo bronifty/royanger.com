@@ -46,8 +46,6 @@ async function sendEmail({ name, email, phone, message }) {
    // Handle promise's fulfilled/rejected states
    sendPromise
       .then(async function (data) {
-         console.log('succcess', data.MessageId)
-
          return await data.MessageId
       })
       .catch(function (err) {
@@ -87,15 +85,11 @@ export default async function handler(req, res) {
       // Handle promise's fulfilled/rejected states
       sendPromise
          .then(async function (data) {
-            console.log('succcess', data.MessageId)
-
             return res
                .status(200)
                .json({ message: `Email sent successfully ${data.MessageId}` })
          })
          .catch(function (err) {
-            console.log('error')
-
             console.error(err, err.stack)
             return res.status(200).json({ message: `Email sent successfully` })
          })

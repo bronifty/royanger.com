@@ -24,6 +24,10 @@ export async function getStaticProps() {
       .filter(p => {
          return p !== undefined
       })
+      .sort((a, b) => {
+         return new Date(a.date).getTime() - new Date(b.date).getTime()
+      })
+      .reverse()
       .slice(0, 4)
    return {
       props: {

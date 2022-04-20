@@ -77,7 +77,6 @@ const Contact = () => {
                               values: Values,
                               { setSubmitting }: FormikHelpers<Values>
                            ) => {
-                              console.log('form was submitted')
                               setSubmitted(true)
                               axios.post(
                                  '/api/send-email',
