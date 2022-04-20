@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Head from 'next/head'
+import Image from 'next/image'
 import Title from '../../components/Title'
 import { allPortfolios, allPages } from '../../.contentlayer/generated'
 import type { Portfolio, Page } from '../../.contentlayer/generated'
@@ -94,11 +95,12 @@ export default function Project({
                      handleImageChange={handleImageChange}
                      ref={ref}
                   />
-                  <img
+                  <Image
                      className=""
                      alt={`Screenshot of ${portfolio.project} landing page`}
-                     src={`/images/portfolio/${portfolio.image}.jpg`}
-                     srcSet={`/images/portfolio/${portfolio.image}-tablet.jpg 1000w, /images/portfolio/${portfolio.image}-mobile.jpg 680w,  /images/portfolio/${portfolio.image}.jpg`}
+                     src={`/images/portfolio/${portfolio.image.split('|')[0]}`}
+                     width={portfolio.image.split('|')[1]}
+                     height={portfolio.image.split('|')[2]}
                   />
                   {portfolio.gallery ? (
                      <div className="grid grid-cols-6 mt-6">
@@ -106,7 +108,7 @@ export default function Project({
                            return (
                               <div
                                  key={index}
-                                 className="flex justify-center items-center m-1 shadow shadow-grey-600"
+                                 className="flex justify-center items-center m-1 shadow shadow-grey-600 dark:bg-white dark:shadow-grey-900"
                               >
                                  <button
                                     type="button"
@@ -115,11 +117,14 @@ export default function Project({
                                        setCurrentGalleryImage(image)
                                     }}
                                  >
-                                    <img
-                                       className="w-36"
-                                       alt={`Screenshot of ${portfolio.project}`}
-                                       src={`/images/portfolio/${image}.jpg`}
-                                       srcSet={`/images/portfolio/${image}-tablet.jpg 1000w, /images/portfolio/${image}-mobile.jpg 680w,  /images/portfolio/${image}.jpg`}
+                                    <Image
+                                       className=""
+                                       alt={`Screenshot of ${portfolio.project} landing page`}
+                                       src={`/images/portfolio/${
+                                          image.split('|')[0]
+                                       }`}
+                                       width={image.split('|')[1]}
+                                       height={image.split('|')[2]}
                                     />
                                  </button>
                               </div>
@@ -132,7 +137,7 @@ export default function Project({
                   <div className="flex flex-col max-w-4xl mdx-content">
                      <Component components={{ ...components }} as any />
                   </div>
-                  <div className="mt-10 mb-4">
+                  <div className="mt-10 mb-4 flex flew-wrap">
                      {portfolio.techstack.map((item, index) => {
                         return <Tag key={index} item={item} />
                      })}

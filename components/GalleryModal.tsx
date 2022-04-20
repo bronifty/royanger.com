@@ -1,5 +1,6 @@
 import * as React from 'react'
 import ReactDOM from 'react-dom'
+import Image from 'next/image'
 import { CloseIcon, NextIcon, PrevIcon } from './icons'
 
 type Modal = {
@@ -27,14 +28,14 @@ const GalleryModal = React.forwardRef<HTMLDivElement, Modal>(
                className=" bg-white m-2 p-6 relative shadow shadow-grey-600"
             >
                <a
-                  className="absolute top-0 right-0 bg-white py-1 px-2 rounded-bl-lg z-10"
+                  className="absolute top-0 right-0 bg-white py-1 px-2 rounded-bl-lg z-30"
                   href="#"
                   onClick={onClose}
                >
                   <CloseIcon className="w-5 h-auto" />
                </a>
                <div className=" max-w-7xl relative">
-                  <div className="absolute left-0 top-1/2 bg-white bg-opacity-80  rounded-r-xl translate-y-[-50%]">
+                  <div className="absolute left-0 top-1/2 bg-white dark:text-black bg-opacity-80  rounded-r-xl translate-y-[-50%] z-20">
                      <a
                         className="block py-16 px-2"
                         href="#"
@@ -43,13 +44,14 @@ const GalleryModal = React.forwardRef<HTMLDivElement, Modal>(
                         <PrevIcon className="w-6" />
                      </a>
                   </div>
-                  <img
+                  <Image
                      className=""
                      alt={`Screenshot of ${alt} landing page`}
-                     src={`/images/portfolio/${image}.jpg`}
-                     srcSet={`/images/portfolio/${image}-tablet.jpg 1000w, /images/portfolio/${image}-mobile.jpg 680w,  /images/portfolio/${image}.jpg`}
+                     src={`/images/portfolio/${image.split('|')[0]}`}
+                     width={image.split('|')[1]}
+                     height={image.split('|')[2]}
                   />
-                  <div className="absolute right-0 top-1/2 bg-white bg-opacity-80  rounded-l-xl  translate-y-[-50%]">
+                  <div className="absolute right-0 top-1/2 bg-white dark:text-black bg-opacity-80  rounded-l-xl  translate-y-[-50%] z-20">
                      <a
                         className="block py-16 px-2 "
                         href="#"

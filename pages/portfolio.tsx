@@ -49,7 +49,7 @@ const Portfolio = ({
                      <Component components={{ ...components }} as any />
                   </div>
 
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 gap-y-16">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 gap-y-16 mt-12">
                      {portfolio.map(item => {
                         return (
                            <Card
