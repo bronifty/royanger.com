@@ -35,7 +35,7 @@ export default function Card({
                   className="rounded-t"
                />
             </div>
-            <div className="absolute bottom-0 right-0 left-0 bg-white bg-opacity-90 text-blue">
+            <div className="absolute bottom-0 right-0 left-0 bg-white bg-opacity-90 text-blue overflow-hidden whitespace-nowrap">
                <Title type="portfolio">{title}</Title>
             </div>
          </div>
@@ -47,7 +47,7 @@ export default function Card({
                   return <Tag key={index} item={item} />
                })}
             </div>
-            <div className="inline-flex flex-row relative border-[1px] rounded border-grey-500 p-3 pr-0 mt-5 mb-3">
+            <div className="inline-flex flex-row flex-wrap relative border-[1px] rounded border-grey-500 p-3 pr-0 mt-5 mb-3">
                <span className="absolute top-0 bg-white dark:bg-grey-800 text-grey-700 dark:text-grey-100 text-sm translate-y-[-50%] px-2">
                   View the Project
                </span>

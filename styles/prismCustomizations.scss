@@ -5,6 +5,10 @@
    font-family: 'Ubuntu Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
       monospace;
 }
+.dark .rehype-code-title {
+   color: var(--color-black-800);
+   background-color: var(--color-blue-50);
+}
 
 code[class*='language-'],
 pre[class*='language-'] {
@@ -14,7 +18,11 @@ pre[class*='language-'] {
 pre[class*='language-'] {
    margin: 0 0 1rem 0;
 }
-
+.dark pre[class*='language-'] {
+   overflow: auto;
+   margin-top: 0;
+   font-size: 0.85em;
+}
 .rehype-code-title + pre[class*='language-'] {
    border-radius: 0 0 0.3em 0.3em;
 }

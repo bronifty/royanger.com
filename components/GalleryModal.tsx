@@ -21,11 +21,11 @@ const GalleryModal = React.forwardRef<HTMLDivElement, Modal>(
 
       const modalContent = show ? (
          <div
-            className={`fixed top-0 left-0 right-0 bg-white bg-opacity-50 h-screen screen flex justify-center items-center`}
+            className={`fixed top-0 left-0 right-0 bg-white bg-opacity-50 h-screen flex justify-center items-center w-screen`}
          >
             <div
                ref={ref}
-               className=" bg-white m-2 p-6 relative shadow shadow-grey-600"
+               className=" bg-white m-2 p-2 md:p-6 relative shadow shadow-grey-600 "
             >
                <a
                   className="absolute top-0 right-0 bg-white py-1 px-2 rounded-bl-lg z-30"
@@ -37,7 +37,7 @@ const GalleryModal = React.forwardRef<HTMLDivElement, Modal>(
                <div className=" max-w-7xl relative">
                   <div className="absolute left-0 top-1/2 bg-white dark:text-black bg-opacity-80  rounded-r-xl translate-y-[-50%] z-20">
                      <a
-                        className="block py-16 px-2"
+                        className="block py-16 md:px-2"
                         href="#"
                         onClick={e => handleImageChange(e, 'prev')}
                      >
@@ -53,7 +53,7 @@ const GalleryModal = React.forwardRef<HTMLDivElement, Modal>(
                   />
                   <div className="absolute right-0 top-1/2 bg-white dark:text-black bg-opacity-80  rounded-l-xl  translate-y-[-50%] z-20">
                      <a
-                        className="block py-16 px-2 "
+                        className="block py-16 md:px-2 "
                         href="#"
                         onClick={e => handleImageChange(e, 'next')}
                      >
