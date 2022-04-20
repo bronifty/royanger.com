@@ -88,7 +88,7 @@ const Index = ({
                         <Link href="/portfolio" passHref>
                            <button
                               type="button"
-                              className="flex flex-row items-center relative text-grey-600 text-lg font-code"
+                              className="flex flex-row items-center relative text-grey-600 dark:text-grey-300 text-lg font-code"
                            >
                               See all projects{' '}
                               <RightArrowLongIcon className="ml-2 w-5 h-auto top-[2px] relative" />
@@ -117,7 +117,7 @@ const Index = ({
                         <Link href="/portfolio" passHref>
                            <button
                               type="button"
-                              className="flex flex-row items-center relative text-grey-600 text-lg font-code"
+                              className="flex flex-row items-center relative text-grey-600 dark:text-grey-300 text-lg font-code"
                            >
                               See all articles{' '}
                               <RightArrowLongIcon className="ml-2 w-5 h-auto top-[2px] relative" />

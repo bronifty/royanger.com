@@ -29,7 +29,7 @@ const ArticleCard = ({
    return (
       <Card type={type} tags={tags} title={title} date={date} height="double">
          <div className="flex flex-col h-full">
-            <div className="">
+            <div className="grow">
                <div className="mt-2 mb-3">
                   <Image
                      alt={`Preview of ${title}`}
@@ -40,7 +40,7 @@ const ArticleCard = ({
                </div>
                <div className="">{excerpt}</div>
             </div>
-            <div className="grow flex items-end border-t-[1px] border-grey-300 mt-6">
+            <div className="flex items-end border-t-[1px] border-grey-300 mt-6">
                <Button link={`/reading/${slug}`} name="Read" />
             </div>
          </div>

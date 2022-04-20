@@ -24,12 +24,12 @@ const Card = ({ title, date, children, type, tags, height = 'single' }) => {
                :{type}
             </div>
          </div>
-         <div className="px-2 flex flex-col">
+         <div className="grow px-2 flex flex-col">
             <h3 className="font-body text-xl pt-2">{title}</h3>
             <p className="pb-2 font-code text-sm">{date?.split('T')[0]}</p>
             <div className="grow">{children}</div>
          </div>
-         <div className="p-2">
+         <div className="p-2 pb-4">
             {tags.map((tag, index) => {
                return <Tag key={index} item={tag} />
             })}

@@ -81,7 +81,7 @@ const Menu = () => {
          <div
             ref={ref}
             id="mobilemenu"
-            className={`flex flex-col absolute top-0 right-0 left-0 bg-blue text-white w-full p-4 h-screen duration-300  ${
+            className={`flex flex-col absolute top-0 right-0 left-0 bg-blue text-white w-full p-4 h-screen duration-300 z-20 ${
                isVisible ? 'flex translate-x-0' : 'translate-x-full'
             }`}
          >
