@@ -42,7 +42,7 @@ const Skills = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
                      <Component components={{ ...components }} as any />
                   </div>
                   <div className="flex mt-12 max-w-4xl">
-                     <div className="rounded-xl bg-grey-200 ">
+                     <div className="rounded-xl bg-grey-200 dark:bg-grey-800 ">
                         <div className="pt-6 pb-12 px-10 rounded-xl m-2 flex flex-row">
                            <Link href="/resume/roy-anger--resume.pdf" passHref>
                               <div className="w-24 flex items-center justify-center cursor-pointer">
@@ -57,7 +57,7 @@ const Skills = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
                                     href="/resume/roy-anger--resume.pdf"
                                     passHref
                                  >
-                                    <a className="text-blue-00 underline decoration-dotted font-semibold">
+                                    <a className="text-blue-500 underline decoration-dotted font-semibold">
                                        Resume
                                     </a>
                                  </Link>

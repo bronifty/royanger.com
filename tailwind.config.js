@@ -109,6 +109,10 @@ module.exports = {
          },
          grey: colors.neutral,
          spotify: { DEFAULT: '#43E57D' },
+         github: { DEFAULT: '#4078c0' },
+         instagram: { DEFAULT: '#405de6' },
+         linkedin: { DEFAULT: '#0077B5' },
+         twitter: { DEFAULT: '#1da1f2' },
       },
       extend: {
          backgroundColor: {

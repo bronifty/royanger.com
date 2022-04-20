@@ -10,35 +10,38 @@ import {
 export default function Footer() {
    return (
       <footer className="flex flex-col grow justify-end">
-         <div className="bg-black-700 text-white p-3 mt-16 flex justify-center">
+         <div className="bg-black-700 dark:bg-grey-200 text-white dark:text-grey-800 p-3 mt-16 flex justify-center">
             <div className="max-w-screen-xl w-full">
-               <div className="md:flex md:flex-row py-4 text-grey-300">
+               <div className="md:flex md:flex-row py-4 text-grey-300 dark:text-grey-800">
                   <div className="text-lg pb-6 md:pb-0">
                      &copy; royanger.com 2022
                   </div>
                   <nav className="grow flex flex-row md:justify-end gap-6">
-                     <Link href="https://github.com/royanger">
-                        <a target="_blank">
+                     <Link href="https://github.com/royanger" passHref>
+                        <a target="_blank" className="hover:text-github">
                            <GitHubIcon className="h-8" />
                         </a>
                      </Link>
-                     <Link href="https://www.linkedin.com/in/royanger/">
-                        <a target="_blank">
+                     <Link
+                        href="https://www.linkedin.com/in/royanger/"
+                        passHref
+                     >
+                        <a target="_blank" className="hover:text-linkedin">
                            <LinkedInIcon className="h-8" />
                         </a>
                      </Link>
-                     <Link href="https://twitter.com/royanger">
-                        <a target="_blank">
+                     <Link href="https://twitter.com/royanger" passHref>
+                        <a target="_blank" className="hover:text-twitter">
                            <TwitterIcon className="h-8" />
                         </a>
                      </Link>
-                     <Link href="https://www.instagram.com/royanger/">
-                        <a target="_blank">
+                     <Link href="https://www.instagram.com/royanger/" passHref>
+                        <a target="_blank" className="hover:text-instagram">
                            <InstagramIcon className="h-8" />
                         </a>
                      </Link>
                      <Link href="/contact">
-                        <a>
+                        <a className="hover:text-blue">
                            <EnvelopeIcon className="h-8" />
                         </a>
                      </Link>
