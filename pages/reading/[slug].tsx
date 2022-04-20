@@ -50,7 +50,7 @@ export default function Article({ post, page }: { post: Post; page: Page }) {
          </Head>
 
          <div className="flex flex-row justify-center">
-            <div className="w-full max-w-5xl px-4 xl:p-0">
+            <div className="w-full max-w-5xl ">
                <article>
                   <div className="flex flex-col justify-center">
                      <Title type="superheading">a few thoughts about</Title>
@@ -72,7 +72,7 @@ export default function Article({ post, page }: { post: Post; page: Page }) {
                         />
                      </div>
                   </div>
-                  <div className="flex flex-row mt-4 mb-6">
+                  <div className="flex flex-col md:flex-row mt-4 mb-6">
                      <div className="grow flex flex-row">
                         <div className="font-code">Roy Anger</div>
                         <div className="mx-2 text">&bull;</div>
@@ -80,7 +80,7 @@ export default function Article({ post, page }: { post: Post; page: Page }) {
                            {displayDate(post.date)}
                         </div>
                      </div>
-                     <div className="grow flex flex-row justify-end">
+                     <div className="grow flex flex-row md:justify-end">
                         <div className="font-code">{post.readingTime.text}</div>
                         <div className="mx-2 text">&bull;</div>
                         <div className="font-code">{post.wordCount} words</div>

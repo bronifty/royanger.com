@@ -16,8 +16,8 @@ type Title = {
 
 const Title: React.FC<Title> = ({ children, type, className }) => {
    const classes: any = {
-      h1: 'text-5xl font-title mt-6 mb-2',
-      h2: 'text-4xl font-body mt-4 mb-2 text-slate-600',
+      h1: 'text-4xl md:text-5xl font-title mt-6 mb-2',
+      h2: 'text-3xl md:text-4xl font-body mt-4 mb-2 text-slate-600',
       h3: 'text-2xl font-title mt-4 mb-2 p-2',
       h3ash4: 'text-2xl font-body mt-3',
       h4: 'text-2xl font-body mt-3',

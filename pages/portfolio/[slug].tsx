@@ -137,7 +137,7 @@ export default function Project({
                   <div className="flex flex-col max-w-4xl mdx-content">
                      <Component components={{ ...components }} as any />
                   </div>
-                  <div className="mt-10 mb-4 flex flew-wrap">
+                  <div className="mt-10 mb-4 flex flex-row flex-wrap">
                      {portfolio.techstack.map((item, index) => {
                         return <Tag key={index} item={item} />
                      })}
@@ -157,8 +157,6 @@ export default function Project({
                   </div>
                </section>
             </div>
-
-            <div></div>
          </div>
       </>
    )

@@ -12,17 +12,27 @@
       line-height: 1.6em;
    }
    h2 {
-      font-size: 2.25rem;
+      font-size: 1.85rem;
       font-family: 'Hind';
       margin: 2rem 0 0.5rem;
       font-weight: 500;
    }
 
    h3 {
-      font-size: 1.55rem;
+      font-size: 1.35rem;
       font-family: 'Hind';
       margin: 2rem 0 0.5rem;
       font-weight: 500;
+   }
+   @media screen and (min-width: 700px) {
+      h2 {
+         font-size: 2.25rem;
+         margin: 2rem 0 0.5rem;
+      }
+      h3 {
+         font-size: 1.55rem;
+         margin: 2rem 0 0.5rem;
+      }
    }
 
    .quotes:before {
@@ -30,10 +40,11 @@
       display: inline-flex;
       background-image: url('/images/svgs/quote-left.svg');
       background-size: 40px 40px;
-      height: 40px;
-      width: 40px;
+      height: 20px;
+      width: 20px;
       position: absolute;
       left: -10px;
+      z-index: 20;
       -webkit-mask: url('/images/svgs/quote-left.svg') no-repeat 50% 50%;
       mask: url('/images/svgs/quote-left.svg') no-repeat 50% 50%;
       -webkit-mask-size: cover;
@@ -44,15 +55,26 @@
       display: inline-flex;
       background-image: url('/images/svgs/quote-right.svg');
       background-size: 40px 40px;
-      height: 40px;
-      width: 40px;
+      height: 20px;
+      width: 20px;
       position: absolute;
       right: -10px;
-      bottom: 40px;
+      bottom: 70px;
       -webkit-mask: url('/images/svgs/quote-right.svg') no-repeat 50% 50%;
       mask: url('/images/svgs/quote-right.svg') no-repeat 50% 50%;
       -webkit-mask-size: cover;
       mask-size: cover;
+   }
+   @media screen and (min-width: 700px) {
+      .quotes:before {
+         height: 40px;
+         width: 40px;
+      }
+      .quotes:after {
+         height: 40px;
+         width: 40px;
+         bottom: 40px;
+      }
    }
 
    a {
