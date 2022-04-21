@@ -108,7 +108,7 @@ export default function Project({
                            return (
                               <div
                                  key={index}
-                                 className="flex justify-center items-center m-1 shadow shadow-grey-600 dark:bg-white dark:shadow-grey-900"
+                                 className="flex justify-center items-start m-1 shadow shadow-grey-600 dark:bg-white dark:shadow-grey-900 max-h-52 overflow-hidden"
                               >
                                  <button
                                     type="button"

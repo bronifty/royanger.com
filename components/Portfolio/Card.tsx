@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import Button from '../Buttons/Button'
 import ExternalLinkButton from '../Buttons/ExternalLinkButton'
 import Tag from '../Tag'
@@ -24,7 +25,7 @@ export default function Card({
    slug,
 }: Card) {
    return (
-      <article className="shadow-md  shadow-black-100 dark:bg-grey-800 dark:shadow-black-900 rounded">
+      <article className="shadow-md  shadow-black-50 bg-white dark:bg-grey-800 dark:shadow-black-900 rounded">
          <div className="relative">
             <div className="rounded-t">
                <Image
@@ -36,7 +37,11 @@ export default function Card({
                />
             </div>
             <div className="absolute bottom-0 right-0 left-0 bg-white bg-opacity-90 text-blue overflow-hidden whitespace-nowrap">
-               <Title type="portfolio">{title}</Title>
+               <Link href={`/portfolio/${slug}`} passHref>
+                  <a>
+                     <Title type="portfolio">{title}</Title>
+                  </a>
+               </Link>
             </div>
          </div>
          <div className="p-4">
