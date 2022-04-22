@@ -18,8 +18,6 @@ export const DisplayTweet = ({ tweet, quoted_tweet = false }) => {
    const createdAt = new Date(created_at)
    const image = author.profile_image_url.replace('_normal', '_200x200') // higher res
 
-   console.log('tweet', tweet)
-
    // construct our tweet URLs to use later
    const authorUrl = `https://twitter.com/${author.username}`
    const likeUrl = `https://twitter.com/intent/like?tweet_id=${id}`

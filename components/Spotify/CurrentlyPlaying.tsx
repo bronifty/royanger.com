@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import useSWR from 'swr'
-import fetcher from '../../lib/fetcher'
+import fetcher from '../../lib/api/fetcher'
 import { Current } from '../../lib/types'
 import { ExternalLinkIcon } from '../icons'
 import SpotifyIcon from '../icons/SpotifyIcon'

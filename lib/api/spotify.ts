@@ -45,9 +45,6 @@ export const getTopArtists = async () => {
       headers: {
          Authorization: `Bearer ${access_token}`,
       },
-      // body: JSON.stringify({
-      //    time_range: 'short_term',
-      // }),
    })
 }
 
