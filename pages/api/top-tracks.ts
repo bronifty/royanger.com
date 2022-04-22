@@ -1,4 +1,4 @@
-import { getTopTracks } from '../../lib/spotify'
+import { getTopTracks } from '../../lib/api/spotify'
 
 export default async function handler(_, res) {
    const response = await getTopTracks()

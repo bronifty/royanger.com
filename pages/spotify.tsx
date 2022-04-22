@@ -4,7 +4,7 @@ import Title from '../components/Title'
 import { allPages } from '../.contentlayer/generated'
 import { InferGetStaticPropsType } from 'next'
 import useSWR from 'swr'
-import fetcher from '../lib/fetcher'
+import fetcher from '../lib/api/fetcher'
 import Track from '../components/Spotify/Track'
 import Artist from '../components/Spotify/Artist'
 import { TopTracks, TopArtists } from '../lib/types'
@@ -47,7 +47,7 @@ const Spotify = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
                <section>
                   <CurrentlyPlaying />
                </section>
-               <div className="grid grid-cols-2">
+               <div className="grid grid-cols-1 xl:grid-cols-2">
                   <section className="mt-8">
                      <Title type="h4">Top Tracks</Title>
                      <ol className="mt-2">
