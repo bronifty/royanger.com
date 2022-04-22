@@ -25,6 +25,7 @@ export const getTweets = async id => {
 
    const tweets = await response.json()
 
+   console.log('testing')
    const getAuthorInfo = author_id => {
       return tweets.includes.users.find(user => user.id === author_id)
    }
