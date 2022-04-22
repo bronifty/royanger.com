@@ -24,38 +24,39 @@ export const getTweets = async id => {
    )
 
    const tweets = await response.json()
+   return tweets
 
-   const getAuthorInfo = author_id => {
-      return tweets.includes.users.find(user => user.id === author_id)
-   }
+   // const getAuthorInfo = author_id => {
+   //    return tweets.includes.users.find(user => user.id === author_id)
+   // }
 
-   const getReferencedTweets = mainTweet => {
-      return (
-         mainTweet?.referenced_tweets?.map(referencedTweet => {
-            const fullReferencedTweet = tweets.includes.tweets.find(
-               tweet => tweet.id === referencedTweet.id
-            )
+   // const getReferencedTweets = mainTweet => {
+   //    return (
+   //       mainTweet?.referenced_tweets?.map(referencedTweet => {
+   //          const fullReferencedTweet = tweets.includes.tweets.find(
+   //             tweet => tweet.id === referencedTweet.id
+   //          )
 
-            return {
-               type: referencedTweet.type,
-               author: getAuthorInfo(fullReferencedTweet.author_id),
-               ...fullReferencedTweet,
-            }
-         }) || []
-      )
-   }
+   //          return {
+   //             type: referencedTweet.type,
+   //             author: getAuthorInfo(fullReferencedTweet.author_id),
+   //             ...fullReferencedTweet,
+   //          }
+   //       }) || []
+   //    )
+   // }
 
-   return tweets.data.reduce((allTweets, tweet) => {
-      const tweetWithAuthor = {
-         ...tweet,
-         media:
-            tweet?.attachments?.media_keys.map(key =>
-               tweets.includes.media.find(media => media.media_key === key)
-            ) || [],
-         referenced_tweets: getReferencedTweets(tweet),
-         author: getAuthorInfo(tweet.author_id),
-      }
+   // return tweets.data.reduce((allTweets, tweet) => {
+   //    const tweetWithAuthor = {
+   //       ...tweet,
+   //       media:
+   //          tweet?.attachments?.media_keys.map(key =>
+   //             tweets.includes.media.find(media => media.media_key === key)
+   //          ) || [],
+   //       referenced_tweets: getReferencedTweets(tweet),
+   //       author: getAuthorInfo(tweet.author_id),
+   //    }
 
-      return [tweetWithAuthor, ...allTweets]
-   }, [])
+   //    return [tweetWithAuthor, ...allTweets]
+   // }, [])
 }
