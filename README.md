@@ -56,6 +56,14 @@ vercel env pull
 
 ## MDX Components
 
+### Tweet
+
+```jsx
+<Tweet id="1516852789518888960" />
+```
+
+Provide a tweet ID to create an embedded tweet on the page.
+
 ### Alert
 
 You can use the Alert component to create a box that stands out from the rest of the article. You can provide a type of `info`, `alert` or `callout`, each of which creates an appropriately coloured bar on the left edge of the Alert box. You can also pass an emoji to the component to have that displayed inside of the alert box. You can use any combination of the `type` and `emoji` to create the look you're going for.

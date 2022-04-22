@@ -1,3 +1,5 @@
+import { NextApiRequest, NextApiResponse } from 'next'
+
 // import nodemailer from 'nodemailer'
 import AWS from 'aws-sdk'
 
@@ -53,7 +55,10 @@ async function sendEmail({ name, email, phone, message }) {
       })
 }
 
-export default async function handler(req, res) {
+export default async function handler(
+   req: NextApiRequest,
+   res: NextApiResponse
+) {
    if (req.method === 'POST') {
       const msg = `This is an email submitted from https://royanger.dev\n\nName: ${req.query.name}\n${req.query.phone}\n${req.query.email}\n\nMessage:\n${req.query.message}`
 
