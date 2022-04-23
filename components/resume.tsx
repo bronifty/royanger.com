@@ -17,7 +17,7 @@ const Resume = () => {
                      <Link href="/resume/roy-anger--resume.pdf" passHref>
                         <a>
                            Download my{' '}
-                           <span className="text-blue-500 underline decoration-dotted font-semibold">
+                           <span className="text-blue-700 dark:text-blue-300 underline decoration-dotted font-semibold">
                               Resume
                            </span>
                         </a>
@@ -27,7 +27,7 @@ const Resume = () => {
                      <p className="mt-4 text-base">
                         Last updated April 15, 2022. Please{' '}
                         <Link href="/contact" passHref>
-                           <a className="text-blue-500 underline decoration-dotted font-semibold">
+                           <a className="text-blue-700 dark:text-blue-300 underline decoration-dotted font-semibold">
                               drop me a line
                            </a>
                         </Link>{' '}

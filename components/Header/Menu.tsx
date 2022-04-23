@@ -61,7 +61,10 @@ const Menu = () => {
    ]
 
    return (
-      <nav className="flex flex-row  flex-grow items-center font-body text-xl">
+      <nav
+         className="flex flex-row  flex-grow items-center font-body text-xl"
+         aria-label="Menu"
+      >
          <div
             id="desktopmenu"
             className="flex flex-row flex-grow hidden md:block"
@@ -131,7 +134,7 @@ const Menu = () => {
             </div>
          </div>
          <div
-            id="menuButton"
+            id="openMenuButton"
             onClick={openMenu}
             className="md:hidden flex-grow flex justify-end mr-4"
          >
@@ -139,9 +142,9 @@ const Menu = () => {
          </div>
 
          <div
-            id="menuButton flex-grow flex justify-end"
+            id="closeMenuButton"
             onClick={closeMenu}
-            className="md:hidden"
+            className="md:hidden flex-grow flex justify-end"
          >
             <CloseIcon className={`w-6 ${mobileCloseCSS}`} />
          </div>

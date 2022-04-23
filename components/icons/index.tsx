@@ -18,6 +18,7 @@ import RightArrowIcon from './RightArrowIcon'
 import RightArrowLongIcon from './RightArrowLongIcon'
 import SpotifyIcon from './SpotifyIcon'
 import PDFIcon from './PDFIcon'
+import HashtagIcon from './HashtagIcon'
 
 export {
    Logo,
@@ -40,4 +41,5 @@ export {
    RightArrowLongIcon,
    SpotifyIcon,
    PDFIcon,
+   HashtagIcon,
 }

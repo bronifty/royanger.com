@@ -23,7 +23,7 @@ const ListItem = ({ index, title, excerpt, slug, github }: ListItem) => {
                </div>
                <div className="grow">
                   <div className="max-w-xl">
-                     <Title type="h4">{title}</Title>
+                     <Title type="h3ash4">{title}</Title>
                      <p>{excerpt}</p>
                   </div>
                </div>

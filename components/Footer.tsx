@@ -18,7 +18,11 @@ export default function Footer() {
                   </div>
                   <nav className="grow flex flex-row md:justify-end gap-6">
                      <Link href="https://github.com/royanger" passHref>
-                        <a target="_blank" className="hover:text-github">
+                        <a
+                           target="_blank"
+                           className="hover:text-github"
+                           aria-label="GitHub Profile"
+                        >
                            <GitHubIcon className="h-8" />
                         </a>
                      </Link>
@@ -26,22 +30,37 @@ export default function Footer() {
                         href="https://www.linkedin.com/in/royanger/"
                         passHref
                      >
-                        <a target="_blank" className="hover:text-linkedin">
+                        <a
+                           target="_blank"
+                           className="hover:text-linkedin"
+                           aria-label="LinkedIn Profile"
+                        >
                            <LinkedInIcon className="h-8" />
                         </a>
                      </Link>
                      <Link href="https://twitter.com/royanger" passHref>
-                        <a target="_blank" className="hover:text-twitter">
+                        <a
+                           target="_blank"
+                           className="hover:text-twitter"
+                           aria-label="Twitter Profile"
+                        >
                            <TwitterIcon className="h-8" />
                         </a>
                      </Link>
                      <Link href="https://www.instagram.com/royanger/" passHref>
-                        <a target="_blank" className="hover:text-instagram">
+                        <a
+                           target="_blank"
+                           className="hover:text-instagram"
+                           aria-label="Instagram Profile"
+                        >
                            <InstagramIcon className="h-8" />
                         </a>
                      </Link>
                      <Link href="/contact">
-                        <a className="hover:text-blue">
+                        <a
+                           className="hover:text-blue"
+                           aria-label="Contact Roy Anger"
+                        >
                            <EnvelopeIcon className="h-8" />
                         </a>
                      </Link>

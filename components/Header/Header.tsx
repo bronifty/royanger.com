@@ -9,7 +9,10 @@ export default function Header() {
          <div className="max-w-screen-xl w-full flex flex-row">
             <div className="pr-4">
                <Link href="/">
-                  <a className="font-body text-4xl flex flex-row items-center h-full ">
+                  <a
+                     className="font-body text-4xl flex flex-row items-center h-full"
+                     aria-label="Home"
+                  >
                      <Logo className="w-10 gradient transform hover:scale-[1.04] transition-all" />
                   </a>
                </Link>

@@ -95,7 +95,7 @@ Create a stylized quote. You must provide the quote as a child and the author us
 You add a code block to the markdown/MDX with the standard triple backticks to start and end the block. Additionally you can provide lines or ranges of lines inside of `{}` and those lines will be highlighted accordingly. You can also enter a colon (`:`) and then a file name to have a header attached to the code block with the file name in it.
 
 ````js
-```typescript {5-7, 10-12}:lib/mdx.ts
+;```typescript:lib/mdx.ts {5-7, 10-12}
 type Tag = {
    item: string
 }
@@ -109,4 +109,5 @@ const Tag = ({ item }: Tag) => {
 }
 
 export default Tag
+```
 ````

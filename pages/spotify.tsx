@@ -49,7 +49,7 @@ const Spotify = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
                </section>
                <div className="grid grid-cols-1 xl:grid-cols-2">
                   <section className="mt-8">
-                     <Title type="h4">Top Tracks</Title>
+                     <Title type="h3ash4">Top Tracks</Title>
                      <ol className="mt-2">
                         {tracks?.tracks?.map((track, index) => {
                            return (
@@ -67,7 +67,7 @@ const Spotify = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
                      </ol>
                   </section>
                   <section className="mt-8">
-                     <Title type="h4">Top Artists</Title>
+                     <Title type="h3ash4">Top Artists</Title>
                      <ol className="mt-2">
                         {artists?.artists?.map((artist, index) => {
                            return (
