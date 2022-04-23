@@ -28,6 +28,7 @@
       font-family: 'Hind';
       margin: 2rem 0 0.5rem;
       font-weight: 500;
+      position: relative;
    }
    @media screen and (min-width: 768px) {
       h2 {
@@ -133,7 +134,7 @@
          height: 20px;
          width: 20px;
          position: absolute;
-         top: 10px;
+         top: 13px;
          left: -25px;
          z-index: 20;
          -webkit-mask: url('/images/svgs/hashtag.svg') no-repeat 50% 50%;
@@ -143,6 +144,34 @@
          background-color: var(--color-grey-500);
          background-image: none;
       }
+      h3 a.anchor::after {
+         background-size: 15px 15px;
+         height: 15px;
+         width: 15px;
+         top: 10px;
+      }
+   }
+}
+
+.mdx-content {
+   p code {
+      background-color: var(--color-grey-100);
+      border: 1px solid var(--color-grey-300);
+      padding: 0 0.15rem;
+   }
+}
+.dark .mdx-content {
+   p code {
+      background-color: var(--color-grey-700);
+      border: 1px solid var(--color-grey-600);
+      padding: 0 0.15rem;
+   }
+}
+
+.dark .mdx-content {
+   a {
+      color: var(--color-blue-300);
+      text-decoration: underline dotted var(--color-blue-300);
    }
 }
 

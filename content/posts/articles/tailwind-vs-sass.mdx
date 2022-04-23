@@ -1,0 +1,173 @@
+---
+title: Tailwind vs SASS
+date: 2022-04-21
+postType: article
+tags:
+   - CSS
+   - Tailwind
+   - SASS
+   - CSS Frameworks
+slug: tailwind-vs-sass
+excerpt: Tailwind CSS has become exceedingly popular in the recent months. It seems like more and developers and projects are using it everyday. What makes it so popular? There are a number of reasons its been so widely adopted. but I think there are a couple of great reasons.
+image: tailwind-vs-sass.jpg
+imageWidth: 1300
+imageHeight: 993
+lastEdited: 2022-04-21
+---
+
+It seems like half of the React community is in love with [Tailwind](https://tailwindcss.com/). I've used it, and in fact aam using it on this site, but I've not fallen in love with it. It is a solid framework, and of the various frameworks I've tried it would be my first choice.
+
+Every time Tailwind comes up in conversations, there are lots of people supporting the framework. There are lots of reason given for why its great -- its fast, easy, makes sense, the ship size to the client is small. Some of the these reasons are preference. Is Tailwind easier than CSS? That probably depends on the person.
+
+<Alert type="callout">
+   A quick aside -- this article isn't intended to judge what options are the
+   best, but rather share some of my thoughts when approaching the two.
+</Alert>
+
+Earlier today I came across a tweet and its discussion and I think I understand part of why people love it.
+
+<Tweet id="1516852789518888960" />
+
+Obviously the tweet was about [CSS-in-JS](https://cssinjs.org), but I think that a big reason CSS-in-JS is popular and why Tailwind is popular are linked.
+
+## CSS and HTML side by side
+
+Developers who love Tailwind often point out that when we're working with it we have the CSS side-by-side with the HTML. We're writing a component and right in the same file we have the CSS. This is, of course, just like CSS-in-JS (or [Styled Components](https://styled-components.com/)). I get the appeal. Its easy to see and edit the things that are affecting the aesthetic of the component.
+
+I wonder how much of this is the level of experience with CSS of some developers. If a developer hasn't spent a fair amount of time working with CSS files that are separate from the content there would be comfort issues there. IE, if we have just a class name in the HTML and then we are trying to use child and descendant selectors we might struggle to understand what we're selecting without having spent some time working in that paradigm.
+
+### Diving into the differences
+
+Let's take a deeper look at the differences. We can start with a smaller component from this site:
+
+```tsx:components/Contact/ListItem.tsx {3,6}
+const ListItem = ({ label, link }: ListItem) => {
+   return (
+      <li className="flex flex-row mb-4">
+         {label}:{' '}
+         <a
+            className="text-blue-600 underline decoration-blue-600 decoration-dotted font-bold"
+            href={link}
+         >
+            {link}
+         </a>
+      </li>
+   )
+}
+```
+
+This is a pretty simple example. On lines 3 and 6 we can see the Tailwind utility classes that I used. Its obvious from a mere glance which classes relate to the `<li>` element and which relate to the `<a>` element.
+
+Imagine for a moment, though, that we refactored this to use a more traditional CSS approach.
+
+```tsx:components/Contact/ListItem.tsx {3,6}
+const ListItem = ({ label, link }: ListItem) => {
+   return (
+      <li>
+         {label}:{' '}
+         <a href={link} >
+            {link}
+         </a>
+      </li>
+   )
+}
+```
+
+```css:styles/main.css
+.contact .list li {
+   display: flex;
+   flex-direction: row;
+   margin: 0 0 1rem 0;
+.contact .list li a {
+   color: var(--blue-600);
+   text-decoration: underline;
+   text-decoration-color: var(--blue-600);
+}
+```
+
+The first thing we can note is that the component doesn't have even a class name, much less any CSS. I am assuming that the page will have a page level class of `contact` attached to the main section, and that the section this component will be rendered in will have a class of `list`.
+
+With that in mind, let's look at the CSS. These two classes would be located in a file that probably has dozens of lines of CSS. They require we read the the selectors to see which element they are targeting. Personally I have no problem with this and I am fine working with CSS like this. That said, I'm aware that it takes some time to be comfortable.
+
+There are some ways to make the CSS easier to read. We could use [SASS](https://sass-lang.com/), which is a fantastic tool. The nesting can definitely help out with finding the CSS we need to read and perhaps change. We could choose to use a CSS class naming methodology like [BEM](http://getbem.com/) (Block-Element-Modifier)
+
+## Syntactically Awesome Style Sheets (SASS)
+
+SASS is my favourite way to write CSS. In particular I really love Nesting and Mixins. I have definitely swapped over to use CSS Custom Properties (or CSS variables) instead of SASS variables. Its great to have access to those values outside of SASS or your CSS tooling of choice.
+
+### Nesting
+
+```sass:styles/contact.scss
+.contact .list {
+    li {
+        display: flex;
+        flex-direction: row;
+        margin: 0 0 1rem 0;
+        a {
+            color: var(--blue-600);
+            text-decoration: underline;
+            text-decoration-color: var(--blue-600);
+        }
+        > div {
+            border: 1px solid var(--color-grey-300);
+        }
+        &.active > div {
+            border: 1px solid var(--color-purple-300);
+        }
+
+    }
+}
+```
+
+Nesting lets us write CSS quickly. The example creates 4 rules, but we don't need to type out longer selectors and make sure they are correct. Instead we let SASS handle the work. The example will result in the following CSS:
+
+```css:styles/main.css
+.contact .list li {
+  display: flex;
+  flex-direction: row;
+  margin: 0 0 1rem 0;
+}
+.contact .list li a {
+  color: var(--blue-600);
+  text-decoration: underline;
+  text-decoration-color: var(--blue-600);
+}
+.contact .list li > div {
+  border: 1px solid var(--color-grey-300);
+}
+.contact .list li.active > div {
+  border: 1px solid var(--color-purple-300);
+}
+```
+
+Nesting can generate quite a bit more CSS, particularly in terms of selector length, if abused. The example above is skirting the edge of too much and in practice I would edit the SASS or HTML so I only had to use `.contact` or `.list`. We don't want to ship CSS files are that larger than needed because we have needlessly long selectors.
+
+Size in general is a major issue when working with CSS and SASS. As you add more elements to the project, you add more CSS. Every time you add a border or a font color or anything else you end up increasing the size of the CSS you're shipping to the client.
+
+### Size matters
+
+One huge benefit of Tailwind is the size of the CSS file you ship to the client. The total CSS shipped for this site is 39KB, though the Tailwind portion is 31KB with the rest being CSS for the code snippets ([Prism JS](https://prismjs.com/)) or some custom CSS for the MDX sections.
+
+The best part about the Tailwind CSS is that it won't increase much in size unless I redesign parts of the site. Once you settle into a look and feel you often use the same utility classes over and over, without adding new ones or rarely doing so. Each time I add a element I end up reusing a bunch of the utility classes I've already used. The Tailwind CSS file doesn't get larger when that happens.
+
+That said, the rendered HTML, as this site uses [Next.js'](https://nextjs.org/) static site generation, does increase. Each component will have more and more utility classes. In the end though, the growth through additional utility classes will almost certainly be less than the grow through SASS or CSS declarations.
+
+## Tailwind's secret weapon?
+
+One thing Tailwind does very well is excellent [documentation](https://tailwindcss.com/docs/installation). Seriously, it is some of the best in the space. The information is clear with lots of examples. If you need to see options you can search easily and find very straight forward information.
+
+If I'm using Tailwind, I'm checking to see which utility classes handles a certain CSS property. IE, what gives me `align-items: center;`? Oh yeah, that's `items-center`. For those who aren't as strong with CSS, I think that the docs serve to help them find solutions and implement the CSS they need. In other words, the docs are help files for both Tailwind and CSS in general.
+
+## CSS on a team
+
+When it comes to your side project, how you handle your CSS probably doesn't matter too much. As long as it works for you, then it works. When it comes to larger projects, the project needs to be organized in a way that new team members can easily get up to speed.
+
+Is the project using BEM? Or maybe SASS? Or both? Does it lean more into classes being assigned to all elements, or more to using some classes and then child and descendant selectors? When does CSS get broken off into its own file? When does it stay as part of a larger file?
+
+Tailwind CSS doesn't need to answer any of those questions. This is a probably a huge upside to using it on a team. If I join a project using Tailwind I know what to expect -- components built using utility classes.
+
+## Final thoughts
+
+As I mentioned at the start, the goal of this wasn't to pick a winner or loser. It was about musing over the strengths and weaknesses of both and thoughts on why Tailwind is so popular.
+
+The more I think about it, the more that I think Tailwind is popular because of a couple of key points. It is written in the component, side-by-side with the HTML or JSX. It is quick to add utility classes to affect change, and the docs are great at showing what those classes do. And once you do a little bit of initial setup, there is nothing else to configure, add or update.
