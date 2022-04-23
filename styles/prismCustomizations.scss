@@ -17,6 +17,7 @@ pre[class*='language-'] {
 }
 pre[class*='language-'] {
    margin: 0 0 1rem 0;
+   overflow-y: auto;
 }
 .dark pre[class*='language-'] {
    overflow: auto;
