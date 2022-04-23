@@ -26,7 +26,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
    const post = allPosts.find(post => post.slug === params?.slug)
 
    const page = allPages.find(
-      post => post._raw.flattenedPath === 'pages/portfolio'
+      post => post._raw.flattenedPath === 'pages/reading-material'
    )
 
    return { props: { page, post } }
@@ -89,7 +89,7 @@ export default function Article({ post, page }: { post: Post; page: Page }) {
                   <div className="flex flex-col max-w-4xl mdx-content mt-12">
                      <Component components={{ ...components }} as any />
                   </div>
-                  <div className="font-code italic">
+                  <div className="font-code italic mt-10 mb-6">
                      Last edited: {displayDate(post.lastEdited)}
                   </div>
                </article>
