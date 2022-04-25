@@ -8,6 +8,7 @@ import ArticleCard from '../components/blog/ArticleCard'
 import ProjectCard from '../components/blog/ProjectCard'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import components from '../components/MDXComponents'
+import SnippetCard from '../components/blog/SnippetCard'
 
 export async function getStaticProps() {
    // load just one page from contentlayer
@@ -95,6 +96,18 @@ const Reading = ({
                               image={post.image}
                               imageWidth={post.imageWidth}
                               imageHeight={post.imageHeight}
+                           />
+                        )
+                     if (post.postType === 'snippet')
+                        return (
+                           <SnippetCard
+                              key={index}
+                              title={post.title}
+                              date={post.date}
+                              type={post.postType}
+                              tags={post.tags}
+                              excerpt={post.excerpt}
+                              slug={post.slug}
                            />
                         )
                   })}
