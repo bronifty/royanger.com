@@ -46,7 +46,7 @@ const GalleryModal = React.forwardRef<HTMLDivElement, Modal>(
                   </div>
                   <Image
                      className=""
-                     alt={`Screenshot of ${alt} landing page`}
+                     alt={`Screenshot of ${alt}`}
                      src={`/images/portfolio/${image.split('|')[0]}`}
                      width={image.split('|')[1]}
                      height={image.split('|')[2]}

@@ -41,7 +41,7 @@ const ArticleCard = ({
                <div className="">{excerpt}</div>
             </div>
             <div className="flex items-end border-t-[1px] border-grey-300 mt-6">
-               <Button link={`/reading/${slug}`} name="Read" />
+               <Button link={`/reading/${slug}`} name="Read" title={title} />
             </div>
          </div>
       </Card>

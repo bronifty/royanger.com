@@ -10,7 +10,7 @@ export default function Header() {
             <div className="pr-4">
                <Link href="/">
                   <a
-                     className="font-body text-4xl flex flex-row items-center h-full"
+                     className="flex flex-row items-center h-full hover:text-blue-700 dark:hover:text-blue-200"
                      aria-label="Home"
                   >
                      <Logo className="w-10 gradient transform hover:scale-[1.04] transition-all" />
@@ -24,17 +24,6 @@ export default function Header() {
                </form>
             </div>
          </div>
-         <svg
-            style={{ width: 0, height: 0, position: 'absolute' }}
-            aria-hidden="true"
-            focusable="false"
-         >
-            <linearGradient id="logo-gradient" x2="1" y2="1">
-               <stop offset="0%" stopColor="#F7C948" />
-               <stop offset="50%" stopColor="#4098D7" />
-               <stop offset="100%" stopColor="#003E6B" />
-            </linearGradient>
-         </svg>
       </header>
    )
 }

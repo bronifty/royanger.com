@@ -23,7 +23,11 @@ const ProjectCard = ({
          <div className="flex flex-col h-full">
             {children}
             <div className="flex items-end border-t-[1px] border-grey-300 mt-6">
-               <ExternalLinkButton link={link} name="View on GitHub" />
+               <ExternalLinkButton
+                  link={link}
+                  name="View on GitHub"
+                  label={`${title} on GitHub`}
+               />
             </div>
          </div>
       </Card>

@@ -22,7 +22,7 @@ const Track = ({ title, artist, songUrl, album, image, index }: Track) => {
             <div className="ml-4 ">
                <p>
                   <a
-                     className="flex flex-row underline decoration-dotted decoration-blue-600 text-blue-600 font-bold"
+                     className="flex flex-row underline decoration-dotted decoration-blue-600 text-blue-600 dark:decoration-blue-300 dark:text-blue-300 font-bold"
                      href={songUrl}
                      target="_blank"
                      rel="noreferrer"

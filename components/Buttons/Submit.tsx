@@ -9,7 +9,7 @@ type SubmitButton = {
 const SubmitButton = ({ children, className, submitted }: SubmitButton) => {
    const buttonState = submitted
       ? 'bg-grey-300'
-      : 'bg-gradient-to-tr from-grey-700 via-grey-600 to-grey-700 hover:to-yellow-400 hover:via-blue-600 hover:from-blue-900 text-grey-100 dark:from-grey-200 dark:via-grey-300 dark:to-grey-200 dark:hover:to-yellow-200 dark:hover:via-blue-300 dark:hover:from-blue-400 dark:bg-grey-300 dark:text-grey-800 dark:hover:bg-grey-100 transform hover:scale-[1.04] transition-all'
+      : 'transform hover:scale-[1.04] transition-all bg-gradient-to-t bg-grey-700 from-grey-800 via-grey-600 to-grey-800 dark:bg-grey-300 dark:from-grey-400 dark:via-grey-200 dark:to-grey-400 hover:bg-blue-800 hover:from-blue-800 hover:via-blue-600 hover:to-blue-800 dark:hover:from-blue-400 dark:hover:via-blue-200 dark:hover:to-blue-400 text-grey-100  dark:text-grey-800 dark:hover:bg-grey-100'
 
    return (
       <div className="block">

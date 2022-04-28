@@ -25,7 +25,7 @@ export default function Card({
    slug,
 }: Card) {
    return (
-      <article className="shadow-md  shadow-black-50 bg-white dark:bg-grey-800 dark:shadow-black-900 rounded">
+      <article className="shadow-md  shadow-black-50 bg-white border-[1px] border-grey-100 dark:border-black-600 dark:bg-black-700 dark:shadow-black-900 rounded flex flex-col">
          <div className="relative">
             <div className="rounded-t">
                <Image
@@ -39,27 +39,45 @@ export default function Card({
             <div className="absolute bottom-0 right-0 left-0 bg-white bg-opacity-90 text-blue overflow-hidden whitespace-nowrap">
                <Link href={`/portfolio/${slug}`} passHref>
                   <a>
-                     <Title type="portfolio">{title}</Title>
+                     <Title type="h2" variant="portfolio">
+                        {title}
+                     </Title>
                   </a>
                </Link>
             </div>
          </div>
-         <div className="p-4">
-            <p>{description}</p>
+         <div className="p-4 flex flex-col grow ">
+            <div className="grow">
+               <p>{description}</p>
+            </div>
 
             <div className="mt-10 mb-4 flex flex-wrap">
                {techstack.map((item, index) => {
                   return <Tag key={index} item={item} />
                })}
             </div>
-            <div className="inline-flex flex-row flex-wrap relative border-[1px] rounded border-grey-500 p-3 pr-0 mt-5 mb-3">
-               <span className="absolute top-0 bg-white dark:bg-grey-800 text-grey-700 dark:text-grey-100 text-sm translate-y-[-50%] px-2">
-                  View the Project
-               </span>
+            <div>
+               <div className="inline-flex flex-row flex-wrap relative border-[1px] rounded border-grey-500 p-3 pr-0 mt-5 mb-3">
+                  <span className="absolute top-0 bg-white dark:bg-black-700 text-grey-700 dark:text-grey-100 text-sm translate-y-[-50%] px-2">
+                     View the Project
+                  </span>
 
-               <Button link={`/portfolio/${slug}`} name="More Details" />
-               <ExternalLinkButton link={github} name="GitHub" />
-               <ExternalLinkButton link={preview} name="Preview" />
+                  <Button
+                     link={`/portfolio/${slug}`}
+                     name="More Details"
+                     title={title}
+                  />
+                  <ExternalLinkButton
+                     link={github}
+                     name="GitHub"
+                     label={`${title} on GitHub`}
+                  />
+                  <ExternalLinkButton
+                     link={preview}
+                     name="Preview"
+                     label={`${title}'s preview`}
+                  />
+               </div>
             </div>
          </div>
       </article>

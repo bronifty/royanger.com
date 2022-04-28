@@ -18,7 +18,7 @@ const Alert = ({ children, type, emoji }: Alert) => {
 
    return (
       <div
-         className={`alert bg-grey-100 font-code flex flex-row my-4 rounded-xl`}
+         className={`alert bg-grey-100 dark:bg-black-700 font-code flex flex-row my-4 rounded-xl`}
       >
          {alert !== undefined && emoji ? (
             <div

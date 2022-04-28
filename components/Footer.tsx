@@ -10,7 +10,7 @@ import {
 export default function Footer() {
    return (
       <footer className="flex flex-col grow justify-end">
-         <div className="bg-black-700 dark:bg-grey-200 text-white dark:text-grey-800 p-3 mt-16 flex justify-center">
+         <div className="bg-black-700 dark:bg-white text-white dark:text-grey-800 p-3 mt-16 flex justify-center">
             <div className="max-w-screen-xl w-full">
                <div className="md:flex md:flex-row py-4 text-grey-300 dark:text-grey-800">
                   <div className="text-lg pb-6 md:pb-0">

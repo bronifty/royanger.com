@@ -25,7 +25,11 @@ const SnippetCard = ({
                <div className="">{excerpt}</div>
             </div>
             <div className="flex items-end border-t-[1px] border-grey-300 mt-6">
-               <Button link={`/snippet/${slug}`} name="See Code" />
+               <Button
+                  link={`/snippet/${slug}`}
+                  name="See Code"
+                  title={title}
+               />
             </div>
          </div>
       </Card>
