@@ -110,6 +110,8 @@
    a {
       color: var(--color-blue-600);
       text-decoration: underline dotted var(--color-blue-600);
+      text-decoration-skip-ink: all;
+      text-decoration-thickness: 2px;
       font-weight: bold;
    }
    a.anchor {
@@ -171,14 +173,7 @@
 .dark .mdx-content {
    a {
       color: var(--color-blue-300);
-      text-decoration: underline dotted var(--color-blue-300);
-   }
-}
-
-.dark .mdx-content {
-   a {
-      color: var(--color-blue-300);
-      text-decoration: underline dotted var(--color-blue-300);
+      text-decoration: underline dotted var(--color-blue-300) 2px;
    }
 }
 

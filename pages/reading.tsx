@@ -2,16 +2,16 @@ import * as React from 'react'
 import Head from 'next/head'
 import { allPages, allPosts } from '../.contentlayer/generated'
 import { InferGetStaticPropsType } from 'next'
-import { useMDXComponent } from 'next-contentlayer/hooks'
 import {
    calculatePages,
    sortPosts,
    pageOfPosts,
+   paginationLinks,
 } from '../lib/helpers/pagination'
 import PostList from '../components/blog/PostList'
+import Pagination from '../components/blog/Pagination'
 
 export async function getStaticProps() {
-   console.log('pages', calculatePages())
    // load just one page from contentlayer
    const page = allPages.find(
       post => post._raw.flattenedPath === 'pages/reading-material'
@@ -30,8 +30,6 @@ const Reading = ({
    page,
    posts,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-   const Component = useMDXComponent(page.body.code)
-
    return (
       <>
          <Head>
@@ -44,6 +42,11 @@ const Reading = ({
          </Head>
 
          <PostList posts={posts} page={page} />
+         <div className="flex flex-row justify-center mt-20">
+            <div className="w-full max-w-7xl">
+               <Pagination currentPage="/reading" />
+            </div>
+         </div>
       </>
    )
 }
