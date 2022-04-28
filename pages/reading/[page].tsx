@@ -1,27 +1,38 @@
 import * as React from 'react'
 import Head from 'next/head'
-import { allPages, allPosts } from '../.contentlayer/generated'
+import { allPages, allPosts } from '../../.contentlayer/generated'
 import { InferGetStaticPropsType } from 'next'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import {
    calculatePages,
    sortPosts,
    pageOfPosts,
-} from '../lib/helpers/pagination'
-import PostList from '../components/blog/PostList'
+} from '../../lib/helpers/pagination'
+import PostList from '../../components/blog/PostList'
 
-export async function getStaticProps() {
-   console.log('pages', calculatePages())
+export async function getStaticPaths() {
+   const pages = Array.from(Array(calculatePages()).keys())
+      .map(x => x + 1)
+      .map((item, index) => {
+         return { params: { page: item.toString() } }
+      })
+   return {
+      paths: pages,
+      fallback: false,
+   }
+}
+
+export async function getStaticProps({ params }) {
+   console.log('params', params)
    // load just one page from contentlayer
    const page = allPages.find(
       post => post._raw.flattenedPath === 'pages/reading-material'
    )
-   // load portfolio page and portfolio posts from contentlayer
-   const posts = pageOfPosts(sortPosts(allPosts), 1)
+   const posts = pageOfPosts(sortPosts(allPosts), params?.page)
    return {
       props: {
-         page,
          posts,
+         page,
       },
    }
 }
