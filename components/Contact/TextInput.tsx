@@ -36,7 +36,7 @@ const TextInput = ({
                   name={name}
                   type="text"
                   id={name}
-                  className="w-full border-blue-600 border-2 dark:border-4  dark:border-cyan-700  focus:dark:border-cyan-100"
+                  className="w-full border-blue-600 border-2 dark:border-4  dark:border-cyan-700 dark:text-grey-800  focus:dark:border-cyan-100"
                   onKeyUp={handleChange}
                />
             </div>

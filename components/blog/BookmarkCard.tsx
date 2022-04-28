@@ -21,9 +21,9 @@ const BookmarkCard = ({
    return (
       <Card type={type} tags={tags} title={title} date={date}>
          <div className="flex flex-col h-full">
-            {children}
+            <div className="grow">{children}</div>
             <div className="flex items-end border-t-[1px] border-grey-300 mt-6">
-               <ExternalLinkButton link={link} name="Visit" />
+               <ExternalLinkButton link={link} name="Visit" label={title} />
             </div>
          </div>
       </Card>

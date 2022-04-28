@@ -14,7 +14,9 @@ const CurrentlyPlaying = () => {
 
    return (
       <div className="mt-12">
-         <Title type="h3ash4">Currently Playing</Title>
+         <Title type="h3" variant="h3ash4">
+            Currently Playing
+         </Title>
          <div className="flex flex-row mt-2">
             <div className="text-spotify w-10 flex items-center justify-center">
                <SpotifyIcon className="h-5 w-auto" />
@@ -40,7 +42,7 @@ const CurrentlyPlaying = () => {
                      <div className="ml-4">
                         <p>
                            <a
-                              className="underline decoration-dotted decoration-blue-600 text-blue-600 font-bold flex flex-row"
+                              className="underline decoration-dotted decoration-blue-600 text-blue-600 dark:decoration-blue-300 dark:text-blue-300 font-bold flex flex-row"
                               href={currentlyPlaying.songUrl}
                               target="_blank"
                               rel="noreferrer"

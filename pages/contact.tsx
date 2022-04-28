@@ -57,7 +57,9 @@ const Contact = () => {
                   <Title type="h2">I would love to hear from you</Title>
                   <section className="max-w-2xl mt-16">
                      <div className="">
-                        <Title type="h3ash4">Send a message</Title>
+                        <Title type="h3" variant="h3ash4">
+                           Send a message
+                        </Title>
                         <p className="max-w-2xl mt-6 mb-10">
                            Please use the following form to shoot me a quick
                            message. I will get back to you ASAP. I'm looking
@@ -156,7 +158,7 @@ const Contact = () => {
                      </div>
                   </section>
                   <section className="max-w-2xl mt-16">
-                     <Title type="h3ash4" className="mb-4">
+                     <Title type="h3" className="mb-4" variant="h3ash4">
                         Places to find me:
                      </Title>
                      <ul className="text-lg">

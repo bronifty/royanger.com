@@ -136,7 +136,7 @@ const Menu = () => {
          <div
             id="openMenuButton"
             onClick={openMenu}
-            className="md:hidden flex-grow flex justify-end mr-4"
+            className="md:hidden w-full flex justify-end mr-4"
          >
             <MenuIcon className={`w-6 ${mobileToggleCSS}`} />
          </div>

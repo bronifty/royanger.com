@@ -92,7 +92,7 @@ module.exports = {
          },
 
          white: {
-            DEFAULT: '#ffffff',
+            DEFAULT: '#f9f9f9',
          },
          black: {
             50: '#c6ccd2',
@@ -107,7 +107,7 @@ module.exports = {
             800: '#1b1f22',
             900: '#08090a',
          },
-         grey: colors.neutral,
+         // grey: colors.neutral,
          spotify: { DEFAULT: '#43E57D' },
          github: { DEFAULT: '#4078c0' },
          instagram: { DEFAULT: '#405de6' },

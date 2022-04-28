@@ -5,7 +5,7 @@ import Title from './Title'
 const Resume = () => {
    return (
       <div className="flex mt-12 max-w-4xl">
-         <div className="rounded-xl bg-grey-200 dark:bg-grey-800 ">
+         <div className="rounded-xl bg-black-50 dark:bg-black-700 bg-opacity-50 ">
             <div className="pt-6 pb-12 px-10 m-2 flex flex-col md:flex-row">
                <div>
                   <Title type="h2">Resume</Title>

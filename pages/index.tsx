@@ -19,7 +19,7 @@ export async function getStaticProps() {
       .slice(0, 4)
    const posts = allPosts
       .map(p => {
-         if (p.slug) return p
+         if (p.postType === 'article') return p
       })
       .filter(p => {
          return p !== undefined

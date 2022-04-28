@@ -51,7 +51,9 @@ export default function Article({ post, page }: { post: Post; page: Page }) {
             <div className="w-full max-w-5xl ">
                <article>
                   <div className="flex flex-col justify-center">
-                     <Title type="superheading">a quick code snippet</Title>
+                     <Title type="h2" variant="superheading">
+                        a quick code snippet
+                     </Title>
                      <Title
                         type="h2"
                         className="flex justify-center mt-0 pt-0 font-title"
