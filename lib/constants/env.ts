@@ -1,5 +1,3 @@
-export const DEV = process.env.NODE_ENV !== 'production'
-
 export const GTM = 'GTM-K427PD5'
 
 export const SITE_NAME = 'Roy Anger'

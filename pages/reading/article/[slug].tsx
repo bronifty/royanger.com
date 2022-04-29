@@ -2,12 +2,12 @@ import * as React from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { GetStaticProps } from 'next'
-import Title from '../../components/Title'
-import { allPosts, allPages } from '../../.contentlayer/generated'
-import type { Post, Page } from '../../.contentlayer/generated'
+import Title from '../../../components/Title'
+import { allPosts, allPages } from '../../../.contentlayer/generated'
+import type { Post, Page } from '../../../.contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
-import components from '../../components/MDXComponents'
-import { displayDate } from '../../lib/helpers/displayDate'
+import components from '../../../components/MDXComponents'
+import { displayDate } from '../../../lib/helpers/displayDate'
 
 export async function getStaticPaths() {
    return {

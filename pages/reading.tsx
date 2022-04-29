@@ -2,13 +2,14 @@ import * as React from 'react'
 import Head from 'next/head'
 import { allPages, allPosts } from '../.contentlayer/generated'
 import { InferGetStaticPropsType } from 'next'
-import Title from '../components/Title'
-import BookmarkCard from '../components/blog/BookmarkCard'
-import ArticleCard from '../components/blog/ArticleCard'
-import ProjectCard from '../components/blog/ProjectCard'
-import { useMDXComponent } from 'next-contentlayer/hooks'
-import components from '../components/MDXComponents'
-import SnippetCard from '../components/blog/SnippetCard'
+import {
+   calculatePages,
+   sortPosts,
+   pageOfPosts,
+   paginationLinks,
+} from '../lib/helpers/pagination'
+import PostList from '../components/blog/PostList'
+import Pagination from '../components/blog/Pagination'
 
 export async function getStaticProps() {
    // load just one page from contentlayer
@@ -16,9 +17,7 @@ export async function getStaticProps() {
       post => post._raw.flattenedPath === 'pages/reading-material'
    )
    // load portfolio page and portfolio posts from contentlayer
-   const posts = allPosts.sort(
-      (a, b) => Number(new Date(b.date)) - Number(new Date(a.date))
-   )
+   const posts = pageOfPosts(sortPosts(allPosts), 1)
    return {
       props: {
          page,
@@ -31,8 +30,6 @@ const Reading = ({
    page,
    posts,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-   const Component = useMDXComponent(page.body.code)
-
    return (
       <>
          <Head>
@@ -44,77 +41,11 @@ const Reading = ({
             <meta name="keywords" content={page.pageKeywords} />
          </Head>
 
-         <div className="flex flex-row justify-center">
+         <PostList posts={posts} page={page} />
+         <div className="flex flex-row justify-center mt-20">
             <div className="w-full max-w-7xl">
-               <article>
-                  <Title type="h1">{page.title}</Title>
-                  <Title type="h2">{page.subTitle}</Title>
-
-                  <div className="flex flex-col max-w-4xl mdx-content">
-                     <Component components={{ ...components }} as any />
-                  </div>
-               </article>
-
-               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:auto-rows-[350px]">
-                  {posts.map((post, index) => {
-                     if (post.postType === 'bookmark')
-                        return (
-                           <BookmarkCard
-                              key={index}
-                              title={post.title}
-                              date={post.date}
-                              type={post.postType}
-                              tags={post.tags}
-                              link={post.link}
-                           >
-                              {post.excerpt}
-                           </BookmarkCard>
-                        )
-                     if (post.postType === 'project')
-                        return (
-                           <ProjectCard
-                              key={index}
-                              title={post.title}
-                              date={post.date}
-                              type={post.postType}
-                              tags={post.tags}
-                              link={post.link}
-                           >
-                              {post.excerpt}
-                           </ProjectCard>
-                        )
-                     if (post.postType === 'article')
-                        return (
-                           <ArticleCard
-                              key={index}
-                              title={post.title}
-                              date={post.date}
-                              type={post.postType}
-                              tags={post.tags}
-                              excerpt={post.excerpt}
-                              slug={post.slug}
-                              image={post.image}
-                              imageWidth={post.imageWidth}
-                              imageHeight={post.imageHeight}
-                           />
-                        )
-                     if (post.postType === 'snippet')
-                        return (
-                           <SnippetCard
-                              key={index}
-                              title={post.title}
-                              date={post.date}
-                              type={post.postType}
-                              tags={post.tags}
-                              excerpt={post.excerpt}
-                              slug={post.slug}
-                           />
-                        )
-                  })}
-               </div>
+               <Pagination currentPage="/reading" />
             </div>
-
-            <div></div>
          </div>
       </>
    )
