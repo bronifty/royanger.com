@@ -8,11 +8,15 @@ type PaginationItem = {
 }
 
 const PaginationItem = ({ label, page, current }: PaginationItem) => {
+   console.log('current', current)
+
+   let currentCSS = current
+      ? 'bg-grey-700 dark:bg-blue-300'
+      : 'bg-grey-800 dark:bg-blue-100'
+
    return (
       <div
-         className={`group bg-blue-800 text-grey-100 dark:bg-blue-100 dark:text-black ${
-            current ? 'bg-blue-900 dark:bg-blue-200' : ''
-         } w-10 first:w-32 last:w-32 flex items-center justify-center h-full border-r-[1px] last:border-r-0 border-blue-500 first:rounded-l-lg last:rounded-r-lg`}
+         className={`group text-grey-100  dark:text-black w-10 first:w-32 last:w-32 flex items-center justify-center h-full border-r-[1px] last:border-r-0 border-blue-500 first:rounded-l-lg last:rounded-r-lg ${currentCSS}`}
       >
          <Link href={`/reading/${page}`} passHref>
             <button className="w-full h-full flex items-center justify-center group-hover:underline group-hover:decoration-dotted group-hover:text-grey-200 dark:group-hover:text-black-500 group-hover:decoration-grey-200 dark:group-hover:decoration-black-500 group-hover:decoration-1">
@@ -27,6 +31,7 @@ const Pagination = ({ currentPage }) => {
    const pages = paginationLinks(
       currentPage === '/reading' ? 1 : parseInt(currentPage as string)
    )
+   console.log('pages', pages)
 
    return (
       <>
