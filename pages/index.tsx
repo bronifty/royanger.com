@@ -63,9 +63,9 @@ const Index = ({
                   <div className="flex flex-col max-w-4xl mdx-content mt-12">
                      <Component components={{ ...components }} as any />
                   </div>
-                  <a href="https://accounts.spotify.com/authorize?client_id=b1b4f2c30e824b1bb4eccc1bafa9f79e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost:5000&scope=user-read-currently-playing%20user-top-read&user-read-recently-played">
+                  {/* <a href="https://accounts.spotify.com/authorize?client_id=b1b4f2c30e824b1bb4eccc1bafa9f79e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost:5000&scope=user-read-currently-playing%20user-top-read&user-read-recently-played">
                      Spotify
-                  </a>
+                  </a> */}
                </article>
                <section>
                   <div className="mt-12">
