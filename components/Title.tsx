@@ -21,13 +21,12 @@ const Title: React.FC<Title> = ({ children, type, className, variant }) => {
       h2: 'text-3xl md:text-4xl font-body mt-4 mb-2 text-slate-600',
       h3: 'text-2xl font-title mt-4 mb-2 p-2',
       h4: 'text-2xl font-body mt-3',
-      portfolio: 'text-2xl font-title my-2 p-2 flex justify-center',
    }
 
    const variantOptions: any = {
       blog: 'text-3xl md:text-4xl font-body mt-4 mb-2 text-slate-600',
       h3ash4: 'text-2xl font-body mt-3',
-      portfolio: '!text-2xl !font-title my-2 p-2 flex justify-center',
+      portfolio: '!text-3xl py-1 px-2 flex justify-center font-bold',
       superheading:
          '!text-lg font-code flex justify-center text-blue dark:text-blue-300 mt-8',
    }
