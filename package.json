@@ -12,6 +12,7 @@
       "aws-sdk": "^2.1116.0",
       "axios": "^0.26.1",
       "contentlayer": "^0.1.2",
+      "formik": "^2.2.9",
       "logrocket": "^2.2.1",
       "next": "^12.1.0",
       "next-contentlayer": "^0.1.2",
