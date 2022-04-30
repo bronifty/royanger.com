@@ -28,7 +28,7 @@ const GalleryModal = React.forwardRef<HTMLDivElement, Modal>(
                className=" bg-white m-2 p-2 md:p-6 relative shadow shadow-grey-600 "
             >
                <a
-                  className="absolute top-0 right-0 bg-white py-1 px-2 rounded-bl-lg z-30"
+                  className="absolute top-0 right-0 bg-white text-black py-1 px-2 rounded-bl-lg z-30"
                   href="#"
                   onClick={onClose}
                >

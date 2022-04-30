@@ -8,8 +8,6 @@ type PaginationItem = {
 }
 
 const PaginationItem = ({ label, page, current }: PaginationItem) => {
-   console.log('current', current)
-
    let currentCSS = current
       ? 'bg-grey-700 dark:bg-blue-300'
       : 'bg-grey-800 dark:bg-blue-100'
@@ -31,7 +29,6 @@ const Pagination = ({ currentPage }) => {
    const pages = paginationLinks(
       currentPage === '/reading' ? 1 : parseInt(currentPage as string)
    )
-   console.log('pages', pages)
 
    return (
       <>
