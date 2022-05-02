@@ -11,17 +11,26 @@ const returnInitialTheme = () => {
          return 'dark'
       }
    }
-   return 'light'
+   return 'dark'
 }
 
-export const ThemeContext = React.createContext({})
+const defaultState = 'light'
 
-interface ThemeContext {
-   initialTheme?: 'string'
+export interface ThemeContext {
+   theme: string
+   setTheme: React.Dispatch<React.SetStateAction<string>>
+}
+
+interface ThemeProvider {
+   initialTheme?: string
    children: JSX.Element
 }
 
-export const ThemeProvider = ({ initialTheme, children }: ThemeContext) => {
+export const ThemeContext = React.createContext<ThemeContext>(
+   {} as ThemeContext
+)
+
+export const ThemeProvider = ({ initialTheme, children }: ThemeProvider) => {
    const [theme, setTheme] = React.useState(returnInitialTheme)
 
    const rawSetTheme = (theme: string) => {
