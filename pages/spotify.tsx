@@ -1,5 +1,4 @@
 import * as React from 'react'
-import Head from 'next/head'
 import Title from '../components/Title'
 import { allPages } from '../.contentlayer/generated'
 import { InferGetStaticPropsType } from 'next'
@@ -9,9 +8,10 @@ import Track from '../components/Spotify/Track'
 import Artist from '../components/Spotify/Artist'
 import { TopTracks, TopArtists } from '../lib/types'
 import CurrentlyPlaying from '../components/Spotify/CurrentlyPlaying'
+import HTMLHead from '../components/HTMLHead'
 
 export async function getStaticProps() {
-   // load just one page from contentlayer
+   // load titles and meta info from contentlayer
    const page = allPages.find(
       post => post._raw.flattenedPath === 'pages/spotify'
    )
@@ -27,16 +27,14 @@ const Spotify = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
    const { data: tracks } = useSWR<TopTracks>('/api/top-tracks', fetcher)
    const { data: artists } = useSWR<TopArtists>('/api/top-artists', fetcher)
 
+   const meta = {
+      title: page.pageTitle,
+      keywords: page.pageKeywords,
+   }
+
    return (
       <>
-         <Head>
-            <title>{page.pageTitle}</title>
-            <meta
-               name="viewport"
-               content="width=device-width, initial-scale=1"
-            />
-            <meta name="keywords" content={page.pageKeywords} />
-         </Head>
+         <HTMLHead pageMeta={meta} />
 
          <div className="flex flex-row justify-center">
             <div className="w-full max-w-7xl">

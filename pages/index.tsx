@@ -1,5 +1,4 @@
 import * as React from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
 import Title from '../components/Title'
 import { allPages, allPortfolios, allPosts } from '../.contentlayer/generated'
@@ -8,9 +7,10 @@ import { useMDXComponent } from 'next-contentlayer/hooks'
 import components from '../components/MDXComponents'
 import { RightArrowLongIcon } from '../components/icons'
 import ListItem from '../components/home/ListItem'
+import HTMLHead from '../components/HTMLHead'
 
 export async function getStaticProps() {
-   // load just one page from contentlayer
+   // load titles and meta info from contentlayer
    const page = allPages.find(post => post._raw.flattenedPath === 'pages/home')
    const portfolio = allPortfolios
       .sort((a, b) => {
@@ -44,16 +44,15 @@ const Index = ({
    posts,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
    const Component = useMDXComponent(page.body.code)
+
+   const meta = {
+      title: page.pageTitle,
+      keywords: page.pageKeywords,
+   }
+
    return (
       <>
-         <Head>
-            <title>{page.pageTitle}</title>
-            <meta
-               name="viewport"
-               content="width=device-width, initial-scale=1"
-            />
-            <meta name="keywords" content={page.pageKeywords} />
-         </Head>
+         <HTMLHead pageMeta={meta} />
 
          <div className="flex flex-row justify-center">
             <div className="w-full max-w-7xl">

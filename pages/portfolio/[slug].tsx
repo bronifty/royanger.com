@@ -1,5 +1,4 @@
 import * as React from 'react'
-import Head from 'next/head'
 import Image from 'next/image'
 import Title from '../../components/Title'
 import { allPortfolios, allPages } from '../../.contentlayer/generated'
@@ -10,8 +9,11 @@ import useVisible from '../../lib/hooks/useVisible'
 import Tag from '../../components/Tag'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import components from '../../components/MDXComponents'
+import HTMLHead from '../../components/HTMLHead'
+import { SITENAME } from '../../lib/constants/env'
 
 export async function getStaticPaths() {
+   // get slugs from contentlayer
    return {
       paths: allPortfolios.map(p => ({ params: { slug: p.slug } })),
       fallback: false,
@@ -19,8 +21,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+   // load post specific information from contentlayer
    const portfolio = allPortfolios.find(project => project.slug === params.slug)
 
+   // load titles and meta info from contentlayer
    const page = allPages.find(
       post => post._raw.flattenedPath === 'pages/portfolio'
    )
@@ -40,6 +44,11 @@ export default function Project({
       portfolio.image
    )
    const { ref, isVisible, setIsVisible } = useVisible(false)
+
+   const meta = {
+      title: `${SITENAME} - ${portfolio.project}`,
+      keywords: page.pageKeywords,
+   }
 
    const handleImageChange = (e, type) => {
       e.preventDefault()
@@ -71,17 +80,7 @@ export default function Project({
 
    return (
       <>
-         <Head>
-            <title>{`${page.pageTitle} > ${portfolio.project}`}</title>
-            <meta
-               name="viewport"
-               content="width=device-width, initial-scale=1"
-            />
-            <meta
-               name="keywords"
-               content={`${page.pageTitle} - ${portfolio.project}`}
-            />
-         </Head>
+         <HTMLHead pageMeta={meta} />
 
          <div className="flex flex-row justify-center">
             <div className="w-full max-w-7xl px-4 xl:p-0">
@@ -147,10 +146,12 @@ export default function Project({
                         View the Project
                      </span>
                      <ExternalLinkButton
+                        label={`${portfolio.project} on GitHub`}
                         link={portfolio.github}
                         name="GitHub"
                      />
                      <ExternalLinkButton
+                        label={`${portfolio.project} preview`}
                         link={portfolio.preview}
                         name="Preview"
                      />

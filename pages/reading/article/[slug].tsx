@@ -1,5 +1,4 @@
 import * as React from 'react'
-import Head from 'next/head'
 import Image from 'next/image'
 import { GetStaticProps } from 'next'
 import Title from '../../../components/Title'
@@ -8,6 +7,8 @@ import type { Post, Page } from '../../../.contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import components from '../../../components/MDXComponents'
 import { displayDate } from '../../../lib/helpers/displayDate'
+import { SITENAME } from '../../../lib/constants/env'
+import HTMLHead from '../../../components/HTMLHead'
 
 export async function getStaticPaths() {
    return {
@@ -23,8 +24,10 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+   // load post information from contentlayer
    const post = allPosts.find(post => post.slug === params?.slug)
 
+   // load reading-material information
    const page = allPages.find(
       post => post._raw.flattenedPath === 'pages/reading-material'
    )
@@ -35,19 +38,16 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 export default function Article({ post, page }: { post: Post; page: Page }) {
    const Component = useMDXComponent(post.body.code)
 
+   const meta = {
+      title: `${SITENAME} - ${post.title}`,
+      keywords: page.pageKeywords,
+      date: new Date(post.date),
+      edited: new Date(post.lastEdited),
+   }
+
    return (
       <>
-         <Head>
-            <title>{`${page.pageTitle} > ${post.title}`}</title>
-            <meta
-               name="viewport"
-               content="width=device-width, initial-scale=1"
-            />
-            <meta
-               name="keywords"
-               content={`${page.pageTitle} - ${post.title}`}
-            />
-         </Head>
+         <HTMLHead pageMeta={meta} />
 
          <div className="flex flex-row justify-center">
             <div className="w-full max-w-5xl ">
