@@ -6,12 +6,6 @@ import Document, {
    NextScript,
    DocumentContext,
 } from 'next/document'
-import {
-   SITE_NAME,
-   SITE_DESCRIPTION,
-   SITE_IMAGE,
-   SITE_TITLE,
-} from '../lib/constants/env'
 
 class MyDocument extends Document {
    static async getInitialProps(ctx: DocumentContext) {
@@ -23,13 +17,7 @@ class MyDocument extends Document {
          <Html lang="en">
             <Head>
                <meta charSet="utf-8" />
-
                <meta name="theme-color" content="#000000" />
-               <meta property="og_type" content="website" />
-               <meta property="og:name" content={SITE_NAME} />
-               <meta property="og:title" content={SITE_TITLE} />
-               <meta property="og:description" content={SITE_DESCRIPTION} />
-
                <link
                   rel="apple-touch-icon"
                   sizes="180x180"

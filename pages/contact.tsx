@@ -1,5 +1,4 @@
 import * as React from 'react'
-import Head from 'next/head'
 import { Formik, Form, Field, FormikHelpers, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import 'yup-phone'
@@ -9,6 +8,9 @@ import TextInput from '../components/Contact/TextInput'
 import TextareaInput from '../components/Contact/TextareaInput'
 import SubmitButton from '../components/Buttons/Submit'
 import ListItem from '../components/Contact/ListItem'
+import HTMLHead from '../components/HTMLHead'
+import { allPages } from '../.contentlayer/generated'
+import { InferGetStaticPropsType } from 'next'
 
 interface Values {
    contactName: string
@@ -33,28 +35,40 @@ const validateSchema = Yup.object().shape({
       .required('This field is required'),
 })
 
-const Contact = () => {
+// load titles and meta info from contentlayer
+export async function getStaticProps() {
+   const page = allPages.find(
+      post => post._raw.flattenedPath === 'pages/contact'
+   )
+   return {
+      props: {
+         page,
+      },
+   }
+}
+
+const Contact = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
    const [submitted, setSubmitted] = React.useState(false)
 
    const handleChange = () => {
       setSubmitted(false)
    }
 
+   const meta = {
+      title: page.pageTitle,
+      keywords: page.pageKeywords,
+      date: '2022-05-02',
+   }
+
    return (
       <>
-         <Head>
-            <title>Roy Anger - Contact</title>
-            <meta
-               name="viewport"
-               content="width=device-width, initial-scale=1"
-            />
-         </Head>
+         <HTMLHead pageMeta={meta} />
 
          <div className="flex flex-row justify-center">
             <div className="w-full max-w-7xl">
                <article>
-                  <Title type="h1">Contact Roy</Title>
-                  <Title type="h2">I would love to hear from you</Title>
+                  <Title type="h1">{page.title}</Title>
+                  <Title type="h2">{page.subTitle}</Title>
                   <section className="max-w-2xl mt-16">
                      <div className="">
                         <Title type="h3" variant="h3ash4">

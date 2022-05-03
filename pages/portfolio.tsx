@@ -6,6 +6,7 @@ import { allPages, allPortfolios } from '../.contentlayer/generated'
 import Card from '../components/Portfolio/Card'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import components from '../components/MDXComponents'
+import HTMLHead from '../components/HTMLHead'
 
 // load portfolio page and portfolio posts from contentlayer
 export async function getStaticProps() {
@@ -29,16 +30,15 @@ const Portfolio = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
    const Component = useMDXComponent(page.body.code)
 
+   const meta = {
+      title: page.pageTitle,
+      keywords: page.pageKeywords,
+      date: '2022-05-02',
+   }
+
    return (
       <>
-         <Head>
-            <title>{page.pageTitle}</title>
-            <meta
-               name="viewport"
-               content="width=device-width, initial-scale=1"
-            />
-            <meta name="keywords" content={page.pageKeywords} />
-         </Head>
+         <HTMLHead pageMeta={meta} />
 
          <div className="flex flex-row justify-center">
             <div className="w-full max-w-7xl px-4 xl:p-0">
