@@ -16,7 +16,8 @@
       "isolatedModules": true,
       "noEmit": true,
       "jsx": "preserve",
-      "incremental": true
+      "incremental": true,
+      "noImplicitAny": true
    },
    "include": ["src", "public/assets", "lib/constants", "lib/context"],
    "exclude": ["node_modules"]

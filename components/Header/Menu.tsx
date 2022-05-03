@@ -65,10 +65,7 @@ const Menu = () => {
          className="flex flex-row  flex-grow items-center font-body text-xl"
          aria-label="Menu"
       >
-         <div
-            id="desktopmenu"
-            className="flex flex-row flex-grow hidden md:block"
-         >
+         <div id="desktopmenu" className="flex-row flex-grow hidden md:block">
             {menu.map((item, index) => {
                return (
                   <MenuItem

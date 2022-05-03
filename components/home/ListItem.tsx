@@ -28,9 +28,17 @@ const ListItem = ({ index, title, excerpt, slug, github }: ListItem) => {
                </div>
             </div>
             <div className="flex ml-10 items-end">
-               <Button link={slug} name="Details" />
+               <Button
+                  link={slug}
+                  name="Details"
+                  title={`More details about ${title}`}
+               />
                {github ? (
-                  <ExternalLinkButton link={github} name="GitHub" />
+                  <ExternalLinkButton
+                     link={github}
+                     name="GitHub"
+                     label={`${title} on GitHub`}
+                  />
                ) : (
                   ''
                )}

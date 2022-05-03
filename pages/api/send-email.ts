@@ -75,11 +75,11 @@ export default async function handler(
             },
             Subject: {
                Charset: 'UTF-8',
-               Data: `[test] Contact from ${req.query.name}`,
+               Data: `[royanger.com] Contact from ${req.query.name}`,
             },
          },
          Source: 'hey@royanger.dev',
-         ReplyToAddresses: [req.query.email],
+         ReplyToAddresses: [req.query.email as string],
       }
 
       // Create the promise and SES service object
