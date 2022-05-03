@@ -40,6 +40,34 @@ class MyDocument extends Document {
                   href="%PUBLIC_URL%/images/favicons/site.webmanifest"
                />
                <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+               <link
+                  rel="preload"
+                  href="/fonts/archivo-black-v16-latin-regular.woff2"
+                  as="font"
+                  type="font/woff2"
+                  crossOrigin="anonymous"
+               />
+               <link
+                  rel="preload"
+                  href="/fonts/hind-v15-latin-regular.woff2"
+                  as="font"
+                  type="font/woff2"
+                  crossOrigin="anonymous"
+               />
+               <link
+                  rel="preload"
+                  href="/fonts/hind-v15-latin-500.woff2"
+                  as="font"
+                  type="font/woff2"
+                  crossOrigin="anonymous"
+               />
+               <link
+                  rel="preload"
+                  href="/fonts/ubuntu-mono-v14-latin-regular.woff2"
+                  as="font"
+                  type="font/woff2"
+                  crossOrigin="anonymous"
+               />
             </Head>
             <body className="dark:bg-black dark:text-white bg-white text-black overflow-x-hidden">
                <Main />

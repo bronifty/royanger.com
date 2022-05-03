@@ -48,7 +48,6 @@ export default function Project({
    const meta = {
       title: `${SITENAME} - ${portfolio.project}`,
       keywords: page.pageKeywords,
-      date: '2022-05-02',
    }
 
    const handleImageChange = (e, type) => {

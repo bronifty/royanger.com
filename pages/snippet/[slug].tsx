@@ -39,7 +39,8 @@ export default function Article({ post, page }: { post: Post; page: Page }) {
    const meta = {
       title: `${SITENAME} - ${post.title}`,
       keywords: page.pageKeywords,
-      date: '2022-05-02',
+      date: new Date(post.date),
+      edited: new Date(post.lastEdited),
    }
 
    return (

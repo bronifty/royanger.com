@@ -1,5 +1,4 @@
 import * as React from 'react'
-import Head from 'next/head'
 import Image from 'next/image'
 import { GetStaticProps } from 'next'
 import Title from '../../../components/Title'
@@ -42,7 +41,8 @@ export default function Article({ post, page }: { post: Post; page: Page }) {
    const meta = {
       title: `${SITENAME} - ${post.title}`,
       keywords: page.pageKeywords,
-      date: '2022-05-02',
+      date: new Date(post.date),
+      edited: new Date(post.lastEdited),
    }
 
    return (

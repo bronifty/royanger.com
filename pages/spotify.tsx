@@ -30,7 +30,6 @@ const Spotify = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
    const meta = {
       title: page.pageTitle,
       keywords: page.pageKeywords,
-      date: '2022-05-02',
    }
 
    return (

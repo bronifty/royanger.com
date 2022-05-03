@@ -8,7 +8,8 @@ type HTMLHead = {
 type Meta = {
    title: string
    keywords: string
-   date: string
+   date?: Date
+   edited?: Date
    image?: string
 }
 
@@ -44,8 +45,18 @@ const HTMLHead = ({ pageMeta }: HTMLHead) => {
          <meta name="twitter:description" content={meta.description} />
          <meta name="twitter:image" content={meta.image} />
          {meta.date && (
-            <meta property="article:published_time" content={meta.date} />
+            <meta
+               property="article:published_time"
+               content={meta.date.toISOString()}
+            />
          )}
+         {meta.edited && (
+            <meta
+               property="article:modified_time"
+               content={meta.edited.toISOString()}
+            />
+         )}
+
          <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
    )
