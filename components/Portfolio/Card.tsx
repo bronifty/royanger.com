@@ -25,9 +25,9 @@ export default function Card({
    slug,
 }: Card) {
    return (
-      <article className="shadow-md  shadow-black-50 bg-white border-[1px] border-grey-100 dark:border-black-600 dark:bg-black-700 dark:shadow-black-900 rounded flex flex-col">
+      <article className="shadow-md shadow-black-50 bg-white border-[1px] border-grey-100 dark:border-black-600 dark:bg-black-700 dark:shadow-black-900 rounded flex flex-col mb-12">
          <div className="relative">
-            <div className="rounded-t bottom-0 right-0 left-0 bg-white bg-opacity-90 text-blue overflow-hidden whitespace-nowrap">
+            <div className="rounded-t bottom-0 right-0 left-0 bg-white dark:bg-black-700 text-blue dark:text-blue-100 overflow-hidden whitespace-nowrap">
                <Link href={`/portfolio/${slug}`} passHref>
                   <a>
                      <Title type="h2" variant="portfolio">
@@ -45,7 +45,7 @@ export default function Card({
                />
             </div>
          </div>
-         <div className="p-4 flex flex-col grow ">
+         <div className="p-4 flex flex-col grow">
             <div className="grow">
                <p>{description}</p>
             </div>

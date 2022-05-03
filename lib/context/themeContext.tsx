@@ -11,7 +11,7 @@ const returnInitialTheme = () => {
          return 'dark'
       }
    }
-   return 'dark'
+   return 'light'
 }
 
 const defaultState = 'light'
