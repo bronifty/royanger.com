@@ -6,7 +6,7 @@ import { SunIcon, MoonIcon } from '../icons'
 const Toggle = () => {
    const { theme, setTheme } = React.useContext(ThemeContext)
 
-   const handleThemeChange = (theme: string) => {
+   const handleThemeChange = (theme: 'light' | 'dark') => {
       setTheme(theme)
    }
 
