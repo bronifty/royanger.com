@@ -48,6 +48,7 @@ export default function Project({
    const meta = {
       title: `${SITENAME} - ${portfolio.project}`,
       keywords: page.pageKeywords,
+      image: portfolio.image.split('|').slice(0, 1).join(''),
    }
 
    const handleImageChange = (e, type) => {

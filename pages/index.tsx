@@ -8,6 +8,7 @@ import components from '../components/MDXComponents'
 import { RightArrowLongIcon } from '../components/icons'
 import ListItem from '../components/home/ListItem'
 import HTMLHead from '../components/HTMLHead'
+import Image from 'next/image'
 
 export async function getStaticProps() {
    // load titles and meta info from contentlayer
@@ -60,7 +61,19 @@ const Index = ({
                   <Title type="h1">{page.title}</Title>
                   <Title type="h2">{page.subTitle}</Title>
                   <div className="flex flex-col max-w-4xl mdx-content mt-12">
-                     <Component components={{ ...components }} as any />
+                     <div className="grid grid-cols-3 gap-12">
+                        <div>
+                           <Image
+                              alt="Roy Anger"
+                              src="/images/static/headshot.png"
+                              width={409}
+                              height={402}
+                           />
+                        </div>
+                        <div className="col-span-2">
+                           <Component components={{ ...components }} as any />
+                        </div>
+                     </div>
                   </div>
                </article>
                <section>

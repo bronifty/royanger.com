@@ -1,3 +1,5 @@
+![Home page of royanger.com](public/images/portfolio/royanger-index-dark.jpg)
+
 # royanger.com
 
 A new, fully React-based website built to house my portfolio, contact details and blog. The goal was something modern, using the technology stacks I am currently working with and to move away from WordPress.

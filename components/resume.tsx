@@ -15,7 +15,7 @@ const Resume = () => {
                      </Link>
 
                      <Link href="/resume/roy-anger--resume.pdf" passHref>
-                        <a>
+                        <a target="_blank">
                            Download my{' '}
                            <span className="text-blue-700 dark:text-blue-300 underline decoration-dotted font-semibold">
                               Resume
