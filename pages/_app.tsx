@@ -3,15 +3,24 @@ import type { AppProps } from 'next/app'
 import { ThemeProvider } from '../lib/context/themeContext'
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer'
-import { GTM } from '../lib/constants/env'
+import { GTM, pageview } from '../lib/constants/env'
 import '../styles/styles.scss'
 import '../styles/tailwind.css'
 import Script from 'next/script'
+import { useRouter } from 'next/router'
 
 import LogRocket from 'logrocket'
 LogRocket.init('kjcuh5/royangercom')
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
+   const router = useRouter()
+   React.useEffect(() => {
+      router.events.on('routeChangeComplete', pageview)
+      return () => {
+         router.events.off('routeChangeComplete', pageview)
+      }
+   }, [router.events])
+
    return (
       <ThemeProvider>
          <>

@@ -71,17 +71,14 @@ class MyDocument extends Document {
                />
             </Head>
             <body className="dark:bg-black dark:text-white bg-white text-black overflow-x-hidden">
-               <noscript
-                  dangerouslySetInnerHTML={{
-                     __html: `
+               <noscript>
                   <iframe
-                     src={https://www.googletagmanager.com/ns.html?id=${GTM}}
+                     src={`https://www.googletagmanager.com/ns.html?id=${GTM}`}
                      height="0"
                      width="0"
                      style={{ display: 'none', visibility: 'hidden' }}
-                  />`,
-                  }}
-               />
+                  />
+               </noscript>
                <Main />
                <div id="modal-root"></div>
                <NextScript />
