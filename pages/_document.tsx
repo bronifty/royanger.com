@@ -6,6 +6,7 @@ import Document, {
    NextScript,
    DocumentContext,
 } from 'next/document'
+import { GTM } from '../lib/constants/env'
 
 class MyDocument extends Document {
    static async getInitialProps(ctx: DocumentContext) {
@@ -70,6 +71,17 @@ class MyDocument extends Document {
                />
             </Head>
             <body className="dark:bg-black dark:text-white bg-white text-black overflow-x-hidden">
+               <noscript
+                  dangerouslySetInnerHTML={{
+                     __html: `
+                  <iframe
+                     src={https://www.googletagmanager.com/ns.html?id=${GTM}}
+                     height="0"
+                     width="0"
+                     style={{ display: 'none', visibility: 'hidden' }}
+                  />`,
+                  }}
+               />
                <Main />
                <div id="modal-root"></div>
                <NextScript />
