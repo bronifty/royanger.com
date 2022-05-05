@@ -1,0 +1,34 @@
+@font-face {
+   font-family: 'Archivo Black';
+   font-style: normal;
+   font-weight: 400;
+
+   src: local(''),
+      url('../public/fonts/archivo-black-v16-latin-regular.woff2')
+         format('woff2'),
+      url('../public/fonts/archivo-black-v16-latin-regular.woff') format('woff');
+}
+@font-face {
+   font-family: 'Hind';
+   font-style: normal;
+   font-weight: 400;
+   src: local(''),
+      url('../public/fonts/hind-v15-latin-regular.woff2') format('woff2'),
+      url('../public/fonts/hind-v15-latin-regular.woff') format('woff');
+}
+@font-face {
+   font-family: 'Hind';
+   font-style: normal;
+   font-weight: 500;
+   src: local(''),
+      url('../public/fonts/hind-v15-latin-500.woff2') format('woff2'),
+      url('../public/fonts/hind-v15-latin-500.woff') format('woff');
+}
+@font-face {
+   font-family: 'Ubuntu Mono';
+   font-style: normal;
+   font-weight: 400;
+   src: local(''),
+      url('../public/fonts/ubuntu-mono-v14-latin-regular.woff2') format('woff2'),
+      url('../public/fonts/ubuntu-mono-v14-latin-regular.woff') format('woff');
+}

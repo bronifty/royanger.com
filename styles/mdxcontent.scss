@@ -1,0 +1,184 @@
+.mdx-content {
+   @media screen and (min-width: 976px) and (max-width: 1400px) {
+      margin-left: 1rem;
+   }
+   h2,
+   h3,
+   h4,
+   h5,
+   h6,
+   p {
+      margin-bottom: 1.5rem;
+   }
+   p {
+      font-size: 1.1rem;
+      line-height: 1.6em;
+   }
+   h2 {
+      font-size: 1.85rem;
+      line-height: 1.3333333;
+      font-family: 'Hind';
+      margin: 2rem 0 0.5rem;
+      font-weight: 500;
+      position: relative;
+   }
+
+   h3 {
+      font-size: 1.35rem;
+      font-family: 'Hind';
+      margin: 2rem 0 0.5rem;
+      font-weight: 500;
+      position: relative;
+   }
+   @media screen and (min-width: 768px) {
+      h2 {
+         font-size: 2.25rem;
+         margin: 2rem 0 0.5rem;
+      }
+      h3 {
+         font-size: 1.55rem;
+         margin: 2rem 0 0.5rem;
+      }
+   }
+
+   ul {
+      margin-bottom: 2rem;
+      li {
+         list-style-type: disc;
+         margin-left: 20px;
+         padding-left: 5px;
+         margin-bottom: 5px;
+      }
+   }
+}
+
+.mdx-content {
+   .quotes:before {
+      content: ' ';
+      display: inline-flex;
+      background-image: url('/images/svgs/quote-left.svg');
+      background-size: 20px 20px;
+      height: 20px;
+      width: 20px;
+      position: absolute;
+      left: -10px;
+      z-index: 20;
+      -webkit-mask: url('/images/svgs/quote-left.svg') no-repeat 50% 50%;
+      mask: url('/images/svgs/quote-left.svg') no-repeat 50% 50%;
+      -webkit-mask-size: cover;
+      mask-size: cover;
+   }
+   .quotes:after {
+      content: ' ';
+      display: inline-flex;
+      background-image: url('/images/svgs/quote-right.svg');
+      background-size: 20px 20px;
+      height: 20px;
+      width: 20px;
+      position: absolute;
+      right: -10px;
+      bottom: 70px;
+      -webkit-mask: url('/images/svgs/quote-right.svg') no-repeat 50% 50%;
+      mask: url('/images/svgs/quote-right.svg') no-repeat 50% 50%;
+      -webkit-mask-size: cover;
+      mask-size: cover;
+   }
+   @media screen and (min-width: 768px) {
+      .quotes:before {
+         background-size: 40px 40px;
+         height: 40px;
+         width: 40px;
+      }
+      .quotes:after {
+         background-size: 40px 40px;
+         height: 40px;
+         width: 40px;
+         bottom: 40px;
+      }
+   }
+}
+
+.dark .mdx-content {
+   .quotes:before,
+   .quotes:after {
+      background-color: white;
+      background-image: none;
+   }
+}
+
+.mdx-content {
+   a {
+      color: var(--color-blue-600);
+      text-decoration: underline dotted var(--color-blue-600);
+      text-decoration-skip-ink: all;
+      text-decoration-thickness: 2px;
+      font-weight: bold;
+   }
+   a.anchor {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: block;
+   }
+   @media screen and (min-width: 976px) {
+      a.anchor {
+         visibility: hidden;
+         color: var(--color-grey-500);
+      }
+      :hover > a.anchor {
+         visibility: visible;
+      }
+      a.anchor::after {
+         content: ' ';
+         display: inline-flex;
+         background-image: url('/images/svgs/hashtag.svg');
+         background-size: 20px 20px;
+         height: 20px;
+         width: 20px;
+         position: absolute;
+         top: 13px;
+         left: -25px;
+         z-index: 20;
+         -webkit-mask: url('/images/svgs/hashtag.svg') no-repeat 50% 50%;
+         mask: url('/images/svgs/hashtag.svg') no-repeat 50% 50%;
+         -webkit-mask-size: cover;
+         mask-size: cover;
+         background-color: var(--color-grey-500);
+         background-image: none;
+      }
+      h3 a.anchor::after {
+         background-size: 15px 15px;
+         height: 15px;
+         width: 15px;
+         top: 10px;
+      }
+   }
+}
+
+.mdx-content {
+   p code {
+      background-color: var(--color-grey-100);
+      border: 1px solid var(--color-grey-300);
+      padding: 0 0.15rem;
+   }
+}
+.dark .mdx-content {
+   p code {
+      background-color: var(--color-grey-700);
+      border: 1px solid var(--color-grey-600);
+      padding: 0 0.15rem;
+   }
+}
+
+.dark .mdx-content {
+   a {
+      color: var(--color-blue-300);
+      text-decoration: underline dotted var(--color-blue-300) 2px;
+   }
+}
+
+.alert {
+   p {
+      margin: 0;
+   }
+}

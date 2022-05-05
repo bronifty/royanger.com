@@ -1,0 +1,36 @@
+---
+project: Leaderboards
+slug: leaderboards
+index: 04
+excerpt: The Leaderboards app is nothing more than something silly and fun. The initial idea came one night while gaming and one friend commented to another about how they wished they had tracked how often they'd run over each other in PUBG.
+github: https://github.com/royanger/leaderboard-app
+preview: https://leaderboard.royanger.app/
+shortExcerpt: A fun little leader board app for gamers
+techstack:
+   - React
+   - FaunaDB
+   - GraphQL
+   - Firebase
+   - Bootstrap
+   - Axios
+image: leaderboards.jpg|1300|924
+gallery:
+   - leaderboards.jpg|1300|924
+   - leaderboards-2.jpg|1300|699
+   - leaderboards-3.jpg|1300|1052
+   - leaderboards-4.jpg|926|1272
+---
+
+## Leaderboards
+
+The Leaderboards app is nothing more than something silly and fun. The initial idea came one night while gaming and one friend commented to another about how they wished they had tracked how often they'd run over each other in PUBG. From there I ended up working on this app.
+
+## Goals
+
+-  simple to create an account with
+-  easily create a new **leader board** for tracking events
+-  easily add a new entry to increment an existing entry
+
+I went with Firebase for authentication. This let me provide user logins via Google, rather than a more complicated registration process. The data is stored in [FaunaDB](https://fauna.com/). On first login an entry for the user is added to the `Users` collection, including their unique GoogleID. On subsequent logins their user information is refreshed. On the Profile screen the user could update their displayed name.
+
+With the authentication process handled, a user could now create a new leader board. Creating a leader board just required a name, a description and the action. A quick few lines and the leader board is up and running. From there users can add new entries to a leader board (IE, a new user who has performed the action for the particular leader board) or increment an existing entry.

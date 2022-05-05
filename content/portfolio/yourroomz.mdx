@@ -1,0 +1,51 @@
+---
+project: YourRoomz
+slug: yourroomz
+index: 02
+excerpt: I had the unique opportunity to join Co.Lab, a program that created a cross-discipline team to work on a project/application. As a team (Product Manager, Designer and Developers) we created YourRoomz, an app that allows users to get decor recommendations based on existing furniture and decor.
+github: https://github.com/royanger/YourRoomz
+preview: https://yourroomz.com/
+shortExcerpt: Find furniture suggestions based on your current decor and furniture
+techstack:
+   - React
+   - Postgres
+   - Node
+   - GraphQL
+   - Prisma
+   - Redux Toolkit
+   - React Query
+   - Passport
+   - Rainforest API
+image: yourroomz.jpg|1300|1067
+gallery:
+   - yourroomz.jpg|1300|1067
+   - yourroomz-1.jpg|1330|1143
+   - yourroomz-2.jpg|1330|1143
+   - yourroomz-3.jpg|1330|1143
+   - yourroomz-4.jpg|1330|1144
+   - yourroomz-5.jpg|1330|1144
+   - yourroomz-6.jpg|1330|1144
+   - yourroomz-7.jpg|1330|1144
+   - yourroomz-8.jpg|1330|1143
+   - yourroomz-9.jpg|1000|880
+   - yourroomz-10.jpg|1330|1144
+---
+
+## YourRoomz
+
+YourRoomz is a webapp built as part of the [Co.Lab](https://www.joincolab.io/) program. Co.Lab is a two month program which teams up a Project Manager, Designer and Developers. They spend those eight weeks designing and developing an application as a MVP.
+
+<Quote author="Co.Lab Mmission Statement">
+   Technology impacts a global audience - all the more value for the industry to
+   be made up of people from different backgrounds, each bringing their unique
+   perspectives and lived experiences to the table. And this is not a wildly
+   adopted mindset… just yet. Co.Lab will help us get there by giving people
+   from all walks of life the real-world, practical experience to confidently
+   break into (and thrive within) the tech industry. We want to spark action,
+   enable folks to learn by doing, and celebrate achievements as a true
+   collective.{' '}
+</Quote>
+
+## How was it built?
+
+The app features a frontend built with React, react-router, redux-toolkit and react-query. The frontend connects to a Node Express API, which provides authentication services via Passport and connects to a Postgres database using GraphQL. Most of the API routes are handled via a GraphQL endpoint. The API also connects to the Rainforest API, which allows the API to query Amazon product listings to build recommendations for the user.

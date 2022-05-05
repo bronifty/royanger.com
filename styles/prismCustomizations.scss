@@ -1,0 +1,132 @@
+.rehype-code-title {
+   padding: 0.75rem 1rem;
+   background-color: var(--color-grey-100);
+   border-radius: 0.3em 0.3em 0 0;
+   font-family: 'Ubuntu Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
+      monospace;
+}
+.dark .rehype-code-title {
+   color: var(--color-black-800);
+   background-color: var(--color-blue-50);
+}
+
+code[class*='language-'],
+pre[class*='language-'] {
+   font-family: 'Ubuntu Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
+      monospace;
+}
+pre[class*='language-'] {
+   margin: 0 0 1rem 0;
+   overflow-y: auto;
+}
+.dark pre[class*='language-'] {
+   overflow: auto;
+   margin-top: 0;
+   font-size: 0.85em;
+}
+.rehype-code-title + pre[class*='language-'] {
+   border-radius: 0 0 0.3em 0.3em;
+}
+
+pre {
+   overflow-x: auto;
+}
+
+.token.constant,
+.token.deleted,
+.token.property,
+.token.symbol,
+.token.tag {
+   color: #ff6da2;
+}
+
+.dark {
+   .token.atrule,
+   .token.attr-value,
+   .token.keyword {
+      color: rgb(0, 87, 124);
+   }
+
+   .token.class-name,
+   .token.function {
+      color: #b90328;
+   }
+   .token.attr-name,
+   .token.builtin,
+   .token.char,
+   .token.inserted,
+   .token.selector,
+   .token.string {
+      color: rgb(12, 75, 15);
+   }
+   .token.important,
+   .token.regex,
+   .token.variable {
+      color: rgb(61, 44, 11);
+   }
+   .token.punctuation {
+      color: rgb(53, 53, 53);
+   }
+   .language-css .token.string,
+   .style .token.string,
+   .token.entity,
+   .token.operator,
+   .token.url {
+      color: rgb(53, 53, 53);
+   }
+}
+
+/**
+  * Inspired by gatsby remark prism - https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/
+  * 1. Make the element just wide enough to fit its content.
+  * 2. Always fill the visible space in .code-highlight.
+  */
+.code-highlight {
+   float: left; /* 1 */
+   min-width: 100%; /* 2 */
+}
+
+.code-line {
+   display: block;
+   padding-left: 16px;
+   padding-right: 16px;
+   margin-left: -16px;
+   margin-right: -16px;
+   border-left-width: 4px;
+   border-left-color: rgba(31, 41, 55, 0); /* Set code block color */
+}
+
+.code-line.inserted {
+   background-color: rgba(16, 185, 129, 0.2); /* Set inserted line (+) color */
+}
+
+.code-line.deleted {
+   background-color: rgba(239, 68, 68, 0.2); /* Set deleted line (-) color */
+}
+
+.highlight-line {
+   margin-left: -16px;
+   margin-right: -16px;
+   background-color: rgba(55, 65, 81, 0.5); /* Set highlight bg color */
+   border-left-width: 4px;
+   border-left-color: rgb(59, 130, 246); /* Set highlight accent border color */
+}
+.dark .highlight-line {
+   background-color: rgba(55, 65, 81, 0.1);
+}
+.line-number::before {
+   display: inline-block;
+   width: 1rem;
+   text-align: right;
+   margin-right: 16px;
+   margin-left: -8px;
+   color: rgb(156, 163, 175); /* Line number color */
+   content: attr(line);
+}
+
+.dark {
+   code[class*='language-'],
+   pre[class*='language-'] {
+      text-shadow: 0 1px transparent;
+   }
+}
