@@ -8,9 +8,10 @@ type ListItem = {
    excerpt: string
    slug: string
    github?: string
+   name?: string
 }
 
-const ListItem = ({ index, title, excerpt, slug, github }: ListItem) => {
+const ListItem = ({ index, title, excerpt, slug, github, name }: ListItem) => {
    return (
       <li className="max-w-4xl mb-2 group border-b-[1px] border-b-grey-600 last:border-b-0">
          <div className="flex flex-col md:flex-row pb-4">
@@ -30,7 +31,7 @@ const ListItem = ({ index, title, excerpt, slug, github }: ListItem) => {
             <div className="flex ml-10 items-end">
                <Button
                   link={slug}
-                  name="Details"
+                  name={name ? name : 'Details'}
                   title={`More details about ${title}`}
                />
                {github ? (

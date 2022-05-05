@@ -25,7 +25,7 @@ const Title: React.FC<Title> = ({ children, type, className, variant }) => {
 
    const variantOptions: any = {
       blog: 'text-3xl md:text-4xl font-body mt-4 mb-2 text-slate-600',
-      h3ash4: 'text-2xl font-body mt-3',
+      h3ash4: 'text-2xl font-body mt-3 mb-0 p-0',
       portfolio: '!text-3xl py-1 px-2 flex justify-center font-bold',
       superheading:
          '!text-lg font-code flex justify-center text-blue dark:text-blue-300 mt-8',

@@ -117,13 +117,14 @@ const Index = ({
                                  index={index}
                                  title={p.title}
                                  excerpt={p.shortExcerpt}
-                                 slug={`/reading/${p.slug}`}
+                                 slug={`/reading/article/${p.slug}`}
+                                 name="Read post"
                               />
                            )
                         })}
                      </ul>
                      <div className="">
-                        <Link href="/portfolio" passHref>
+                        <Link href="/reading" passHref>
                            <button
                               type="button"
                               className="flex flex-row items-center relative text-grey-600 dark:text-grey-300 text-lg font-code"
