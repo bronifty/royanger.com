@@ -2,10 +2,10 @@
 project: YourRoomz
 slug: yourroomz
 index: 02
-excerpt: I had the unique opportunity to join Co.Lab, a program that created a cross-discipline team to work on a project/application. As a team (Product Manager, Designer and Developers) we created a MVP. YourRoomz allows users to enter information about their room and current furniture, and receive suggestions from Amazon on what they can purchase to complete the design.
+excerpt: I had the unique opportunity to join Co.Lab, a program that created a cross-discipline team to work on a project/application. As a team (Product Manager, Designer and Developers) we created YourRoomz, an app that allows users to get decor recommendations based on existing furniture and decor.
 github: https://github.com/royanger/YourRoomz
 preview: https://yourroomz.com/
-shortExcerpt: Find furniture suggestions based on your room and current furniture
+shortExcerpt: Find furniture suggestions based on your current decor and furniture
 techstack:
    - React
    - Postgres
@@ -31,7 +31,7 @@ gallery:
    - yourroomz-10.jpg|1330|1144
 ---
 
-## What is YourRoomz?
+## YourRoomz
 
 YourRoomz is a webapp built as part of the [Co.Lab](https://www.joincolab.io/) program. Co.Lab is a two month program which teams up a Project Manager, Designer and Developers. They spend those eight weeks designing and developing an application as a MVP.
 
@@ -48,4 +48,4 @@ YourRoomz is a webapp built as part of the [Co.Lab](https://www.joincolab.io/) p
 
 ## How was it built?
 
-The app features a frontend built with React, react-router, redux-toolkit and react-query. The frontend connects to a Node Express API, which provides authentication services via Passport and connects to a Postgres database. Most of the API routes are handled via a GraphQL endpoint. The API also connects to the Rainforest API, which allows the API to query Amazon product listings to build recommendations for the user.
+The app features a frontend built with React, react-router, redux-toolkit and react-query. The frontend connects to a Node Express API, which provides authentication services via Passport and connects to a Postgres database using GraphQL. Most of the API routes are handled via a GraphQL endpoint. The API also connects to the Rainforest API, which allows the API to query Amazon product listings to build recommendations for the user.

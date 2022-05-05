@@ -29,7 +29,7 @@ const Alert = ({ children, type, emoji }: Alert) => {
          ) : (
             <>
                {alert !== undefined ? (
-                  <div className={`${alert} min-w-[3rem]  rounded-l-xl`}></div>
+                  <div className={`${alert} min-w-[1rem]  rounded-l-xl`}></div>
                ) : (
                   ''
                )}

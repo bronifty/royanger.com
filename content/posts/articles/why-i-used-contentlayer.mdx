@@ -7,19 +7,19 @@ tags:
    - mdx
    - content
 slug: why-i-chose-contentlayer
-excerpt: Rather than use a headless CMS or a cloud hosted solution I opted to use Contentlayer for this my portfolio design. Contentlayer lets you easily work with content and convert from MDX, markdown and JSON fields into data. All of the imported data is fully typed by Contentlayer, making it a breeze to use TypeScript. The best part? Contentlayer allows for multiple content sources, so I can add a CMS later if I am inclined.
+excerpt: Rather than use a headless CMS or a cloud hosted solution I opted to use Contentlayer for this my portfolio design. Contentlayer lets you easily work with content and convert from MDX, markdown and JSON fields into data. All of the imported data is fully typed by Contentlayer, making it a breeze to use TypeScript. The best part?
 shortExcerpt: Contentlayer is great when working with MDX - learn why and how I use it for this portfolio
 image: contentlayer.png
 imageWidth: 1341
 imageHeight: 531
-lastEdited: 2022-04-19
+lastEdited: 2022-05-03
 ---
 
 As I set out to plan for a redesign of this portfolio I sat down and considered the blog. The reality is that I won't write posts regularly, and if the 'blog' section was just blog posts then it would end up very sparse. I was leaning towards not including a blog section at all, until I stumbled across a site that had a bookmarks section instead of a blog.
 
-I drew inspiration from that, though initially I was thinking of doing a section only for bookmarks. After a few days I started mulling over the idea of merging the blog and bookmarks into one section. I would have a spot for the blogs posts I wrote, but could easily had bookmarks to provide ongoing updates and content.
+I drew inspiration from that, initially planning on only a section for bookmarks. After a few days I started mulling over the idea of merging the blog and bookmarks into one section. I would have a spot for the blogs posts I wrote, but could easily had bookmarks to provide ongoing updates and content.
 
-With a goal in mind I turned my attention to the _how_ of accomplishing my goals. The previous version of this portfolio had used [Sanity](https://www.sanity.io/), something I had enjoyed experiencing while learning about React and headless CMS tools. It is a solid tool, but it was overkill for my needs -- I simply wasn't going to write enough to need a complicated solution.
+With a goal in mind I turned my attention to the _how_ of accomplishing my goals. The previous in-development version of this portfolio had used [Sanity](https://www.sanity.io/), something I had enjoyed experiencing while learning about React and headless CMS tools. It is a solid tool, but it was overkill for my needs -- I simply wasn't going to write enough to need a complicated solution.
 
 ## Enter Contentlayer
 
@@ -27,13 +27,18 @@ Once I had decided to move on from Sanity, I felt that markdown would probably s
 
 As I started looking through options to use markdown or MDX on my new design, I stumbled across [Contentlayer](https://www.contentlayer.dev/). I'm not even 100% sure where I heard about it -- it might have been on one of [Jacob Evan's](https://twitter.com/JacobMGEvans) Twitter spaces. To be honest, it wasn't even the first thing I tried out as a solution. One look at the docs and [Lee Robinson's](https://twitter.com/leeerob) portfolio [repository](https://github.com/leerob/leerob.io) on GitHub and I was convinced.
 
-The ease at which you can take markdown or MDX files and generate content was remarkable. And it is super easy to then import that content into your component as data and work with it. You end up with an array of objects, like you would get from a database plus everything is fully typed. I could get the benefits of MDX, like frontmatter and components, very easily. I could even add remark and rehype plugins. Take a look under the featured image above -- the time to read and word count are handled by those plugins.
+The ease at which you can take markdown or MDX files and generate content was remarkable. And it is super easy to then import that content into your component as data and work with it. You end up with an array of objects, like you would get from a database and everything is fully typed. I could get the benefits of MDX, like frontmatter and components, very easily. I could even add remark and rehype plugins. Take a look under the featured image above -- the time to read and word count are handled by those plugins.
 
 Once I realized how easy it would be to work with Contentlayer I immediately expanded my plans. I could easily manage my projects via the same system. And wait, I could even manage most of the page titles, content, and even SEO keywords and so on. Pretty much anything that I might want to update or edit could be managed from MDX files.
 
-## Configuring the Content
+## Configuring the content
 
 With a solution chosen and my plans solidified, I set out with the redesign. I decided that I wanted **Pages**, **Projects** and **Posts**, with Posts having the subgroups of _articles_, _bookmarks_ and _projects_.
+
+<Alert type="info">
+   I have since added a **Snippets** type to the posts, in addition to
+   **articles**, **bookmarks** and **projects**..
+</Alert>
 
 ```bash
 /content
@@ -57,7 +62,7 @@ With a solution chosen and my plans solidified, I set out with the redesign. I d
 
 ### /pages
 
-Let's delve into each of the three main types, starting with Pages. Pages are the MDX files that handle the page title, keywords, and content. I started with a basic frontmatter section that would include the title for the `<head>` section as well as the keywords, and a title and subtitle for display on the page itself. The rest of the file is just the written content for the home page (in this example).
+Let's delve into each of the three main types, starting with Pages. Pages are the MDX files that handle the page title, keywords, and content. I started with a basic frontmatter section that would include the title for the `<head>` section as well as the keywords, and a title and subtitle for display on the page itself. The rest of the file is just the written content for the page. For example, the home page:
 
 ```md:pages/home.mdx
 ---
@@ -66,6 +71,8 @@ pageKeywords: react developer, fullstack developer, web developer
 title: Roy Anger
 subTitle: Full Stack Web Developer
 ---
+
+Here is the text that would appear on the home page...
 ```
 
 ### /posts
@@ -77,18 +84,19 @@ I settled on having `title`, `date`, `postType` and `tags` be the required front
 ```md:/posts/articles/why-i-used-contentlayer.mdx
 ---
 title: Why I Chose Contentlayer
-date: 2022-04-19
+date: 2022-04-10
 postType: article
 tags:
    - markdown
    - mdx
    - content
 slug: why-i-chose-contentlayer
-excerpt: Rather than use a headless CMS or a cloud hosted solution I opted to use Contentlayer for this redesign. Contentlayer lets your easily work with content and convert from MDX, markdown and JSON fields into data. Plus I can add a CMS later if I want to.
+excerpt: Rather than use a headless CMS or a cloud hosted solution I opted to use Contentlayer for this my portfolio design. Contentlayer lets you easily work with content and convert from MDX, markdown and JSON fields into data. All of the imported data is fully typed by Contentlayer, making it a breeze to use TypeScript. The best part?
+shortExcerpt: Contentlayer is great when working with MDX - learn why and how I use it for this portfolio
 image: contentlayer.png
 imageWidth: 1341
 imageHeight: 531
-lastEdited: 2022-04-19
+lastEdited: 2022-05-03
 ---
 ```
 
@@ -100,41 +108,31 @@ I used a `index` field to set the order that the projects would display, letting
 
 ```md:/portfolio/yourroomz.mdx
 ---
-project: YourRoomz
-slug: yourroomz
-index: 02
-excerpt: I had the unique opportunity to join Co.Lab, a program that created a cross-discipline team to work on a project/application. As a team (Product Manager, Designer and Developers) we created a MVP. YourRoomz allows users to enter information about their room and current furniture, and receive suggestions from Amazon on what they can purchase to complete the design.
-github: https://github.com/royanger/YourRoomz
-preview: https://yourroomz.com/
-shortExcerpt: Find furniture suggestions based on your room and current furniture
+project: Get Focused
+slug: get-focused
+index: 01
+excerpt: Get Focused is a project born out of my previous use of the Productivity Planner. I've re-imagined it as a webapp, with the same flow and approach as the written journal. The app is mostly about displaying, interacting with and loading data via forms. Built using the new React framework Remix, a framework that embraces web APIs, it allowed me to work with forms easily and effectively.
+github: https://github.com/royanger/get-focused
+preview: https://getfocused.royanger.app
+shortExcerpt: A digital re-imagining of the Productivity Planner
 techstack:
+   - React
+   - Remix
+   - Postgres
+   - Node
+   - Prisma
+   - TypeScript
 
--  React
--  Postgres
--  Node
--  GraphQL
--  Prisma
--  Redux Toolkit
--  React Query
--  Passport
--  Rainforest API
-   image: yourroomz
-   gallery:
--  yourroomz
--  login-page
--  rooms
--  room-selection
--  room-details
--  existing-furniture-details
--  existing-furniture-details-2
--  existing-furniture-details-3
--  categories-to-recommend
--  recommendations
--  shopping-cart
+image: get-focused-dashboard.jpg|1583|1092
+gallery:
+   - get-focused-dashboard.jpg|1583|1092
+   - get-focused-weekly-planner.jpg|1585|1278
+   - get-focused-daily-planner.jpg|1584|1278
+   - get-focused-weekly-review.jpg|1586|1240
 ---
 ```
 
-## The Final Word
+## The final word
 
 With the various file types in place, every piece of written content as well as images were now maintained through the .mdx files. I don't have to dig through components to update content -- just update the appropriate file. With the project hosted on Vercel, as soon as I push those updates to GitHub the CI/CD process starts and the site is regenerated. I now have a solution in place that lets me easily add and edit content, and I love the fit.
 
