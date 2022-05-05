@@ -24,15 +24,6 @@ export default function Header() {
                </form>
             </div>
          </div>
-         {/* TODO TO REMOVE WHEN SITE GOES LIVE  */}
-         <div className="bg-grey-100 w-full flex justify-center mt-2">
-            <div className="max-w-screen-xl w-full flex flex-row justify-center p-4">
-               <p className="text-lg font-code dark:text-black">
-                  This site is not quite done and some stuff is still not
-                  finished/in perfect shape
-               </p>
-            </div>
-         </div>
       </header>
    )
 }
