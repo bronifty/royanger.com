@@ -191,6 +191,7 @@ const Portfolio = defineDocumentType(() => ({
 }))
 
 const contentLayerConfig = makeSource({
+   disableImportAliasWarning: true,
    contentDirPath: 'content',
    documentTypes: [Post, Pages, Portfolio],
    mdx: {
