@@ -12,7 +12,6 @@ type ArticleCard = {
    image: string
    imageWidth: number
    imageHeight: number
-   // children: React.ReactNode
 }
 
 const ArticleCard = ({
