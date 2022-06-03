@@ -5,6 +5,7 @@ import { allPages } from '../.contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import components from '../components/MDXComponents'
 import Resume from '../components/resume'
+import SmallResumeCallout from '../components/SmallResumeCallout'
 import HTMLHead from '../components/HTMLHead'
 
 // load titles and meta info from contentlayer
@@ -36,6 +37,7 @@ const Skills = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
                <article>
                   <Title type="h1">{page.title}</Title>
                   <Title type="h2">{page.subTitle}</Title>
+                  <SmallResumeCallout />
                   <div className="flex flex-col max-w-4xl mdx-content">
                      <Component components={{ ...components }} as any />
                   </div>

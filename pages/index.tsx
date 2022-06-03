@@ -61,8 +61,8 @@ const Index = ({
                   <Title type="h1">{page.title}</Title>
                   <Title type="h2">{page.subTitle}</Title>
                   <div className="flex flex-col max-w-4xl mdx-content mt-12">
-                     <div className="grid grid-cols-3 gap-12">
-                        <div>
+                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                        <div className="flex justify-center md:block">
                            <Image
                               alt="Roy Anger"
                               src="/images/static/headshot.png"

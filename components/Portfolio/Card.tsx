@@ -36,13 +36,15 @@ export default function Card({
                   </a>
                </Link>
             </div>
-            <div>
-               <Image
-                  alt={`Preview of ${title}`}
-                  src={`/images/portfolio/${image.split('|')[0]}`}
-                  height={image.split('|')[2]}
-                  width={image.split('|')[1]}
-               />
+            <div className="hover:cursor-pointer">
+               <Link href={`/portfolio/${slug}`} passHref>
+                  <Image
+                     alt={`Preview of ${title}`}
+                     src={`/images/portfolio/${image.split('|')[0]}`}
+                     height={image.split('|')[2]}
+                     width={image.split('|')[1]}
+                  />
+               </Link>
             </div>
          </div>
          <div className="p-4 flex flex-col grow">
