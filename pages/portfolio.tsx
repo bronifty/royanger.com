@@ -1,8 +1,11 @@
 import * as React from 'react'
-import Head from 'next/head'
-import { InferGetStaticPropsType } from 'next'
 import Title from '../components/Title'
-import { allPages, allPortfolios } from '../.contentlayer/generated'
+import {
+   allPages,
+   allPortfolios,
+   Page,
+   Portfolio,
+} from '../.contentlayer/generated'
 import Card from '../components/Portfolio/Card'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import components from '../components/MDXComponents'
@@ -24,10 +27,7 @@ export async function getStaticProps() {
    }
 }
 
-const Portfolio = ({
-   page,
-   portfolio,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+function Portfolio({ page, portfolio }: { page: Page; portfolio: Portfolio }) {
    const Component = useMDXComponent(page.body.code)
 
    const meta = {
@@ -43,7 +43,7 @@ const Portfolio = ({
             <div className="w-full max-w-7xl px-4 xl:p-0">
                <section>
                   <Title type="h1">{page.title}</Title>
-                  <Title type="h2">{page.subTitle}</Title>
+                  <Title type="h2">{page.subTitle ? page.subTitle : ''}</Title>
                   <div className="flex flex-col max-w-4xl mdx-content">
                      <Component components={{ ...components }} as any />
                   </div>

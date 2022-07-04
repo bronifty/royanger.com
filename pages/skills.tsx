@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { InferGetStaticPropsType } from 'next'
 import Title from '../components/Title'
-import { allPages } from '../.contentlayer/generated'
+import { allPages, Page } from '../.contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import components from '../components/MDXComponents'
 import Resume from '../components/resume'
@@ -20,7 +20,7 @@ export async function getStaticProps() {
    }
 }
 
-const Skills = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
+function Skills({ page }: { page: Page }) {
    const Component = useMDXComponent(page.body.code)
 
    const meta = {
@@ -36,7 +36,7 @@ const Skills = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
             <div className="w-full max-w-7xl">
                <article>
                   <Title type="h1">{page.title}</Title>
-                  <Title type="h2">{page.subTitle}</Title>
+                  <Title type="h2">{page.subTitle ? page.subTitle : ''}</Title>
                   <SmallResumeCallout />
                   <div className="flex flex-col max-w-4xl mdx-content">
                      <Component components={{ ...components }} as any />

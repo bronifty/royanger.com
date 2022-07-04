@@ -22,6 +22,7 @@ import HashtagIcon from './HashtagIcon'
 import ReadingIcon from './ReadingIcon'
 import HomeIcon from './HomeIcon'
 import PortfolioIcon from './PortfolioIcon'
+import NPMIcon from './NPMIcon'
 
 export {
    Logo,
@@ -48,4 +49,5 @@ export {
    ReadingIcon,
    HomeIcon,
    PortfolioIcon,
+   NPMIcon,
 }

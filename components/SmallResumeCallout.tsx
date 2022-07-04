@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { PDFIcon } from './icons'
-import Title from './Title'
 
 const SmallResumeCallout = () => {
    return (

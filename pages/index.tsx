@@ -1,7 +1,14 @@
 import * as React from 'react'
 import Link from 'next/link'
 import Title from '../components/Title'
-import { allPages, allPortfolios, allPosts } from '../.contentlayer/generated'
+import {
+   allPages,
+   allPortfolios,
+   allPosts,
+   Page,
+   Portfolio,
+   Post,
+} from '../.contentlayer/generated'
 import { InferGetStaticPropsType } from 'next'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import components from '../components/MDXComponents'
@@ -39,11 +46,15 @@ export async function getStaticProps() {
    }
 }
 
-const Index = ({
+function Index({
    page,
    portfolio,
    posts,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+}: {
+   page: Page
+   portfolio: Portfolio
+   posts: Post
+}) {
    const Component = useMDXComponent(page.body.code)
 
    const meta = {
@@ -59,7 +70,7 @@ const Index = ({
             <div className="w-full max-w-7xl">
                <article>
                   <Title type="h1">{page.title}</Title>
-                  <Title type="h2">{page.subTitle}</Title>
+                  <Title type="h2">{page.subTitle ? page.subTitle : ''}</Title>
                   <div className="flex flex-col max-w-4xl mdx-content mt-12">
                      <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                         <div className="flex justify-center md:block">

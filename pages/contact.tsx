@@ -10,7 +10,8 @@ import SubmitButton from '../components/Buttons/Submit'
 import ListItem from '../components/Contact/ListItem'
 import HTMLHead from '../components/HTMLHead'
 import { allPages } from '../.contentlayer/generated'
-import { InferGetStaticPropsType } from 'next'
+import { Page } from '../.contentlayer/generated'
+import { SOCIALS } from '../lib/constants/socials'
 
 interface Values {
    contactName: string
@@ -47,7 +48,7 @@ export async function getStaticProps() {
    }
 }
 
-const Contact = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
+function Contact({ page }: { page: Page }) {
    const [submitted, setSubmitted] = React.useState(false)
 
    const handleChange = () => {
@@ -55,8 +56,8 @@ const Contact = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
    }
 
    const meta = {
-      title: page.pageTitle,
-      keywords: page.pageKeywords,
+      title: page?.pageTitle,
+      keywords: page?.pageKeywords,
    }
 
    return (
@@ -67,7 +68,7 @@ const Contact = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
             <div className="w-full max-w-7xl">
                <article>
                   <Title type="h1">{page.title}</Title>
-                  <Title type="h2">{page.subTitle}</Title>
+                  <Title type="h2">{page.subTitle ? page.subTitle : ''}</Title>
                   <section className="max-w-2xl mt-16">
                      <div className="">
                         <Title type="h3" variant="h3ash4">
@@ -174,23 +175,19 @@ const Contact = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
                      <Title type="h3" className="mb-4" variant="h3ash4">
                         Places to find me:
                      </Title>
-                     <ul className="text-lg">
-                        <ListItem
-                           label="GitHub"
-                           link="https://github.com/royanger"
-                        />
-                        <ListItem
-                           label="LinkedIn"
-                           link="https://www.linkedin.com/in/royanger/"
-                        />
-                        <ListItem
-                           label="Twitter"
-                           link="https://twitter.com/royanger"
-                        />
-                        <ListItem
-                           label="Instagram"
-                           link="https://www.instagram.com/royanger/"
-                        />
+                     <ul className="text-lg mt-8">
+                        {SOCIALS.filter(
+                           platform => platform.type !== 'contact'
+                        ).map(platform => {
+                           return (
+                              <ListItem
+                                 key={platform.type}
+                                 label={platform.title}
+                                 link={platform.link}
+                                 type={platform.type}
+                              />
+                           )
+                        })}
                      </ul>
                   </section>
                </article>
