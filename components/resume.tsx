@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { PDFIcon } from './icons'
 import Title from './Title'
+import PDFIconWrapper from './PDFIconWrapper'
 
 const Resume = () => {
    return (
@@ -11,7 +11,7 @@ const Resume = () => {
                   <Title type="h2">Resume</Title>
                   <div className="text-xl flex flex-row items-center">
                      <Link href="/resume/roy-anger--resume.pdf" passHref>
-                        <PDFIcon className="w-6 md:w-10 h-auto mr-2" />
+                        <PDFIconWrapper />
                      </Link>
 
                      <Link href="/resume/roy-anger--resume.pdf" passHref>

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { PDFIcon } from './icons'
+import PDFIconWrapper from './PDFIconWrapper'
 
 const SmallResumeCallout = () => {
    return (
@@ -9,10 +9,10 @@ const SmallResumeCallout = () => {
                <div>
                   <div className="text-xl flex flex-row items-center">
                      <Link href="/resume/roy-anger--resume.pdf" passHref>
-                        <PDFIcon className="w-6 md:w-6 h-auto mr-2" />
+                        <PDFIconWrapper />
                      </Link>
 
-                     <Link href="/resume/roy-anger--resume.pdf" passHref>
+                     <Link href="/resume/roy-anger--resume.pdf">
                         <a target="_blank">
                            Download my{' '}
                            <span className="text-blue-700 dark:text-blue-300 underline decoration-dotted font-semibold">

@@ -10,6 +10,7 @@ import Card from '../components/Portfolio/Card'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import components from '../components/MDXComponents'
 import HTMLHead from '../components/HTMLHead'
+import CardContainer from '../components/Portfolio/CardContainer'
 
 // load portfolio page and portfolio posts from contentlayer
 export async function getStaticProps() {
@@ -48,22 +49,7 @@ function Portfolio({ page, portfolio }: { page: Page; portfolio: Portfolio }) {
                      <Component components={{ ...components }} as any />
                   </div>
 
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 gap-y-16 mt-12">
-                     {portfolio.map(item => {
-                        return (
-                           <Card
-                              key={item._id}
-                              title={item.project}
-                              description={item.excerpt}
-                              github={item.github}
-                              preview={item.preview}
-                              techstack={item.techstack}
-                              image={item.image}
-                              slug={item.slug}
-                           />
-                        )
-                     })}
-                  </div>
+                  <CardContainer items={portfolio} />
                </section>
             </div>
 

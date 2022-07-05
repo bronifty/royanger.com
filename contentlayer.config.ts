@@ -178,7 +178,7 @@ const Portfolio = defineDocumentType(() => ({
       gallery: {
          type: 'list',
          description: 'Images to display as gallery',
-         required: false,
+         required: true,
          of: Portfolio,
       },
    },

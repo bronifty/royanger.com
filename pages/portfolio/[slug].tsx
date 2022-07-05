@@ -39,6 +39,10 @@ export default function Project({
    portfolio: Portfolio
    page: Page
 }) {
+   if (!portfolio.image) {
+      throw new Error('An image must be provided for Portfolio content posts')
+   }
+
    const Component = useMDXComponent(portfolio.body.code)
    const [currentGalleryImage, setCurrentGalleryImage] = React.useState(
       portfolio.image
@@ -53,6 +57,7 @@ export default function Project({
 
    const handleImageChange = (e, type) => {
       e.preventDefault()
+
       const index = portfolio.gallery.indexOf(currentGalleryImage)
       if (type === 'next' && index === portfolio.gallery.length - 1) {
          setCurrentGalleryImage(portfolio.gallery[0])

@@ -9,7 +9,7 @@ function includes<S extends string>(
 }
 
 type Title = {
-   children: React.ReactChild | React.ReactChild[]
+   children: React.ReactNode | React.ReactNode[]
    type: string
    className?: string
    variant?: string

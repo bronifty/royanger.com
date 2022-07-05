@@ -1,3 +1,4 @@
+import * as React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Button from '../Buttons/Button'
@@ -28,7 +29,7 @@ export default function Card({
       <article className="shadow-md shadow-black-50 bg-white border-[1px] border-grey-100 dark:border-black-600 dark:bg-black-700 dark:shadow-black-900 rounded flex flex-col mb-12">
          <div className="relative">
             <div className="rounded-t bottom-0 right-0 left-0 bg-white dark:bg-black-700 text-blue dark:text-blue-100 overflow-hidden whitespace-nowrap">
-               <Link href={`/portfolio/${slug}`} passHref>
+               <Link href={`/portfolio/${slug}`}>
                   <a>
                      <Title type="h2" variant="portfolio">
                         {title}
@@ -36,15 +37,15 @@ export default function Card({
                   </a>
                </Link>
             </div>
-            <div className="hover:cursor-pointer">
-               <Link href={`/portfolio/${slug}`} passHref>
-                  <Image
-                     alt={`Preview of ${title}`}
-                     src={`/images/portfolio/${image.split('|')[0]}`}
-                     height={image.split('|')[2]}
-                     width={image.split('|')[1]}
-                  />
-               </Link>
+            <div>
+               {/* <Link href={`/portfolio/${slug}`} passHref> */}
+               <Image
+                  alt={`Preview of ${title}`}
+                  src={`/images/portfolio/${image.split('|')[0]}`}
+                  height={image.split('|')[2]}
+                  width={image.split('|')[1]}
+               />
+               {/* </Link> */}
             </div>
          </div>
          <div className="p-4 flex flex-col grow">
