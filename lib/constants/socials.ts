@@ -36,12 +36,3 @@ export const SOCIALS = [
       link: '/contact',
    },
 ]
-
-export const COLORS = {
-   github: 'hover:text-github',
-   linkedin: 'hover:text-linkedin',
-   twitter: 'hover:text-twitter',
-   npm: 'hover:text-npm',
-   instagram: 'hover:text-instagram',
-   contact: 'hover:text-blue',
-}

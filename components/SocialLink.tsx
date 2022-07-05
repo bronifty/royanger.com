@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { COLORS } from '../lib/constants/socials'
 
 import {
    GitHubIcon,
@@ -9,6 +8,15 @@ import {
    EnvelopeIcon,
    NPMIcon,
 } from './icons'
+
+export const COLORS = {
+   github: 'hover:text-github',
+   linkedin: 'hover:text-linkedin',
+   twitter: 'hover:text-twitter',
+   npm: 'hover:text-npm',
+   instagram: 'hover:text-instagram',
+   contact: 'hover:text-blue',
+}
 
 export const SocialLink = ({ type, label, link }) => {
    const components = {
