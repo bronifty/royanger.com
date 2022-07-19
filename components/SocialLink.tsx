@@ -18,7 +18,13 @@ export const COLORS = {
    contact: 'hover:text-blue',
 }
 
-export const SocialLink = ({ type, label, link }) => {
+interface SocialLink {
+   type: string
+   label: string
+   link: string
+}
+
+export const SocialLink = ({ type, label, link }: SocialLink) => {
    const components = {
       github: GitHubIcon,
       linkedin: LinkedInIcon,
@@ -27,8 +33,6 @@ export const SocialLink = ({ type, label, link }) => {
       instagram: InstagramIcon,
       contact: EnvelopeIcon,
    }
-
-   // const color =
 
    const SelectComponent = components[type]
 
