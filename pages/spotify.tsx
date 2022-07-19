@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Title from '../components/Title'
-import { allPages } from '../.contentlayer/generated'
+import { allPages, Page } from '../.contentlayer/generated'
 import { InferGetStaticPropsType } from 'next'
 import useSWR from 'swr'
 import fetcher from '../lib/api/fetcher'
@@ -23,7 +23,7 @@ export async function getStaticProps() {
    }
 }
 
-const Spotify = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
+function Spotify({ page }: { page: Page }) {
    const { data: tracks } = useSWR<TopTracks>('/api/top-tracks', fetcher)
    const { data: artists } = useSWR<TopArtists>('/api/top-artists', fetcher)
 
@@ -40,7 +40,7 @@ const Spotify = ({ page }: InferGetStaticPropsType<typeof getStaticProps>) => {
             <div className="w-full max-w-7xl">
                <article>
                   <Title type="h1">{page.title}</Title>
-                  <Title type="h2">{page.subTitle}</Title>
+                  <Title type="h2">{page.subTitle ? page.subTitle : ''}</Title>
                </article>
                <section>
                   <CurrentlyPlaying />

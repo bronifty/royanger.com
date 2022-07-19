@@ -1,7 +1,7 @@
-import { string } from 'yup'
+import * as React from 'react'
 
 type Alert = {
-   children: React.ReactChild
+   children: React.ReactNode
    type?: string
    emoji?: any
 }
@@ -12,7 +12,7 @@ const alertTypes = {
    callout: 'bg-cyan-700',
 }
 
-const Alert = ({ children, type, emoji }: Alert) => {
+const Alert = ({ children, type = 'normal', emoji }: Alert) => {
    const alert =
       Object.keys(alertTypes).indexOf(type) > -1 ? alertTypes[type] : undefined
 

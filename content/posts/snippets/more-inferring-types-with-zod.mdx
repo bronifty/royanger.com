@@ -1,0 +1,50 @@
+---
+title: More Inferring Typed with zod
+date: 2022-06-22
+postType: snippet
+tags:
+   - Zod
+   - TypeScript
+   - API Data
+slug: more-inferring-types-with-zod
+excerpt: Another, more detailed example of inferring types using zod, and validation API data as you do.
+lastEdited: 2022-06-22
+---
+
+This one comes from Theo's video [You Might Be Using TypeScript Wrong](https://www.youtube.com/watch?v=RmGHnYUqQ4k)
+
+```TypeScript
+import { useQuery } from 'react-query'
+import z from 'zod'
+
+const userValidator = z.object({
+   id: z.string().min(5).max(15),
+   email: z.string().email().optional(),
+   name: z.string()
+})
+
+// create a Type from the validator, if needed
+type UserType = z.infer<type of userValidator>
+
+
+const useUserData = (userId: string) => {
+   return useQuery(["user-query"], async () => {
+      const res = await (await fetch(`/api/user/${userId}`)).json()
+
+      return userValidator.parse(res)
+   },{
+      onError: (err) => {
+         console.error('There was an error::, err)
+      }
+   })
+}
+
+export const UserComponent: React.FC<{ userId: string}> = ({userId}) => {
+   const { data } = useUserData(userId)
+
+   id (!data) return <div>Loading...</div>
+
+   return <div>{data.name}</div>
+}
+
+```

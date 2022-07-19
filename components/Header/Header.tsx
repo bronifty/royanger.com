@@ -2,6 +2,8 @@ import Link from 'next/link'
 import Menu from './Menu'
 import Toggle from './Toggle'
 import { Logo } from '../icons'
+import { SOCIALS } from '../../lib/constants/socials'
+import { SocialLink } from '../SocialLink'
 
 export default function Header() {
    return (
@@ -18,6 +20,23 @@ export default function Header() {
                </Link>
             </div>
             <Menu />
+            <div className="hidden lg:flex flex-row items-center">
+               {SOCIALS.filter(
+                  platform =>
+                     platform.type !== 'instagram' &&
+                     platform.type !== 'contact'
+               ).map(platform => {
+                  return (
+                     <div key={platform.type} className="mx-2">
+                        <SocialLink
+                           type={platform.type}
+                           label={platform.label}
+                           link={platform.link}
+                        />
+                     </div>
+                  )
+               })}
+            </div>
             <div>
                <form>
                   <Toggle />

@@ -112,6 +112,7 @@ module.exports = {
          github: { DEFAULT: '#4078c0' },
          instagram: { DEFAULT: '#405de6' },
          linkedin: { DEFAULT: '#0077B5' },
+         npm: { DEFAULT: '#cb3837' },
          twitter: { DEFAULT: '#1da1f2', red: '#f42230', green: '#00ba7c' },
       },
       extend: {

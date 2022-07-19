@@ -65,11 +65,9 @@ const GalleryModal = React.forwardRef<HTMLDivElement, Modal>(
          </div>
       ) : null
 
-      if (isBrowser) {
-         return ReactDOM.createPortal(
-            modalContent,
-            document.querySelector('#modal-root')
-         )
+      if (isBrowser && modalContent) {
+         const modalEl = document.getElementById('#modal-root') as HTMLElement
+         return ReactDOM.createPortal(modalContent, modalEl)
       }
       return null
    }

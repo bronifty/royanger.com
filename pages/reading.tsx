@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { allPages, allPosts } from '../.contentlayer/generated'
-import { InferGetStaticPropsType } from 'next'
+import { allPages, allPosts, Page, Post } from '../.contentlayer/generated'
 import { sortPosts, pageOfPosts } from '../lib/helpers/pagination'
 import PostList from '../components/blog/PostList'
 import Pagination from '../components/blog/Pagination'
@@ -21,10 +20,7 @@ export async function getStaticProps() {
    }
 }
 
-const Reading = ({
-   page,
-   posts,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+function Reading({ page, posts }: { page: Page; posts: Post }) {
    const meta = {
       title: page.pageTitle,
       keywords: page.pageKeywords,

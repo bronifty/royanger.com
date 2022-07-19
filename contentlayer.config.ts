@@ -178,7 +178,7 @@ const Portfolio = defineDocumentType(() => ({
       gallery: {
          type: 'list',
          description: 'Images to display as gallery',
-         required: false,
+         required: true,
          of: Portfolio,
       },
    },
@@ -191,6 +191,7 @@ const Portfolio = defineDocumentType(() => ({
 }))
 
 const contentLayerConfig = makeSource({
+   disableImportAliasWarning: true,
    contentDirPath: 'content',
    documentTypes: [Post, Pages, Portfolio],
    mdx: {

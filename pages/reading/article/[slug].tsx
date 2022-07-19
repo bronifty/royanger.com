@@ -42,7 +42,7 @@ export default function Article({ post, page }: { post: Post; page: Page }) {
       title: `${SITENAME} - ${post.title}`,
       keywords: page.pageKeywords,
       date: new Date(post.date),
-      edited: new Date(post.lastEdited),
+      edited: new Date(post.lastEdited ? post.lastEdited : ''),
    }
 
    return (
@@ -93,7 +93,8 @@ export default function Article({ post, page }: { post: Post; page: Page }) {
                      <Component components={{ ...components }} as any />
                   </div>
                   <div className="font-code italic mt-10 mb-6">
-                     Last edited: {displayDate(post.lastEdited)}
+                     Last edited:{' '}
+                     {displayDate(post.lastEdited ? post.lastEdited : '')}
                   </div>
                </article>
             </div>

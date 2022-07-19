@@ -4,6 +4,9 @@ import { MenuIcon, CloseIcon } from '../icons'
 import useVisible from '../../lib/hooks/useVisible'
 import { useRouter } from 'next/router'
 import Title from '../Title'
+import { MENUITEMS } from '../../lib/constants/menuItems'
+import { SOCIALS } from '../../lib/constants/socials'
+import { SocialLink } from '../SocialLink'
 
 const Menu = () => {
    const router = useRouter()
@@ -43,30 +46,13 @@ const Menu = () => {
       setDisplayMobileMenuIcon(isVisible ? false : true)
    }, [isVisible])
 
-   const menu = [
-      {
-         title: 'Portfolio',
-         link: '/portfolio',
-      },
-      {
-         link: '/skills',
-         title: 'Skills & Resume',
-      },
-      { link: '/reading', title: 'Reading Material' },
-      { link: '/spotify', title: 'Spotify' },
-      {
-         link: '/contact',
-         title: 'Contact',
-      },
-   ]
-
    return (
       <nav
          className="flex flex-row  flex-grow items-center font-body text-xl"
          aria-label="Menu"
       >
-         <div id="desktopmenu" className="flex-row flex-grow hidden md:block">
-            {menu.map((item, index) => {
+         <div id="desktopmenu" className="flex-row flex-grow hidden lg:block">
+            {MENUITEMS.map((item, index) => {
                return (
                   <MenuItem
                      key={index}
@@ -88,7 +74,7 @@ const Menu = () => {
             <div
                id="menuButton"
                onClick={closeMenu}
-               className="md:hidden  absolute top-4 right-4"
+               className="lg:hidden  absolute top-4 right-4"
             >
                <CloseIcon className={`w-6 ${mobileCloseCSS}`} />
             </div>
@@ -128,12 +114,25 @@ const Menu = () => {
                   onClick={onClick}
                   currentRoute={currentRoute}
                />
+               <div className="flex flex-row items-center mt-8 justify-center">
+                  {SOCIALS.map(platform => {
+                     return (
+                        <div key={platform.type} className="mx-2">
+                           <SocialLink
+                              type={platform.type}
+                              label={platform.label}
+                              link={platform.link}
+                           />
+                        </div>
+                     )
+                  })}
+               </div>
             </div>
          </div>
          <div
             id="openMenuButton"
             onClick={openMenu}
-            className="md:hidden w-full flex justify-end mr-4"
+            className="lg:hidden w-full flex justify-end mr-4"
          >
             <MenuIcon className={`w-6 ${mobileToggleCSS}`} />
          </div>
@@ -141,7 +140,7 @@ const Menu = () => {
          <div
             id="closeMenuButton"
             onClick={closeMenu}
-            className="md:hidden flex-grow flex justify-end"
+            className="lg:hidden flex-grow flex justify-end"
          >
             <CloseIcon className={`w-6 ${mobileCloseCSS}`} />
          </div>

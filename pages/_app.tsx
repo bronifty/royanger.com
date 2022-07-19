@@ -16,7 +16,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             <div className="min-h-screen  flex flex-col">
                <Header />
 
-               <main id="main" className="px-4 xl:px-0">
+               <main id="main" className="px-6 xl:px-0">
                   <Component {...pageProps} />
                </main>
                <Footer />

@@ -1,0 +1,36 @@
+---
+title: Map Object to select component instead of nested ternaries
+date: 2022-05-16
+postType: snippet
+tags:
+   - React
+slug: map-object-to-select-component-instead-of-nested-ternaries
+excerpt: Avoid nested ternaries or if statements and easily render out different components based on state
+lastEdited: 2022-05-16
+---
+
+As times we might need to render out one of several components based on state or something the user is doing. You definitely don't want to write something like this:
+
+```js
+{
+   currentState === states.BEGIN ? (
+      <BeginApplication />
+   ) : currentState === states.REVIEW ? (
+      <ReviewApplication />
+   ) : currentState === states.UPLOAD ? (
+      <UploadApplication />
+   ) : null
+}
+```
+
+With only three states this is already hard to read and parse. Instead we can create a map object using the state as the key and the component to render as the value. This is cleaner and easier to read.
+
+```js
+const stateToComponents = {
+   [states.BEGIN] = BeginApplication
+   [states.REVIEW] = ReviewApplication,
+   [states.UPLOAD] = UploadApplication
+}
+
+{stateToComponents[currentState]}
+```

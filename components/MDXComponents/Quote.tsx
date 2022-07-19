@@ -1,8 +1,8 @@
-import { QuoteLeftIcon } from '../icons'
+import * as React from 'react'
 
 type Quote = {
    author: string
-   children: React.ReactChild
+   children: React.ReactNode
 }
 
 const Quote = ({ author, children }: Quote) => {
